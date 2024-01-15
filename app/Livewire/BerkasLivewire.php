@@ -58,13 +58,13 @@ class BerkasLivewire extends Component
         $this->validate();
 
         $namaFile = "bukti_" . strtolower(str_replace(' ', '_', $this->nama)) . ".pdf";
-        $this->file_bukti->storeAs('file_bukti', $namaFile);
+        $path_file = $this->file_bukti->storeAs('file_bukti', $namaFile);
 
         Berkas::create([
             'nama' => $this->nama,
             'no_rekening' => $this->no_rekening,
             'tanggal_pengambilan' => $this->tanggal_pengambilan,
-            'file_bukti' => $namaFile,
+            'file_bukti' => $path_file,
         ]);
 
         $this->resetInput();

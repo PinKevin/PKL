@@ -20,7 +20,7 @@ class BerkasLivewire extends Component
             'nama' => 'required|min:5|string',
             'no_rekening' => 'required|min:5|unique:berkas,no_rekening',
             'tanggal_pengambilan' => 'required|date',
-            'file_bukti' => 'required|file'
+            'file_bukti' => 'required|file|mimes:pdf'
         ];
     }
 
@@ -31,7 +31,9 @@ class BerkasLivewire extends Component
             'min' => ':attribute harus terdiri atas :min karakter!',
             'string' => ':attribute hanya terdiri atas huruf!',
             'unique' => ':attribute sudah ada di dalam database!',
-            'date' => ':attribute harus berupa tanggal!'
+            'date' => ':attribute harus berupa tanggal!',
+            'file' => ':attribute harus berupa file!',
+            'mimes' => ':attribute harus berupa PDF!'
         ];
     }
 

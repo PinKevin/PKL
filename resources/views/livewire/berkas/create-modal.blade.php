@@ -97,7 +97,8 @@
                         </label>
                         <input
                             class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
-                            id="file_bukti" name="file_bukti" type="file" aria-describedby="file_bukti_help">
+                            id="file_bukti" name="file_bukti" type="file" aria-describedby="file_bukti_help"
+                            wire:model="file_bukti">
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_bukti_help">
                             PDF
                         </p>

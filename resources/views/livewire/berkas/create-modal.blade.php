@@ -1,11 +1,11 @@
 <!-- Main modal -->
-<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0"
+<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-9"
     id="create-modal" aria-hidden="true" tabindex="-1" wire:ignore.self>
     <div class="relative max-h-full w-full max-w-md p-4">
         <!-- Modal content -->
         <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
             <!-- Modal header -->
-            <div class="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-5">
+            <div class="flex items-center justify-between rounded-t border-b p-2 dark:border-gray-600 md:p-3">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                     Tambah berkas
                 </h3>
@@ -48,7 +48,7 @@
                             class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
                             id="berkas_ktp" type="file" aria-describedby="berkas_ktp_help">
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="berkas_ktp_help">
-                            PDF
+                            .PDF
                         </p>
                     </div>
                     <div class="col-span-2 sm:col-span-1">

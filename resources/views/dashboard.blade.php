@@ -71,7 +71,7 @@
                                 </li>
                                 <li>
                                     <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        href="#" role="menuitem">Sign out</a>
+                                        href="/logout" role="menuitem">Sign out</a>
                                 </li>
                             </ul>
                         </div>
@@ -87,7 +87,7 @@
         <div class="h-full overflow-y-auto bg-blue-500 px-3 pb-4 dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a class="group flex items-center rounded-lg p-2 text-slate-200 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                    <a class="{{ request()->routeIs('dashboard') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-200' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
                         href="/dashboard">
                         <svg class="h-5 w-5 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">

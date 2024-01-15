@@ -21,7 +21,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="p-4 md:p-5">
+            <form class="p-4 md:p-5" wire:submit.prevent="createBerkas" method="POST">
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama">
@@ -30,6 +30,20 @@
                         <input
                             class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
                             id="nama" name="nama" type="text" placeholder="Nama" wire:model="nama" />
+                        @error('nama')
+                            <div class="mb-1 flex items-center rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                                role="alert">
+                                <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                                <span class="sr-only">Info</span>
+                                <div>
+                                    {{ $message }}
+                                </div>
+                            </div>
+                        @enderror
                     </div>
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
@@ -39,6 +53,20 @@
                             class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
                             id="no_rekening" name="no_rekening" type="text" placeholder="Nomor Rekening"
                             wire:model="no_rekening" />
+                        @error('no_rekening')
+                            <div class="mb-1 flex items-center rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                                role="alert">
+                                <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                                <span class="sr-only">Info</span>
+                                <div>
+                                    {{ $message }}
+                                </div>
+                            </div>
+                        @enderror
                     </div>
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
@@ -46,19 +74,47 @@
                         </label>
                         <input
                             class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                            id="tanggal_pengambilan" name="tanggal_pengambilan" type="text"
+                            id="tanggal_pengambilan" name="tanggal_pengambilan" type="date"
                             placeholder="Nomor Rekening" wire:model="tanggal_pengambilan" />
+                        @error('tanggal_pengambilan')
+                            <div class="mb-1 flex items-center rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                                role="alert">
+                                <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                                <span class="sr-only">Info</span>
+                                <div>
+                                    {{ $message }}
+                                </div>
+                            </div>
+                        @enderror
                     </div>
                     <div class="col-span-2">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="berkas_ktp">
+                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="file_bukti">
                             Bukti Pengambilan
                         </label>
                         <input
                             class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
-                            id="berkas_ktp" type="file" aria-describedby="berkas_ktp_help">
-                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="berkas_ktp_help">
-                            .PDF
+                            id="file_bukti" name="file_bukti" type="file" aria-describedby="file_bukti_help">
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_bukti_help">
+                            PDF
                         </p>
+                        @error('file_bukti')
+                            <div class="mb-1 flex items-center rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                                role="alert">
+                                <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                                <span class="sr-only">Info</span>
+                                <div>
+                                    {{ $message }}
+                                </div>
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <button
@@ -70,7 +126,7 @@
                             d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                             clip-rule="evenodd"></path>
                     </svg>
-                    Tambah Bukti Peminjaman
+                    Tambah Bukti Pengambilan
                 </button>
             </form>
         </div>

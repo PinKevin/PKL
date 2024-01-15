@@ -36,7 +36,7 @@
         <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
             Masuk ke akun Anda
         </h1>
-        <form class="space-y-4 md:space-y-6" wire:submit.prevent="login">
+        <form class="space-y-4 md:space-y-6" wire:submit.prevent="authenticate">
             @csrf
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="username">

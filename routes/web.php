@@ -15,6 +15,11 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', [LoginController::class, 'showPage'])->name('login.showPage');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/dashboard', [DashboardController::class, 'showPage'])->name('dashboard');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/', [LoginController::class, 'showPage'])->name('login');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/dashboard', [DashboardController::class, 'showPage'])->name('dashboard');
+});

@@ -20,8 +20,8 @@ class Login extends Component
     public function messages()
     {
         return [
-            'required' => 'Field :attribute harus diisi!',
-            'min' => 'Field :attribute harus terdiri atas :min karakter!',
+            'required' => ':attribute harus diisi!',
+            'min' => ':attribute harus terdiri atas :min karakter!',
         ];
     }
 
@@ -44,7 +44,7 @@ class Login extends Component
 
         if (Auth::attempt($credentials)) {
             session()->regenerate();
-            $redirectPath = '/dashboard'; // Default redirect path
+            $redirectPath = '/dashboard';
             return redirect()->intended($redirectPath);
         } else {
             session()->flash('loginError', 'Login gagal!');

@@ -1,10 +1,6 @@
 <div
     class="w-full rounded-lg bg-slate-100 shadow dark:border dark:border-gray-700 dark:bg-gray-800 sm:max-w-md md:mt-0 xl:p-0">
     <div class="space-y-4 p-6 sm:p-8 md:space-y-6">
-        <a class="mx-auto mb-8 flex items-center justify-center text-center text-2xl font-semibold text-gray-900 dark:text-white"
-            href="/">
-            <img class="mr-2 h-9 w-36" src="{{ asset('img/btn-logo.png') }}" alt="logo">
-        </a>
         @if (session('loginError'))
             <div class="mb-4 flex items-center rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                 role="alert">
@@ -33,8 +29,12 @@
                 </div>
             </div>
         @endif
+        <a class="mx-auto mb-8 flex items-center justify-center text-center text-2xl font-semibold text-gray-900 dark:text-white"
+            href="/">
+            <img class="mr-2 h-9 w-36" src="{{ asset('img/btn-logo.png') }}" alt="logo">
+        </a>
         <h1
-            class="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
+            class="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
             Sign In
         </h1>
         <form class="space-y-4 md:space-y-6" wire:submit.prevent="authenticate">

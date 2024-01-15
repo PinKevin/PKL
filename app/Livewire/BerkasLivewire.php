@@ -33,6 +33,7 @@ class BerkasLivewire extends Component
     {
         $this->nama = '';
         $this->no_rekening = '';
+        $this->tanggal_pengambilan = '';
     }
 
     public function render()

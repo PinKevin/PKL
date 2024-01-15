@@ -25,7 +25,7 @@
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama">
-                            Nama
+                            Nama Debitur
                         </label>
                         <input
                             class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                            for="no_rekening">Nomor Rekening
+                            for="no_rekening">Nomor Debitur
                         </label>
                         <input
                             class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="berkas_ktp">
-                            KTP
+                            Bukti Peminjaman
                         </label>
                         <input
                             class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
@@ -50,26 +50,6 @@
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="berkas_ktp_help">
                             PDF
                         </p>
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                            for="category">Category</label>
-                        <select
-                            class="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                            id="category">
-                            <option selected="">Select category</option>
-                            <option value="TV">TV/Monitors</option>
-                            <option value="PC">PC</option>
-                            <option value="GA">Gaming/Console</option>
-                            <option value="PH">Phones</option>
-                        </select>
-                    </div>
-                    <div class="col-span-2">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                            for="description">Product Description</label>
-                        <textarea
-                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                            id="description" rows="4" placeholder="Write product description here"></textarea>
                     </div>
                 </div>
                 <button
@@ -81,7 +61,7 @@
                             d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                             clip-rule="evenodd"></path>
                     </svg>
-                    Add new product
+                    Tambah Bukti Peminjaman
                 </button>
             </form>
         </div>

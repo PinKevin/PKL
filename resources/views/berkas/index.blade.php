@@ -13,5 +13,5 @@
 @endpush
 
 @section('content')
-    @livewire('berkas')
+    @livewire('berkas-livewire')
 @endsection

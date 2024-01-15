@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('no_rekening');
-            $table->string('file_ktp')->nullable();
-            $table->string('file_kk')->nullable();
-            $table->string('file_npwp')->nullable();
+            $table->string('file_bukti')->nullable();
             $table->timestamps();
         });
     }

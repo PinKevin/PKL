@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BerkasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
@@ -22,4 +23,6 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'showPage'])->name('dashboard');
+
+    Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
 });

@@ -67,7 +67,7 @@
         </button>
         @include('livewire.berkas.create-modal')
         {{-- Tabel --}}
-        <div class="bg-slate-100 py-2.5 dark:bg-gray-900">
+        <div class="bg-slate-50 py-2.5 dark:bg-gray-900">
             <label class="sr-only" for="table-search">Search</label>
             <div class="relative mt-1">
                 <div class="rtl:inset-r-0 pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
@@ -105,7 +105,7 @@
             <tbody>
                 @forelse ($berkas as $bks)
                     <tr
-                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-100 dark:hover:bg-gray-600">
                         <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                             scope="row">
                             {{ $loop->index + $berkas->firstItem() }}

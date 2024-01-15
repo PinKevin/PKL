@@ -18,7 +18,7 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start rtl:justify-end">
                     <button
-                        class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 sm:hidden"
+                        class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 sm:hidden"
                         data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" type="button"
                         aria-controls="logo-sidebar">
                         <span class="sr-only">Open sidebar</span>
@@ -87,8 +87,8 @@
         <div class="h-full overflow-y-auto bg-blue-600 px-3 pb-4 dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a class="group flex items-center rounded-lg p-2 text-gray-900 hover:bg-blue-300 dark:text-white dark:hover:bg-gray-700"
-                        href="#">
+                    <a class="group flex items-center rounded-lg p-2 text-slate-200 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                        href="/dashboard">
                         <svg class="h-5 w-5 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                             <path

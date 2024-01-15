@@ -92,10 +92,10 @@
                         No
                     </th>
                     <th class="px-6 py-3" scope="col">
-                        NIP
+                        Nama Debitur
                     </th>
                     <th class="px-6 py-3" scope="col">
-                        Nama
+                        Nomor Debitur
                     </th>
                     <th class="px-6 py-3" scope="col">
                         Aksi
@@ -104,58 +104,66 @@
                 </tr>
             </thead>
             <tbody>
-                <tr
-                    class="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
-                    <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white" scope="row">
-                        I
-                    </th>
-                    <td class="px-6 py-4">
-                        K
-                    </td>
-                    <td class="px-6 py-4">
-                        A
-                    </td>
-                    <td class="flex justify-between px-6 py-4">
-                        <button class="" id="button-show-modal" data-modal-target="show-dosen-wali-modal"
-                            data-modal-toggle="show-dosen-wali-modal" type="button">
-                            <svg class="h-4 w-4 text-gray-600 hover:text-gray-900 dark:text-white" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                            </svg>
-                        </button>
-                        <button class="" id="button-edit-modal" data-modal-target="edit-dosen-wali-modal"
-                            data-modal-toggle="edit-dosen-wali-modal" type="button">
-                            <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                                <path
-                                    d="M12.687 14.408a3.01 3.01 0 0 1-1.533.821l-3.566.713a3 3 0 0 1-3.53-3.53l.713-3.566a3.01 3.01 0 0 1 .821-1.533L10.905 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V11.1l-3.313 3.308Zm5.53-9.065.546-.546a2.518 2.518 0 0 0 0-3.56 2.576 2.576 0 0 0-3.559 0l-.547.547 3.56 3.56Z" />
-                                <path
-                                    d="M13.243 3.2 7.359 9.081a.5.5 0 0 0-.136.256L6.51 12.9a.5.5 0 0 0 .59.59l3.566-.713a.5.5 0 0 0 .255-.136L16.8 6.757 13.243 3.2Z" />
-                            </svg>
-                            <div class="sr-only">Edit</div>
-                        </button>
-                        <button class="" id="button-delete-modal" data-modal-target="delete-dosen-wali-modal"
-                            data-modal-toggle="delete-dosen-wali-modal" type="button">
-                            <svg class="h-4 w-4 text-red-600 hover:text-red-900 dark:text-white" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                                <path
-                                    d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                            </svg>
-                        </button>
-                    </td>
-                </tr>
-                <tr
-                    class="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
-                    <td class="px-6 py-4 text-center" colspan="5">
-                        Tidak ada data!
-                    </td>
-                </tr>
+                @forelse ($berkas as $bks)
+                    <tr
+                        class="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
+                        <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                            scope="row">
+                            {{ $loop->index + $berkas->firstItem() }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ $bks->nama }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $bks->no_rekening }}
+                        </td>
+                        <td class="flex justify-between px-6 py-4">
+                            <button class="" id="button-show-modal" data-modal-target="show-dosen-wali-modal"
+                                data-modal-toggle="show-dosen-wali-modal" type="button">
+                                <svg class="h-4 w-4 text-gray-600 hover:text-gray-900 dark:text-white"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                            </button>
+                            <button class="" id="button-edit-modal" data-modal-target="edit-dosen-wali-modal"
+                                data-modal-toggle="edit-dosen-wali-modal" type="button">
+                                <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 20 18">
+                                    <path
+                                        d="M12.687 14.408a3.01 3.01 0 0 1-1.533.821l-3.566.713a3 3 0 0 1-3.53-3.53l.713-3.566a3.01 3.01 0 0 1 .821-1.533L10.905 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V11.1l-3.313 3.308Zm5.53-9.065.546-.546a2.518 2.518 0 0 0 0-3.56 2.576 2.576 0 0 0-3.559 0l-.547.547 3.56 3.56Z" />
+                                    <path
+                                        d="M13.243 3.2 7.359 9.081a.5.5 0 0 0-.136.256L6.51 12.9a.5.5 0 0 0 .59.59l3.566-.713a.5.5 0 0 0 .255-.136L16.8 6.757 13.243 3.2Z" />
+                                </svg>
+                                <div class="sr-only">Edit</div>
+                            </button>
+                            <button class="" id="button-delete-modal"
+                                data-modal-target="delete-dosen-wali-modal"
+                                data-modal-toggle="delete-dosen-wali-modal" type="button">
+                                <svg class="h-4 w-4 text-red-600 hover:text-red-900 dark:text-white"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 18 20">
+                                    <path
+                                        d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
+                                </svg>
+                            </button>
+                        </td>
+                    </tr>
+                @empty
+                    <tr
+                        class="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 text-center" colspan="5">
+                            Tidak ada data!
+                        </td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
-    {{-- 
+
     <div class="mt-4">
-        {{ $->onEachSide(1)->links() }}
-    </div> --}}
+        {{ $berkas->onEachSide(1)->links() }}
+    </div>
 </div>

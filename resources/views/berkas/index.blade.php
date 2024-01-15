@@ -4,14 +4,14 @@
     Berkas
 @endsection
 
-{{-- @push('styles')
+@push('styles')
     @livewireStyles
 @endpush
 
 @push('scripts')
     @livewireScripts
-@endpush --}}
+@endpush
 
 @section('content')
-    <h1>Hai</h1>
+    @livewire('berkas')
 @endsection

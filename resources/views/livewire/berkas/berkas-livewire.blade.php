@@ -67,7 +67,7 @@
         </button>
         @include('livewire.berkas.create-modal')
         {{-- Tabel --}}
-        <div class="bg-gray-100 py-2.5 dark:bg-gray-900">
+        <div class="bg-slate-100 py-2.5 dark:bg-gray-900">
             <label class="sr-only" for="table-search">Search</label>
             <div class="relative mt-1">
                 <div class="rtl:inset-r-0 pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
@@ -86,7 +86,7 @@
     @include('livewire.berkas.show-modal')
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
-            <thead class="bg-gray-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="bg-slate-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th class="px-6 py-3" scope="col">
                         No

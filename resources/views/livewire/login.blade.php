@@ -44,7 +44,8 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-800 focus:ring-blue-800 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-900 dark:focus:ring-blue-900 sm:text-sm"
-                    id="username" name="username" type="text" wire:model="username" placeholder="Username">
+                    id="username" name="username" type="text" wire:model="username" placeholder="Username"
+                    autocomplete="username">
                 @error('username')
                     <div class="mb-1 flex items-center rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                         role="alert">
@@ -66,7 +67,8 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-800 focus:ring-blue-800 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-900 dark:focus:ring-blue-900 sm:text-sm"
-                    id="password" name="password" type="password" wire:model="password" placeholder="Password">
+                    id="password" name="password" type="password" wire:model="password" placeholder="Password"
+                    autocomplete="current-password">
                 @error('password')
                     <div class="mb-1 flex items-center rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                         role="alert">

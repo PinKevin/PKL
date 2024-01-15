@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        {{-- <link type="image/x-icon" href="{{ asset('img/btn-logo.png') }}" rel="icon"> --}}
+        <link type="image/x-icon" href="{{ asset('img/rumah2.jpeg') }}" rel="icon">
         <title>@yield('page_title')</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @stack('styles')

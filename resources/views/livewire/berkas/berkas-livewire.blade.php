@@ -83,8 +83,8 @@
             </div>
         </div>
     </div>
-
-    <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
+    @include('livewire.berkas.show-modal')
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-gray-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -117,8 +117,8 @@
                             {{ $bks->no_rekening }}
                         </td>
                         <td class="flex justify-between px-6 py-4">
-                            <button class="" id="button-show-modal" data-modal-target="show-dosen-wali-modal"
-                                data-modal-toggle="show-dosen-wali-modal" type="button">
+                            <button id="button-show-modal" data-modal-target="show-modal" data-modal-toggle="show-modal"
+                                type="button" wire:click="showBerkas({{ $bks->id }})">
                                 <svg class="h-4 w-4 text-gray-600 hover:text-gray-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 20">
@@ -126,7 +126,7 @@
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                 </svg>
                             </button>
-                            <button class="" id="button-edit-modal" data-modal-target="edit-dosen-wali-modal"
+                            {{-- <button class="" id="button-edit-modal" data-modal-target="edit-dosen-wali-modal"
                                 data-modal-toggle="edit-dosen-wali-modal" type="button">
                                 <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -147,7 +147,7 @@
                                     <path
                                         d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
                                 </svg>
-                            </button>
+                            </button> --}}
                         </td>
                     </tr>
                 @empty

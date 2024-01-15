@@ -10,12 +10,23 @@ class BerkasLivewire extends Component
 {
     use WithPagination;
 
-    public $nama, $no_rekening;
+    public $nama, $no_rekening, $file_bukti, $tanggal_pengambilan;
 
     public function indexBerkas()
     {
-        $berkas = Berkas::select('nama', 'no_rekening')->paginate(10);
+        $berkas = Berkas::select('id', 'nama', 'no_rekening')->paginate(10);
         return $berkas;
+    }
+
+    public function showBerkas($id)
+    {
+        $this->resetInput();
+        $detailBerkas = Berkas::find($id);
+
+        $this->nama = $detailBerkas->nama;
+        $this->no_rekening = $detailBerkas->no_rekening;
+        $this->tanggal_pengambilan = $detailBerkas->tanggal_pengambilan;
+        $this->file_bukti = $detailBerkas->file_bukti;
     }
 
     public function resetInput()

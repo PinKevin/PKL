@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('no_rekening');
+            $table->date('tanggal_pengambilan');
             $table->string('file_bukti')->nullable();
             $table->timestamps();
         });

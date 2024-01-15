@@ -61,13 +61,11 @@
         <!-- Create modal toggle -->
         <button
             class="block rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            id="button-create-modal" data-modal-target="create-dosen-wali-modal"
-            data-modal-toggle="create-dosen-wali-modal" type="button" wire:click="resetInput()">
-            Tambah Dosen Wali
+            id="button-create-modal" data-modal-target="create-modal" data-modal-toggle="create-modal" type="button"
+            wire:click="resetInput()">
+            Tambah Berkas
         </button>
-        @can('create', App\Models\DosenWali::class)
-            @include('livewire.operator.data-dosen-wali.create-modal')
-        @endcan
+        @include('livewire.berkas.create-modal')
         {{-- Tabel --}}
         <div class="bg-white py-2.5 dark:bg-gray-900">
             <label class="sr-only" for="table-search">Search</label>
@@ -149,7 +147,7 @@
                 <tr
                     class="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
                     <td class="px-6 py-4 text-center" colspan="5">
-                        Tidak ada data dosen-wali!
+                        Tidak ada data!
                     </td>
                 </tr>
             </tbody>

@@ -21,38 +21,37 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="p-4 md:p-5">
+            <form class="bg-slate-100 p-4 md:p-5">
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama">
                             Nama Debitur
                         </label>
                         <input
-                            class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                            id="nama" name="nama" type="text" placeholder="Nama" wire:model="nama"
-                            disabled />
+                            class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
+                            id="nama" name="nama" type="text" placeholder="Nama" wire:model="nama" />
                     </div>
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                             for="no_rekening">Nomor Debitur
                         </label>
                         <input
-                            class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
+                            class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
                             id="no_rekening" name="no_rekening" type="text" placeholder="Nomor Rekening"
-                            wire:model="no_rekening" disabled />
+                            wire:model="no_rekening" />
                     </div>
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                             for="tanggal_pengambilan">Tanggal Pengambilan
                         </label>
                         <input
-                            class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
+                            class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
                             id="tanggal_pengambilan" name="tanggal_pengambilan" type="text"
-                            placeholder="Nomor Rekening" wire:model="tanggal_pengambilan" disabled />
+                            placeholder="Nomor Rekening" wire:model="tanggal_pengambilan" />
                     </div>
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="file_bukti">
-                            Bukti Pengambilan
+                            Bukti Peminjaman
                         </label>
                         <embed src="/storage/{{ $file_bukti }}" type="application/pdf" width="100%" height="600">
                     </div>

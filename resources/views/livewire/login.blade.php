@@ -1,5 +1,5 @@
 <div
-    class="w-full rounded-lg bg-white shadow dark:border dark:border-gray-700 dark:bg-gray-800 sm:max-w-md md:mt-0 xl:p-0">
+    class="w-full rounded-lg bg-slate-100 shadow dark:border dark:border-gray-700 dark:bg-gray-800 sm:max-w-md md:mt-0 xl:p-0">
     <div class="space-y-4 p-6 sm:p-8 md:space-y-6">
         <a class="mx-auto mb-8 flex items-center justify-center text-center text-2xl font-semibold text-gray-900 dark:text-white"
             href="/">
@@ -33,8 +33,9 @@
                 </div>
             </div>
         @endif
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
-            Masuk ke akun Anda
+        <h1
+            class="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
+            Sign In
         </h1>
         <form class="space-y-4 md:space-y-6" wire:submit.prevent="authenticate">
             @csrf

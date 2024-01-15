@@ -60,14 +60,14 @@
     <div class="mb-2 flex items-center justify-between">
         <!-- Create modal toggle -->
         <button
-            class="block rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="block rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             id="button-create-modal" data-modal-target="create-modal" data-modal-toggle="create-modal" type="button"
             wire:click="resetInput()">
             Tambah Berkas
         </button>
         @include('livewire.berkas.create-modal')
         {{-- Tabel --}}
-        <div class="bg-white py-2.5 dark:bg-gray-900">
+        <div class="bg-gray-100 py-2.5 dark:bg-gray-900">
             <label class="sr-only" for="table-search">Search</label>
             <div class="relative mt-1">
                 <div class="rtl:inset-r-0 pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
@@ -78,7 +78,7 @@
                     </svg>
                 </div>
                 <input
-                    class="block w-96 rounded-lg border border-gray-300 bg-gray-50 ps-10 pt-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    class="block w-96 rounded-lg border-2 border-gray-300 bg-gray-50 ps-10 pt-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="table-search" type="text" placeholder="Search for items">
             </div>
         </div>
@@ -86,18 +86,18 @@
     @include('livewire.berkas.show-modal')
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
-            <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="bg-gray-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th class="px-6 py-3" scope="col">
                         No
                     </th>
-                    <th class="px-6 py-3" scope="col">
+                    <th class="px-7 py-4" scope="col">
                         Nama Debitur
                     </th>
-                    <th class="px-6 py-3" scope="col">
+                    <th class="px-7 py-4" scope="col">
                         Nomor Debitur
                     </th>
-                    <th class="px-6 py-3" scope="col">
+                    <th class="px-7 py-4" scope="col">
                         Aksi
                     </th>
                 </tr>
@@ -105,7 +105,7 @@
             <tbody>
                 @forelse ($berkas as $bks)
                     <tr
-                        class="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
+                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                             scope="row">
                             {{ $loop->index + $berkas->firstItem() }}

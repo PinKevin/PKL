@@ -15,5 +15,6 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', [LoginController::class, 'showPage'])->name('login');
-Route::get('/dashboard', [DashboardController::class, 'showPage'])->name('login');
+Route::get('/', [LoginController::class, 'showPage'])->name('login.showPage');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/dashboard', [DashboardController::class, 'showPage'])->name('dashboard');

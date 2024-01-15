@@ -66,6 +66,10 @@ class BerkasLivewire extends Component
             'tanggal_pengambilan' => $this->tanggal_pengambilan,
             'file_bukti' => $namaFile,
         ]);
+
+        $this->resetInput();
+        $this->dispatch('closeCreateModal');
+        session()->flash('storeSuccess', 'Berkas berhasil ditambahkan!');
     }
 
     public function showBerkas($id)

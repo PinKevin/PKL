@@ -84,6 +84,7 @@
         </div>
     </div>
     @include('livewire.berkas.show-modal')
+    @include('livewire.berkas.edit-modal')
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -105,7 +106,7 @@
             <tbody>
                 @forelse ($berkas as $bks)
                     <tr
-                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-100 dark:hover:bg-gray-600">
+                        class="border-b bg-white hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
                         <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                             scope="row">
                             {{ $loop->index + $berkas->firstItem() }}
@@ -126,8 +127,8 @@
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                 </svg>
                             </button>
-                            {{-- <button class="" id="button-edit-modal" data-modal-target="edit-dosen-wali-modal"
-                                data-modal-toggle="edit-dosen-wali-modal" type="button">
+                            <button id="button-edit-modal" data-modal-target="edit-modal" data-modal-toggle="edit-modal"
+                                type="button" wire:click="editBerkas({{ $bks->id }})">
                                 <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 18">
@@ -138,7 +139,7 @@
                                 </svg>
                                 <div class="sr-only">Edit</div>
                             </button>
-                            <button class="" id="button-delete-modal"
+                            {{-- <button class="" id="button-delete-modal"
                                 data-modal-target="delete-dosen-wali-modal"
                                 data-modal-toggle="delete-dosen-wali-modal" type="button">
                                 <svg class="h-4 w-4 text-red-600 hover:text-red-900 dark:text-white"

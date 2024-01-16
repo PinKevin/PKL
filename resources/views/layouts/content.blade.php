@@ -18,7 +18,7 @@
                         </svg>
                     </button>
                     <a class="ms-2 flex items-center md:me-24" href="">
-                        <img class="me-3 h-9" src="/img/logo-baru.png" alt="btn-logo" />
+                        <img class="me-3 h-9 " src="/img/logo-baru.png" alt="btn-logo" />
                     </a>
                 </div>
                 <div class="flex items-center">

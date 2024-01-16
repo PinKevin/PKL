@@ -88,7 +88,7 @@
     @include('livewire.berkas.delete-modal')
     <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
         <table class=" w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
-            <thead class="bg-gray-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th class="px-6 py-3" scope="col">
                         No
@@ -123,8 +123,8 @@
                             </svg>
                         </button>
                     </th>
-                    <th class="px-7 py-4" scope="col">
-                        Aksi
+                    <th class="px-4 py-4" scope="col">
+                        Detail
                     </th>
                 </tr>
             </thead>

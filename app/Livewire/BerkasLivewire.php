@@ -40,7 +40,7 @@ class BerkasLivewire extends Component
     public function validationAttributes()
     {
         return [
-            'nama' => 'Nama debitur',
+            'nama' =>  'Nama debitur',
             'no_rekening' => 'Nomor debitur',
             'tanggal_pengambilan' => 'Tanggal pengambilan',
             'file_bukti' => 'Bukti pengambilan'

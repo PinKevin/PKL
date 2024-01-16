@@ -1,7 +1,7 @@
 <div>
     @if (session('storeSuccess'))
-        <div class="mb-4 flex items-center rounded-lg bg-green-50 p-4 text-green-800 dark:bg-gray-800 dark:text-green-400"
-            id="alert-success" role="alert">
+        <div class="rounded-lg flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-100 dark:text-green-400 dark:bg-gray-800 dark:border-green-800"
+            role="alert">
             <svg class="h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                 viewBox="0 0 20 20">
                 <path
@@ -86,16 +86,32 @@
     @include('livewire.berkas.show-modal')
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
-            <thead class="bg-slate-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="bg-gray-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th class="px-6 py-3" scope="col">
                         No
                     </th>
                     <th class="px-7 py-4" scope="col">
-                        Nama Debitur
+                        <div class="flex items-center">
+                            Nama Debitur
+                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
+                                </svg></a>
+                        </div>
+
                     </th>
                     <th class="px-7 py-4" scope="col">
-                        Nomor Debitur
+                        <div class="flex items-center">
+                            Nomor Debitur
+                            <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
+                                </svg></a>
+                        </div>
+
                     </th>
                     <th class="px-7 py-4" scope="col">
                         Aksi
@@ -105,7 +121,7 @@
             <tbody>
                 @forelse ($berkas as $bks)
                     <tr
-                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-100 dark:hover:bg-gray-600">
+                        class="odd:bg-gray-100 odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-100 dark:hover:bg-gray-600">
                         <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                             scope="row">
                             {{ $loop->index + $berkas->firstItem() }}

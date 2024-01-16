@@ -58,13 +58,6 @@
     <h2 class="text-4xl font-extrabold dark:text-white">Daftar Berkas</h2>
 
     <div class="mb-2 flex items-center justify-between">
-        <!-- Create modal toggle -->
-        <button
-            class="block rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            id="button-create-modal" data-modal-target="create-modal" data-modal-toggle="create-modal" type="button"
-            wire:click="resetInput()">
-            Tambah Berkas
-        </button>
         @include('livewire.berkas.create-modal')
         {{-- Tabel --}}
         <div class="bg-slate-50 py-2.5 dark:bg-gray-900">
@@ -78,10 +71,17 @@
                     </svg>
                 </div>
                 <input
-                    class="block w-96 rounded-lg border-2 border-gray-300 bg-gray-50 ps-10 pt-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    class="block w-[500px] rounded-lg border-2 border-gray-300 bg-gray-50 ps-10 pt-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="table-search" type="search" wire:model.live="search" placeholder="Search for items">
             </div>
         </div>
+        <!-- Create modal toggle -->
+        <button
+            class="block rounded-lg bg-blue-600 px-7 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            id="button-create-modal" data-modal-target="create-modal" data-modal-toggle="create-modal" type="button"
+            wire:click="resetInput()">
+            + Tambah Berkas
+        </button>
     </div>
     @include('livewire.berkas.show-modal')
     @include('livewire.berkas.edit-modal')

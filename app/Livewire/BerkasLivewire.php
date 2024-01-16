@@ -167,7 +167,10 @@ class BerkasLivewire extends Component
     public function render()
     {
         return view('livewire.berkas.berkas-livewire', [
-            'berkas' => $this->indexBerkas()
+            'berkas' => Berkas::select('id', 'nama', 'no_rekening')
+                ->where('nama', 'like', '%' . $this->search . '%')
+                ->orWhere('no_rekening', 'like', '%' . $this->search . '%')
+                ->paginate(10)
         ]);
     }
 }

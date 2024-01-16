@@ -13,6 +13,6 @@ class BerkasSeeder extends Seeder
      */
     public function run(): void
     {
-        Berkas::factory(10)->create();
+        Berkas::factory(60)->create();
     }
 }

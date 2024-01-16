@@ -14,6 +14,7 @@ class BerkasLivewire extends Component
 
     public $id, $nama, $no_rekening, $file_bukti, $tanggal_pengambilan;
     public $withFile = FALSE;
+    public $search = '';
 
     public function rules()
     {
@@ -50,7 +51,10 @@ class BerkasLivewire extends Component
 
     public function indexBerkas()
     {
-        $berkas = Berkas::select('id', 'nama', 'no_rekening')->paginate(10);
+        $berkas = Berkas::select('id', 'nama', 'no_rekening')
+            ->where('nama', 'like', '%' . $this->search . '%')
+            ->orWhere('no_rekening', 'like', '%' . $this->search . '%')
+            ->paginate(10);
         return $berkas;
     }
 

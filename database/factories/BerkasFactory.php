@@ -18,7 +18,7 @@ class BerkasFactory extends Factory
     {
         return [
             'nama' => fake()->unique()->name(),
-            'no_rekening' => fake()->unique()->numerify('##########'),
+            'no_rekening' => fake()->unique()->numerify('#############'),
             'tanggal_pengambilan' => fake()->date()
         ];
     }

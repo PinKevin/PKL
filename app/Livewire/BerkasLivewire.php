@@ -14,7 +14,11 @@ class BerkasLivewire extends Component
 
     public $id, $nama, $no_rekening, $file_bukti, $tanggal_pengambilan;
     public $withFile = FALSE;
+
     public $search = '';
+
+    public $sortBy = 'nama';
+    public $sortDirection = 'asc';
 
     public function rules()
     {
@@ -49,11 +53,22 @@ class BerkasLivewire extends Component
         ];
     }
 
+    public function sortResult($column)
+    {
+        if ($this->sortBy === $column) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortBy = $column;
+            $this->sortDirection = 'asc';
+        }
+    }
+
     public function indexBerkas()
     {
-        $berkas = Berkas::select('id', 'nama', 'no_rekening')
+        $berkas = Berkas::select('id', 'nama', 'no_rekening', 'tanggal_pengambilan')
             ->where('nama', 'like', '%' . $this->search . '%')
             ->orWhere('no_rekening', 'like', '%' . $this->search . '%')
+            ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(10);
         return $berkas;
     }

@@ -105,23 +105,22 @@
                                 for="file_bukti">
                                 Bukti Pengambilan
                             </label>
-                            <input
-                                class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
-                                id="file_bukti" name="file_bukti" type="file" aria-describedby="file_bukti_help"
-                                wire:model="file_bukti">
-                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_bukti_help">
-                                PDF
-                            </p>
+                            <div class="flex items-center">
+                                <input
+                                    class="block w-80 cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
+                                    id="file_bukti" name="file_bukti" type="file" aria-describedby="file_bukti_help"
+                                    wire:model="file_bukti">
+                                <p class=" text-sm text-gray-500 dark:text-gray-300" id="file_bukti_help">.PDF</p>
+                            </div>
                             @error('file_bukti')
-                                <div class="mb-1 flex items-center rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                                <div class="mt-1 w-80 rounded-lg flex items-center p-3 mb-4 text-red-800 border-t-4 border-red-400 bg-red-100 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
                                     role="alert">
                                     <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                         <path
                                             d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                     </svg>
-                                    <span class="sr-only">Info</span>
-                                    <div>
+                                    <div class="text-sm font-semibold">
                                         {{ $message }}
                                     </div>
                                 </div>
@@ -130,7 +129,7 @@
                     @endif
                 </div>
                 <button
-                    class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    class="inline-flex items-center rounded-lg bg-blue-700 px-[102px] py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     type="submit">
                     <svg class="-ms-1 me-1 mr-2 h-4 w-4 text-white" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

@@ -28,8 +28,8 @@
         </div>
     @endif
     @if (session('deleteSuccess'))
-        <div class="mb-4 flex items-center rounded-lg bg-green-50 p-4 text-green-800 dark:bg-gray-800 dark:text-green-400"
-            id="alert-success" role="alert">
+        <div class="rounded-lg flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-100 dark:text-green-400 dark:bg-gray-800 dark:border-green-800"
+            role="alert">
             <svg class="h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                 viewBox="0 0 20 20">
                 <path
@@ -86,7 +86,7 @@
     @include('livewire.berkas.show-modal')
     @include('livewire.berkas.edit-modal')
     @include('livewire.berkas.delete-modal')
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-gray-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -144,8 +144,9 @@
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                 </svg>
                             </button>
-                            <button id="button-edit-modal" data-modal-target="edit-modal" data-modal-toggle="edit-modal"
-                                type="button" wire:click="editBerkas({{ $bks->id }})">
+                            <button id="button-edit-modal" data-modal-target="edit-modal"
+                                data-modal-toggle="edit-modal" type="button"
+                                wire:click="editBerkas({{ $bks->id }})">
                                 <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 18">
@@ -180,7 +181,7 @@
         </table>
     </div>
 
-    <div class="mt-4">
+    <div class="mt-4 items-center ml-[820px]">
         {{ $berkas->onEachSide(1)->links() }}
     </div>
 </div>

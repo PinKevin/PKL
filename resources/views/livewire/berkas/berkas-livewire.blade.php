@@ -193,7 +193,7 @@
         </table>
     </div>
 
-    <div class="mt-4 items-center ml-[820px]">
+    <div class="mt-4 items-center">
         {{ $berkas->onEachSide(1)->links() }}
     </div>
 </div>

@@ -1,66 +1,93 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+    <img src="https://github.com/PinKevin/PKL/blob/main/public/img/btn-logo.png" width="450" height="100">
 </p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## TBD
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+TBD merupakan aplikasi _website_ yang dibangun untuk Loan Document Bank BTN KC Semarang. Beberapa fitur yang tersedia: 
+- Login.
+- Dashboard (TBD isinya).
+- CRUD berkas peminjaman.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Teknologi
 
-## Learning Laravel
+Aplikasi ini dibangun dengan teknologi pengembangan full-stack TALL, yaitu teknologi yang menggabungkan empat teknologi terkenal untuk mengembangkan aplikasi secara full-stack, yaitu:
+- Tailwind
+- AlpineJS
+- Laravel
+- Livewire
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Selain empat teknologi tersebut, terdapat juga tambahan teknologi untuk membantu _styling_, yaitu Flowbite.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Cara Setup
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### SETUP LARAVEL
 
-## Laravel Sponsors
+1. Clone project ini ke direktori Anda
+2. Pindah ke folder project menggunakan
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    ```
+    cd <proyek-Anda>
+    ```
 
-### Premium Partners
+3. Install composer dengan kode berikut
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+    ```
+    composer install
+    ```
 
-## Contributing
+4. Salin file `.env.example` dan ubah dengan nama `.env`. Gunakan kode ini agar lebih mudah
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    ```
+    cp .env.example .env
+    ```
 
-## Code of Conduct
+5. Buka file `.env` dan sesuaikan konfigurasi database Anda, seperti mengubah nama database pada `DB_DATABASE`, username pada `DB_USERNAME`, dan password pada `DB_PASSWORD`.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    > PERHATIAN! Agar minim error, buat database baru terlebih dahulu pada server MySQL anda, lalu beri nama sesuai keinginan. Pastikan nama database sama dengan _value_ .env pada `DB_DATABASE`.
 
-## Security Vulnerabilities
+6. Jalankan perintah ini di terminal
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    ```
+    php artisan key:generate
+    ```
 
-## License
+7. Jalankan perintah ini di terminal untuk menghubungkan file foto di `/storage/app/public` ke `/public/storage`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```
+    php artisan storage:link
+    ```
+
+8. Jalankan perintah ini di terminal
+
+    ```
+    php artisan migrate:fresh --seed
+    ```
+
+### SETUP TAILWIND
+
+1. Jalankan perintah ini di terminal
+    ```
+    npm install
+    ```
+
+### MENJALANKAN APLIKASI
+
+1. Nyalakan Apache dan MySQL pada XAMPP
+
+2. Buka 2 terminal di direktori project
+
+3. Jalankan perintah ini di terminal pertama, **JANGAN TUTUP TERMINAL**
+
+    ```
+    php artisan serve
+    ```
+
+4. Jalankan perintah ini di terminal kedua, **JANGAN TUTUP TERMINAL**
+
+    ```
+    npm run dev
+    ```
+
+5. Buka tautan yang dibuat setelah menjalankan `php artisan serve`

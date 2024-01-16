@@ -85,6 +85,7 @@
     </div>
     @include('livewire.berkas.show-modal')
     @include('livewire.berkas.edit-modal')
+    @include('livewire.berkas.delete-modal')
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -139,16 +140,16 @@
                                 </svg>
                                 <div class="sr-only">Edit</div>
                             </button>
-                            {{-- <button class="" id="button-delete-modal"
-                                data-modal-target="delete-dosen-wali-modal"
-                                data-modal-toggle="delete-dosen-wali-modal" type="button">
+                            <button class="" id="button-delete-modal" data-modal-target="delete-modal"
+                                data-modal-toggle="delete-modal" type="button"
+                                wire:click="deleteBerkas({{ $bks->id }})">
                                 <svg class="h-4 w-4 text-red-600 hover:text-red-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 18 20">
                                     <path
                                         d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
                                 </svg>
-                            </button> --}}
+                            </button>
                         </td>
                     </tr>
                 @empty

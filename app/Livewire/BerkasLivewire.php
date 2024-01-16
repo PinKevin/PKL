@@ -131,6 +131,25 @@ class BerkasLivewire extends Component
         session()->flash('updateSuccess', 'Berkas berhasil diubah!');
     }
 
+    public function deleteBerkas($id)
+    {
+        $this->resetInput();
+        $detailBerkas = Berkas::where('id', $id)
+            ->select('id', 'nama')
+            ->first();
+
+
+        $this->id = $detailBerkas->id;
+        $this->nama = $detailBerkas->nama;
+    }
+
+    public function destroyBerkas()
+    {
+        Berkas::where('id', $this->id)->delete();
+        $this->resetInput();;
+        session()->flash('deleteSuccess', 'Berkas berhasil dihapus!');
+    }
+
     public function resetInput()
     {
         $this->id = '';

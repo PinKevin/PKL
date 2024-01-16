@@ -4,7 +4,7 @@
     <nav class="fixed top-0 z-50 w-full border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
         <div class="bg-white px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
-                <div class="flex items-center justify-start rtl:justify-end">
+                <div class="flex items-center ">
                     <button
                         class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 sm:hidden"
                         data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" type="button"
@@ -17,8 +17,8 @@
                             </path>
                         </svg>
                     </button>
-                    <a class="ms-2 flex items-center md:me-24" href="">
-                        <img class="me-3 h-9 " src="/img/logo-baru.png" alt="btn-logo" />
+                    <a class="ms-2 flex items-center md:me-24 center" href="">
+                        <img class="me-3 h-9 items-center " src="/img/logo-baru.png" alt="btn-logo" />
                     </a>
                 </div>
                 <div class="flex items-center">

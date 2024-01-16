@@ -131,7 +131,7 @@
             <tbody>
                 @forelse ($berkas as $bks)
                     <tr
-                        class="border-b bg-white odd:bg-gray-100 even:bg-gray-50 hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
+                        class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
                         <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                             scope="row">
                             {{ $loop->index + $berkas->firstItem() }}

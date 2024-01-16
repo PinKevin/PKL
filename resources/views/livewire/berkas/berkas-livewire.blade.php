@@ -149,7 +149,7 @@
                             <button id="button-show-modal" data-modal-target="show-modal"
                                 data-modal-toggle="show-modal" type="button"
                                 wire:click="showBerkas({{ $bks->id }})">
-                                <svg class="h-4 w-4 text-gray-600 hover:text-gray-900 dark:text-white"
+                                <svg class="h-4 w-4 text-yellow-300 hover:text-gray-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 20">
                                     <path

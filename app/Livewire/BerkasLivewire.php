@@ -24,7 +24,7 @@ class BerkasLivewire extends Component
     {
         return [
             'nama' => 'required|min:5|string',
-            'no_rekening' => 'required|min:5|unique:berkas,no_rekening',
+            'no_rekening' => 'required|numeric|digits:13|unique:berkas,no_rekening',
             'tanggal_pengambilan' => 'required|date',
             'file_bukti' => 'required|file|mimes:pdf'
         ];
@@ -34,12 +34,15 @@ class BerkasLivewire extends Component
     {
         return [
             'required' => ':attribute harus diisi!',
-            'min' => ':attribute harus terdiri atas :min karakter!',
+            'min' => ':attribute minimal terdiri atas :min karakter!',
+            'size' => ':attribute harus terdiri atas :size karakter!',
             'string' => ':attribute hanya terdiri atas huruf!',
             'unique' => ':attribute sudah ada di dalam database!',
             'date' => ':attribute harus berupa tanggal!',
             'file' => ':attribute harus berupa file!',
-            'mimes' => ':attribute harus berupa PDF!'
+            'mimes' => ':attribute harus berupa PDF!',
+            'numeric' => ':attribute harus berupa numerik!',
+            'digits' => ':attribute harus terdiri atas :digits digit!'
         ];
     }
 
@@ -75,17 +78,31 @@ class BerkasLivewire extends Component
 
     public function createBerkas()
     {
-        $this->validate();
+        if ($this->withFile == TRUE) {
+            $this->validate();
 
-        $namaFile = "bukti_" . strtolower(str_replace(' ', '_', $this->nama)) . ".pdf";
-        $path_file = $this->file_bukti->storeAs('file_bukti', $namaFile);
+            $namaFile = "bukti_" . strtolower(str_replace(' ', '_', $this->nama)) . ".pdf";
+            $path_file = $this->file_bukti->storeAs('file_bukti', $namaFile);
 
-        Berkas::create([
-            'nama' => $this->nama,
-            'no_rekening' => $this->no_rekening,
-            'tanggal_pengambilan' => $this->tanggal_pengambilan,
-            'file_bukti' => $path_file,
-        ]);
+            Berkas::create([
+                'nama' => $this->nama,
+                'no_rekening' => $this->no_rekening,
+                'tanggal_pengambilan' => $this->tanggal_pengambilan,
+                'file_bukti' => $path_file,
+            ]);
+        } else {
+            $this->validateOnly('nama');
+            $this->validateOnly('no_rekening');
+            $this->validateOnly('tanggal_pengambilan');
+
+            Berkas::create([
+                'nama' => $this->nama,
+                'no_rekening' => $this->no_rekening,
+                'tanggal_pengambilan' => $this->tanggal_pengambilan
+            ]);
+        }
+
+
 
         $this->resetInput();
         $this->dispatch('closeCreateModal');
@@ -141,7 +158,7 @@ class BerkasLivewire extends Component
                 ->update([
                     'nama' => $this->nama,
                     'no_rekening' => $this->no_rekening,
-                    'tanggal_pengambilan' => $this->tanggal_pengambilan,
+                    'tanggal_pengambilan' => $this->tanggal_pengambilan
                 ]);
         }
 

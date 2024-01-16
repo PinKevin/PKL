@@ -1,5 +1,5 @@
 <!-- Main modal -->
-<div class="shadow-lg fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-scroll md:inset-10"
+<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-scroll shadow-lg md:inset-10"
     id="create-modal" aria-hidden="true" tabindex="-1" wire:ignore.self>
     <div class="relative max-h-full w-full max-w-md p-4">
         <!-- Modal content -->
@@ -31,7 +31,7 @@
                             class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
                             id="nama" name="nama" type="text" placeholder="Nama" wire:model="nama" />
                         @error('nama')
-                            <div class="mt-1 rounded-lg flex items-center p-3 mb-4 text-red-800 border-t-4 border-red-400 bg-red-100 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
+                            <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                 role="alert">
                                 <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -53,7 +53,7 @@
                             id="no_rekening" name="no_rekening" type="text" placeholder="Nomor Debitur"
                             wire:model="no_rekening" />
                         @error('no_rekening')
-                            <div class="mt-1 rounded-lg flex items-center p-3 mb-4 text-red-800 border-t-4 border-red-400 bg-red-100 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
+                            <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                 role="alert">
                                 <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -75,7 +75,7 @@
                             id="tanggal_pengambilan" name="tanggal_pengambilan" type="date"
                             placeholder="Nomor Rekening" wire:model="tanggal_pengambilan" />
                         @error('tanggal_pengambilan')
-                            <div class="mt-1 rounded-lg flex items-center p-3 mb-4 text-red-800 border-t-4 border-red-400 bg-red-100 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
+                            <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                 role="alert">
                                 <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -88,34 +88,47 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="col-span-2">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="file_bukti">
-                            Bukti Pengambilan
-                        </label>
-                        <div class="flex items-center">
-                            <input
-                                class="block w-80 cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
-                                id="file_bukti" name="file_bukti" type="file" aria-describedby="file_bukti_help"
-                                wire:model="file_bukti">
-                            <p class=" text-sm text-gray-500 dark:text-gray-300" id="file_bukti_help">.PDF</p>
+
+                    <label class="relative inline-flex cursor-pointer items-center">
+                        <input class="peer sr-only" type="checkbox" value="" wire:model.live="withFile">
+                        <div
+                            class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rtl:peer-checked:after:-translate-x-full dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800">
                         </div>
-                        @error('file_bukti')
-                            <div class="mt-1 w-80 rounded-lg flex items-center p-3 mb-4 text-red-800 border-t-4 border-red-400 bg-red-100 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
-                                role="alert">
-                                <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                                </svg>
-                                <div class="text-sm font-semibold">
-                                    {{ $message }}
-                                </div>
+                        <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Dengan file</span>
+                    </label>
+
+                    @if ($withFile)
+                        <div class="col-span-2">
+                            <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                                for="file_bukti">
+                                Bukti Pengambilan
+                            </label>
+                            <div class="flex items-center">
+                                <input
+                                    class="block w-80 cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
+                                    id="file_bukti" name="file_bukti" type="file" aria-describedby="file_bukti_help"
+                                    wire:model="file_bukti">
+                                <p class="text-sm text-gray-500 dark:text-gray-300" id="file_bukti_help">.PDF</p>
                             </div>
-                        @enderror
-                    </div>
+                            @error('file_bukti')
+                                <div class="mb-4 mt-1 flex w-80 items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                                    role="alert">
+                                    <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                    </svg>
+                                    <div class="text-sm font-semibold">
+                                        {{ $message }}
+                                    </div>
+                                </div>
+                            @enderror
+                        </div>
+                    @endif
+
                 </div>
                 <button
-                    class=" inline-flex items-center rounded-lg bg-blue-700 px-[90px] py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    class="inline-flex items-center rounded-lg bg-blue-700 px-[90px] py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     type="submit">
                     <svg class="-ms-1 me-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">

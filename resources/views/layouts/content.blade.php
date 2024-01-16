@@ -2,7 +2,7 @@
 
 @section('body')
     <nav class="fixed top-0 z-50 w-full border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
-        <div class="bg-yellow-300 px-3 py-3 lg:px-5 lg:pl-3">
+        <div class="bg-white px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start rtl:justify-end">
                     <button
@@ -18,7 +18,7 @@
                         </svg>
                     </button>
                     <a class="ms-2 flex items-center md:me-24" href="">
-                        <img class="me-3 h-9" src="/img/btn-logo.png" alt="btn-logo" />
+                        <img class="me-3 h-9" src="/img/logo-baru.png" alt="btn-logo" />
                     </a>
                 </div>
                 <div class="flex items-center">
@@ -150,8 +150,10 @@
     </aside>
 
     <div class="p-4 sm:ml-64">
-        <div class="mt-14 rounded-lg border-2 border-dashed border-gray-200 p-4 dark:border-gray-700">
-            @yield('content')
+        <div class="border-gray-700">
+            <div class="mt-14 rounded-md  bg-white p-4 dark:border-gray-700">
+                @yield('content')
+            </div>
         </div>
     </div>
 @endsection

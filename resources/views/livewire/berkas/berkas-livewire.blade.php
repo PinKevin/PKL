@@ -14,8 +14,8 @@
         </div>
     @endif
     @if (session('updateSuccess'))
-        <div class="mb-4 flex items-center rounded-lg bg-green-50 p-4 text-green-800 dark:bg-gray-800 dark:text-green-400"
-            id="alert-success" role="alert">
+        <div class="mb-4 flex items-center rounded-lg border-t-4 border-green-300 bg-green-100 p-4 text-green-800 dark:border-green-800 dark:bg-gray-800 dark:text-green-400"
+            role="alert">
             <svg class="h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                 viewBox="0 0 20 20">
                 <path
@@ -55,12 +55,12 @@
             </div>
         </div>
     @endif
-    <h2 class="text-4xl font-extrabold dark:text-white">Daftar Berkas</h2>
+    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Daftar Berkas</h2>
 
-    <div class="mb-2 flex items-center justify-between">
+    <div class="mt-2 mb-2 flex items-center justify-between">
         @include('livewire.berkas.create-modal')
         {{-- Tabel --}}
-        <div class="bg-slate-50 py-2.5 dark:bg-gray-900">
+        <div class="bg-white py-2.5 dark:bg-gray-900">
             <label class="sr-only" for="table-search">Search</label>
             <div class="relative mt-1">
                 <div class="rtl:inset-r-0 pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
@@ -86,8 +86,8 @@
     @include('livewire.berkas.show-modal')
     @include('livewire.berkas.edit-modal')
     @include('livewire.berkas.delete-modal')
-    <div class="relative overflow-x-auto shadow-md sm:rounded-md">
-        <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+    <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
+        <table class=" w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-gray-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th class="px-6 py-3" scope="col">
@@ -193,7 +193,7 @@
         </table>
     </div>
 
-    <div class="mt-4 items-center">
+    <div class="mt-4 items-center ">
         {{ $berkas->onEachSide(1)->links() }}
     </div>
 </div>

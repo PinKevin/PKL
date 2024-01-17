@@ -12,6 +12,8 @@ class SuratRoyaLivewire extends Component
 {
     use WithPagination;
 
+    public $id, $pemilik;
+
     public $search = '';
 
     public $sortBy = 'pemilik';
@@ -35,6 +37,31 @@ class SuratRoyaLivewire extends Component
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(10);
         return $suratRoya;
+    }
+
+    public function deleteSuratRoya($id)
+    {
+        $this->resetInput();
+        $detailBerkas = SuratRoya::where('id', $id)
+            ->select('id', 'pemilik')
+            ->first();
+
+        $this->id = $detailBerkas->id;
+        $this->pemilik = $detailBerkas->pemilik;
+    }
+
+    public function destroySuratRoya()
+    {
+        SuratRoya::where('id', $this->id)->delete();
+        $this->resetInput();
+        $this->dispatch('scrollToTop');
+        session()->flash('deleteSuccess', 'Surat roya berhasil dihapus!');
+    }
+
+    public function resetInput()
+    {
+        $this->id = '';
+        $this->pemilik = '';
     }
 
 

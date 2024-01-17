@@ -5,8 +5,8 @@
         <!-- Modal content -->
         <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
             <!-- Modal header -->
-            <div class="flex items-center justify-between rounded-t border-b p-2 dark:border-gray-600 md:p-3">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+            <div class="flex items-center bg-blue-600 justify-between rounded-t border-b p-2 dark:border-gray-600 md:p-3">
+                <h3 class="text-lg font-semibold text-white dark:text-white">
                     Edit Berkas {{ $nama_debitur }}
                 </h3>
                 <button

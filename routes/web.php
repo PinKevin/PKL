@@ -27,7 +27,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'showPage'])->name('dashboard');
 
     Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
-    Route::get('/surat-roya', [SuratRoyaController::class, 'index'])->name('surat-roya');
+
+    Route::prefix('/surat-roya')->group(function () {
+        Route::get('/', [SuratRoyaController::class, 'index'])->name('surat-roya');
+        Route::get('/create', [SuratRoyaController::class, 'create'])->name('create-surat-roya');
+    });
+
 
     Route::get('/cek-surat-roya', function () {
         return view('surat-roya.format');

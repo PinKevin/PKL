@@ -35,9 +35,11 @@ class SuratRoyaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SuratRoya $suratRoya)
+    public function show($id)
     {
-        //
+        return view('surat-roya.show', [
+            'id' => $id
+        ]);
     }
 
     /**

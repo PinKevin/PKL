@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('/surat-roya')->group(function () {
         Route::get('/', [SuratRoyaController::class, 'index'])->name('surat-roya.index');
         Route::get('/create', [SuratRoyaController::class, 'create'])->name('surat-roya.create');
+        Route::get('/{id}', [SuratRoyaController::class, 'show'])->name('surat-roya.show');
     });
 
 

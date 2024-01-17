@@ -145,16 +145,14 @@
                             {{ $sr->created_at->format('Y-m-d') }}
                         </td>
                         <td class="flex justify-between px-6 py-4">
-                            <button id="button-show-modal" data-modal-target="show-modal"
-                                data-modal-toggle="show-modal" type="button"
-                                wire:click="showBerkas({{ $sr->id }})">
+                            <a href="{{ route('surat-roya.show', ['id' => $sr->id]) }}">
                                 <svg class="h-4 w-4 text-yellow-300 hover:text-gray-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 20">
                                     <path
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                 </svg>
-                            </button>
+                            </a>
                             <button id="button-edit-modal" data-modal-target="edit-modal"
                                 data-modal-toggle="edit-modal" type="button"
                                 wire:click="editBerkas({{ $sr->id }})">

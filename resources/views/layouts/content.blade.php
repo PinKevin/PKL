@@ -87,7 +87,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="{{ request()->routeIs('surat-roy') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-200' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                    <a class="{{ request()->routeIs('surat-roya') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-200' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
                         href="/surat-roya">
                         <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">

@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\DataConverterController;
+use App\Models\SuratRoya;
 use Livewire\Component;
 
 class CreateSuratRoyaLivewire extends Component
@@ -62,6 +64,33 @@ class CreateSuratRoyaLivewire extends Component
     public function storeSuratRoya()
     {
         $this->validate();
+
+        $bulan = DataConverterController::bulanToRomawi(date('m'));
+        $tahun = date('Y');
+        $noSurat = "$this->no_surat_depan/SMG/LD/$bulan/$tahun";
+
+        // dd($noSurat);
+
+        SuratRoya::create([
+            'no_surat_depan' => $this->no_surat_depan,
+            'no_surat' => $noSurat,
+            'tanggal_pelunasan' => $this->tanggal_pelunasan,
+            'kota_bpn' => $this->kota_bpn,
+            'lokasi_kepala_bpn' => $this->lokasi_kepala_bpn,
+            'no_agunan' => $this->no_agunan,
+            'kelurahan' => $this->kelurahan,
+            'kecamatan' => $this->kecamatan,
+            'no_surat_ukur' => $this->no_surat_ukur,
+            'nib' => $this->nib,
+            'luas' => $this->luas,
+            'pemilik' => $this->pemilik,
+            'peringkat_sht' => $this->peringkat_sht,
+            'no_sht' => $this->no_sht,
+            'tanggal_sht' => $this->tanggal_sht
+        ]);
+
+        session()->flash('storeSuccess', 'Surat roya berhasil ditambahkan');
+        return redirect()->route('surat-roya.index');
     }
 
     public function render()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SuratRoya;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Requests\StoreSuratRoyaRequest;
 use App\Http\Requests\UpdateSuratRoyaRequest;
 
@@ -66,5 +67,15 @@ class SuratRoyaController extends Controller
     public function destroy(SuratRoya $suratRoya)
     {
         //
+    }
+
+    public function cetakPdf($id)
+    {
+        $suratRoya = SuratRoya::findOrFail($id);
+        $pdf = Pdf::loadView('surat-roya.format', [
+            'no_surat' => $suratRoya->no_surat,
+            'tanggal_pelunasan' => $suratRoya->tanggal_pelunasan
+        ]);
+        return $pdf->stream('surat-roya.pdf');
     }
 }

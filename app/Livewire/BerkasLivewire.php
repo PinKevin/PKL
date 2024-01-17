@@ -116,7 +116,7 @@ class BerkasLivewire extends Component
 
         $this->nama = $detailBerkas->nama;
         $this->no_rekening = $detailBerkas->no_rekening;
-        $this->tanggal_pengambilan = $detailBerkas->tanggal_pengambilan;
+        $this->tanggal_pengambilan = $detailBerkas->tanggal_pengambilan->format('d-m-Y');
         $this->file_bukti = $detailBerkas->file_bukti;
     }
 

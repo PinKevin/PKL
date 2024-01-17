@@ -29,7 +29,7 @@
                         </label>
                         <input
                             class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                            id="nama" name="nama" type="text" placeholder="Nama" wire:model="nama" />
+                            id="nama" name="nama" type="text" placeholder="Nama Debitur" wire:model="nama" />
                         @error('nama')
                             <div class="mb-1 flex items-center rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                 role="alert">
@@ -51,7 +51,7 @@
                         </label>
                         <input
                             class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                            id="no_rekening" name="no_rekening" type="text" placeholder="Nomor Rekening"
+                            id="no_rekening" name="no_rekening" type="text" placeholder="Nomor Debitur"
                             wire:model="no_rekening" />
                         @error('no_rekening')
                             <div class="mb-1 flex items-center rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
@@ -75,7 +75,7 @@
                         <input
                             class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
                             id="tanggal_pengambilan" name="tanggal_pengambilan" type="date"
-                            placeholder="Nomor Rekening" wire:model="tanggal_pengambilan" />
+                            wire:model="tanggal_pengambilan" />
                         @error('tanggal_pengambilan')
                             <div class="mb-1 flex items-center rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                 role="alert">
@@ -110,10 +110,10 @@
                                     class="block w-80 cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
                                     id="file_bukti" name="file_bukti" type="file" aria-describedby="file_bukti_help"
                                     wire:model="file_bukti">
-                                <p class=" text-sm text-gray-500 dark:text-gray-300" id="file_bukti_help">.PDF</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300" id="file_bukti_help">.PDF</p>
                             </div>
                             @error('file_bukti')
-                                <div class="mt-1 w-80 rounded-lg flex items-center p-3 mb-4 text-red-800 border-t-4 border-red-400 bg-red-100 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
+                                <div class="mb-4 mt-1 flex w-80 items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                     role="alert">
                                     <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

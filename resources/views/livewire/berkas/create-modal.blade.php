@@ -24,13 +24,14 @@
             <form class="rounded-b-md bg-slate-100 p-4 md:p-5" wire:submit.prevent="createBerkas" method="POST">
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="col-span-2">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama">
+                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama_debitur">
                             Nama Debitur
                         </label>
                         <input
                             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                            id="nama" name="nama" type="text" placeholder="Nama Debitur" wire:model="nama" />
-                        @error('nama')
+                            id="nama_debitur" name="nama_debitur" type="text" placeholder="Nama Debitur"
+                            wire:model="nama_debitur" />
+                        @error('nama_debitur')
                             <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                 role="alert">
                                 <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
@@ -46,16 +47,16 @@
                     </div>
                     <div class="col-span-2">
                         <label class="mb-1 block text-sm font-medium text-gray-900 dark:text-white"
-                            for="no_rekening">Nomor Debitur
+                            for="no_debitur">Nomor Debitur
                         </label>
                         <input
                             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                            id="no_rekening" name="no_rekening" type="text" aria-describedby="helper-nomor-debitur"
-                            placeholder="Nomor Debitur" wire:model="no_rekening" />
+                            id="no_debitur" name="no_debitur" type="text" aria-describedby="helper-nomor-debitur"
+                            placeholder="Nomor Debitur" wire:model="no_debitur" />
                         <p class="mt-0.5 text-sm text-gray-500 dark:text-gray-400" id="helper-nomor-debitur">
                             Pastikan nomor debitur sudah benar.
                         </p>
-                        @error('no_rekening')
+                        @error('no_debitur')
                             <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                 role="alert">
                                 <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"

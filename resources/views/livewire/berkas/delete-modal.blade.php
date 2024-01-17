@@ -19,7 +19,7 @@
                         d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
                 <h3 class="mb-5 text-lg font-normal text-gray-700 dark:text-gray-400">
-                    Yakin ingin hapus data {{ $nama }}
+                    Yakin ingin hapus data {{ $nama_debitur }}
                 </h3>
                 <button
                     class="me-2 inline-flex items-center rounded-lg bg-red-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 dark:focus:ring-red-800"

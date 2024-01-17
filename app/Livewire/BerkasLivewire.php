@@ -12,12 +12,12 @@ class BerkasLivewire extends Component
 {
     use WithPagination, WithFileUploads;
 
-    public $id, $nama, $no_rekening, $file_bukti, $tanggal_pengambilan;
+    public $id, $nama_debitur, $no_debitur, $file_bukti, $tanggal_pengambilan;
     public $withFile = FALSE;
 
     public $search = '';
 
-    public $sortBy = 'nama';
+    public $sortBy = 'nama_debitur';
     public $sortDirection = 'asc';
 
     public function messages()
@@ -39,8 +39,8 @@ class BerkasLivewire extends Component
     public function validationAttributes()
     {
         return [
-            'nama' =>  'Nama debitur',
-            'no_rekening' => 'Nomor debitur',
+            'nama_debitur' =>  'Nama debitur',
+            'no_debitur' => 'Nomor debitur',
             'tanggal_pengambilan' => 'Tanggal pengambilan',
             'file_bukti' => 'Bukti pengambilan'
         ];
@@ -58,9 +58,9 @@ class BerkasLivewire extends Component
 
     public function indexBerkas()
     {
-        $berkas = Berkas::select('id', 'nama', 'no_rekening', 'tanggal_pengambilan')
-            ->where('nama', 'like', '%' . $this->search . '%')
-            ->orWhere('no_rekening', 'like', '%' . $this->search . '%')
+        $berkas = Berkas::select('id', 'nama_debitur', 'no_debitur', 'tanggal_pengambilan')
+            ->where('nama_debitur', 'like', '%' . $this->search . '%')
+            ->orWhere('no_debitur', 'like', '%' . $this->search . '%')
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(10);
         return $berkas;
@@ -70,31 +70,31 @@ class BerkasLivewire extends Component
     {
         if ($this->withFile == TRUE) {
             $this->validate([
-                'nama' => 'required|min:5|string',
-                'no_rekening' => 'required|numeric|digits:13|unique:berkas,no_rekening',
+                'nama_debitur' => 'required|min:5|string',
+                'no_debitur' => 'required|numeric|digits:13|unique:berkas,no_debitur',
                 'tanggal_pengambilan' => 'required|date',
                 'file_bukti' => 'required|file|mimes:pdf'
             ]);
 
-            $namaFile = "bukti_" . strtolower(str_replace(' ', '_', $this->nama)) . ".pdf";
+            $namaFile = "bukti_" . strtolower(str_replace(' ', '_', $this->nama_debitur)) . ".pdf";
             $path_file = $this->file_bukti->storeAs('file_bukti', $namaFile);
 
             Berkas::create([
-                'nama' => $this->nama,
-                'no_rekening' => $this->no_rekening,
+                'nama_debitur' => $this->nama_debitur,
+                'no_debitur' => $this->no_debitur,
                 'tanggal_pengambilan' => $this->tanggal_pengambilan,
                 'file_bukti' => $path_file,
             ]);
         } else {
             $this->validate([
-                'nama' => 'required|min:5|string',
-                'no_rekening' => 'required|numeric|digits:13|unique:berkas,no_rekening',
+                'nama_debitur' => 'required|min:5|string',
+                'no_debitur' => 'required|numeric|digits:13|unique:berkas,no_debitur',
                 'tanggal_pengambilan' => 'required|date'
             ]);
 
             Berkas::create([
-                'nama' => $this->nama,
-                'no_rekening' => $this->no_rekening,
+                'nama_debitur' => $this->nama_debitur,
+                'no_debitur' => $this->no_debitur,
                 'tanggal_pengambilan' => $this->tanggal_pengambilan
             ]);
         }
@@ -109,8 +109,8 @@ class BerkasLivewire extends Component
         $this->resetInput();
         $detailBerkas = Berkas::find($id);
 
-        $this->nama = $detailBerkas->nama;
-        $this->no_rekening = $detailBerkas->no_rekening;
+        $this->nama_debitur = $detailBerkas->nama_debitur;
+        $this->no_debitur = $detailBerkas->no_debitur;
         $this->tanggal_pengambilan = $detailBerkas->tanggal_pengambilan->format('Y-m-d');
         $this->file_bukti = $detailBerkas->file_bukti;
     }
@@ -119,12 +119,12 @@ class BerkasLivewire extends Component
     {
         $this->resetInput();
         $detailBerkas = Berkas::where('id', $id)
-            ->select('id', 'nama', 'no_rekening', 'tanggal_pengambilan')
+            ->select('id', 'nama_debitur', 'no_debitur', 'tanggal_pengambilan')
             ->first();
 
         $this->id = $detailBerkas->id;
-        $this->nama = $detailBerkas->nama;
-        $this->no_rekening = $detailBerkas->no_rekening;
+        $this->nama_debitur = $detailBerkas->nama_debitur;
+        $this->no_debitur = $detailBerkas->no_debitur;
         $this->tanggal_pengambilan = $detailBerkas->tanggal_pengambilan->format('Y-m-d');
     }
 
@@ -132,30 +132,30 @@ class BerkasLivewire extends Component
     {
         if ($this->withFile) {
             $this->validate([
-                'nama' => 'required|min:5|string',
+                'nama_debitur' => 'required|min:5|string',
                 'tanggal_pengambilan' => 'required|date',
                 'file_bukti' => 'required|file|mimes:pdf'
             ]);
 
-            $namaFile = "bukti_" . strtolower(str_replace(' ', '_', $this->nama)) . ".pdf";
+            $namaFile = "bukti_" . strtolower(str_replace(' ', '_', $this->nama_debitur)) . ".pdf";
             $path_file = $this->file_bukti->storeAs('file_bukti', $namaFile);
 
 
             Berkas::where('id', $this->id)
                 ->update([
-                    'nama' => $this->nama,
+                    'nama_debitur' => $this->nama_debitur,
                     'tanggal_pengambilan' => $this->tanggal_pengambilan,
                     'file_bukti' => $path_file
                 ]);
         } else {
             $this->validate([
-                'nama' => 'required|min:5|string',
+                'nama_debitur' => 'required|min:5|string',
                 'tanggal_pengambilan' => 'required|date'
             ]);
 
             Berkas::where('id', $this->id)
                 ->update([
-                    'nama' => $this->nama,
+                    'nama_debitur' => $this->nama_debitur,
                     'tanggal_pengambilan' => $this->tanggal_pengambilan
                 ]);
         }
@@ -169,25 +169,26 @@ class BerkasLivewire extends Component
     {
         $this->resetInput();
         $detailBerkas = Berkas::where('id', $id)
-            ->select('id', 'nama')
+            ->select('id', 'nama_debitur')
             ->first();
 
         $this->id = $detailBerkas->id;
-        $this->nama = $detailBerkas->nama;
+        $this->nama_debitur = $detailBerkas->nama_debitur;
     }
 
     public function destroyBerkas()
     {
         Berkas::where('id', $this->id)->delete();
         $this->resetInput();
+        $this->dispatch('scrollToTop');
         session()->flash('deleteSuccess', 'Berkas berhasil dihapus!');
     }
 
     public function resetInput()
     {
         $this->id = '';
-        $this->nama = '';
-        $this->no_rekening = '';
+        $this->nama_debitur = '';
+        $this->no_debitur = '';
         $this->tanggal_pengambilan = '';
         $this->file_bukti = '';
         $this->withFile = FALSE;

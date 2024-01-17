@@ -94,7 +94,7 @@
                         No
                     </th>
                     <th class="px-7 py-4" scope="col">
-                        <button class="flex items-center uppercase" wire:click="sortResult('nama')">
+                        <button class="flex items-center uppercase" wire:click="sortResult('nama_debitur')">
                             Nama Debitur
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 24 24">
@@ -104,7 +104,7 @@
                         </button>
                     </th>
                     <th class="px-7 py-4" scope="col">
-                        <button class="flex items-center uppercase" wire:click="sortResult('no_rekening')">
+                        <button class="flex items-center uppercase" wire:click="sortResult('no_debitur')">
                             Nomor Debitur
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 24 24">
@@ -137,10 +137,10 @@
                             {{ $loop->index + $berkas->firstItem() }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $bks->nama }}
+                            {{ $bks->nama_debitur }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $bks->no_rekening }}
+                            {{ $bks->no_debitur }}
                         </td>
                         <td class="px-6 py-4">
                             {{ $bks->tanggal_pengambilan->format('Y-m-d') }}

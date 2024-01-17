@@ -1,7 +1,7 @@
 @extends('layouts.content')
 
 @section('page_title')
-    Berkas
+    Surat Roya
 @endsection
 
 @push('styles')
@@ -10,7 +10,7 @@
 
 @push('scripts')
     @livewireScripts
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         document.addEventListener('livewire:init', () => {
             Livewire.on('closeCreateModal', (event) => {
@@ -31,9 +31,9 @@
                 window.scrollTo(0, 0);
             });
         });
-    </script>
+    </script> --}}
 @endpush
 
 @section('content')
-    @livewire('berkas-livewire')
+    @livewire('surat-roya-livewire')
 @endsection

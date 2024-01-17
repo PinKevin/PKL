@@ -17,8 +17,8 @@ class BerkasFactory extends Factory
     public function definition(): array
     {
         return [
-            'nama' => fake()->unique()->name(),
-            'no_rekening' => fake()->unique()->numerify('#############'),
+            'nama_debitur' => fake()->unique()->name(),
+            'no_debitur' => fake()->unique()->numerify('#############'),
             'tanggal_pengambilan' => fake()->date()
         ];
     }

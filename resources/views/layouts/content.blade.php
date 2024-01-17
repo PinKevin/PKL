@@ -4,7 +4,7 @@
     <nav class="fixed top-0 z-50 w-full border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
         <div class="bg-white px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
-                <div class="flex items-center ">
+                <div class="flex items-center">
                     <button
                         class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 sm:hidden"
                         data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" type="button"
@@ -17,8 +17,8 @@
                             </path>
                         </svg>
                     </button>
-                    <a class="ms-2 flex items-center md:me-24 center" href="">
-                        <img class="me-3 h-9 items-center " src="/img/logo-baru.png" alt="btn-logo" />
+                    <a class="center ms-2 flex items-center md:me-24" href="">
+                        <img class="me-3 h-9 items-center" src="/img/logo-baru.png" alt="btn-logo" />
                     </a>
                 </div>
                 <div class="flex items-center">
@@ -87,6 +87,19 @@
                     </a>
                 </li>
                 <li>
+                    <a class="{{ request()->routeIs('surat-roy') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-200' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                        href="/surat-roya">
+                        <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                            <path
+                                d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                            <path
+                                d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                        </svg>
+                        <span class="ms-3 flex-1 whitespace-nowrap">Surat Roya</span>
+                    </a>
+                </li>
+                <li>
                     <a class="group flex items-center rounded-lg p-2 text-slate-100 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-900"
                         href="#">
                         <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
@@ -151,7 +164,7 @@
 
     <div class="p-4 sm:ml-64">
         <div class="border-gray-700">
-            <div class="mt-14 rounded-md  bg-white p-4 dark:border-gray-700">
+            <div class="mt-14 rounded-md bg-white p-4 dark:border-gray-700">
                 @yield('content')
             </div>
         </div>

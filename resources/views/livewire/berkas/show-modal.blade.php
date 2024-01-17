@@ -7,7 +7,7 @@
             <!-- Modal header -->
             <div class="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-3">
                 <h3 class="text-lg font-semibold text-white dark:text-white">
-                    Berkas {{ $nama }}
+                    Berkas {{ $nama_debitur }}
                 </h3>
                 <button
                     class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-white hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"

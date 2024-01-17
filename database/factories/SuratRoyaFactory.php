@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class SuratRoyaFactory extends Factory
 {
+    protected $counter = 1;
     /**
      * Define the model's default state.
      *
@@ -16,8 +17,28 @@ class SuratRoyaFactory extends Factory
      */
     public function definition(): array
     {
+        $noSuratTengah = 'SMG/LD';
+        $month = date('m');
+        $year = date('Y');
+
+        $cnt = $this->counter++;
+
         return [
-            //
+            'no_surat_depan' => $cnt,
+            'no_surat' => "$cnt/$noSuratTengah/$month/$year",
+            'tanggal_pelunasan' => fake()->date(),
+            'kota_bpn' => fake()->city(),
+            'lokasi_kepala_bpn' => fake()->city(),
+            'no_agunan' => fake()->numerify('HM. ####'),
+            'kelurahan' => fake()->citySuffix(),
+            'kecamatan' => fake()->streetSuffix(),
+            'no_surat_ukur' => fake()->numerify('SU No. #####/Kota/####/####'),
+            'nib' => fake()->numerify('##.##.##.##.####'),
+            'luas' => fake()->randomNumber(3),
+            'pemilik' => fake()->name(),
+            'peringkat_sht' => fake()->randomElement([1, 2]),
+            'no_sht' => fake()->numerify('No. ####/####'),
+            'tanggal_sht' => fake()->date()
         ];
     }
 }

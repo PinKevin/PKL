@@ -59,8 +59,8 @@ class BerkasLivewire extends Component
     public function indexBerkas()
     {
         $berkas = Berkas::select('id', 'nama_debitur', 'no_debitur', 'tanggal_pengambilan')
-            ->where('nama_debitur', 'like', '%' . $this->search . '%')
-            ->orWhere('no_debitur', 'like', '%' . $this->search . '%')
+            ->where('nama_debitur', 'like', '%' . trim($this->search) . '%')
+            ->orWhere('no_debitur', 'like', '%' . trim($this->search) . '%')
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(10);
         return $berkas;

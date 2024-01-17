@@ -21,7 +21,7 @@ class SuratRoyaController extends Controller
      */
     public function create()
     {
-        //
+        return view('surat-roya.create');
     }
 
     /**
@@ -35,17 +35,21 @@ class SuratRoyaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SuratRoya $suratRoya)
+    public function show($id)
     {
-        //
+        return view('surat-roya.show', [
+            'id' => $id
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SuratRoya $suratRoya)
+    public function edit($id)
     {
-        //
+        return view('surat-roya.edit', [
+            'id' => $id
+        ]);
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('layouts.content')
 
 @section('page_title')
-    Surat Roya
+    Detail Surat Roya
 @endsection
 
 @push('styles')
@@ -13,5 +13,5 @@
 @endpush
 
 @section('content')
-    @livewire('surat-roya-livewire')
+    @livewire('show-surat-roya-livewire', ['id' => $id])
 @endsection

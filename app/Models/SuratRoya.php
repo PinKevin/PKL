@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class SuratRoya extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    protected $casts = [
+        'tanggal_pelunasan' => 'date',
+        'tanggal_sht' => 'date'
+    ];
 }

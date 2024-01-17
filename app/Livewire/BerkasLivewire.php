@@ -180,6 +180,7 @@ class BerkasLivewire extends Component
     {
         Berkas::where('id', $this->id)->delete();
         $this->resetInput();
+        $this->dispatch('scrollToTop');
         session()->flash('deleteSuccess', 'Berkas berhasil dihapus!');
     }
 

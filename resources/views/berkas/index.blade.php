@@ -26,6 +26,10 @@
 
                 window.scrollTo(0, 0);
             });
+
+            Livewire.on('scrollToTop', (event) => {
+                window.scrollTo(0, 0);
+            });
         });
     </script>
 @endpush

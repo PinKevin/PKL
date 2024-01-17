@@ -20,16 +20,6 @@ class BerkasLivewire extends Component
     public $sortBy = 'nama';
     public $sortDirection = 'asc';
 
-    public function rules()
-    {
-        return [
-            'nama' => 'required|min:5|string',
-            'no_rekening' => 'required|numeric|digits:13|unique:berkas,no_rekening',
-            'tanggal_pengambilan' => 'required|date',
-            'file_bukti' => 'required|file|mimes:pdf'
-        ];
-    }
-
     public function messages()
     {
         return [
@@ -79,7 +69,12 @@ class BerkasLivewire extends Component
     public function createBerkas()
     {
         if ($this->withFile == TRUE) {
-            $this->validate();
+            $this->validate([
+                'nama' => 'required|min:5|string',
+                'no_rekening' => 'required|numeric|digits:13|unique:berkas,no_rekening',
+                'tanggal_pengambilan' => 'required|date',
+                'file_bukti' => 'required|file|mimes:pdf'
+            ]);
 
             $namaFile = "bukti_" . strtolower(str_replace(' ', '_', $this->nama)) . ".pdf";
             $path_file = $this->file_bukti->storeAs('file_bukti', $namaFile);
@@ -91,9 +86,11 @@ class BerkasLivewire extends Component
                 'file_bukti' => $path_file,
             ]);
         } else {
-            $this->validateOnly('nama');
-            $this->validateOnly('no_rekening');
-            $this->validateOnly('tanggal_pengambilan');
+            $this->validate([
+                'nama' => 'required|min:5|string',
+                'no_rekening' => 'required|numeric|digits:13|unique:berkas,no_rekening',
+                'tanggal_pengambilan' => 'required|date'
+            ]);
 
             Berkas::create([
                 'nama' => $this->nama,
@@ -101,8 +98,6 @@ class BerkasLivewire extends Component
                 'tanggal_pengambilan' => $this->tanggal_pengambilan
             ]);
         }
-
-
 
         $this->resetInput();
         $this->dispatch('closeCreateModal');
@@ -116,7 +111,7 @@ class BerkasLivewire extends Component
 
         $this->nama = $detailBerkas->nama;
         $this->no_rekening = $detailBerkas->no_rekening;
-        $this->tanggal_pengambilan = $detailBerkas->tanggal_pengambilan->format('d-m-Y');
+        $this->tanggal_pengambilan = $detailBerkas->tanggal_pengambilan->format('Y-m-d');
         $this->file_bukti = $detailBerkas->file_bukti;
     }
 
@@ -130,13 +125,17 @@ class BerkasLivewire extends Component
         $this->id = $detailBerkas->id;
         $this->nama = $detailBerkas->nama;
         $this->no_rekening = $detailBerkas->no_rekening;
-        $this->tanggal_pengambilan = $detailBerkas->tanggal_pengambilan;
+        $this->tanggal_pengambilan = $detailBerkas->tanggal_pengambilan->format('Y-m-d');
     }
 
     public function updateBerkas()
     {
-        if ($this->withFile == TRUE) {
-            $this->validate();
+        if ($this->withFile) {
+            $this->validate([
+                'nama' => 'required|min:5|string',
+                'tanggal_pengambilan' => 'required|date',
+                'file_bukti' => 'required|file|mimes:pdf'
+            ]);
 
             $namaFile = "bukti_" . strtolower(str_replace(' ', '_', $this->nama)) . ".pdf";
             $path_file = $this->file_bukti->storeAs('file_bukti', $namaFile);
@@ -145,19 +144,18 @@ class BerkasLivewire extends Component
             Berkas::where('id', $this->id)
                 ->update([
                     'nama' => $this->nama,
-                    'no_rekening' => $this->no_rekening,
                     'tanggal_pengambilan' => $this->tanggal_pengambilan,
                     'file_bukti' => $path_file
                 ]);
         } else {
-            $this->validateOnly('nama');
-            $this->validateOnly('no_rekening');
-            $this->validateOnly('tanggal_pengambilan');
+            $this->validate([
+                'nama' => 'required|min:5|string',
+                'tanggal_pengambilan' => 'required|date'
+            ]);
 
             Berkas::where('id', $this->id)
                 ->update([
                     'nama' => $this->nama,
-                    'no_rekening' => $this->no_rekening,
                     'tanggal_pengambilan' => $this->tanggal_pengambilan
                 ]);
         }
@@ -174,7 +172,6 @@ class BerkasLivewire extends Component
             ->select('id', 'nama')
             ->first();
 
-
         $this->id = $detailBerkas->id;
         $this->nama = $detailBerkas->nama;
     }
@@ -182,7 +179,7 @@ class BerkasLivewire extends Component
     public function destroyBerkas()
     {
         Berkas::where('id', $this->id)->delete();
-        $this->resetInput();;
+        $this->resetInput();
         session()->flash('deleteSuccess', 'Berkas berhasil dihapus!');
     }
 

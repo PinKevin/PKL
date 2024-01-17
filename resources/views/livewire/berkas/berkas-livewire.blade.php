@@ -143,7 +143,7 @@
                             {{ $bks->no_rekening }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $bks->tanggal_pengambilan->format('d-m-Y') }}
+                            {{ $bks->tanggal_pengambilan->format('Y-m-d') }}
                         </td>
                         <td class="flex justify-between px-6 py-4">
                             <button id="button-show-modal" data-modal-target="show-modal"

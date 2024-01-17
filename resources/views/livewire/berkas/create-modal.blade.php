@@ -28,7 +28,7 @@
                             Nama Debitur
                         </label>
                         <input
-                            class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                             id="nama" name="nama" type="text" placeholder="Nama Debitur" wire:model="nama" />
                         @error('nama')
                             <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
@@ -49,9 +49,12 @@
                             for="no_rekening">Nomor Debitur
                         </label>
                         <input
-                            class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                            id="no_rekening" name="no_rekening" type="text" placeholder="Nomor Debitur"
-                            wire:model="no_rekening" />
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            id="no_rekening" name="no_rekening" type="text" aria-describedby="helper-nomor-debitur"
+                            placeholder="Nomor Debitur" wire:model="no_rekening" />
+                        <p class="mt-0.5 text-sm text-gray-500 dark:text-gray-400" id="helper-nomor-debitur">
+                            Pastikan nomor debitur sudah benar.
+                        </p>
                         @error('no_rekening')
                             <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                 role="alert">
@@ -71,7 +74,7 @@
                             for="tanggal_pengambilan">Tanggal Pengambilan
                         </label>
                         <input
-                            class="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                             id="tanggal_pengambilan" name="tanggal_pengambilan" type="date"
                             wire:model="tanggal_pengambilan" />
                         @error('tanggal_pengambilan')

@@ -16,16 +16,15 @@
             Livewire.on('closeCreateModal', (event) => {
                 let createButton = $('#close-create-modal');
                 createButton.click();
-            });
 
-            Livewire.on('closeShowModal', (event) => {
-                let showButton = $('#close-show-modal');
-                showButton.click();
+                window.scrollTo(0, 0);
             });
 
             Livewire.on('closeEditModal', (event) => {
                 let updateButton = $('#close-edit-modal');
                 updateButton.click();
+
+                window.scrollTo(0, 0);
             });
         });
     </script>

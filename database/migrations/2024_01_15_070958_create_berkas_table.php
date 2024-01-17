@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('berkas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('no_rekening');
+            $table->string('nama_debitur');
+            $table->string('no_debitur');
             $table->date('tanggal_pengambilan');
             $table->string('file_bukti')->nullable();
             $table->timestamps();

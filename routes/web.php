@@ -4,6 +4,8 @@ use App\Http\Controllers\BerkasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SuratRoyaController;
+use App\Models\SuratRoya;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +27,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'showPage'])->name('dashboard');
 
     Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
+    Route::get('/surat-roya', [SuratRoyaController::class, 'index'])->name('surat-roya');
 });

@@ -13,5 +13,5 @@
 @endpush
 
 @section('content')
-    @livewire('create-surat-roya-livewire')
+    @livewire('edit-surat-roya-livewire', ['id' => $id])
 @endsection

@@ -45,9 +45,11 @@ class SuratRoyaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SuratRoya $suratRoya)
+    public function edit($id)
     {
-        //
+        return view('surat-roya.edit', [
+            'id' => $id
+        ]);
     }
 
     /**

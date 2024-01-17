@@ -153,9 +153,7 @@
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                 </svg>
                             </a>
-                            <button id="button-edit-modal" data-modal-target="edit-modal"
-                                data-modal-toggle="edit-modal" type="button"
-                                wire:click="editBerkas({{ $sr->id }})">
+                            <a href="{{ route('surat-roya.edit', ['id' => $sr->id]) }}">
                                 <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 18">
@@ -165,7 +163,7 @@
                                         d="M13.243 3.2 7.359 9.081a.5.5 0 0 0-.136.256L6.51 12.9a.5.5 0 0 0 .59.59l3.566-.713a.5.5 0 0 0 .255-.136L16.8 6.757 13.243 3.2Z" />
                                 </svg>
                                 <div class="sr-only">Edit</div>
-                            </button>
+                            </a>
                             <button id="button-delete-modal" data-modal-target="delete-modal"
                                 data-modal-toggle="delete-modal" type="button"
                                 wire:click="deleteBerkas({{ $sr->id }})">

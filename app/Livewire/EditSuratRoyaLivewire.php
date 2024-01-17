@@ -2,20 +2,19 @@
 
 namespace App\Livewire;
 
-use App\Http\Controllers\DataConverterController;
-use App\Models\SuratRoya;
 use Livewire\Component;
+use App\Models\SuratRoya;
+use App\Http\Controllers\DataConverterController;
 
-class CreateSuratRoyaLivewire extends Component
+class EditSuratRoyaLivewire extends Component
 {
-    public $no_surat_depan, $no_surat, $tanggal_pelunasan, $kota_bpn, $lokasi_kepala_bpn, $no_agunan;
+    public $id, $no_surat_depan, $no_surat, $tanggal_pelunasan, $kota_bpn, $lokasi_kepala_bpn, $no_agunan;
     public $kelurahan, $kecamatan, $no_surat_ukur, $nib, $luas, $pemilik, $peringkat_sht, $no_sht;
     public $tanggal_sht;
 
     public function rules()
     {
         return [
-            'no_surat_depan' => 'required|integer|unique:surat_royas,no_surat_depan',
             'tanggal_pelunasan' => 'required|date',
             'kota_bpn' => 'required',
             'lokasi_kepala_bpn' => 'required',
@@ -37,15 +36,13 @@ class CreateSuratRoyaLivewire extends Component
         return [
             'required' => ':attribute harus diisi!',
             'integer' => ':attribute harus berupa numerik!',
-            'date' => ':attribute harus berupa tanggal!',
-            'unique' => ':attribute sudah ada di dalam database!'
+            'date' => ':attribute harus berupa tanggal!'
         ];
     }
 
     public function validationAttributes()
     {
         return [
-            'no_surat_depan' => 'Nomor surat',
             'tanggal_pelunasan' => 'Tanggal pelunasan',
             'kota_bpn' => 'Kota BPN',
             'lokasi_kepala_bpn' => 'Lokasi Kepala BPN',
@@ -62,19 +59,33 @@ class CreateSuratRoyaLivewire extends Component
         ];
     }
 
-    public function storeSuratRoya()
+    public function mount($id)
+    {
+        $this->id = $id;
+
+        $data = SuratRoya::findOrFail($id);
+
+        $this->no_surat_depan = $data->no_surat_depan;
+        $this->tanggal_pelunasan = $data->tanggal_pelunasan->format('Y-m-d');
+        $this->kota_bpn = $data->kota_bpn;
+        $this->lokasi_kepala_bpn = $data->lokasi_kepala_bpn;
+        $this->no_agunan = $data->no_agunan;
+        $this->kelurahan = $data->kelurahan;
+        $this->kecamatan = $data->kecamatan;
+        $this->no_surat_ukur = $data->no_surat_ukur;
+        $this->nib = $data->nib;
+        $this->luas = $data->luas;
+        $this->pemilik = $data->pemilik;
+        $this->peringkat_sht = $data->peringkat_sht;
+        $this->no_sht = $data->no_sht;
+        $this->tanggal_sht = $data->tanggal_sht->format('Y-m-d');
+    }
+
+    public function updateSuratRoya()
     {
         $this->validate();
 
-        $bulan = DataConverterController::bulanToRomawi(date('m'));
-        $tahun = date('Y');
-        $noSurat = "$this->no_surat_depan/SMG/LD/$bulan/$tahun";
-
-        // dd($noSurat);
-
-        SuratRoya::create([
-            'no_surat_depan' => $this->no_surat_depan,
-            'no_surat' => $noSurat,
+        SuratRoya::where('id', $this->id)->update([
             'tanggal_pelunasan' => $this->tanggal_pelunasan,
             'kota_bpn' => $this->kota_bpn,
             'lokasi_kepala_bpn' => $this->lokasi_kepala_bpn,
@@ -90,12 +101,12 @@ class CreateSuratRoyaLivewire extends Component
             'tanggal_sht' => $this->tanggal_sht
         ]);
 
-        session()->flash('storeSuccess', 'Surat roya berhasil ditambahkan');
+        session()->flash('updateSuccess', 'Surat roya berhasil diubah');
         return redirect()->route('surat-roya.index');
     }
 
     public function render()
     {
-        return view('livewire.surat-roya.create-surat-roya-livewire');
+        return view('livewire.surat-roya.edit-surat-roya-livewire');
     }
 }

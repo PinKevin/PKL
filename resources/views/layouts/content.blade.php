@@ -2,7 +2,7 @@
 
 @section('body')
     <nav class="fixed top-0 z-50 w-full border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
-        <div class="bg-white px-3 py-3 lg:px-5 lg:pl-3">
+        <div class="bg-gray-50 px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <button
@@ -164,7 +164,7 @@
 
     <div class="p-4 sm:ml-64">
         <div class="border-gray-700">
-            <div class="mt-14 rounded-md bg-white p-4 dark:border-gray-700">
+            <div class="mt-14 rounded-md bg-slate-100 p-4 dark:border-gray-700">
                 @yield('content')
             </div>
         </div>

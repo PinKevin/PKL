@@ -3,14 +3,14 @@
     id="create-modal" aria-hidden="true" tabindex="-1" wire:ignore.self>
     <div class="relative max-h-full w-full max-w-md p-4">
         <!-- Modal content -->
-        <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
+        <div class="relative rounded-lg bg-blue-600 shadow dark:bg-gray-700">
             <!-- Modal header -->
             <div class="flex items-center justify-between rounded-t border-b p-2 dark:border-gray-600 md:p-3">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                <h3 class="text-lg font-semibold text-white dark:text-white">
                     Tambah Berkas
                 </h3>
                 <button
-                    class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+                    class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-white hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
                     id="close-create-modal" data-modal-toggle="create-modal" type="button">
                     <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 14 14">

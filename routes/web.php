@@ -28,4 +28,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
     Route::get('/surat-roya', [SuratRoyaController::class, 'index'])->name('surat-roya');
+
+    Route::get('/cek-surat-roya', function () {
+        return view('surat-roya.format');
+    })->name('csr');
 });

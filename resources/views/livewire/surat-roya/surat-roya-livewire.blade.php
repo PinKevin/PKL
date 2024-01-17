@@ -82,9 +82,7 @@
             + Tambah Surat Roya
         </a>
     </div>
-    {{-- @include('livewire.berkas.show-modal')
-    @include('livewire.berkas.edit-modal')
-    @include('livewire.berkas.delete-modal') --}}
+    @include('livewire.surat-roya.delete-modal')
     <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -166,7 +164,7 @@
                             </a>
                             <button id="button-delete-modal" data-modal-target="delete-modal"
                                 data-modal-toggle="delete-modal" type="button"
-                                wire:click="deleteBerkas({{ $sr->id }})">
+                                wire:click="deleteSuratRoya({{ $sr->id }})">
                                 <svg class="h-4 w-4 text-red-600 hover:text-red-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 18 20">

@@ -13,6 +13,6 @@ class SuratRoya extends Model
 
     protected $casts = [
         'tanggal_pelunasan' => 'date',
-        'tanggal_htp' => 'date'
+        'tanggal_sht' => 'date'
     ];
 }

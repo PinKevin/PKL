@@ -36,9 +36,9 @@ class SuratRoyaFactory extends Factory
             'nib' => fake()->numerify('##.##.##.##.####'),
             'luas' => fake()->randomNumber(3),
             'pemilik' => fake()->name(),
-            'peringkat_htp' => fake()->randomElement([1, 2]),
-            'no_htp' => fake()->numerify('No. ####/####'),
-            'tanggal_htp' => fake()->date()
+            'peringkat_sht' => fake()->randomElement([1, 2]),
+            'no_sht' => fake()->numerify('No. ####/####'),
+            'tanggal_sht' => fake()->date()
         ];
     }
 }

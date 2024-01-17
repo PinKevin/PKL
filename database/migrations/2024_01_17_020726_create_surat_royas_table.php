@@ -25,9 +25,9 @@ return new class extends Migration
             $table->string('nib');
             $table->integer('luas');
             $table->string('pemilik');
-            $table->integer('peringkat_htp');
-            $table->string('no_htp');
-            $table->date('tanggal_htp');
+            $table->integer('peringkat_sht');
+            $table->string('no_sht');
+            $table->date('tanggal_sht');
             $table->timestamps();
         });
     }

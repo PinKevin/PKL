@@ -10,37 +10,12 @@ use Livewire\WithPagination;
 
 class SuratRoyaLivewire extends Component
 {
-    use WithPagination, WithFileUploads;
-
-    // public $kota_bpn, $no_hp, $pdfUrl;
+    use WithPagination;
 
     public $search = '';
 
     public $sortBy = 'pemilik';
     public $sortDirection = 'asc';
-
-    public function rules()
-    {
-        return [
-            'nama' => 'required',
-            'no_hp' => 'required'
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'required' => ':attribute harus diisi!'
-        ];
-    }
-
-    public function validationAttributes()
-    {
-        return [
-            'nama' =>  'Nama',
-            'no_hp' => 'Nomor HP',
-        ];
-    }
 
     public function sortResult($column)
     {
@@ -61,6 +36,7 @@ class SuratRoyaLivewire extends Component
             ->paginate(10);
         return $suratRoya;
     }
+
 
     // public function generateSuratRoya()
     // {

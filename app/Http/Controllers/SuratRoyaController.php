@@ -21,7 +21,7 @@ class SuratRoyaController extends Controller
      */
     public function create()
     {
-        //
+        return view('surat-roya.create');
     }
 
     /**

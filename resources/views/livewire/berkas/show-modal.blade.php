@@ -28,26 +28,25 @@
                             Nama Debitur
                         </label>
                         <input
-                            class="cursor-not-allowed focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400" disabled
-                            id="nama" name="nama" type="text" placeholder="Nama" wire:model="nama" />
+                            class="block w-full cursor-not-allowed rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            id="nama" name="nama" type="text" disabled wire:model="nama" />
                     </div>
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                             for="no_rekening">Nomor Debitur
                         </label>
                         <input
-                            class="cursor-not-allowed focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400" disabled
-                            id="no_rekening" name="no_rekening" type="text" placeholder="Nomor Rekening"
-                            wire:model="no_rekening" />
+                            class="block w-full cursor-not-allowed rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            id="no_rekening" name="no_rekening" type="text" disabled wire:model="no_rekening" />
                     </div>
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                             for="tanggal_pengambilan">Tanggal Pengambilan
                         </label>
                         <input
-                            class="cursor-not-allowed focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400" disabled
-                            id="tanggal_pengambilan" name="tanggal_pengambilan" type="text"
-                            placeholder="Nomor Rekening" wire:model="tanggal_pengambilan" />
+                            class="block w-full cursor-not-allowed rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            id="tanggal_pengambilan" name="tanggal_pengambilan" type="text" disabled
+                            wire:model="tanggal_pengambilan" />
                     </div>
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="file_bukti">
@@ -56,17 +55,6 @@
                         <embed src="/storage/{{ $file_bukti }}" type="application/pdf" width="100%" height="600">
                     </div>
                 </div>
-                {{-- <button
-                    class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    type="submit">
-                    <svg class="-ms-1 me-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    Tambah Bukti Peminjaman
-                </button> --}}
             </form>
         </div>
     </div>

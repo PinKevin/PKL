@@ -10,4 +10,8 @@ class Berkas extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    protected $casts = [
+        'tanggal_pengambilan' => 'date'
+    ];
 }

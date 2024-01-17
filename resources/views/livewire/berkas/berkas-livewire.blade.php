@@ -57,7 +57,7 @@
     @endif
     <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Daftar Berkas</h2>
 
-    <div class="mt-2 mb-2 flex items-center justify-between">
+    <div class="mb-2 mt-2 flex items-center justify-between">
         @include('livewire.berkas.create-modal')
         {{-- Tabel --}}
         <div class="bg-white py-2.5 dark:bg-gray-900">
@@ -87,7 +87,7 @@
     @include('livewire.berkas.edit-modal')
     @include('livewire.berkas.delete-modal')
     <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
-        <table class=" w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+        <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th class="px-6 py-3" scope="col">
@@ -143,7 +143,7 @@
                             {{ $bks->no_rekening }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $bks->tanggal_pengambilan }}
+                            {{ $bks->tanggal_pengambilan->format('Y-m-d') }}
                         </td>
                         <td class="flex justify-between px-6 py-4">
                             <button id="button-show-modal" data-modal-target="show-modal"
@@ -193,7 +193,7 @@
         </table>
     </div>
 
-    <div class="mt-4 items-center ">
+    <div class="mt-4 items-center">
         {{ $berkas->onEachSide(1)->links() }}
     </div>
 </div>

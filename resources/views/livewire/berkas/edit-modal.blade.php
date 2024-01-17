@@ -5,12 +5,16 @@
         <!-- Modal content -->
         <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
             <!-- Modal header -->
+            <div
+                class="flex items-center justify-between bg-blue-600 rounded-t border-b p-2 dark:border-gray-600 md:p-3">
+                <h3 class="text-lg font-semibold text-white dark:text-white">
+                    Edit Berkas {{ $nama }}
             <div class="flex items-center justify-between rounded-t border-b p-2 dark:border-gray-600 md:p-3">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                     Edit Berkas {{ $nama_debitur }}
                 </h3>
                 <button
-                    class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+                    class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-white hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
                     id="close-edit-modal" data-modal-toggle="edit-modal" type="button">
                     <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 14 14">
@@ -21,7 +25,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="p-4 md:p-5" wire:submit.prevent="updateBerkas" method="POST">
+            <form class="rounded-b-md bg-slate-100 p-4 md:p-5" wire:submit.prevent="updateBerkas" method="POST">
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama_debitur">

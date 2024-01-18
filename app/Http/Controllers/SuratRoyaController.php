@@ -72,10 +72,31 @@ class SuratRoyaController extends Controller
     public function cetakPdf($id)
     {
         $suratRoya = SuratRoya::findOrFail($id);
+        $namaFile = "surat_roya_" . strtolower(str_replace(' ', '_', $suratRoya->pemilik)) . ".pdf";
+
+        $tanggalPelunasan = $suratRoya->tanggal_pelunasan->format('d');
+        $bulanPelunasan = DataConverterController::getBulanIndonesia($suratRoya->tanggal_pelunasan->format('n'));
+        $tahunPelunasan = $suratRoya->tanggal_pelunasan->format('Y');
+
+        $peringkatShtHuruf = $suratRoya->peringkat_sht == 1 ? 'Pertama' : 'Kedua';
+
         $pdf = Pdf::loadView('surat-roya.format', [
             'no_surat' => $suratRoya->no_surat,
-            'tanggal_pelunasan' => $suratRoya->tanggal_pelunasan
+            'tanggal_pelunasan' => "$tanggalPelunasan $bulanPelunasan $tahunPelunasan",
+            'kota_bpn' => $suratRoya->kota_bpn,
+            'lokasi_kepala_bpn' => $suratRoya->lokasi_kepala_bpn,
+            'no_agunan' => $suratRoya->no_agunan,
+            'kelurahan' => $suratRoya->kelurahan,
+            'kecamatan' => $suratRoya->kecamatan,
+            'no_surat_ukur' => $suratRoya->no_surat_ukur,
+            'nib' => $suratRoya->nib,
+            'luas' => $suratRoya->luas,
+            'pemilik' => $suratRoya->pemilik,
+            'peringkat_sht' => $suratRoya->peringkat_sht,
+            'peringkat_sht_huruf' => $peringkatShtHuruf,
+            'no_sht' => $suratRoya->no_sht,
+            'tanggal_sht' => $suratRoya->tanggal_sht->format('d-m-Y'),
         ]);
-        return $pdf->stream('surat-roya.pdf');
+        return $pdf->stream($namaFile);
     }
 }

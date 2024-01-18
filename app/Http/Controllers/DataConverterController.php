@@ -37,4 +37,14 @@ class DataConverterController extends Controller
                 return 'Bulan tidak valid';
         }
     }
+
+    public static function getBulanIndonesia($bulan)
+    {
+        $bulanArray = [
+            'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+            'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+        ];
+
+        return $bulanArray[$bulan - 1]; // Mengambil nama bulan dari daftar
+    }
 }

@@ -828,15 +828,15 @@ table.MsoTableGrid
                     Nomor
                     <span style="mso-tab-count:1"> </span>
                     <span style="mso-spacerun:yes"> </span>
-                    <span class="GramE"><span style="mso-spacerun:yes"> </span>:</span> {{ $no_surat }}
+                    <span class="GramE"><span style="mso-spacerun:yes"> </span> :</span> {{ $no_surat }}
                     <span style="mso-tab-count:8"> </span>
                     <span style="mso-tab-count:7">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
             </b>
             <span
                 style="font-size:12.0pt; font-family:'Arial Narrow',sans-serif; mso-bidi-font-family:Arial; text-align: right; width: 100%;">
-                {{ $tanggal_pelunasan }}
+                Semarang, {{ $tanggal_pelunasan }}
             </span>
         </p>
 
@@ -865,27 +865,27 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>Kepala
                     Kantor
                     Badan Pertanahan Nasional</span></b></p>
 
-            <p class=MsoNormal style='line-height:normal'>
-                <b>
-                    <span style='font-size:12.0pt;
+        <p class=MsoNormal style='line-height:normal'>
+            <b>
+                <span style='font-size:12.0pt;
 font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
-                        {{ $kota_bpn }}
-                    </span>
-                </b>
-            </p>
+                    {{ $kota_bpn }}
+                </span>
+            </b>
+        </p>
 
-            <p class=MsoNormal style='line-height:normal'>
-                <b>
-                    <span style='font-size:12.0pt;
+        <p class=MsoNormal style='line-height:normal'>
+            <b>
+                <span style='font-size:12.0pt;
 font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
-                        Di {{ $lokasi_kepala_bpn }}
-                    </span>
-                </b>
-            </p>
-            <o:p></o:p>
-            <o:p></o:p>
-            <span class=GramE>
-                <span style='mso-spacerun:yes'>
+                    Di {{ $lokasi_kepala_bpn }}
+                </span>
+            </b>
+        </p>
+        <o:p></o:p>
+        <o:p></o:p>
+        <span class=GramE>
+            <span style='mso-spacerun:yes'>
 
                 <p class="MsoNormal" style="line-height:normal">
                     <span
@@ -901,12 +901,14 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
                 <p class=MsoNormal style='text-align:justify;line-height:normal'><span
                         style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
                         Arial'>Sehubungan
-                            dengan telah dilunasinya pinjaman kredit debitur kami, maka
-                            kami mohon bantuannya agar sertipikat yang menjadi jaminan kredit dan telah
-                            dipasang Sertipikat Hak Tanggungan Peringkat {{ $peringkat_sht }}
-                            ({{ $peringkat_sht_huruf }}) tersebut dibawah ini:
-                        </span>
-                    </p>
+                        dengan telah dilunasinya pinjaman kredit debitur kami, maka
+                        kami mohon bantuannya agar sertipikat yang menjadi jaminan kredit dan telah
+                        dipasang Sertipikat Hak Tanggungan Peringkat {{ $peringkat_sht }}
+                        ({{ $peringkat_sht_huruf }}) tersebut dibawah ini:
+                    </span>
+                </p>
+
+                <o:p></o:p>
 
                 <table class=MsoTableGrid
                     style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
@@ -1008,29 +1010,29 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
                         <td style='width:49.4pt;border:solid windowtext 1.0pt;
                          border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
                          padding:0cm 5.4pt 0cm 5.4pt'
-                                width=66 valign=top>
-                                <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>
-                                    <span
-                                        style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
-                                        {{ $no_agunan }}
-                                        <o:p></o:p>
-                                    </span>
-                                </p>
-                            </td>
-                            <td style='width:2.0cm;border-top:none;border-left:none;
+                            width=66 valign=top>
+                            <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>
+                                <span
+                                    style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
+                                    {{ $no_agunan }}
+                                    <o:p></o:p>
+                                </span>
+                            </p>
+                        </td>
+                        <td style='width:2.0cm;border-top:none;border-left:none;
                          border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
                          mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'
-                                width=76 valign=top>
-                                <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-                                        style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
+                            width=76 valign=top>
+                            <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                                    style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
                          Arial'>
-                                        {{ $kelurahan }}-{{ $kecamatan }}
-                                        <o:p></o:p>
-                                    </span>
-                                </p>
-                            </td>
-                            <td style='width:77.95pt;border-top:none;border-left:
+                                    {{ $kelurahan }}-{{ $kecamatan }}
+                                    <o:p></o:p>
+                                </span>
+                            </p>
+                        </td>
+                        <td style='width:77.95pt;border-top:none;border-left:
                          none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
                          mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'
@@ -1038,16 +1040,16 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
                             <p class=MsoNormal
                                 style='margin-bottom:0cm;text-align:center;
                          line-height:normal'
-                                    align=center>
-                                    <span
-                                        style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;
+                                align=center>
+                                <span
+                                    style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;
                          mso-bidi-font-family:Arial'>
-                                        {{ $no_surat_ukur }}
-                                        <o:p></o:p>
-                                    </span>
-                                </p>
-                            </td>
-                            <td style='width:99.2pt;border-top:none;border-left:
+                                    {{ $no_surat_ukur }}
+                                    <o:p></o:p>
+                                </span>
+                            </p>
+                        </td>
+                        <td style='width:99.2pt;border-top:none;border-left:
                          none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
                          mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'
@@ -1055,16 +1057,16 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
                             <p class=MsoNormal
                                 style='margin-bottom:0cm;text-align:center;
                          line-height:normal'
-                                    align=center>
-                                    <span
-                                        style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;
+                                align=center>
+                                <span
+                                    style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;
                          mso-bidi-font-family:Arial'>
-                                        {{ $nib }}
-                                        <o:p></o:p>
-                                    </span>
-                                </p>
-                            </td>
-                            <td style='width:2.0cm;border-top:none;border-left:none;
+                                    {{ $nib }}
+                                    <o:p></o:p>
+                                </span>
+                            </p>
+                        </td>
+                        <td style='width:2.0cm;border-top:none;border-left:none;
                          border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
                          mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'
@@ -1072,15 +1074,15 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
                             <p class=MsoNormal
                                 style='margin-bottom:0cm;text-align:center;
                          line-height:normal'
-                                    align=center>
-                                    <span
-                                        style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;
+                                align=center>
+                                <span
+                                    style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;
                          mso-bidi-font-family:Arial'>{{ $luas }}
-                                        <o:p></o:p>
-                                    </span>
-                                </p>
-                            </td>
-                            <td style='width:63.8pt;border-top:none;border-left:none;
+                                    <o:p></o:p>
+                                </span>
+                            </p>
+                        </td>
+                        <td style='width:63.8pt;border-top:none;border-left:none;
                          border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
                          mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'
@@ -1088,30 +1090,32 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
                             <p class=MsoNormal
                                 style='margin-bottom:0cm;text-align:center;
                          line-height:normal'
-                                    align=center>
-                                    <span
-                                        style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;
+                                align=center>
+                                <span
+                                    style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;
                          mso-bidi-font-family:Arial'>
-                                        {{ $pemilik }}
-                                        <o:p></o:p>
-                                    </span>
-                                </p>
-                            </td>
-                        </tr>
-                    </table>
+                                    {{ $pemilik }}
+                                    <o:p></o:p>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
 
-                    <p class=MsoNormal style='text-align:justify;line-height:normal'><span
-                            style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
+                <o:p></o:p>
+
+                <p class=MsoNormal style='text-align:justify;line-height:normal'><span
+                        style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
                         Arial'>dapat
-                            diroya dan apabila telah selesai agar diserahkan kembali kepada
-                            yang bersangkutan atau kuasanya.</span></p>
+                        diroya dan apabila telah selesai agar diserahkan kembali kepada
+                        yang bersangkutan atau kuasanya.</span></p>
 
                 <p class=MsoNormal style='text-align:justify;line-height:normal'><span
                         style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
                         Arial'>Bersama
-                            ini kami lampirkan sertipikat tersebut di atas berikut
-                            Sertipikat Hak Tanggungan Peringkat {{ $peringkat_sht }} ({{ $peringkat_sht_huruf }}) No.
-                            {{ $no_sht }} tanggal {{ $tanggal_sht }}.</span></p>
+                        ini kami lampirkan sertipikat tersebut di atas berikut
+                        Sertipikat Hak Tanggungan Peringkat {{ $peringkat_sht }} ({{ $peringkat_sht_huruf }}) No.
+                        {{ $no_sht }} tanggal {{ $tanggal_sht }}.</span></p>
 
                 <p class=MsoNormal style='text-align:justify;line-height:normal'><span
                         style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
@@ -1119,11 +1123,7 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
                         kami sampaikan, atas perhatian dan kerjasamanya kami ucapkan
                         terima kasih.</span></p>
 
-                <p class=MsoNormal style='text-align:justify;line-height:normal'><span
-                        style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
-                        Arial'>
-                        <o:p>&nbsp;</o:p>
-                    </span></p>
+                <o:p></o:p>
 
                 <p class=MsoNormal
                     style='margin-left:216.0pt;text-align:center;

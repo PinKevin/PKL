@@ -664,17 +664,27 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>Kepala
                         Kantor
                         Badan Pertanahan Nasional</span></b></p>
 
-            <p class=MsoNormal style='line-height:normal'><b><span
-                        style='font-size:12.0pt;
-font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>Kabupaten
-                        Semarang</span></b></p>
+            <p class=MsoNormal style='line-height:normal'>
+                <b>
+                    <span style='font-size:12.0pt;
+font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
+                        {{ $kota_bpn }}
+                    </span>
+                </b>
+            </p>
 
-            <p class=MsoNormal style='line-height:normal'><b><span
-                        style='font-size:12.0pt;
-font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>DI
-                        Semarang</span></b></p>
+            <p class=MsoNormal style='line-height:normal'>
+                <b>
+                    <span style='font-size:12.0pt;
+font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
+                        Di {{ $lokasi_kepala_bpn }}
+                    </span>
+                </b>
+            </p>
             <o:p></o:p>
-            <o:p></o:p><span class=GramE><span style='mso-spacerun:yes'>
+            <o:p></o:p>
+            <span class=GramE>
+                <span style='mso-spacerun:yes'>
 
                     <p class=MsoNormal style='line-height:normal'><span
                             style='font-size:12.0pt;
@@ -689,7 +699,10 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>DI
                         Arial'>Sehubungan
                             dengan telah dilunasinya pinjaman kredit debitur kami, maka
                             kami mohon bantuannya agar sertipikat yang menjadi jaminan kredit dan telah
-                            dipasang Sertipikat Hak Tanggungan Peringkat I (Pertama) tersebut dibawah ini :</span></p>
+                            dipasang Sertipikat Hak Tanggungan Peringkat {{ $peringkat_sht }}
+                            ({{ $peringkat_sht_huruf }}) tersebut dibawah ini:
+                        </span>
+                    </p>
 
                     <table class=MsoTableGrid
                         style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
@@ -792,10 +805,13 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>DI
                          border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
                          padding:0cm 5.4pt 0cm 5.4pt'
                                 width=66 valign=top>
-                                <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-                                        style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
-                         Arial'>HM.
-                                        4689<o:p></o:p></span></p>
+                                <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>
+                                    <span
+                                        style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
+                                        {{ $no_agunan }}
+                                        <o:p></o:p>
+                                    </span>
+                                </p>
                             </td>
                             <td style='width:2.0cm;border-top:none;border-left:none;
                          border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -804,8 +820,11 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>DI
                                 width=76 valign=top>
                                 <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
                                         style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
-                         Arial'>Desa
-                                        Kalongan-Ungaran Timur<o:p></o:p></span></p>
+                         Arial'>
+                                        {{ $kelurahan }}-{{ $kecamatan }}
+                                        <o:p></o:p>
+                                    </span>
+                                </p>
                             </td>
                             <td style='width:77.95pt;border-top:none;border-left:
                          none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -818,8 +837,10 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>DI
                                     align=center>
                                     <span
                                         style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;
-                         mso-bidi-font-family:Arial'>SU
-                                        No. 00970/Kalongan/2013<o:p></o:p></span>
+                         mso-bidi-font-family:Arial'>
+                                        {{ $no_surat_ukur }}
+                                        <o:p></o:p>
+                                    </span>
                                 </p>
                             </td>
                             <td style='width:99.2pt;border-top:none;border-left:
@@ -833,7 +854,8 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>DI
                                     align=center>
                                     <span
                                         style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;
-                         mso-bidi-font-family:Arial'>11.07.18.21.06114
+                         mso-bidi-font-family:Arial'>
+                                        {{ $nib }}
                                         <o:p></o:p>
                                     </span>
                                 </p>
@@ -849,7 +871,7 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>DI
                                     align=center>
                                     <span
                                         style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;
-                         mso-bidi-font-family:Arial'>60
+                         mso-bidi-font-family:Arial'>{{ $luas }}
                                         <o:p></o:p>
                                     </span>
                                 </p>
@@ -865,8 +887,10 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>DI
                                     align=center>
                                     <span
                                         style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;
-                         mso-bidi-font-family:Arial'>CAHYO
-                                        KURNIAWAN, Sarjana Teknik<o:p></o:p></span>
+                         mso-bidi-font-family:Arial'>
+                                        {{ $pemilik }}
+                                        <o:p></o:p>
+                                    </span>
                                 </p>
                             </td>
                         </tr>
@@ -874,7 +898,7 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>DI
 
                     <p class=MsoNormal style='text-align:justify;line-height:normal'><span
                             style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
-                        Arial'>Dapat
+                        Arial'>dapat
                             diroya dan apabila telah selesai agar diserahkan kembali kepada
                             yang bersangkutan atau kuasanya.</span></p>
 
@@ -882,8 +906,8 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>DI
                             style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
                         Arial'>Bersama
                             ini kami lampirkan sertipikat tersebut di atas berikut
-                            Sertipikat Hak Tanggungan Peringkat I (Pertama) No. 2287/2014 tanggal
-                            02-06-2014.</span></p>
+                            Sertipikat Hak Tanggungan Peringkat {{ $peringkat_sht }} ({{ $peringkat_sht_huruf }}) No.
+                            {{ $no_sht }} tanggal {{ $tanggal_sht }}.</span></p>
 
                     <p class=MsoNormal style='text-align:justify;line-height:normal'><span
                             style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:

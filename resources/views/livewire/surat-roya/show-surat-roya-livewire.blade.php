@@ -117,9 +117,9 @@
                     id="tanggal_sht" type="date" value="{{ $suratRoya->tanggal_sht->format('Y-m-d') }}" disabled>
             </div>
         </div>
-        <a class="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
-            href="{{ route('surat-roya.cetak', ['id' => $suratRoya->id]) }}">
-            Tambah
+        <a class="mr-1 w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+            href="{{ route('surat-roya.cetak', ['id' => $suratRoya->id]) }}" target="_blank">
+            Cetak PDF
         </a>
         <a class="w-full rounded-lg bg-gray-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 sm:w-auto"
             href="{{ route('surat-roya.index') }}">

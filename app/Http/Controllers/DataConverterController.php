@@ -45,6 +45,6 @@ class DataConverterController extends Controller
             'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
         ];
 
-        return $bulanArray[$bulan - 1]; // Mengambil nama bulan dari daftar
+        return $bulanArray[$bulan - 1];
     }
 }

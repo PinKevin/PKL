@@ -15,7 +15,7 @@ class CreateSuratRoyaLivewire extends Component
     public function rules()
     {
         return [
-            'no_surat_depan' => 'required|integer|unique:surat_royas,no_surat_depan',
+            // 'no_surat_depan' => 'required|integer|unique:surat_royas,no_surat_depan',
             'tanggal_pelunasan' => 'required|date',
             'kota_bpn' => 'required',
             'lokasi_kepala_bpn' => 'required',
@@ -45,7 +45,7 @@ class CreateSuratRoyaLivewire extends Component
     public function validationAttributes()
     {
         return [
-            'no_surat_depan' => 'Nomor surat',
+            // 'no_surat_depan' => 'Nomor surat',
             'tanggal_pelunasan' => 'Tanggal pelunasan',
             'kota_bpn' => 'Kota BPN',
             'lokasi_kepala_bpn' => 'Lokasi Kepala BPN',
@@ -68,12 +68,14 @@ class CreateSuratRoyaLivewire extends Component
 
         $bulan = DataConverterController::bulanToRomawi(date('m'));
         $tahun = date('Y');
-        $noSurat = "$this->no_surat_depan/SMG/LD/$bulan/$tahun";
 
-        // dd($noSurat);
+        $noDepan = SuratRoya::whereYear('created_at', $tahun)->max('no_surat_depan');
+        $noDepan = $noDepan ? $noDepan + 1 : 1;
+
+        $noSurat = "$noDepan/SMG/LD/$bulan/$tahun";
 
         SuratRoya::create([
-            'no_surat_depan' => $this->no_surat_depan,
+            'no_surat_depan' => $noDepan,
             'no_surat' => $noSurat,
             'tanggal_pelunasan' => $this->tanggal_pelunasan,
             'kota_bpn' => $this->kota_bpn,

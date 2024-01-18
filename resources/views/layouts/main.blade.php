@@ -11,7 +11,7 @@
         @stack('styles')
     </head>
 
-    <body class="bg-gray-100">
+    <body class="bg-white">
         @yield('body')
         @stack('scripts')
     </body>

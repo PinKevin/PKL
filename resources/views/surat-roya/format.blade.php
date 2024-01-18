@@ -824,14 +824,15 @@ table.MsoTableGrid
 
         <p class="MsoNormal display: block text-left" style="line-height:normal">
             <b>
-                <span style="font-size:12.0pt; font-family:'Arial Narrow',sans-serif; mso-bidi-font-family:Arial">
+                <span style="font-size:12.0pt; font-family:'Arial Narrow',sans-serif; mso-bidi-font-family:Arial;">
                     Nomor
-                    <span style="mso-tab-count:1"> </span>
-                    <span style="mso-spacerun:yes"> </span>
-                    <span class="GramE"><span style="mso-spacerun:yes"> </span> :</span> {{ $no_surat }}
-                    <span style="mso-tab-count:8"> </span>
-                    <span style="mso-tab-count:7">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="GramE"><span style="mso-spacerun:yes"></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                    <span style="font-weight:normal;">{{ $no_surat }}</span>
+                    <span style="mso-tab-count:8"></span>
+                    <span style="mso-tab-count:7"></span>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
             </b>
             <span
@@ -840,12 +841,17 @@ table.MsoTableGrid
             </span>
         </p>
 
-        <p class=MsoNormal style='line-height:normal'><b><span
-                    style='font-size:12.0pt;
-font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>Lampiran
-                    <span class=GramE><span style='mso-spacerun:yes'> </span>:</span>
-                    <o:p></o:p>
-                </span></b></p>
+        <p class="MsoNormal" style="line-height:normal">
+            <b>
+                <span style="font-size:12.0pt; font-family:'Arial Narrow',sans-serif; mso-bidi-font-family:Arial">
+                    Lampiran
+                    <span class="GramE"><span style="mso-spacerun:yes"></span>&nbsp;:</span>
+                </span>
+                <span style="font-weight:normal;"> -</span>
+                <o:p></o:p>
+            </b>
+        </p>
+
 
         {{-- <p class=MsoNormal style='line-height:normal'><b><span
                     style='font-size:12.0pt;
@@ -1011,7 +1017,7 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
                          border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
                          padding:0cm 5.4pt 0cm 5.4pt'
                             width=66 valign=top>
-                            <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>
+                            <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'align=center>
                                 <span
                                     style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
                                     {{ $no_agunan }}
@@ -1024,7 +1030,7 @@ font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:Arial'>
                          mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
                          mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'
                             width=76 valign=top>
-                            <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+                            <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'align=center><span
                                     style='font-size:12.0pt;font-family:"Arial Narrow",sans-serif;mso-bidi-font-family:
                          Arial'>
                                     {{ $kelurahan }}-{{ $kecamatan }}

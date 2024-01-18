@@ -139,7 +139,7 @@
                         <td class="px-6 py-4">
                             {{ $sr->no_surat }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-16 py-4">
                             {{ $sr->created_at->format('Y-m-d') }}
                         </td>
                         <td class="flex justify-between px-6 py-4">

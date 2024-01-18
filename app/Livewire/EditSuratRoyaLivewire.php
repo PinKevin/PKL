@@ -65,7 +65,7 @@ class EditSuratRoyaLivewire extends Component
 
         $data = SuratRoya::findOrFail($id);
 
-        $this->no_surat_depan = $data->no_surat_depan;
+        $this->no_surat = $data->no_surat;
         $this->tanggal_pelunasan = $data->tanggal_pelunasan->format('Y-m-d');
         $this->kota_bpn = $data->kota_bpn;
         $this->lokasi_kepala_bpn = $data->lokasi_kepala_bpn;

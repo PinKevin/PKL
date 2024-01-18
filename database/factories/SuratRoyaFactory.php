@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Http\Controllers\DataConverterController;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,10 +19,13 @@ class SuratRoyaFactory extends Factory
     public function definition(): array
     {
         $noSuratTengah = 'SMG/LD';
-        $month = date('m');
+        $month = DataConverterController::bulanToRomawi(date('m'));
         $year = date('Y');
 
         $cnt = $this->counter++;
+        if ($cnt >= 1 && $cnt <= 9) {
+            $cnt = '0' . $cnt;
+        }
 
         return [
             'no_surat_depan' => $cnt,

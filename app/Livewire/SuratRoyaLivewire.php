@@ -64,35 +64,6 @@ class SuratRoyaLivewire extends Component
         $this->pemilik = '';
     }
 
-
-    // public function generateSuratRoya()
-    // {
-    //     $this->validate();
-
-    //     $pdf = Pdf::loadView('surat-roya.format', [
-    //         'nama' => $this->nama,
-    //         'no_hp' => $this->no_hp,
-    //     ]);
-
-    //     // $pdf->setOption('isHtml5ParserEnabled', true);
-    //     // $pdf->setOption('isPhpEnabled', true);
-    //     // $pdf->setOption('isFontSubsettingEnabled', true);
-    //     // return $pdf->stream('surat-roya-' . $this->nama . '.pdf');
-
-    //     $filename = 'surat_roya_' . $this->nama . '.pdf';
-    //     $pdf->save(storage_path('app/public/' . $filename));
-    //     $this->pdfUrl = asset('storage/' . $filename);
-
-    //     // $pdf->stream('surat-roya-' . $this->nama);
-
-    //     // return view('surat-roya.format', compact('nama', 'no_hp'));
-    //     // return redirect(route('dashboard'));
-    //     // return redirect()->route('csr', [
-    //     //     'nama' => $nama,
-    //     //     'no_hp' => $no_hp
-    //     // ]);
-    // }
-
     public function render()
     {
         return view('livewire.surat-roya.surat-roya-livewire', [

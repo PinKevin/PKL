@@ -41,7 +41,7 @@ class SuratRoyaFactory extends Factory
             'luas' => fake()->randomNumber(3),
             'pemilik' => fake()->name(),
             'peringkat_sht' => fake()->randomElement([1, 2]),
-            'no_sht' => fake()->numerify('No. ####/####'),
+            'no_sht' => fake()->numerify('####/####'),
             'tanggal_sht' => fake()->date()
         ];
     }

@@ -4,20 +4,24 @@
 
 ## TBD
 
-TBD merupakan aplikasi _website_ yang dibangun untuk Loan Document Bank BTN KC Semarang. Beberapa fitur yang tersedia: 
-- Login.
-- Dashboard (TBD isinya).
-- CRUD berkas peminjaman.
-- CRUD surat roya.
-- Ekspor PDF untuk surat roya (panggil data bisa, formatting masih kureng)
+TBD merupakan aplikasi _website_ yang dibangun untuk Loan Document Bank BTN KC Semarang. Beberapa fitur yang tersedia:
+
+-   Login.
+-   Dashboard (TBD isinya).
+-   CRUD berkas peminjaman.
+-   CRUD surat roya.
+-   CRUD BAST
+-   Ekspor word untuk surat roya
+-   Ekspor word untuk BAST
 
 ## Teknologi
 
 Aplikasi ini dibangun dengan teknologi pengembangan full-stack TALL, yaitu teknologi yang menggabungkan empat teknologi terkenal untuk mengembangkan aplikasi secara full-stack, yaitu:
-- Tailwind
-- AlpineJS
-- Laravel
-- Livewire
+
+-   Tailwind
+-   AlpineJS
+-   Laravel
+-   Livewire
 
 Selain empat teknologi tersebut, terdapat juga tambahan teknologi untuk membantu _styling_, yaitu Flowbite.
 
@@ -84,6 +88,7 @@ Selain empat teknologi tersebut, terdapat juga tambahan teknologi untuk membantu
     ```
     php artisan serve
     ```
+
 4. Jalankan perintah ini di terminal kedua, **JANGAN TUTUP TERMINAL**
 
     ```
@@ -92,7 +97,7 @@ Selain empat teknologi tersebut, terdapat juga tambahan teknologi untuk membantu
 
 5. Buka tautan yang dibuat setelah menjalankan `php artisan serve`
 
-
 ## DIBUAT OLEH
-- Emerio Kevin Aryaputra
-- Sulthan Firmansyah
+
+-   Emerio Kevin Aryaputra
+-   Sulthan Firmansyah

@@ -36,12 +36,4 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}/edit', [SuratRoyaController::class, 'edit'])->name('surat-roya.edit');
         Route::get('/{id}/cetak', [SuratRoyaController::class, 'cetakWord'])->name('surat-roya.cetak');
     });
-
-    Route::prefix('/bast')->group(function () {
-        Route::get('/', [BastController::class, 'index'])->name('bast.index');
-        Route::get('/create', [BastController::class, 'create'])->name('bast.create');
-        Route::get('/{id}', [BastController::class, 'show'])->name('bast.show');
-        Route::get('/{id}/edit', [BastController::class, 'edit'])->name('bast.edit');
-        Route::get('/{id}/cetak', [BastController::class, 'cetakWord'])->name('bast.cetak');
-    });
 });

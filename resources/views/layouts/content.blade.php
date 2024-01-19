@@ -99,7 +99,7 @@
                         <span class="ms-3 flex-1 whitespace-nowrap">Surat Roya</span>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a class="{{ request()->routeIs('bast.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
                         href="/bast">
                         <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
@@ -109,7 +109,7 @@
                         </svg>
                         <span class="ms-3 flex-1 whitespace-nowrap">BAST</span>
                     </a>
-                </li>
+                </li> --}}
                 <li>
                     <a class="group flex items-center rounded-lg p-2 text-slate-100 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-900"
                         href="#">

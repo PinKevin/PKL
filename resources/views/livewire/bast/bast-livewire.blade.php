@@ -77,7 +77,7 @@
         <!-- Create modal toggle -->
         <a class="inline-flex w-full items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
             id="button-create-modal" data-modal-target="create-modal" data-modal-toggle="create-modal" type="button"
-            href="{{ route('surat-roya.create') }}">
+            href="{{ route('bast.create') }}">
             <svg class="mr-2 h-3 w-3 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 18 18">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -86,7 +86,7 @@
             Tambah Surat Roya
         </a>
     </div>
-    @include('livewire.surat-roya.delete-modal')
+    {{-- @include('livewire.bast.delete-modal') --}}
     <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -96,7 +96,7 @@
                     </th>
                     <th class="px-7 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('pemilik')">
-                            Pemilik
+                            Nama
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -106,7 +106,7 @@
                     </th>
                     <th class="px-7 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('no_surat')">
-                            Nomor Surat
+                            Nomor
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -116,7 +116,7 @@
                     </th>
                     <th class="px-7 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('Created_at')">
-                            Tanggal Pembuatan
+                            Tanggal
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -130,7 +130,7 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($suratRoya as $sr)
+                {{-- @forelse ($suratRoya as $sr)
                     <tr
                         class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
                         <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
@@ -147,7 +147,7 @@
                             {{ $sr->created_at->format('Y-m-d') }}
                         </td>
                         <td class="flex justify-between px-6 py-4">
-                            <a href="{{ route('surat-roya.show', ['id' => $sr->id]) }}">
+                            <a href="{{ route('bast.show', ['id' => $sr->id]) }}">
                                 <svg class="h-4 w-4 text-yellow-300 hover:text-gray-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 20">
@@ -155,7 +155,7 @@
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                 </svg>
                             </a>
-                            <a href="{{ route('surat-roya.edit', ['id' => $sr->id]) }}">
+                            <a href="{{ route('bast.edit', ['id' => $sr->id]) }}">
                                 <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 18">
@@ -185,12 +185,12 @@
                             Tidak ada data!
                         </td>
                     </tr>
-                @endforelse
+                @endforelse --}}
             </tbody>
         </table>
     </div>
 
     <div class="mt-4 items-center">
-        {{ $suratRoya->onEachSide(1)->links() }}
+        {{-- {{ $suratRoya->onEachSide(1)->links() }} --}}
     </div>
 </div>

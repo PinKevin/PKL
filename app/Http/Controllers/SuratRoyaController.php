@@ -83,28 +83,6 @@ class SuratRoyaController extends Controller
 
         $peringkatShtHuruf = $suratRoya->peringkat_sht == 1 ? 'Pertama' : 'Kedua';
 
-        // $filePath = public_path('format/format-roya.rtf');
-
-        // dd($suratRoya->no_surat, "$tanggalPelunasan $bulanPelunasan $tahunPelunasan");
-
-        // $data = [
-        //     '[no_surat]' => $suratRoya->no_surat,
-        //     '[tanggal_surat]' => "$tanggalPelunasan $bulanPelunasan $tahunPelunasan",
-        //     '[kota_bpn]' => $suratRoya->kota_bpn,
-        //     '[lokasi_kepala_bpn]' => strtoupper($suratRoya->lokasi_kepala_bpn),
-        //     '[no_agunan]' => $suratRoya->no_agunan,
-        //     '[kelurahan]' => $suratRoya->kelurahan,
-        //     '[kecamatan]' => $suratRoya->kecamatan,
-        //     '[no_surat_ukur]' => $suratRoya->no_surat_ukur,
-        //     '[nib]' => $suratRoya->nib,
-        //     '[luas]' => $suratRoya->luas,
-        //     '[pemilik]' => $suratRoya->pemilik,
-        //     '[peringkat_sht]' => $suratRoya->peringkat_sht,
-        //     '[peringkat_sht_huruf]' => $peringkatShtHuruf,
-        //     '[no_sht]' => $suratRoya->no_sht,
-        //     '[tanggal_sht]' => $suratRoya->tanggal_sht->format('d-m-Y'),
-        // ];
-
         $data = [
             'no_surat' => $suratRoya->no_surat,
             'tanggal_surat' => "$tanggalPelunasan $bulanPelunasan $tahunPelunasan",
@@ -123,32 +101,8 @@ class SuratRoyaController extends Controller
             'tanggal_sht' => $suratRoya->tanggal_sht->format('d-m-Y'),
         ];
 
-        // $templateProcessor->setValue('no_surat', $suratRoya->noSurat);
         $templateProcessor->setValues($data);
         $templateProcessor->saveAs($namaFile);
         return response()->download($namaFile)->deleteFileAfterSend(true);
-
-        // $wordTemplate = new WordTemplate();
-
-        // return $wordTemplate->export($filePath, $data, $namaFile);
-
-        // $pdf = Pdf::loadView('surat-roya.format', [
-        //     'no_surat' => $suratRoya->no_surat,
-        //     'tanggal_pelunasan' => "$tanggalPelunasan $bulanPelunasan $tahunPelunasan",
-        //     'kota_bpn' => $suratRoya->kota_bpn,
-        //     'lokasi_kepala_bpn' => $suratRoya->lokasi_kepala_bpn,
-        //     'no_agunan' => $suratRoya->no_agunan,
-        //     'kelurahan' => $suratRoya->kelurahan,
-        //     'kecamatan' => $suratRoya->kecamatan,
-        //     'no_surat_ukur' => $suratRoya->no_surat_ukur,
-        //     'nib' => $suratRoya->nib,
-        //     'luas' => $suratRoya->luas,
-        //     'pemilik' => $suratRoya->pemilik,
-        //     'peringkat_sht' => $suratRoya->peringkat_sht,
-        //     'peringkat_sht_huruf' => $peringkatShtHuruf,
-        //     'no_sht' => $suratRoya->no_sht,
-        //     'tanggal_sht' => $suratRoya->tanggal_sht->format('d-m-Y'),
-        // ]);
-        // return $pdf->stream($namaFile);
     }
 }

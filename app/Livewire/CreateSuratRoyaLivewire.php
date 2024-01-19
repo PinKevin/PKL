@@ -12,10 +12,33 @@ class CreateSuratRoyaLivewire extends Component
     public $kelurahan, $kecamatan, $no_surat_ukur, $nib, $luas, $pemilik, $peringkat_sht, $no_sht;
     public $tanggal_sht;
 
+    public function mount()
+    {
+        $this->no_surat_depan = $this->generateNoDepanSurat();
+        $this->no_surat = $this->generateNoSurat();
+    }
+
+    public function generateNoDepanSurat()
+    {
+        $tahun = date('Y');
+        $noDepan = SuratRoya::whereYear('created_at', $tahun)->max('no_surat_depan');
+        $noDepan = $noDepan ? $noDepan + 1 : 1;
+        return $noDepan;
+    }
+
+    public function generateNoSurat()
+    {
+        $bulan = DataConverterController::bulanToRomawi(date('m'));
+        $tahun = date('Y');
+        $noDepan = $this->no_surat_depan;
+
+        $noSurat = "$noDepan/SMG/LD/$bulan/$tahun";
+        return $noSurat;
+    }
+
     public function rules()
     {
         return [
-            // 'no_surat_depan' => 'required|integer|unique:surat_royas,no_surat_depan',
             'tanggal_pelunasan' => 'required|date',
             'kota_bpn' => 'required',
             'lokasi_kepala_bpn' => 'required',
@@ -45,7 +68,6 @@ class CreateSuratRoyaLivewire extends Component
     public function validationAttributes()
     {
         return [
-            // 'no_surat_depan' => 'Nomor surat',
             'tanggal_pelunasan' => 'Tanggal pelunasan',
             'kota_bpn' => 'Kota BPN',
             'lokasi_kepala_bpn' => 'Lokasi Kepala BPN',
@@ -66,17 +88,9 @@ class CreateSuratRoyaLivewire extends Component
     {
         $this->validate();
 
-        $bulan = DataConverterController::bulanToRomawi(date('m'));
-        $tahun = date('Y');
-
-        $noDepan = SuratRoya::whereYear('created_at', $tahun)->max('no_surat_depan');
-        $noDepan = $noDepan ? $noDepan + 1 : 1;
-
-        $noSurat = "$noDepan/SMG/LD/$bulan/$tahun";
-
         SuratRoya::create([
-            'no_surat_depan' => $noDepan,
-            'no_surat' => $noSurat,
+            'no_surat_depan' => $this->no_surat_depan,
+            'no_surat' => $this->no_surat,
             'tanggal_pelunasan' => $this->tanggal_pelunasan,
             'kota_bpn' => $this->kota_bpn,
             'lokasi_kepala_bpn' => $this->lokasi_kepala_bpn,

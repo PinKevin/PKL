@@ -2,15 +2,14 @@
     <img src="https://github.com/PinKevin/PKL/blob/main/public/img/btn-logo.png" width="450" height="100">
 </p>
 
-Dibuat Oleh
-
-
 ## TBD
 
 TBD merupakan aplikasi _website_ yang dibangun untuk Loan Document Bank BTN KC Semarang. Beberapa fitur yang tersedia: 
 - Login.
 - Dashboard (TBD isinya).
 - CRUD berkas peminjaman.
+- CRUD surat roya.
+- Ekspor PDF untuk surat roya (panggil data bisa, formatting masih kureng)
 
 ## Teknologi
 
@@ -85,7 +84,6 @@ Selain empat teknologi tersebut, terdapat juga tambahan teknologi untuk membantu
     ```
     php artisan serve
     ```
-
 4. Jalankan perintah ini di terminal kedua, **JANGAN TUTUP TERMINAL**
 
     ```
@@ -93,3 +91,8 @@ Selain empat teknologi tersebut, terdapat juga tambahan teknologi untuk membantu
     ```
 
 5. Buka tautan yang dibuat setelah menjalankan `php artisan serve`
+
+
+## DIBUAT OLEH
+- Emerio Kevin Aryaputra
+- Sulthan Firmansyah

@@ -20,7 +20,7 @@ class DebiturController extends Controller
      */
     public function create()
     {
-        //
+        return view('debitur.create');
     }
 
     /**
@@ -44,9 +44,11 @@ class DebiturController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Debitur $debitur)
+    public function edit($id)
     {
-        //
+        return view('debitur.edit', [
+            'id' => $id
+        ]);
     }
 
     /**

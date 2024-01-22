@@ -75,20 +75,16 @@
             </div>
         </div>
         <!-- Create modal toggle -->
-        <button
-            class="inline-flex w-full items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
-            id="button-create-modal" data-modal-target="create-modal" data-modal-toggle="create-modal" type="button"
-            wire:click="resetInput()">
+        <a class="inline-flex w-full items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+            href="{{ route('debitur.create') }}">
             <svg class="mr-2 h-3 w-3 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 18 18">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M9 1v16M1 9h16" />
             </svg>
             Tambah Debitur
-        </button>
+        </a>
     </div>
-    @include('livewire.debitur.create-modal')
-    @include('livewire.debitur.edit-modal')
     @include('livewire.debitur.delete-modal')
     <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
@@ -145,9 +141,7 @@
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                 </svg>
                             </a>
-                            <button id="button-edit-modal" data-modal-target="edit-modal"
-                                data-modal-toggle="edit-modal" type="button"
-                                wire:click="editDebitur({{ $db->id }})">
+                            <a href="{{ route('debitur.edit', ['id' => $db->id]) }}">
                                 <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 18">
@@ -157,7 +151,7 @@
                                         d="M13.243 3.2 7.359 9.081a.5.5 0 0 0-.136.256L6.51 12.9a.5.5 0 0 0 .59.59l3.566-.713a.5.5 0 0 0 .255-.136L16.8 6.757 13.243 3.2Z" />
                                 </svg>
                                 <div class="sr-only">Edit</div>
-                            </button>
+                            </a>
                             <button id="button-delete-modal" data-modal-target="delete-modal"
                                 data-modal-toggle="delete-modal" type="button"
                                 wire:click="deleteDebitur({{ $db->id }})">

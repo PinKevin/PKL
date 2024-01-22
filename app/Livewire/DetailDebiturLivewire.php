@@ -8,7 +8,8 @@ use Livewire\Component;
 
 class DetailDebiturLivewire extends Component
 {
-    public $id, $nama_debitur, $no_debitur;
+    public $id, $no_debitur, $nama_debitur, $alamat, $tanggal_realisasi, $jenis_kredit, $kode_developer;
+    public $proyek_perumahan, $kode_notaris, $plafon_kredit, $saldo_pokok, $blok, $no, $luas_tanah, $luas_bangunan;
 
     public function mount($id)
     {
@@ -18,6 +19,17 @@ class DetailDebiturLivewire extends Component
 
         $this->no_debitur = $data->no_debitur;
         $this->nama_debitur = $data->nama_debitur;
+        $this->tanggal_realisasi = $data->tanggal_realisasi;
+        $this->jenis_kredit = $data->jenis_kredit;
+        $this->kode_developer = $data->kode_developer;
+        $this->proyek_perumahan = $data->proyek_perumahan;
+        $this->kode_notaris = $data->kode_notaris;
+        $this->plafon_kredit = $data->plafon_kredit;
+        $this->saldo_pokok = $data->saldo_pokok;
+        $this->blok = $data->blok;
+        $this->no = $data->no;
+        $this->luas_tanah = $data->luas_tanah;
+        $this->luas_bangunan = $data->luas_bangunan;
     }
 
     public function dokumenDebitur()

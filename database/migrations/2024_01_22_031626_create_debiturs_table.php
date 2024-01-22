@@ -15,6 +15,17 @@ return new class extends Migration
             $table->id();
             $table->string('no_debitur', 13);
             $table->string('nama_debitur');
+            $table->date('tanggal_realisasi');
+            $table->string('jenis_kredit');
+            $table->integer('kode_developer');
+            $table->string('proyek_perumahan');
+            $table->integer('kode_notaris');
+            $table->integer('plafon_kredit');
+            $table->integer('saldo_pokok');
+            $table->string('blok', 4);
+            $table->integer('no');
+            $table->integer('luas_tanah');
+            $table->integer('luas_bangunan');
         });
     }
 

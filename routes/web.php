@@ -31,7 +31,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/debitur')->group(function () {
         Route::get('/', [DebiturController::class, 'index'])->name('debitur.index');
+        Route::get('/create', [DebiturController::class, 'create'])->name('debitur.create');
         Route::get('/{id}', [DebiturController::class, 'show'])->name('debitur.show');
+        Route::get('/{id}/edit', [DebiturController::class, 'edit'])->name('debitur.edit');
     });
 
     Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');

@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('berkas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_debitur');
-            $table->string('no_debitur');
-            $table->date('tanggal_pengambilan');
-            $table->string('file_bukti')->nullable();
-            $table->timestamps();
-        });
+        // Schema::create('berkas', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('nama_debitur');
+        //     $table->string('no_debitur');
+        //     $table->date('tanggal_pengambilan');
+        //     $table->string('file_bukti')->nullable();
+        //     $table->timestamps();
+        // });
     }
 
     /**

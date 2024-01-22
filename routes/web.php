@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BastController;
 use App\Http\Controllers\BerkasController;
+use App\Http\Controllers\NotarisController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
@@ -43,4 +44,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}/edit', [SuratRoyaController::class, 'edit'])->name('surat-roya.edit');
         Route::get('/{id}/cetak', [SuratRoyaController::class, 'cetakWord'])->name('surat-roya.cetak');
     });
+
+    Route::get('/notaris', [NotarisController::class, 'index'])->name('notaris');
 });

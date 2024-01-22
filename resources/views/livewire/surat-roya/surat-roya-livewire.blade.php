@@ -58,7 +58,6 @@
     <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Daftar Surat Roya</h2>
 
     <div class="mb-2 mt-2 flex items-center justify-between">
-        {{-- @include('livewire.berkas.create-modal') --}}
         {{-- Tabel --}}
         <div class="bg-slate-100 py-2.5 dark:bg-gray-900">
             <label class="sr-only" for="table-search">Search</label>
@@ -76,10 +75,10 @@
             </div>
         </div>
         <!-- Create modal toggle -->
-        <a class="w-full rounded-lg inline-flex items-center bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+        <a class="inline-flex w-full items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
             id="button-create-modal" data-modal-target="create-modal" data-modal-toggle="create-modal" type="button"
             href="{{ route('surat-roya.create') }}">
-            <svg class="mr-2 w-3 h-3 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            <svg class="mr-2 h-3 w-3 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 18 18">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M9 1v16M1 9h16" />

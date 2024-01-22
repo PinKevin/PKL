@@ -71,7 +71,7 @@ class SuratRoyaController extends Controller
         //
     }
 
-    public function cetakPdf($id)
+    public function cetakWord($id)
     {
         $suratRoya = SuratRoya::findOrFail($id);
         $namaFile = "surat_roya_" . strtolower(str_replace(' ', '_', $suratRoya->pemilik)) . ".docx";

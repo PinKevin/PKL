@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BastController;
 use App\Http\Controllers\BerkasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -33,11 +34,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/create', [SuratRoyaController::class, 'create'])->name('surat-roya.create');
         Route::get('/{id}', [SuratRoyaController::class, 'show'])->name('surat-roya.show');
         Route::get('/{id}/edit', [SuratRoyaController::class, 'edit'])->name('surat-roya.edit');
-        Route::get('/{id}/cetak', [SuratRoyaController::class, 'cetakPdf'])->name('surat-roya.cetak');
+        Route::get('/{id}/cetak', [SuratRoyaController::class, 'cetakWord'])->name('surat-roya.cetak');
     });
-
-
-    Route::get('/cek-surat-roya', function () {
-        return view('surat-roya.format');
-    })->name('csr');
 });

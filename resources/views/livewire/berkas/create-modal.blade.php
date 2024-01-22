@@ -21,7 +21,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="rounded-b-md bg-slate-100 p-4 md:p-5" wire:submit.prevent="createBerkas" method="POST">
+            <form class="rounded-b-md bg-slate-100 p-4 md:p-5" wireaku:submit.prevent="createBerkas" method="POST">
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama_debitur">

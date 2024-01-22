@@ -300,7 +300,7 @@
         @forelse ($dokumen as $dok)
             <h2 id="accordion-open-heading-{{ $loop->index }}">
                 <button
-                    class="flex w-full items-center justify-between gap-3 rounded-t border border-b-0 border-gray-200 p-5 font-medium text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rtl:text-right dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-gray-800"
+                    class="mt-3 flex w-full items-center justify-between gap-3 rounded-t-lg bg-gray-200 p-5 font-medium text-gray-950 hover:bg-gray-400 focus:ring-4 focus:ring-gray-200 rtl:text-right dark:border-gray-700 dark:text-gray-400 dark:hover:bg-slate-500 dark:focus:ring-gray-800"
                     data-accordion-target="#accordion-open-body-{{ $loop->index }}" type="button"
                     aria-expanded="true" aria-controls="accordion-open-body-{{ $loop->index }}">
                     <span class="flex items-center">
@@ -315,7 +315,7 @@
             </h2>
             <div class="hidden" id="accordion-open-body-{{ $loop->index }}"
                 aria-labelledby="accordion-open-heading-{{ $loop->index }}">
-                <div class="border border-b-0 border-gray-200 p-5 dark:border-gray-700 dark:bg-gray-900">
+                <div class="border-2 border-b-0 border-gray-200 p-5 dark:border-gray-700 dark:bg-gray-900">
                     <p class="mb-2 text-gray-500 dark:text-gray-400">
                         Nomor Dokumen: {{ $dok->no_dokumen }}
                     </p>

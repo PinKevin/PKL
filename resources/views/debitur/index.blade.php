@@ -1,7 +1,7 @@
 @extends('layouts.content')
 
 @section('page_title')
-    Dokumen
+    Debitur
 @endsection
 
 @push('styles')
@@ -21,5 +21,5 @@
 @endpush
 
 @section('content')
-    {{-- @livewire('surat-roya-livewire') --}}
+    @livewire('debitur-livewire')
 @endsection

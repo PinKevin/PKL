@@ -26,7 +26,7 @@
         <div id="accordion-open" data-accordion="open">
             <h2 id="accordion-open-heading-1">
                 <button
-                    class="flex w-full items-center justify-between gap-3 rounded-t border border-b-0 border-gray-200 p-5 font-medium text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rtl:text-right dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-gray-800"
+                    class="mt-3 flex w-full items-center justify-between gap-3 rounded-t-lg p-5 bg-gray-200 font-medium text-gray-950 hover:bg-gray-400 focus:ring-4 focus:ring-gray-200 rtl:text-right dark:border-gray-700 dark:text-gray-400 dark:hover:bg-slate-500 dark:focus:ring-gray-800"
                     data-accordion-target="#accordion-open-body-1" type="button" aria-expanded="true"
                     aria-controls="accordion-open-body-1">
                     <span class="flex items-center"><svg class="me-2 h-5 w-5 shrink-0" fill="currentColor"
@@ -43,7 +43,7 @@
                 </button>
             </h2>
             <div class="hidden" id="accordion-open-body-1" aria-labelledby="accordion-open-heading-1">
-                <div class="border border-b-0 border-gray-200 p-5 dark:border-gray-700 dark:bg-gray-900">
+                <div class="border-2 border-b-0 border-gray-200 p-5 dark:border-gray-700 dark:bg-gray-900">
                     <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive
                         components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.
                     </p>
@@ -55,7 +55,7 @@
             </div>
             <h2 id="accordion-open-heading-2">
                 <button
-                    class="flex w-full items-center justify-between gap-3 border border-b-0 border-gray-200 p-5 font-medium text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rtl:text-right dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-gray-800"
+                    class="flex w-full items-center justify-between gap-3 p-5 bg-gray-200 font-medium text-gray-950 hover:bg-slate-400 focus:ring-4 focus:ring-slate-200 rtl:text-right dark:border-gray-700 dark:text-gray-400 dark:hover:bg-slate-500 dark:focus:ring-gray-800"
                     data-accordion-target="#accordion-open-body-2" type="button" aria-expanded="false"
                     aria-controls="accordion-open-body-2">
                     <span class="flex items-center"><svg class="me-2 h-5 w-5 shrink-0" fill="currentColor"
@@ -84,7 +84,7 @@
             </div>
             <h2 id="accordion-open-heading-3">
                 <button
-                    class="flex w-full items-center justify-between gap-3 border border-gray-200 p-5 font-medium text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 rtl:text-right dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-gray-800"
+                    class="flex w-full items-center justify-between gap-3 p-5 bg-gray-200 font-medium text-gray-950 hover:bg-slate-400  dark:border-gray-700 dark:text-gray-400 dark:hover:bg-slate-500 dark:focus:ring-gray-800"
                     data-accordion-target="#accordion-open-body-3" type="button" aria-expanded="false"
                     aria-controls="accordion-open-body-3">
                     <span class="flex items-center"><svg class="me-2 h-5 w-5 shrink-0" fill="currentColor"

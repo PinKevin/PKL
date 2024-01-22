@@ -12,7 +12,7 @@ class DebiturController extends Controller
      */
     public function index()
     {
-        //
+        return view('debitur.index');
     }
 
     /**

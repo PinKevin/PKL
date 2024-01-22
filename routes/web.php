@@ -5,7 +5,9 @@ use App\Http\Controllers\BerkasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DebiturController;
 use App\Http\Controllers\SuratRoyaController;
+use App\Models\Debitur;
 use App\Models\SuratRoya;
 
 /*
@@ -26,6 +28,10 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'showPage'])->name('dashboard');
+
+    Route::prefix('/debitur')->group(function () {
+        Route::get('/', [DebiturController::class, 'index'])->name('debitur.index');
+    });
 
     Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
 

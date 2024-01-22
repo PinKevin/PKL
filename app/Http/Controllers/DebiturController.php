@@ -34,9 +34,11 @@ class DebiturController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Debitur $debitur)
+    public function show($id)
     {
-        //
+        return view('debitur.show', [
+            'id' => $id
+        ]);
     }
 
     /**

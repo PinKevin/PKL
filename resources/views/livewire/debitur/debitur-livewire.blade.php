@@ -137,7 +137,7 @@
                             {{ $db->nama_debitur }}
                         </td>
                         <td class="flex justify-between px-6 py-4">
-                            <a href="{{ route('surat-roya.show', ['id' => $db->id]) }}">
+                            <a href="{{ route('debitur.show', ['id' => $db->id]) }}">
                                 <svg class="h-4 w-4 text-yellow-300 hover:text-gray-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 20">

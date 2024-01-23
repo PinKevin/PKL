@@ -12,4 +12,9 @@ class Notaris extends Model
     protected $guarded = ['id'];
 
     public $timestamps = false;
+
+    public function debitur()
+    {
+        return $this->hasMany(Debitur::class, 'kode_notaris', 'kode_notaris');
+    }
 }

@@ -17,4 +17,9 @@ class Debitur extends Model
     {
         return $this->hasMany(Dokumen::class);
     }
+
+    public function notaris()
+    {
+        return $this->belongsTo(Notaris::class, 'kode_notaris', 'kode_notaris');
+    }
 }

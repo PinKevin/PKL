@@ -55,7 +55,7 @@
             </div>
         </div>
     @endif
-    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Daftar Debitur</h2>
+    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Daftar Notaris</h2>
 
     <div class="mb-2 mt-2 flex items-center justify-between">
         {{-- Tabel --}}

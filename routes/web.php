@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DebiturController;
+use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\SuratRoyaController;
 use App\Models\Debitur;
 use App\Models\SuratRoya;
@@ -47,6 +48,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}/cetak', [SuratRoyaController::class, 'cetakWord'])->name('surat-roya.cetak');
     });
 
-    Route::get('/notaris', [NotarisController::class, 'index'])->name('notaris');
+    Route::prefix('/notaris')->group(function () {
         Route::get('/', [NotarisController::class, 'index'])->name('notaris.index');
+    });
+    
+    Route::prefix('/developer')->group(function () {
+        Route::get('/', [DeveloperController::class, 'index'])->name('developer.index');
+    });
+
 });

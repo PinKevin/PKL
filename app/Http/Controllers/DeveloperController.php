@@ -13,7 +13,7 @@ class DeveloperController extends Controller
      */
     public function index()
     {
-        //
+        return view('developer.index');
     }
 
     /**
@@ -35,9 +35,11 @@ class DeveloperController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Developer $developer)
+    public function show($id)
     {
-        //
+        return view('developer.show', [
+            'id' => $id
+        ]);
     }
 
     /**

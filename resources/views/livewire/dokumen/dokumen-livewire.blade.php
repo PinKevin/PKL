@@ -84,24 +84,89 @@
             <div class="hidden" id="accordion-open-body-{{ $loop->index }}"
                 aria-labelledby="accordion-open-heading-{{ $loop->index }}">
                 <div class="border-2 border-b-0 border-gray-200 p-5 dark:border-gray-700 dark:bg-gray-900">
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">
-                        Nomor Dokumen: {{ $dok->no_dokumen }}
-                    </p>
-                    <p class="text-gray-500 dark:text-gray-400">
-                        Tanggal Terima: {{ $dok->tanggal_terima }}
-                    </p>
-                    <p class="text-gray-500 dark:text-gray-400">
-                        Tanggal Terbit: {{ $dok->tanggal_terbit }}
-                    </p>
-                    <p class="text-gray-500 dark:text-gray-400">
-                        Tanggal Jatuh Tempo: {{ $dok->tanggal_jatuh_tempo }}
-                    </p>
-                    <p class="text-gray-500 dark:text-gray-400">
-                        Dipinjam: {{ $dok->status_pinjaman }}
-                    </p>
-                    <p class="text-gray-500 dark:text-gray-400">
-                        File:
-                    </p>
+                    <table
+                        class="border-3 relative w-full overflow-x-auto text-left text-sm text-gray-500 shadow-md rtl:text-right dark:text-gray-400 sm:rounded-md">
+                        <thead
+                            class="border-b bg-blue-400 text-xs uppercase text-gray-900 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th class="px-4 py-3" scope="col">
+                                    Nomor Dokumen
+                                </th>
+                                <th class="px-5 py-4" scope="col">
+                                    Tanggal Terima
+                                </th>
+                                <th class="px-5 py-4" scope="col">
+                                    Tanggal Terbit
+                                </th>
+                                <th class="px-5 py-4" scope="col">
+                                    Tanggal Jatuh Tempo
+                                </th>
+                                <th class="px-5 py-4" scope="col">
+                                    Dipinjam
+                                </th>
+                        <tbody>
+                            <tr
+                                class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
+                                <th class="whitespace-nowrap px-6 py-4 font-normal text-gray-900 dark:text-white"
+                                    scope="row">
+                                    {{ $dok->no_dokumen }}
+                                </th>
+                                <th class="whitespace-nowrap px-7 py-4 font-normal text-gray-900 dark:text-white"
+                                    scope="row">
+                                    {{ $dok->tanggal_terima }}
+                                </th>
+                                <th class="whitespace-nowrap px-7 py-4 font-normal text-gray-900 dark:text-white"
+                                    scope="row">
+                                    {{ $dok->tanggal_terbit }}
+                                </th>
+                                <th class="whitespace-nowrap px-8 py-4 font-normal text-gray-900 dark:text-white"
+                                    scope="row">
+                                    {{ $dok->tanggal_jatuh_tempo }}
+                                </th>
+                                <th class="whitespace-nowrap px-8 py-4 font-normal text-gray-900 dark:text-white"
+                                    scope="row">
+                                    {{ $dok->status_pinjaman }}
+                                </th>
+                        </tbody>
+                    </table>
+
+                    <table
+                        class="w-flex border-3 relative mb-3 mt-3 overflow-x-auto text-left text-sm text-gray-500 shadow-md rtl:text-right dark:text-gray-400 sm:rounded-md">
+                        <thead
+                            class="border-b bg-blue-400 text-xs uppercase text-gray-900 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th class="px-4 py-3" scope="col">
+                                    Tanggal Pinjaman
+                                </th>
+                                <th class="px-5 py-4" scope="col">
+                                    Tanggal Pengembalian
+                                </th>
+                        <tbody>
+                            <tr
+                                class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
+                                <th class="whitespace-nowrap px-6 py-4 font-normal text-gray-900 dark:text-white"
+                                    scope="row">
+                                    {{ $dok->no_dokumen }}
+                                </th>
+                                <th class="whitespace-nowrap px-7 py-4 font-normal text-gray-900 dark:text-white"
+                                    scope="row">
+                                    {{ $dok->tanggal_terima }}
+                                </th>
+                                {{-- <th class="whitespace-nowrap px-7 py-4 font-normal text-gray-900 dark:text-white"
+                                    scope="row">
+                                    {{ $dok->tanggal_terbit }}
+                                </th>
+                                <th class="whitespace-nowrap px-8 py-4 font-normal text-gray-900 dark:text-white"
+                                    scope="row">
+                                    {{ $dok->tanggal_jatuh_tempo }}
+                                </th>
+                                <th class="whitespace-nowrap px-8 py-4 font-normal text-gray-900 dark:text-white"
+                                    scope="row">
+                                    {{ $dok->status_pinjaman }}
+                                </th> --}}
+                        </tbody>
+                    </table>
+
                     <embed src="/storage/{{ $dok->file }}" type="application/pdf" width="100%" height="600">
                 </div>
             </div>

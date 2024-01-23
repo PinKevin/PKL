@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class NotarisFactory extends Factory
 {
+
+    protected $counter = 1;
     /**
      * Define the model's default state.
      *
@@ -17,9 +19,8 @@ class NotarisFactory extends Factory
     public function definition(): array
     {
         return [
-            'kode_notaris' => fake()->numerify('#############'),
+            'kode_notaris' => $this->counter++,
             'nama_notaris' => fake()->name()
-
         ];
     }
 }

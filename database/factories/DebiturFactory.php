@@ -23,7 +23,7 @@ class DebiturFactory extends Factory
             'jenis_kredit' => fake()->randomElement(['Kredit Setan', 'Kredit2an']),
             'kode_developer' => fake()->randomNumber(2, true),
             'proyek_perumahan' => fake()->word(),
-            'kode_notaris' => fake()->randomNumber(2, true),
+            'kode_notaris' => fake()->numberBetween(1, 10),
             'plafon_kredit' => fake()->randomNumber(6, true),
             'saldo_pokok' => fake()->randomNumber(6, true),
             'blok' => fake()->numerify('A#'),

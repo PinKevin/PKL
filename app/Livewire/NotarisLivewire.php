@@ -19,33 +19,20 @@ class NotarisLivewire extends Component
     public $sortBy = 'kode_notaris';
     public $sortDirection = 'asc';
 
-
-    public function indexNotaris()
+    public function rules()
     {
-        $notaris = Notaris::select('id', 'kode_notaris', 'nama_notaris')
-            ->where('nama_notaris', 'like', '%' . trim($this->search) . '%')
-            ->orWhere('kode_notaris', 'like', '%' . trim($this->search) . '%')
-            ->orderBy($this->sortBy, $this->sortDirection)
-            ->paginate(10);
-        return $notaris;
-    }
+        return [
+            'kode_notaris' => 'required|unique:notaris,kode_notaris',
+            'nama_notaris' => 'required',
 
-    public function render()
-    {
-        return view('livewire.notaris.notaris-livewire', [
-            'notaris'=> $this->indexNotaris()
-        ]);
+        ];
     }
 
     public function messages()
     {
         return [
             'required' => ':attribute harus diisi!',
-            'numeric' => ':attribute harus berupa numerik!',
-            'digits' => ':attribute harus terdiri atas :digits digit!',
-            'unique' => ':attribute sudah ada di dalam database!',
-            'min' => ':attribute minimal terdiri atas :min karakter!',
-            'string' => ':attribute hanya terdiri atas huruf!',
+            'kode_notaris.unique' => 'Kode notaris telah digunakan!'
         ];
     }
 
@@ -65,6 +52,16 @@ class NotarisLivewire extends Component
             $this->sortBy = $column;
             $this->sortDirection = 'asc';
         }
+    }
+
+    public function indexNotaris()
+    {
+        $notaris = Notaris::select('id', 'kode_notaris', 'nama_notaris')
+            ->where('nama_notaris', 'like', '%' . trim($this->search) . '%')
+            ->orWhere('kode_notaris', 'like', '%' . trim($this->search) . '%')
+            ->orderBy($this->sortBy, $this->sortDirection)
+            ->paginate(10);
+        return $notaris;
     }
 
     public function createNotaris()
@@ -154,12 +151,10 @@ class NotarisLivewire extends Component
         $this->nama_notaris = '';
     }
 
-    public function rules()
+    public function render()
     {
-        return [
-            'kode_notaris' => 'required',
-            'nama_notaris' => 'required',
-            
-        ];
+        return view('livewire.notaris.notaris-livewire', [
+            'notaris' => $this->indexNotaris()
+        ]);
     }
 }

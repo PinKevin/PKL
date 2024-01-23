@@ -35,5 +35,5 @@
 @endpush
 
 @section('content')
-    @livewire('Notaris-livewire')
+    @livewire('notaris-livewire')
 @endsection

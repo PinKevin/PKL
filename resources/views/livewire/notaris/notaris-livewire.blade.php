@@ -99,8 +99,8 @@
                         No
                     </th>
                     <th class="px-7 py-4" scope="col">
-                        <button class="flex items-center uppercase" wire:click="sortResult('no_debitur')">
-                            Nomor Notaris
+                        <button class="flex items-center uppercase" wire:click="sortResult('kode_notaris')">
+                            Kode Notaris
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -109,8 +109,8 @@
                         </button>
                     </th>
                     <th class="px-7 py-4" scope="col">
-                        <button class="flex items-center uppercase" wire:click="sortResult('nama_debitur')">
-                            Kode Notaris
+                        <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
+                            Nama Notaris
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path

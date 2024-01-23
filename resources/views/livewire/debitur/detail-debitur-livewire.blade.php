@@ -9,19 +9,7 @@
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="no_debitur" type="text" disabled wire:model="no_debitur" placeholder="Nomor debitur">
-                @error('no_debitur')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama_debitur">
@@ -30,19 +18,7 @@
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="nama_debitur" type="text" disabled wire:model="nama_debitur" placeholder="Nama debitur">
-                @error('nama_debitur')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="tanggal_realisasi">
@@ -52,19 +28,7 @@
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="tanggal_realisasi" type="date" disabled wire:model="tanggal_realisasi"
                     placeholder="Kota BPN">
-                @error('tanggal_realisasi')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="jenis_kredit">
@@ -73,19 +37,7 @@
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="jenis_kredit" type="text" disabled wire:model="jenis_kredit" placeholder="Jenis kredit">
-                @error('jenis_kredit')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="kode_developer">
@@ -94,19 +46,7 @@
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="kode_developer" type="number" disabled wire:model="kode_developer" placeholder="Developer">
-                @error('kode_developer')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="proyek_perumahan">
@@ -116,40 +56,16 @@
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="proyek_perumahan" type="text" disabled wire:model="proyek_perumahan"
                     placeholder="Proyek perumahan">
-                @error('proyek_perumahan')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="kode_notaris">
+                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama_notaris">
                     Notaris
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="kode_notaris" type="number" disabled wire:model="kode_notaris" placeholder="Notaris">
-                @error('kode_notaris')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+                    id="nama_notaris" type="text" disabled wire:model="nama_notaris" placeholder="Notaris">
+
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="plafon_kredit">
@@ -157,21 +73,8 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="plafon_kredit" type="number" disabled wire:model="plafon_kredit"
-                    placeholder="Plafon kredit">
-                @error('plafon_kredit')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+                    id="plafon_kredit" type="number" disabled wire:model="plafon_kredit" placeholder="Plafon kredit">
+
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="saldo_pokok">
@@ -180,19 +83,7 @@
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="saldo_pokok" type="number" disabled wire:model="saldo_pokok" placeholder="Saldo pokok">
-                @error('saldo_pokok')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="blok">
@@ -200,20 +91,8 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="blok" type="number" disabled wire:model="blok" placeholder="Blok">
-                @error('blok')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+                    id="blok" type="text" disabled wire:model="blok" placeholder="Blok">
+
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="no">
@@ -222,19 +101,7 @@
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="no" type="number" disabled wire:model="no" placeholder="Nomor rumah">
-                @error('no')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="luas_tanah">
@@ -243,19 +110,7 @@
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="luas_tanah" type="number" disabled wire:model="luas_tanah" placeholder="Luas tanah">
-                @error('luas_tanah')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="luas_bangunan">
@@ -263,21 +118,8 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="luas_bangunan" type="number" disabled wire:model="luas_bangunan"
-                    placeholder="Luas bangunan">
-                @error('luas_bangunan')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
+                    id="luas_bangunan" type="number" disabled wire:model="luas_bangunan" placeholder="Luas bangunan">
+
             </div>
 
         </div>

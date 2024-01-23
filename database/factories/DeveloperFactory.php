@@ -10,7 +10,7 @@ use SebastianBergmann\LinesOfCode\Counter;
  */
 class DeveloperFactory extends Factory
 {
-    protected $counter=1;
+    protected $counter = 1;
     /**
      * Define the model's default state.
      *
@@ -19,8 +19,8 @@ class DeveloperFactory extends Factory
     public function definition(): array
     {
         return [
-            'kode_developer'=> $this->counter++,
-            'nama_developer'=> fake()->name()
+            'kode_developer' => $this->counter++,
+            'nama_developer' => fake()->name()
         ];
     }
 }

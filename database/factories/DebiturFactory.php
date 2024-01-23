@@ -21,7 +21,7 @@ class DebiturFactory extends Factory
             'nama_debitur' => fake()->name(),
             'tanggal_realisasi' => fake()->date(),
             'jenis_kredit' => fake()->randomElement(['Kredit Setan', 'Kredit2an']),
-            'kode_developer' => fake()->randomNumber(2, true),
+            'kode_developer' => fake()->numberBetween(1, 10),
             'proyek_perumahan' => fake()->word(),
             'kode_notaris' => fake()->numberBetween(1, 10),
             'plafon_kredit' => fake()->randomNumber(6, true),

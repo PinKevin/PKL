@@ -28,6 +28,7 @@ return new class extends Migration
             $table->integer('luas_bangunan');
 
             $table->foreign('kode_notaris')->references('kode_notaris')->on('notaris');
+            $table->foreign('kode_developer')->references('kode_developer')->on('developers');
         });
     }
 

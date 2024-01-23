@@ -22,4 +22,9 @@ class Debitur extends Model
     {
         return $this->belongsTo(Notaris::class, 'kode_notaris', 'kode_notaris');
     }
+
+    public function developer()
+    {
+        return $this->belongsTo(Developer::class, 'kode_developer', 'kode_developer');
+    }
 }

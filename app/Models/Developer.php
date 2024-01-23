@@ -13,5 +13,8 @@ class Developer extends Model
 
     public $timestamps = false;
 
-    
+    public function debitur()
+    {
+        return $this->hasMany(Debitur::class, 'kode_developer', 'kode_developer');
+    }
 }

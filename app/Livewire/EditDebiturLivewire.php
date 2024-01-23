@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Debitur;
+use App\Models\Developer;
 use App\Models\Notaris;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +13,7 @@ class EditDebiturLivewire extends Component
     public $id, $no_debitur, $nama_debitur, $alamat, $tanggal_realisasi, $jenis_kredit, $kode_developer;
     public $proyek_perumahan, $kode_notaris, $plafon_kredit, $saldo_pokok, $blok, $no, $luas_tanah, $luas_bangunan;
 
-    public $notarisList;
+    public $notarisList, $developerList;
 
     public function rules()
     {
@@ -68,6 +69,11 @@ class EditDebiturLivewire extends Component
         $this->notarisList = Notaris::select('kode_notaris', 'nama_notaris')->get();
     }
 
+    public function getAllDeveloper()
+    {
+        $this->developerList = Developer::select('kode_developer', 'nama_developer')->get();
+    }
+
     public function mount($id)
     {
         $this->id = $id;
@@ -117,7 +123,8 @@ class EditDebiturLivewire extends Component
     public function render()
     {
         return view('livewire.debitur.edit-debitur-livewire', [
-            'notarisList' => $this->getAllNotaris()
+            'notarisList' => $this->getAllNotaris(),
+            'developerList' => $this->getAllDeveloper()
         ]);
     }
 }

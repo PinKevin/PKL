@@ -68,6 +68,8 @@
     </button>
 
     @include('livewire.dokumen.create-modal')
+    @include('livewire.dokumen.edit-modal')
+    @include('livewire.dokumen.delete-modal')
 
     <div id="accordion-open" data-accordion="open">
         @forelse ($dokumen as $dok)
@@ -171,6 +173,20 @@
                                 </th> --}}
                         </tbody>
                     </table>
+
+                    <button
+                        class="block w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 md:w-auto"
+                        data-modal-target="edit-modal" data-modal-toggle="edit-modal" type="button"
+                        wire:click="editDokumen({{ $dok->id }})">
+                        Edit dokumen
+                    </button>
+
+                    <button
+                        class="block w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 md:w-auto"
+                        data-modal-target="delete-modal" data-modal-toggle="delete-modal" type="button"
+                        wire:click="deleteDokumen({{ $dok->id }})">
+                        Hapus dokumen
+                    </button>
 
                     <embed src="/storage/{{ $dok->file }}" type="application/pdf" width="100%" height="600">
                 </div>

@@ -29,8 +29,9 @@
                         </label>
                         <input
                             class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                            id="kode_developer" name="kode_developer" type="text" aria-describedby="helper-kode-developer"
-                            placeholder="Kode Developer" wire:model="kode_developer" disabled />
+                            id="kode_developer" name="kode_developer" type="text"
+                            aria-describedby="helper-kode-developer" placeholder="Kode Developer"
+                            wire:model="kode_developer" disabled />
                         @error('kode_developer')
                             <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                 role="alert">
@@ -46,7 +47,8 @@
                         @enderror
                     </div>
                     <div class="col-span-2">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama_developer">
+                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                            for="nama_developer">
                             Nama Developer
                         </label>
                         <input
@@ -69,7 +71,7 @@
                     </div>
                 </div>
                 <button
-                    class="inline-flex items-center rounded-lg bg-blue-700 px-[139px] py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    class="inline-flex items-center rounded-lg bg-blue-700 px-[130px] py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     type="submit">
                     <svg class="-ms-1 me-1 mr-2 h-4 w-4 text-white" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

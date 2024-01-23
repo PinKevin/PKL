@@ -133,9 +133,14 @@
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="kode_notaris">
                     Notaris
                 </label>
-                <input
+                <select
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="kode_notaris" type="number" wire:model="kode_notaris" placeholder="Notaris">
+                    id="kode_notaris" name="kode_notaris" wire:model="kode_notaris">
+                    <option value="" selected>Pilih notaris</option>
+                    @foreach ($notarisList as $notaris)
+                        <option value="{{ $notaris->kode_notaris }}">{{ $notaris->nama_notaris }}</option>
+                    @endforeach
+                </select>
                 @error('kode_notaris')
                     <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                         role="alert">

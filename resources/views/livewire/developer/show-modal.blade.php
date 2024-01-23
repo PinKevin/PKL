@@ -1,7 +1,7 @@
 <!-- Main modal -->
-<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-16"
+<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0"
     id="show-modal" aria-hidden="true" tabindex="-1" wire:ignore.self>
-    <div class="relative max-h-full w-full max-w-4xl p-4">
+    <div class="relative max-h-full w-full max-w-lg p-4">
         <!-- Modal content -->
         <div class="relative rounded-lg bg-blue-600 shadow dark:bg-gray-700">
             <!-- Modal header -->
@@ -24,12 +24,14 @@
             <form class="bg-slate-100 p-4 md:p-5">
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="col-span-2">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="kode_developer">
+                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                            for="kode_developer">
                             Kode Developer
                         </label>
                         <input
                             class="block w-full cursor-not-allowed rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                            id="kode_developer" name="kode_developer" type="text" disabled wire:model="kode_developer" />
+                            id="kode_developer" name="kode_developer" type="text" disabled
+                            wire:model="kode_developer" />
                     </div>
                     <div class="col-span-2">
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
@@ -37,7 +39,8 @@
                         </label>
                         <input
                             class="block w-full cursor-not-allowed rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                            id="nama_developer" name="nama_developer" type="text" disabled wire:model="nama_developer" />
+                            id="nama_developer" name="nama_developer" type="text" disabled
+                            wire:model="nama_developer" />
                     </div>
                 </div>
             </form>

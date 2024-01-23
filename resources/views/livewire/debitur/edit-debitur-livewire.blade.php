@@ -1,5 +1,5 @@
 <div>
-    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Tambah Debitur</h2>
+    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Edit Debitur</h2>
 
     <form class="ml-0.5 mt-4" wire:submit.prevent="updateDebitur" method="POST">
         <div class="mb-6 grid gap-6 md:grid-cols-2">

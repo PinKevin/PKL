@@ -1,16 +1,17 @@
 <!-- Large Modal -->
-<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full overflow-y-auto overflow-x-hidden p-4 md:inset-0"
+<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full overflow-y-auto overflow-x-hidden p-4 md:inset-5"
     id="create-modal" tabindex="-1" wire:ignore.self>
     <div class="relative max-h-full w-full max-w-4xl">
         <!-- Modal content -->
         <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
             <!-- Modal header -->
-            <div class="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-5">
-                <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+            <div
+                class="bg-blue-600 flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-3">
+                <h3 class="text-xl font-medium text-white dark:text-white">
                     Tambah Dokumen
                 </h3>
                 <button
-                    class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+                    class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-white hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
                     id="close-create-modal" data-modal-hide="create-modal" type="button">
                     <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 14 14">
@@ -21,7 +22,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <div class="space-y-4 p-4 md:p-5">
+            <div class="bg-slate-100 space-y-4 p-4 md:p-5">
 
                 <form wire:submit.prevent="storeDokumen">
                     <div class="mb-6 grid gap-6 md:grid-cols-2">

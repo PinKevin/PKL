@@ -89,6 +89,7 @@
     </div>
     @include('livewire.notaris.create-modal')
     @include('livewire.notaris.edit-modal')
+    @include('livewire.notaris.show-modal')
     @include('livewire.notaris.delete-modal')
     <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
@@ -137,17 +138,19 @@
                             {{ $db->nama_notaris }}
                         </td>
                         <td class="flex justify-between px-6 py-4">
-                            <a href="{{ route('debitur.show', ['id' => $db->id]) }}">
+                            <button id="button-show-modal" data-modal-target="show-modal"
+                                data-modal-toggle="show-modal" type="button"
+                                wire:click="showNotaris({{ $db->id }})">
                                 <svg class="h-4 w-4 text-yellow-300 hover:text-gray-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 20">
                                     <path
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                 </svg>
-                            </a>
+                            </button>
                             <button id="button-edit-modal" data-modal-target="edit-modal"
                                 data-modal-toggle="edit-modal" type="button"
-                                wire:click="editDebitur({{ $db->id }})">
+                                wire:click="editNotaris({{ $db->id }})">
                                 <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 18">
@@ -160,7 +163,7 @@
                             </button>
                             <button id="button-delete-modal" data-modal-target="delete-modal"
                                 data-modal-toggle="delete-modal" type="button"
-                                wire:click="deleteDebitur({{ $db->id }})">
+                                wire:click="deleteNotaris({{ $db->id }})">
                                 <svg class="h-4 w-4 text-red-600 hover:text-red-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 18 20">

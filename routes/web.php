@@ -48,4 +48,5 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::get('/notaris', [NotarisController::class, 'index'])->name('notaris');
+        Route::get('/', [NotarisController::class, 'index'])->name('notaris.index');
 });

@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Debitur;
 use App\Models\Notaris;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -92,6 +93,16 @@ class NotarisLivewire extends Component
         $this->nama_notaris = $notaris->nama_notaris;
     }
 
+    public function showNotaris($id)
+    {
+        $this->resetInput();
+        $notaris = Notaris::findOrFail($id);
+
+        $this->id = $notaris->id;
+        $this->kode_notaris = $notaris->kode_notaris;
+        $this->nama_notaris = $notaris->nama_notaris;
+    }
+
     public function updateNotaris()
     {
         $this->validateOnly('nama_notaris');
@@ -114,26 +125,27 @@ class NotarisLivewire extends Component
 
         $this->id = $notaris->id;
         $this->nama_notaris = $notaris->nama_notaris;
+        $this->kode_notaris = $notaris->kode_notaris;
     }
 
-    // public function destroyNotaris()
-    // {
-    //     $countDokumen = Dokumen::where('debitur_id', $this->id)->count();
+    public function destroyNotaris()
+    {
+        $countDebitur = Debitur::where('kode_notaris', $this->kode_notaris)->count();
 
-    //     if ($countDokumen > 0) {
-    //         $this->resetInput();
-    //         $this->dispatch('scrollToTop');
-    //         session()->flash('deleteError', 'Terdapat dokumen yang terkait dengan data tersebut!');
-    //     } else {
-    //         DB::transaction(function () {
-    //             Debitur::where('id', $this->id)->delete();
-    //         });
+        if ($countDebitur > 0) {
+            $this->resetInput();
+            $this->dispatch('scrollToTop');
+            session()->flash('deleteError', 'Terdapat debitur yang terkait dengan data tersebut!');
+        } else {
+            DB::transaction(function () {
+                Notaris::where('id', $this->id)->delete();
+            });
 
-    //         $this->resetInput();
-    //         $this->dispatch('scrollToTop');
-    //         session()->flash('deleteSuccess', 'Debitur berhasil dihapus!');
-    //     }
-    // }
+            $this->resetInput();
+            $this->dispatch('scrollToTop');
+            session()->flash('deleteSuccess', 'Notaris berhasil dihapus!');
+        }
+    }
 
     public function resetInput()
     {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Debitur;
 use App\Models\Dokumen;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,23 @@ class PenerimaanDokumenController extends Controller
     public function index()
     {
         return view('penerimaan-dokumen.index');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        $debitur = Debitur::where('nama_debitur', 'like', '%' . trim($search) . '%')
+            ->orWhere('no_debitur', 'like', '%' . trim($search) . '%')
+            ->first();
+
+        if ($debitur) {
+            return redirect()->route('penerimaan.dokumen', ['no_debitur' => $debitur->no_debitur]);
+        } else {
+            return redirect()->back()->with('pesan', 'Data tidak ada');
+        }
+
+        // $dokumen = Dokumen::where('debitur_id', $debitur->id)->get();
     }
 
     /**
@@ -34,9 +52,15 @@ class PenerimaanDokumenController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Dokumen $dokumen)
+    public function show($no_debitur)
     {
-        //
+        $debitur = Debitur::select('id', 'nama_debitur', 'no_debitur')
+            ->where('no_debitur',  $no_debitur)
+            ->first();
+
+        $dokumen = Dokumen::where('debitur_id', $debitur->id)->get();
+
+        dd($dokumen, $debitur);
     }
 
     /**

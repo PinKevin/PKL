@@ -61,10 +61,39 @@
     @include('livewire.penerimaan-dokumen.edit-modal')
     @include('livewire.penerimaan-dokumen.delete-modal')
 
-    <p>Nama Debitur : {{ $debitur->nama_debitur }}</p>
-    <p>Nomor Debitur : {{ $debitur->no_debitur }}</p>
+    {{-- <p>Nama Debitur : {{ $debitur->nama_debitur }}</p>
+    <p>Nomor Debitur : {{ $debitur->no_debitur }}</p> --}}
 
-    <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <caption
+                class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-slate-200 dark:text-white dark:bg-gray-800">
+                Hasil Pencarian "{{ $debitur->nama_debitur }}, {{ $debitur->no_debitur }}"
+            </caption>
+            <thead class="text-xs text-gray-700 uppercase bg-slate-300 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Nama Debitur
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Nomor Debitur
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ $debitur->nama_debitur }}
+                    </th>
+                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ $debitur->no_debitur }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-3 relative overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -91,7 +120,7 @@
                             </svg>
                         </button>
                     </th>
-                    <th class="px-7 py-4" scope="col">
+                    <th class="px-4 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
                             Nomor Dokumen
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +130,7 @@
                             </svg>
                         </button>
                     </th>
-                    <th class="px-7 py-4" scope="col">
+                    <th class="px-4 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
                             Tanggal Terima
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +140,7 @@
                             </svg>
                         </button>
                     </th>
-                    <th class="px-7 py-4" scope="col">
+                    <th class="px-4 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
                             Tanggal Terbit
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +150,7 @@
                             </svg>
                         </button>
                     </th>
-                    <th class="px-7 py-4" scope="col">
+                    <th class="px-4 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
                             Tanggal Jatuh Tempo
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +160,7 @@
                             </svg>
                         </button>
                     </th>
-                    <th class="px-4 py-4" scope="col">
+                    <th class="px-6 py-4" scope="col">
                         Detail
                     </th>
                 </tr>
@@ -153,7 +182,9 @@
                                 {{ $dok->jenis }}
                             </td>
                             <td class="px-6 py-4">
-                                Tersedia
+                                <span
+                                    class="bg-green-200 text-green-800 text-xs font-medium me-2 px-7 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Tersedia</span>
+
                             </td>
                             <td class="px-6 py-4">
                                 {{ $dok->no_dokumen }}
@@ -164,10 +195,10 @@
                             <td class="px-6 py-4">
                                 {{ $dok->tanggal_terbit }}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-8 py-4">
                                 {{ $dok->tanggal_jatuh_tempo }}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-4 py-4">
                                 <button id="button-show-modal" data-modal-target="show-modal"
                                     data-modal-toggle="show-modal" type="button"
                                     wire:click="showDokumen({{ $dok->id }})">
@@ -181,7 +212,7 @@
                                 <button id="button-edit-modal" data-modal-target="edit-modal"
                                     data-modal-toggle="edit-modal" type="button"
                                     wire:click="editDokumen({{ $dok->id }})">
-                                    <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
+                                    <svg class="ml-1 h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                         viewBox="0 0 20 18">
                                         <path
@@ -194,7 +225,7 @@
                                 <button id="button-delete-modal" data-modal-target="delete-modal"
                                     data-modal-toggle="delete-modal" type="button"
                                     wire:click="deleteDokumen({{ $dok->id }})">
-                                    <svg class="h-4 w-4 text-red-600 hover:text-red-900 dark:text-white"
+                                    <svg class="ml-1 h-4 w-4 text-red-600 hover:text-red-900 dark:text-white"
                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                         viewBox="0 0 18 20">
                                         <path
@@ -214,27 +245,30 @@
                                 {{ $jenis }}
                             </td>
                             <td class="px-6 py-4">
-                                Belum Tersedia
+                                <span
+                                    class="bg-red-200 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Belum
+                                    Tersedia</span>
+
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-8 py-4">
                                 -
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-8 py-4">
                                 -
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-8 py-4">
                                 -
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-8 py-4">
                                 -
                             </td>
                             <td class="px-6 py-4">
                                 <button
-                                    class="inline-flex w-full items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                                    class="inline-flex w-full items-center rounded-lg bg-blue-700 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
                                     id="button-create-modal" data-modal-target="create-modal"
                                     data-modal-toggle="create-modal" type="button"
                                     wire:click="createDokumen('{{ $jenis }}')">
-                                    <svg class="mr-2 h-3 w-3 text-white dark:text-white" aria-hidden="true"
+                                    <svg class=" h-3 w-3 text-white dark:text-white" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                             stroke-width="2" d="M9 1v16M1 9h16" />
@@ -244,9 +278,17 @@
                         </tr>
                     @endif
                 @endforeach
-
             </tbody>
         </table>
     </div>
+    <a class="mt-4 w-full inline-flex items-center rounded-lg bg-gray-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 sm:w-auto"
+        href="{{ route('penerimaan.index') }}">
+        <svg class="w-4 h-4 mr-2 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="none" viewBox="0 0 16 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 7 1 4l3-3m0 12h6.5a4.5 4.5 0 1 0 0-9H2" />
+        </svg>
+        Kembali
+    </a>
 
 </div>

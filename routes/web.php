@@ -44,6 +44,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/developer', [DeveloperController::class, 'index'])->name('developer.index');
 
     Route::get('/penerimaan-dokumen', [PenerimaanDokumenController::class, 'index'])->name('penerimaan.index');
+    Route::post('/penerimaan-dokumen/cari', [PenerimaanDokumenController::class, 'search'])->name('penerimaan.search');
+    Route::get('/penerimaan-dokumen/{no_debitur}', [PenerimaanDokumenController::class, 'show'])->name('penerimaan.dokumen');
 
     Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
 

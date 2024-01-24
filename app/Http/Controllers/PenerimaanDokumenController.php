@@ -20,6 +20,10 @@ class PenerimaanDokumenController extends Controller
     {
         $this->validate($request, [
             'search' => 'required'
+        ], [
+            'required' => ':attribute harus diisi!'
+        ], [
+            'search' => 'Kotak pencarian'
         ]);
 
         $search = $request->input('search');

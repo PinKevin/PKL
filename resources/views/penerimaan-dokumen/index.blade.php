@@ -54,12 +54,13 @@
                             </div>
                             <input
                                 class="block w-60 rounded-lg border-2 border-gray-300 bg-gray-50 ps-10 pt-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 lg:w-[500px]"
-                                id="table-search" type="search" wire:model="search" placeholder="Search for items">
+                                id="table-search" name="search" type="search" value="{{ old('search') }}"
+                                wire:model="search" placeholder="Search for items">
                         </div>
                         <button
                             class="ml-4 inline-flex w-full items-center rounded-lg bg-blue-700 px-3 py-0.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
                             type="submit">
-                            <svg class="w-4 h-4 mr-2 text-white dark:text-white" aria-hidden="true"
+                            <svg class="mr-2 h-4 w-4 text-white dark:text-white" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
                                     d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
@@ -70,7 +71,7 @@
                 </div>
                 <div>
                     @error('search')
-                        <div class="mt-1 w-[px] flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                        <div class="mt-1 flex w-[px] items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                             role="alert">
                             <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 20 20">

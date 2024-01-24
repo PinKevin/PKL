@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DebiturController;
 use App\Http\Controllers\DeveloperController;
+use App\Http\Controllers\PenerimaanDokumenController;
 use App\Http\Controllers\SuratRoyaController;
 use App\Models\Debitur;
 use App\Models\SuratRoya;
@@ -38,6 +39,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}/edit', [DebiturController::class, 'edit'])->name('debitur.edit');
     });
 
+    Route::get('/notaris', [NotarisController::class, 'index'])->name('notaris.index');
+
+    Route::get('/developer', [DeveloperController::class, 'index'])->name('developer.index');
+
+    Route::get('/penerimaan-dokumen', [PenerimaanDokumenController::class, 'index'])->name('penerimaan.index');
+
     Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
 
     Route::prefix('/surat-roya')->group(function () {
@@ -47,13 +54,4 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}/edit', [SuratRoyaController::class, 'edit'])->name('surat-roya.edit');
         Route::get('/{id}/cetak', [SuratRoyaController::class, 'cetakWord'])->name('surat-roya.cetak');
     });
-
-    Route::prefix('/notaris')->group(function () {
-        Route::get('/', [NotarisController::class, 'index'])->name('notaris.index');
-    });
-    
-    Route::prefix('/developer')->group(function () {
-        Route::get('/', [DeveloperController::class, 'index'])->name('developer.index');
-    });
-
 });

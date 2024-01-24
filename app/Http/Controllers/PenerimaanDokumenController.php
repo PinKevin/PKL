@@ -18,6 +18,10 @@ class PenerimaanDokumenController extends Controller
 
     public function search(Request $request)
     {
+        $this->validate($request, [
+            'search' => 'required'
+        ]);
+
         $search = $request->input('search');
 
         $debitur = Debitur::where('nama_debitur', 'like', '%' . trim($search) . '%')
@@ -54,13 +58,9 @@ class PenerimaanDokumenController extends Controller
      */
     public function show($no_debitur)
     {
-        $debitur = Debitur::select('id', 'nama_debitur', 'no_debitur')
-            ->where('no_debitur',  $no_debitur)
-            ->first();
-
-        $dokumen = Dokumen::where('debitur_id', $debitur->id)->get();
-
-        dd($dokumen, $debitur);
+        return view('penerimaan-dokumen.show', [
+            'no_debitur' => $no_debitur
+        ]);
     }
 
     /**

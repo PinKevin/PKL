@@ -122,7 +122,7 @@
                     </a>
                 </li>
 
-                <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-white dark:border-gray-700">
+                <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
 
                     <li>
                         <a class="{{ request()->routeIs('debitur.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"

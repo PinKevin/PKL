@@ -65,27 +65,27 @@
     <p>Nomor Debitur : {{ $debitur->no_debitur }}</p> --}}
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <caption
-                class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-slate-200 dark:text-white dark:bg-gray-800">
+                class="bg-slate-200 p-5 text-left text-lg font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
                 Hasil Pencarian "{{ $debitur->nama_debitur }}, {{ $debitur->no_debitur }}"
             </caption>
-            <thead class="text-xs text-gray-700 uppercase bg-slate-300 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3" scope="col">
                         Nama Debitur
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3" scope="col">
                         Nomor Debitur
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white" scope="row">
                         {{ $debitur->nama_debitur }}
                     </th>
-                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
                         {{ $debitur->no_debitur }}
                     </td>
                 </tr>
@@ -93,7 +93,7 @@
         </table>
     </div>
 
-    <div class="mt-3 relative overflow-x-auto shadow-lg sm:rounded-md">
+    <div class="relative mt-3 overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -183,7 +183,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <span
-                                    class="bg-green-200 text-green-800 text-xs font-medium me-2 px-7 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Tersedia</span>
+                                    class="me-2 block rounded-full bg-green-200 px-7 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">Tersedia</span>
 
                             </td>
                             <td class="px-6 py-4">
@@ -198,21 +198,21 @@
                             <td class="px-8 py-4">
                                 {{ $dok->tanggal_jatuh_tempo }}
                             </td>
-                            <td class="px-4 py-4">
-                                <button id="button-show-modal" data-modal-target="show-modal"
+                            <td class="flex flex-col items-center justify-between px-4 py-4">
+                                <button class="mb-3" id="button-show-modal" data-modal-target="show-modal"
                                     data-modal-toggle="show-modal" type="button"
                                     wire:click="showDokumen({{ $dok->id }})">
-                                    <svg class="h-4 w-4 text-yellow-300 hover:text-gray-900 dark:text-white"
+                                    <svg class="h-[16px] w-[16px] text-yellow-300 hover:text-gray-900 dark:text-white"
                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                         viewBox="0 0 20 20">
                                         <path
                                             d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                     </svg>
                                 </button>
-                                <button id="button-edit-modal" data-modal-target="edit-modal"
+                                <button class="mb-3" id="button-edit-modal" data-modal-target="edit-modal"
                                     data-modal-toggle="edit-modal" type="button"
                                     wire:click="editDokumen({{ $dok->id }})">
-                                    <svg class="ml-1 h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
+                                    <svg class="h-[16px] w-[16px] text-blue-600 hover:text-blue-900 dark:text-white"
                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                         viewBox="0 0 20 18">
                                         <path
@@ -225,7 +225,7 @@
                                 <button id="button-delete-modal" data-modal-target="delete-modal"
                                     data-modal-toggle="delete-modal" type="button"
                                     wire:click="deleteDokumen({{ $dok->id }})">
-                                    <svg class="ml-1 h-4 w-4 text-red-600 hover:text-red-900 dark:text-white"
+                                    <svg class="h-[16px] w-[16px] text-red-600 hover:text-red-900 dark:text-white"
                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                         viewBox="0 0 18 20">
                                         <path
@@ -246,9 +246,9 @@
                             </td>
                             <td class="px-6 py-4">
                                 <span
-                                    class="bg-red-200 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Belum
-                                    Tersedia</span>
-
+                                    class="inline-block rounded-full bg-red-200 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
+                                    Belum Tersedia
+                                </span>
                             </td>
                             <td class="px-8 py-4">
                                 -
@@ -268,7 +268,7 @@
                                     id="button-create-modal" data-modal-target="create-modal"
                                     data-modal-toggle="create-modal" type="button"
                                     wire:click="createDokumen('{{ $jenis }}')">
-                                    <svg class=" h-3 w-3 text-white dark:text-white" aria-hidden="true"
+                                    <svg class="h-3 w-3 text-white dark:text-white" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                             stroke-width="2" d="M9 1v16M1 9h16" />
@@ -281,9 +281,9 @@
             </tbody>
         </table>
     </div>
-    <a class="mt-4 w-full inline-flex items-center rounded-lg bg-gray-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 sm:w-auto"
+    <a class="mt-4 inline-flex w-full items-center rounded-lg bg-gray-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 sm:w-auto"
         href="{{ route('penerimaan.index') }}">
-        <svg class="w-4 h-4 mr-2 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        <svg class="mr-2 h-4 w-4 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
             fill="none" viewBox="0 0 16 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M4 7 1 4l3-3m0 12h6.5a4.5 4.5 0 1 0 0-9H2" />

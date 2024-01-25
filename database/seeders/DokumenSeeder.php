@@ -39,7 +39,7 @@ class DokumenSeeder extends Seeder
             'tanggal_terbit' => fake()->date(),
             'tanggal_jatuh_tempo' => fake()->date(),
             'file' => $namaFile,
-            'status_pinjaman' => fake()->randomElement([0, 1]),
+            'status_pinjaman' => 0,
             'debitur_id' => $debitur->id
         ]);
     }

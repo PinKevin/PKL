@@ -56,9 +56,9 @@
         </div>
     @endif
 
-    {{-- @include('livewire.penerimaan-dokumen.create-modal')
-    @include('livewire.penerimaan-dokumen.show-modal')
-    @include('livewire.penerimaan-dokumen.edit-modal')
+    @include('livewire.peminjaman-dokumen.create-modal')
+    @include('livewire.peminjaman-dokumen.show-log-modal')
+    {{-- @include('livewire.penerimaan-dokumen.edit-modal')
     @include('livewire.penerimaan-dokumen.delete-modal') --}}
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -170,17 +170,18 @@
                                 -
                             </td>
                             <td class="flex flex-col items-center justify-between px-4 py-4">
-                                <button class="mb-3" id="button-show-modal" data-modal-target="show-modal"
-                                    data-modal-toggle="show-modal" type="button"
-                                    wire:click="showDokumen({{ $dok->id }})">
+                                <button class="mb-3" id="button-show-log-modal" data-modal-target="show-log-modal"
+                                    data-modal-toggle="show-log-modal" type="button"
+                                    wire:click="showLog({{ $dok->id }})">
                                     <svg class="h-[16px] w-[16px] text-yellow-300 hover:text-gray-900 dark:text-white"
                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                         viewBox="0 0 20 20">
                                         <path
                                             d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                     </svg>
+                                    Riwayat
                                 </button>
-                                <button class="mb-3" id="button-edit-modal" data-modal-target="edit-modal"
+                                {{-- <button class="mb-3" id="button-edit-modal" data-modal-target="edit-modal"
                                     data-modal-toggle="edit-modal" type="button"
                                     wire:click="editDokumen({{ $dok->id }})">
                                     <svg class="h-[16px] w-[16px] text-blue-600 hover:text-blue-900 dark:text-white"
@@ -202,6 +203,18 @@
                                         <path
                                             d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
                                     </svg>
+                                </button> --}}
+                                <button
+                                    class="inline-flex w-full items-center rounded-lg bg-blue-700 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                                    id="button-create-modal" data-modal-target="create-modal"
+                                    data-modal-toggle="create-modal" type="button"
+                                    wire:click="createPeminjaman({{ $dok->id }})">
+                                    <svg class="h-3 w-3 text-white dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M9 1v16M1 9h16" />
+                                    </svg>
+                                    Pinjam
                                 </button>
                             </td>
                         </tr>
@@ -226,7 +239,29 @@
                                 -
                             </td>
                             <td class="flex flex-col items-center justify-between px-4 py-4">
-                                <button class="mb-3" id="button-show-modal" data-modal-target="show-modal"
+                                <button class="mb-3" id="button-show-log-modal" data-modal-target="show-log-modal"
+                                    data-modal-toggle="show-log-modal" type="button"
+                                    wire:click="showLog({{ $dok->id }})">
+                                    <svg class="h-[16px] w-[16px] text-yellow-300 hover:text-gray-900 dark:text-white"
+                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                    </svg>
+                                    Riwayat
+                                </button>
+                                <button
+                                    class="inline-flex w-full items-center rounded-lg bg-blue-700 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                                    id="button-edit-modal" type="button"
+                                    wire:click="ubahStatusPinjaman({{ $dok->id }})">
+                                    <svg class="h-3 w-3 text-white dark:text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M9 1v16M1 9h16" />
+                                    </svg>
+                                    Ubah Status Pinjam
+                                </button>
+                                {{-- <button class="mb-3" id="button-show-modal" data-modal-target="show-modal"
                                     data-modal-toggle="show-modal" type="button"
                                     wire:click="showDokumen({{ $dok->id }})">
                                     <svg class="h-[16px] w-[16px] text-yellow-300 hover:text-gray-900 dark:text-white"
@@ -258,7 +293,7 @@
                                         <path
                                             d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
                                     </svg>
-                                </button>
+                                </button> --}}
                             </td>
                         </tr>
                     @else

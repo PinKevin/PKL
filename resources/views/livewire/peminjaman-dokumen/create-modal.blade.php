@@ -1,5 +1,5 @@
 <!-- Large Modal -->
-<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full overflow-y-auto overflow-x-hidden p-4 md:inset-5"
+<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full overflow-y-auto overflow-x-hidden p-4 md:inset-0"
     id="create-modal" tabindex="-1" wire:ignore.self>
     <div class="relative max-h-full w-full max-w-4xl">
         <!-- Modal content -->

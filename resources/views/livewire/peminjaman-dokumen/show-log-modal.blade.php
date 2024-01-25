@@ -1,5 +1,5 @@
 <!-- Main modal -->
-<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-16"
+<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0"
     id="show-log-modal" aria-hidden="true" tabindex="-1" wire:ignore.self>
     <div class="relative max-h-full w-full max-w-4xl p-4">
         <!-- Modal content -->
@@ -21,11 +21,11 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <div class="space-y-4 bg-slate-100 p-4 md:p-5">
-                <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
-                    <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+            <div class="space-y-4 bg-slate-100 p-4 md:p-5 relative overflow-x-auto shadow-md ">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 sm:rounded-lg">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
-                            <th class="px-6 py-3" scope="col">
+                            <th scope="col" class="px-6 py-3">
                                 No
                             </th>
                             <th class="px-4 py-4" scope="col">
@@ -104,6 +104,7 @@
                     </tbody>
                 </table>
             </div>
+
         </div>
     </div>
 </div>

@@ -97,7 +97,7 @@
                     <th class="px-6 py-3" scope="col">
                         No
                     </th>
-                    <th class="px-7 py-4" scope="col">
+                    <th class="px-6 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('kode_notaris')">
                             Jenis
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,7 @@
                             </svg>
                         </button>
                     </th>
-                    <th class="px-7 py-4" scope="col">
+                    <th class="px-5 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
                             Tersedia
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +117,7 @@
                             </svg>
                         </button>
                     </th>
-                    <th class="px-4 py-4" scope="col">
+                    <th class="px-1 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
                             Tanggal Pinjam
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +127,7 @@
                             </svg>
                         </button>
                     </th>
-                    <th class="px-4 py-4" scope="col">
+                    <th class="px-1 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
                             Tanggal Kembali
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +137,7 @@
                             </svg>
                         </button>
                     </th>
-                    <th class="px-6 py-4" scope="col">
+                    <th class="text-center px-4 py-4" scope="col">
                         Detail
                     </th>
                 </tr>
@@ -158,7 +158,7 @@
                             <td class="px-6 py-4">
                                 {{ $dok->jenis }}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-2 py-4">
                                 <span
                                     class="me-2 inline-block rounded-full bg-green-200 px-7 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">Tersedia</span>
 
@@ -169,16 +169,12 @@
                             <td class="px-6 py-4">
                                 -
                             </td>
-                            <td class="flex flex-col items-center justify-between px-4 py-4">
-                                <button class="mb-3" id="button-show-log-modal" data-modal-target="show-log-modal"
+                            <td class="flex flex-col items-center justify-between px-2 py-4">
+                                <button
+                                    class="mb-2 inline-flex w-full items-center rounded-lg bg-yellow-300 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                                    id="button-show-log-modal" data-modal-target="show-log-modal"
                                     data-modal-toggle="show-log-modal" type="button"
                                     wire:click="showLog({{ $dok->id }})">
-                                    <svg class="h-[16px] w-[16px] text-yellow-300 hover:text-gray-900 dark:text-white"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                        viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                                    </svg>
                                     Riwayat
                                 </button>
                                 {{-- <button class="mb-3" id="button-edit-modal" data-modal-target="edit-modal"
@@ -205,15 +201,10 @@
                                     </svg>
                                 </button> --}}
                                 <button
-                                    class="inline-flex w-full items-center rounded-lg bg-blue-700 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                                    class="inline-flex w-full items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
                                     id="button-create-modal" data-modal-target="create-modal"
                                     data-modal-toggle="create-modal" type="button"
                                     wire:click="createPeminjaman({{ $dok->id }})">
-                                    <svg class="h-3 w-3 text-white dark:text-white" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M9 1v16M1 9h16" />
-                                    </svg>
                                     Pinjam
                                 </button>
                             </td>
@@ -228,9 +219,9 @@
                             <td class="px-6 py-4">
                                 {{ $dok->jenis }}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-2 py-4">
                                 <span
-                                    class="me-2 inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
+                                    class="me-1 inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
                             </td>
                             <td class="px-6 py-4">
                                 -
@@ -238,29 +229,21 @@
                             <td class="px-6 py-4">
                                 -
                             </td>
-                            <td class="flex flex-col items-center justify-between px-4 py-4">
-                                <button class="mb-3" id="button-show-log-modal" data-modal-target="show-log-modal"
+                            <td class="flex flex-col items-center justify-between px-2 py-4">
+                                <button
+                                    class="mb-2 inline-flex w-full items-center rounded-lg bg-yellow-300 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                                    id="button-show-log-modal" data-modal-target="show-log-modal"
                                     data-modal-toggle="show-log-modal" type="button"
                                     wire:click="showLog({{ $dok->id }})">
-                                    <svg class="h-[16px] w-[16px] text-yellow-300 hover:text-gray-900 dark:text-white"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                        viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                                    </svg>
                                     Riwayat
                                 </button>
                                 <button
                                     class="inline-flex w-full items-center rounded-lg bg-blue-700 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
                                     id="button-edit-modal" type="button"
                                     wire:click="ubahStatusPinjaman({{ $dok->id }})">
-                                    <svg class="h-3 w-3 text-white dark:text-white" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M9 1v16M1 9h16" />
-                                    </svg>
-                                    Ubah Status Pinjam
+                                    Ubah Status
                                 </button>
+
                                 {{-- <button class="mb-3" id="button-show-modal" data-modal-target="show-modal"
                                     data-modal-toggle="show-modal" type="button"
                                     wire:click="showDokumen({{ $dok->id }})">
@@ -306,7 +289,7 @@
                             <td class="px-6 py-4">
                                 {{ $jenis }}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-2 py-4">
                                 <span
                                     class="inline-block rounded-full bg-red-200 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
                                     Belum Tersedia
@@ -318,7 +301,7 @@
                             <td class="px-8 py-4">
                                 -
                             </td>
-                            <td class="px-6 py-4 text-center">
+                            <td class="text-center px-5 py-4">
                                 -
                             </td>
                         </tr>

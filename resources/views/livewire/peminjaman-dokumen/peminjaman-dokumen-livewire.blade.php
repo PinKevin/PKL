@@ -56,13 +56,10 @@
         </div>
     @endif
 
-    @include('livewire.penerimaan-dokumen.create-modal')
+    {{-- @include('livewire.penerimaan-dokumen.create-modal')
     @include('livewire.penerimaan-dokumen.show-modal')
     @include('livewire.penerimaan-dokumen.edit-modal')
-    @include('livewire.penerimaan-dokumen.delete-modal')
-
-    {{-- <p>Nama Debitur : {{ $debitur->nama_debitur }}</p>
-    <p>Nomor Debitur : {{ $debitur->no_debitur }}</p> --}}
+    @include('livewire.penerimaan-dokumen.delete-modal') --}}
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
@@ -122,7 +119,7 @@
                     </th>
                     <th class="px-4 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
-                            Nomor Dokumen
+                            Tanggal Pinjam
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -132,27 +129,7 @@
                     </th>
                     <th class="px-4 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
-                            Tanggal Terima
-                            <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                            </svg>
-                        </button>
-                    </th>
-                    <th class="px-4 py-4" scope="col">
-                        <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
-                            Tanggal Terbit
-                            <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                            </svg>
-                        </button>
-                    </th>
-                    <th class="px-4 py-4" scope="col">
-                        <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
-                            Tanggal Jatuh Tempo
+                            Tanggal Kembali
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -187,16 +164,10 @@
 
                             </td>
                             <td class="px-6 py-4">
-                                {{ $dok->no_dokumen }}
+                                -
                             </td>
                             <td class="px-6 py-4">
-                                {{ $dok->tanggal_terima }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $dok->tanggal_terbit }}
-                            </td>
-                            <td class="px-8 py-4">
-                                {{ $dok->tanggal_jatuh_tempo }}
+                                -
                             </td>
                             <td class="flex flex-col items-center justify-between px-4 py-4">
                                 <button class="mb-3" id="button-show-modal" data-modal-target="show-modal"
@@ -247,19 +218,12 @@
                             <td class="px-6 py-4">
                                 <span
                                     class="me-2 inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
-
                             </td>
                             <td class="px-6 py-4">
-                                {{ $dok->no_dokumen }}
+                                -
                             </td>
                             <td class="px-6 py-4">
-                                {{ $dok->tanggal_terima }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $dok->tanggal_terbit }}
-                            </td>
-                            <td class="px-8 py-4">
-                                {{ $dok->tanggal_jatuh_tempo }}
+                                -
                             </td>
                             <td class="flex flex-col items-center justify-between px-4 py-4">
                                 <button class="mb-3" id="button-show-modal" data-modal-target="show-modal"
@@ -309,7 +273,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <span
-                                    class="inline-inline-block rounded-full bg-red-200 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
+                                    class="inline-block rounded-full bg-red-200 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
                                     Belum Tersedia
                                 </span>
                             </td>
@@ -319,24 +283,8 @@
                             <td class="px-8 py-4">
                                 -
                             </td>
-                            <td class="px-8 py-4">
+                            <td class="px-6 py-4 text-center">
                                 -
-                            </td>
-                            <td class="px-8 py-4">
-                                -
-                            </td>
-                            <td class="px-6 py-4">
-                                <button
-                                    class="inline-flex w-full items-center rounded-lg bg-blue-700 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
-                                    id="button-create-modal" data-modal-target="create-modal"
-                                    data-modal-toggle="create-modal" type="button"
-                                    wire:click="createDokumen('{{ $jenis }}')">
-                                    <svg class="h-3 w-3 text-white dark:text-white" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M9 1v16M1 9h16" />
-                                    </svg>
-                                </button>
                             </td>
                         </tr>
                     @endif

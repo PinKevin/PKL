@@ -50,10 +50,10 @@
             </div>
         @endif
 
-        <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Penerimaan Dokumen</h2>
+        <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Peminjaman Dokumen</h2>
 
         <div class="mb-2 mt-2 flex items-center justify-between">
-            <form action="{{ route('penerimaan.search') }}" method="POST">
+            <form action="{{ route('peminjaman.search') }}" method="POST">
                 @csrf
                 <div class="bg-slate-100 py-2.5 dark:bg-gray-900">
                     <div class="inline-flex justify-start">

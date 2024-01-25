@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DebiturController;
 use App\Http\Controllers\DeveloperController;
+use App\Http\Controllers\PeminjamanDokumenController;
 use App\Http\Controllers\PenerimaanDokumenController;
 use App\Http\Controllers\SuratRoyaController;
 use App\Models\Debitur;
@@ -43,9 +44,18 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/developer', [DeveloperController::class, 'index'])->name('developer.index');
 
-    Route::get('/penerimaan-dokumen', [PenerimaanDokumenController::class, 'index'])->name('penerimaan.index');
-    Route::post('/penerimaan-dokumen/cari', [PenerimaanDokumenController::class, 'search'])->name('penerimaan.search');
-    Route::get('/penerimaan-dokumen/{no_debitur}', [PenerimaanDokumenController::class, 'show'])->name('penerimaan.dokumen');
+    Route::prefix('/penerimaan-dokumen')->group(function () {
+        Route::get('/', [PenerimaanDokumenController::class, 'index'])->name('penerimaan.index');
+        Route::post('/cari', [PenerimaanDokumenController::class, 'search'])->name('penerimaan.search');
+        Route::get('/{no_debitur}', [PenerimaanDokumenController::class, 'show'])->name('penerimaan.dokumen');
+    });
+
+    Route::prefix('/peminjaman-dokumen')->group(function () {
+        Route::get('/', [PeminjamanDokumenController::class, 'index'])->name('peminjaman.index');
+        Route::post('/cari', [PeminjamanDokumenController::class, 'search'])->name('peminjaman.search');
+        Route::get('/{no_debitur}', [PeminjamanDokumenController::class, 'show'])->name('peminjaman.peminjaman');
+    });
+
 
     Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
 

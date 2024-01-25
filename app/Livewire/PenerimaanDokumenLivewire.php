@@ -190,7 +190,6 @@ class PenerimaanDokumenLivewire extends Component
 
     public function render()
     {
-
         return view('livewire.penerimaan-dokumen.penerimaan-dokumen-livewire', [
             'debitur' => $this->debitur(),
             'dokumen' => $this->indexDokumen()

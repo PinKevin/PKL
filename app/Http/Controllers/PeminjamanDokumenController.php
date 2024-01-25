@@ -6,14 +6,14 @@ use App\Models\Debitur;
 use App\Models\Dokumen;
 use Illuminate\Http\Request;
 
-class PenerimaanDokumenController extends Controller
+class PeminjamanDokumenController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('penerimaan-dokumen.index');
+        return view('peminjaman-dokumen.index');
     }
 
     public function search(Request $request)
@@ -33,7 +33,7 @@ class PenerimaanDokumenController extends Controller
             ->first();
 
         if ($debitur) {
-            return redirect()->route('penerimaan.dokumen', ['no_debitur' => $debitur->no_debitur]);
+            return redirect()->route('peminjaman.peminjaman', ['no_debitur' => $debitur->no_debitur]);
         } else {
             return redirect()->back()->with('pesan', 'Data tidak ada')->withInput();
         }
@@ -60,7 +60,7 @@ class PenerimaanDokumenController extends Controller
      */
     public function show($no_debitur)
     {
-        return view('penerimaan-dokumen.show', [
+        return view('peminjaman-dokumen.show', [
             'no_debitur' => $no_debitur
         ]);
     }

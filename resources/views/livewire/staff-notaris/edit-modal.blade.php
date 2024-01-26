@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <button
-                    class="inline-flex items-center rounded-lg bg-blue-700 px-[130px] py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    class="inline-flex items-center rounded-lg bg-blue-700 px-[124px] py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     type="submit">
                     <svg class="-ms-1 me-1 mr-2 h-4 w-4 text-white" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

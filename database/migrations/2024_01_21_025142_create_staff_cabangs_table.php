@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('staff_cabangs', function (Blueprint $table) {
             $table->id();
+            $table->string('nip')->unique();
             $table->string('nama');
-            $table->string('nip');
             $table->string('kantor');
         });
     }

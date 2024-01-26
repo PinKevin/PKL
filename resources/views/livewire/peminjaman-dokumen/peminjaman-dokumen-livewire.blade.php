@@ -163,15 +163,21 @@
                                     class="me-2 inline-block rounded-full bg-green-200 px-7 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">Tersedia</span>
 
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-8 py-4">
                                 -
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-8 py-4">
                                 -
                             </td>
                             <td class="flex flex-col items-center justify-between px-2 py-4">
+                                <div class="flex items-center">
+                                    <input checked id="checked-checkbox" type="checkbox" value=""
+                                        class=" mb-2 w-4 h-4 text-blue-600 bg-gray-300 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="checked-checkbox"
+                                        class=" ms-2 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pilih Dokumen</label>
+                                </div>
                                 <button
-                                    class="mb-2 inline-flex w-full items-center rounded-lg bg-yellow-300 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                                    class="mb-2 inline-flex w-full items-center rounded-lg bg-blue-600 px-9 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
                                     id="button-show-log-modal" data-modal-target="show-log-modal"
                                     data-modal-toggle="show-log-modal" type="button"
                                     wire:click="showLog({{ $dok->id }})">
@@ -200,13 +206,7 @@
                                             d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
                                     </svg>
                                 </button> --}}
-                                <button
-                                    class="inline-flex w-full items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
-                                    id="button-create-modal" data-modal-target="create-modal"
-                                    data-modal-toggle="create-modal" type="button"
-                                    wire:click="createPeminjaman({{ $dok->id }})">
-                                    Pinjam
-                                </button>
+                                
                             </td>
                         </tr>
                     @elseif ($dok && $dok->status_pinjaman == 1)
@@ -310,6 +310,83 @@
             </tbody>
         </table>
     </div>
+
+    <div class="mt-4 relative overflow-x-auto shadow-lg sm:rounded-lg">
+        <table class="bg-gray-100">
+            <h1 class="p-5 text-xl bg-gray-300 text-left font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
+                Pengisian Berita Acara Serah Terima Dokumen Pokok
+            </h1>
+            <form>
+                <div class="ms-3 mt-3 grid gap-7 mb-6 md:grid-cols-2">
+                    <div class="">
+                        <label for="staff_notaris"
+                            class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Staff Notaris</label>
+                        <select id="staff_notaris"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required>
+                            <option value=""></option>
+                            <option value="1">sssss</option>
+                            <option value="2">ddddd</option>
+                        </select>
+                    </div>
+
+                    <div class="mr-4">
+                        <label for="staff_notaris"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Nama Notaris</label>
+                        <select id="staff_notaris"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required>
+                            <option value=""></option>
+                            <option value="1">sssss</option>
+                            <option value="2">ddddd</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="company"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dokumen
+                            Pendukung</label>
+                        <textarea id="company"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required></textarea>
+                    </div>
+                    <div class="mr-4">
+                        <label for="company"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keperluan</label>
+                        <textarea id="company"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required></textarea>
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                            for="tanggal_kembali">Tanggal Jatuh Tempo</label>
+                        <input
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            id="tanggal_kembali" type="date" wire:model="tanggal_kembali">
+                    </div>
+                    <div class="mr-4">
+                        <label for="staff_notaris"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Order oleh</label>
+                        <select id="staff_notaris"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required>
+                            <option value=""></option>
+                            <option value="1">sssss</option>
+                            <option value="2">ddddd</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="ms-3 mb-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            </form>
+        </table>
+    </div>
+
+
+
+
     <a class="mt-4 inline-flex w-full items-center rounded-lg bg-gray-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 sm:w-auto"
         href="{{ route('penerimaan.index') }}">
         <svg class="mr-2 h-4 w-4 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"

@@ -124,10 +124,10 @@
                 <li>
                     <a class="{{ request()->routeIs('peminjaman.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
                         href="{{ route('peminjaman.index') }}">
-                        <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 4h3c.6 0 1 .4 1 1v15c0 .6-.4 1-1 1H6a1 1 0 0 1-1-1V5c0-.6.4-1 1-1h3m0 3h6m-6 7 2 2 4-4m-5-9v4h4V3h-4Z" />
+                                d="M19 10V4c0-.6-.4-1-1-1h-8a1 1 0 0 0-.8.3l-4 4a1 1 0 0 0-.2.6V20c0 .6.4 1 1 1h12c.6 0 1-.4 1-1v-2M10 3v4c0 .6-.4 1-1 1H5m5 6h9m0 0-2-2m2 2-2 2" />
                         </svg>
                         <span class="ms-3 flex-1 whitespace-nowrap">Peminjaman</span>
                     </a>
@@ -219,7 +219,7 @@
 
     <div class="p-4 sm:ml-64">
         <div class="border-gray-700">
-            <div class="mt-14 rounded-md bg-slate-100 p-4 dark:border-gray-700">
+            <div class="mt-14 rounded-md bg-slate-100 p-5 dark:border-gray-700">
                 @yield('content')
             </div>
         </div>

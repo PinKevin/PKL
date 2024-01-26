@@ -56,7 +56,7 @@
         </div>
     @endif
 
-    @include('livewire.peminjaman-dokumen.create-modal')
+    {{-- @include('livewire.peminjaman-dokumen.create-modal') --}}
     @include('livewire.peminjaman-dokumen.show-log-modal')
     {{-- @include('livewire.penerimaan-dokumen.edit-modal')
     @include('livewire.penerimaan-dokumen.delete-modal') --}}
@@ -137,13 +137,13 @@
                             </svg>
                         </button>
                     </th>
-                    <th class="text-center px-4 py-4" scope="col">
+                    <th class="px-4 py-4 text-center" scope="col">
                         Detail
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (['PPJB', 'AJB', 'SKMHT', 'APHT', 'PH', 'SHT', 'IMB', 'Sertipikat', 'PK', 'CN'] as $jenis)
+                @foreach (['PPJB', 'AJB', 'SKMHT', 'APHT', 'PH', 'SHT', 'IMB', 'Sertipikat', 'PK', 'CN', 'Roya'] as $jenis)
                     @php
                         $dok = $dokumen->where('jenis', $jenis)->first();
                     @endphp
@@ -171,10 +171,12 @@
                             </td>
                             <td class="flex flex-col items-center justify-between px-2 py-4">
                                 <div class="flex items-center">
-                                    <input checked id="checked-checkbox" type="checkbox" value=""
-                                        class=" mb-2 w-4 h-4 text-blue-600 bg-gray-300 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="checked-checkbox"
-                                        class=" ms-2 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pilih Dokumen</label>
+                                    <input
+                                        class="mb-2 h-4 w-4 rounded border-gray-300 bg-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                        id="checkbox-{{ $dok->id }}" type="checkbox"
+                                        value="{{ $dok->id }}" wire:model="checkedDokumen">
+                                    <label class="mb-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                        for="checkbox-{{ $dok->id }}">Pilih Dokumen</label>
                                 </div>
                                 <button
                                     class="mb-2 inline-flex w-full items-center rounded-lg bg-blue-600 px-9 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
@@ -206,7 +208,7 @@
                                             d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
                                     </svg>
                                 </button> --}}
-                                
+
                             </td>
                         </tr>
                     @elseif ($dok && $dok->status_pinjaman == 1)
@@ -237,12 +239,12 @@
                                     wire:click="showLog({{ $dok->id }})">
                                     Riwayat
                                 </button>
-                                <button
+                                {{-- <button
                                     class="inline-flex w-full items-center rounded-lg bg-blue-700 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
                                     id="button-edit-modal" type="button"
                                     wire:click="ubahStatusPinjaman({{ $dok->id }})">
                                     Ubah Status
-                                </button>
+                                </button> --}}
 
                                 {{-- <button class="mb-3" id="button-show-modal" data-modal-target="show-modal"
                                     data-modal-toggle="show-modal" type="button"
@@ -301,7 +303,7 @@
                             <td class="px-8 py-4">
                                 -
                             </td>
-                            <td class="text-center px-5 py-4">
+                            <td class="px-5 py-4 text-center">
                                 -
                             </td>
                         </tr>
@@ -311,81 +313,164 @@
         </table>
     </div>
 
-    <div class="mt-4 relative overflow-x-auto shadow-lg sm:rounded-lg">
+    <div class="relative mt-4 overflow-x-auto shadow-lg sm:rounded-lg">
         <table class="bg-gray-100">
-            <h1 class="p-5 text-xl bg-gray-300 text-left font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
+            <h1
+                class="bg-gray-300 p-5 text-left text-xl font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
                 Pengisian Berita Acara Serah Terima Dokumen Pokok
             </h1>
-            <form>
-                <div class="ms-3 mt-3 grid gap-7 mb-6 md:grid-cols-2">
-                    <div class="">
-                        <label for="staff_notaris"
-                            class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Staff Notaris</label>
-                        <select id="staff_notaris"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required>
-                            <option value=""></option>
-                            <option value="1">sssss</option>
-                            <option value="2">ddddd</option>
-                        </select>
-                    </div>
+            <form wire:submit.prevent="storePeminjaman">
+                <div class="mb-6 ms-3 mt-3 grid gap-7 md:grid-cols-2">
 
                     <div class="mr-4">
-                        <label for="staff_notaris"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="notaris_id">
                             Nama Notaris</label>
-                        <select id="staff_notaris"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required>
-                            <option value=""></option>
-                            <option value="1">sssss</option>
-                            <option value="2">ddddd</option>
+                        <select
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            id="notaris_id" name="notaris_id" wire:model.change="notaris_id">
+                            <option value="">Pilih notaris</option>
+                            @foreach ($notaris as $n)
+                                <option value="{{ $n->id }}">{{ $n->kode_notaris }} - {{ $n->nama_notaris }}
+                                </option>
+                            @endforeach
                         </select>
+                        @error('notaris_id')
+                            <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                                role="alert">
+                                <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                                <div class="text-sm font-semibold">
+                                    {{ $message }}
+                                </div>
+                            </div>
+                        @enderror
                     </div>
+
+                    <div class="">
+                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="peminjam">
+                            Staff Notaris</label>
+                        <select
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            id="peminjam" name="peminjam" wire:model="peminjam">
+                            <option value="">Pilih Staff Notaris</option>
+                            @foreach ($peminjamList as $p)
+                                <option value="{{ $p->id }}">{{ $p->nama }}</option>
+                            @endforeach
+                        </select>
+                        @error('peminjam')
+                            <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                                role="alert">
+                                <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                                <div class="text-sm font-semibold">
+                                    {{ $message }}
+                                </div>
+                            </div>
+                        @enderror
+                    </div>
+
                     <div>
-                        <label for="company"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dokumen
+                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                            for="pendukung">Dokumen
                             Pendukung</label>
-                        <textarea id="company"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required></textarea>
+                        <textarea
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            id="pendukung" name="pendukung" wire:model="pendukung"></textarea>
+                        @error('pendukung')
+                            <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                                role="alert">
+                                <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                                <div class="text-sm font-semibold">
+                                    {{ $message }}
+                                </div>
+                            </div>
+                        @enderror
                     </div>
                     <div class="mr-4">
-                        <label for="company"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keperluan</label>
-                        <textarea id="company"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required></textarea>
+                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                            for="keperluan">Keperluan</label>
+                        <textarea
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            id="keperluan" name="keperluan" wire:model="keperluan"></textarea>
+                        @error('keperluan')
+                            <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                                role="alert">
+                                <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                                <div class="text-sm font-semibold">
+                                    {{ $message }}
+                                </div>
+                            </div>
+                        @enderror
                     </div>
                     <div>
                         <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                            for="tanggal_kembali">Tanggal Jatuh Tempo</label>
+                            for="tanggal_jatuh_tempo">Tanggal Jatuh Tempo</label>
                         <input
                             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                            id="tanggal_kembali" type="date" wire:model="tanggal_kembali">
+                            id="tanggal_jatuh_tempo" type="date" wire:model="tanggal_jatuh_tempo">
+                        @error('tanggal_jatuh_tempo')
+                            <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                                role="alert">
+                                <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                                <div class="text-sm font-semibold">
+                                    {{ $message }}
+                                </div>
+                            </div>
+                        @enderror
                     </div>
                     <div class="mr-4">
-                        <label for="staff_notaris"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Order oleh</label>
-                        <select id="staff_notaris"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required>
-                            <option value=""></option>
-                            <option value="1">sssss</option>
-                            <option value="2">ddddd</option>
+                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                            for="pemberi_perintah">
+                            Pemberi perintah</label>
+                        <select
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            id="pemberi_perintah" name="pemberi_perintah" wire:model="pemberi_perintah">
+                            <option value="">Pilih Pemberi Perintah</option>
+                            @foreach ($pemberiPerintah as $p)
+                                <option value="{{ $p->id }}">
+                                    {{ $p->nip }} - {{ $p->nama }} - {{ $p->kantor }}
+                                </option>
+                            @endforeach
                         </select>
+                        @error('pemberi_perintah')
+                            <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                                role="alert">
+                                <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                                <div class="text-sm font-semibold">
+                                    {{ $message }}
+                                </div>
+                            </div>
+                        @enderror
                     </div>
                 </div>
-                <button type="submit"
-                    class="ms-3 mb-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                <button
+                    class="mb-5 ms-3 w-full rounded-lg bg-blue-700 px-8 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                    type="submit">Submit</button>
             </form>
         </table>
     </div>
-
-
-
 
     <a class="mt-4 inline-flex w-full items-center rounded-lg bg-gray-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 sm:w-auto"
         href="{{ route('penerimaan.index') }}">
@@ -396,5 +481,18 @@
         </svg>
         Kembali
     </a>
+    @error('checkedDokumen')
+        <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+            role="alert">
+            <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>
+            <div class="text-sm font-semibold">
+                {{ $message }}
+            </div>
+        </div>
+    @enderror
 
 </div>

@@ -4,24 +4,33 @@ namespace App\Livewire;
 
 use App\Models\Debitur;
 use App\Models\Dokumen;
-use App\Models\Peminjaman;
-use Illuminate\Support\Facades\DB;
+use App\Models\Notaris;
 use Livewire\Component;
+use App\Models\Peminjaman;
+use App\Models\StaffCabang;
+use App\Models\StaffNotaris;
+use Illuminate\Support\Facades\DB;
 
 class PeminjamanDokumenLivewire extends Component
 {
     public $debitur, $no_debitur;
-    public $tanggal_pinjam, $tanggal_kembali, $alasan_pinjam, $peminjam;
+    public $notaris_id, $peminjam, $pendukung, $keperluan, $tanggal_jatuh_tempo, $pemberi_perintah;
+    public $peminjamList = [];
+
     public $dokumen_id;
     public $logPeminjaman;
+    public $checkedDokumen = [];
 
     public function rules()
     {
         return [
-            'tanggal_pinjam' => 'required|date',
-            'tanggal_kembali' => 'required|date',
-            'alasan_pinjam' => 'required',
-            'peminjam' => 'required'
+            'checkedDokumen' => 'required',
+            'notaris_id' => 'required',
+            'peminjam' => 'required',
+            'pendukung' => 'required',
+            'keperluan' => 'required',
+            'tanggal_jatuh_tempo' => 'required|date',
+            'pemberi_perintah' => 'required',
         ];
     }
 
@@ -36,11 +45,18 @@ class PeminjamanDokumenLivewire extends Component
     public function validationAttributes()
     {
         return [
-            'tanggal_pinjam' => 'Tanggal pinjam',
-            'tanggal_kembali' => 'Tanggal kembali',
-            'alasan_pinjam' => 'Alasan pinjam',
-            'peminjam' => 'Peminjam'
+            'notaris_id' => 'Nama notaris',
+            'peminjam' => 'Nama staff notaris peminjam',
+            'pendukung' => 'Dokumen pendukung',
+            'keperluan' => 'Keperluan',
+            'tanggal_jatuh_tempo' => 'Tanggal jatuh tempo',
+            'pemberi_perintah' => 'Staff pemberi perintah',
         ];
+    }
+
+    public function mount()
+    {
+        $this->updatedNotarisId();
     }
 
     public function debitur()
@@ -67,6 +83,24 @@ class PeminjamanDokumenLivewire extends Component
         return $peminjaman;
     }
 
+    public function getAllNotaris()
+    {
+        $notaris = Notaris::all();
+        return $notaris;
+    }
+
+    public function updatedNotarisId()
+    {
+        $this->peminjam = '';
+        $this->peminjamList = StaffNotaris::where('notaris_id', $this->notaris_id)->get();
+    }
+
+    public function getAllPemberiPerintah()
+    {
+        $pemberiPerintah = StaffCabang::all();
+        return $pemberiPerintah;
+    }
+
     public function createPeminjaman($dokumen_id)
     {
         $this->resetInput();
@@ -75,24 +109,31 @@ class PeminjamanDokumenLivewire extends Component
 
     public function storePeminjaman()
     {
+        // dd($this->checkedDokumen, $this->dokumen_id, $this->no_debitur);
+
         $this->validate();
 
         DB::transaction(function () {
-            $dokumen = Dokumen::where('id', $this->dokumen_id)->update([
-                'status_pinjaman' => 1
-            ]);
+            foreach ($this->checkedDokumen as $dokumenId) {
+                Peminjaman::create([
+                    'pemberi' => auth()->user()->id,
+                    'peminjam' => $this->peminjam,
+                    'pemberi_perintah' => $this->pemberi_perintah,
+                    'pendukung' => $this->pendukung,
+                    'keperluan' => $this->keperluan,
+                    'tanggal_pinjam' => date('Y-m-d'),
+                    'tanggal_jatuh_tempo' => $this->tanggal_jatuh_tempo,
+                    'dokumen_id' => $dokumenId
+                ]);
 
-            Peminjaman::create([
-                'tanggal_pinjam' => $this->tanggal_pinjam,
-                'tanggal_kembali' => $this->tanggal_kembali,
-                'alasan_pinjam' => $this->alasan_pinjam,
-                'peminjam' => $this->peminjam,
-                'dokumen_id' => $this->dokumen_id
-            ]);
+                Dokumen::where('id', $dokumenId)->update([
+                    'status_pinjaman' => 1
+                ]);
+            }
         });
 
-        $this->resetInput();
-        $this->dispatch('closeCreateModal');
+        // $this->resetInput();
+        // $this->dispatch('closeCreateModal');
         session()->flash('storeSuccess', 'Peminjaman berhasil dilakukan!');
     }
 
@@ -106,22 +147,24 @@ class PeminjamanDokumenLivewire extends Component
         }
     }
 
-    public function ubahStatusPinjaman($id)
-    {
-        Dokumen::where('id', $id)->update([
-            'status_pinjaman' => 0
-        ]);
+    // public function ubahStatusPinjaman($id)
+    // {
+    //     Dokumen::where('id', $id)->update([
+    //         'status_pinjaman' => 0
+    //     ]);
 
-        $this->dispatch('scrollToTop');
-        session()->flash('updateSuccess', 'Pengembalian berhasil dilakukan!');
-    }
+    //     $this->dispatch('scrollToTop');
+    //     session()->flash('updateSuccess', 'Pengembalian berhasil dilakukan!');
+    // }
 
     public function resetInput()
     {
-        $this->tanggal_kembali = '';
-        $this->tanggal_pinjam = '';
-        $this->alasan_pinjam = '';
+        $this->notaris_id = '';
         $this->peminjam = '';
+        $this->pendukung = '';
+        $this->keperluan = '';
+        $this->tanggal_jatuh_tempo = '';
+        $this->pemberi_perintah = '';
     }
 
     public function render()
@@ -129,7 +172,10 @@ class PeminjamanDokumenLivewire extends Component
         return view('livewire.peminjaman-dokumen.peminjaman-dokumen-livewire', [
             'debitur' => $this->debitur(),
             'dokumen' => $this->indexDokumen(),
-            'peminjaman' => $this->indexPeminjaman()
+            'peminjaman' => $this->indexPeminjaman(),
+            'notaris' => $this->getAllNotaris(),
+            'peminjamList' => $this->peminjamList,
+            'pemberiPerintah' => $this->getAllPemberiPerintah()
         ]);
     }
 }

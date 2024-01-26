@@ -10,6 +10,8 @@ use App\Http\Controllers\DebiturController;
 use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\PeminjamanDokumenController;
 use App\Http\Controllers\PenerimaanDokumenController;
+use App\Http\Controllers\StaffCabangController;
+use App\Http\Controllers\StaffNotarisController;
 use App\Http\Controllers\SuratRoyaController;
 use App\Models\Debitur;
 use App\Models\SuratRoya;
@@ -43,6 +45,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/notaris', [NotarisController::class, 'index'])->name('notaris.index');
 
     Route::get('/developer', [DeveloperController::class, 'index'])->name('developer.index');
+
+    Route::get('/staff-notaris', [StaffNotarisController::class, 'index'])->name('staff-notaris.index');
+
+    Route::get('/staff-cabang', [StaffCabangController::class, 'index'])->name('staff-cabang.index');
 
     Route::prefix('/penerimaan-dokumen')->group(function () {
         Route::get('/', [PenerimaanDokumenController::class, 'index'])->name('penerimaan.index');

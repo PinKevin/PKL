@@ -134,7 +134,6 @@
                 </li>
 
                 <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
-
                     <li>
                         <a class="{{ request()->routeIs('debitur.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
                             href="{{ route('debitur.index') }}">
@@ -173,6 +172,32 @@
                         </a>
                     </li>
                     <li>
+                        <a class="{{ request()->routeIs('staff-notaris.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                            href="{{ Route('staff-notaris.index') }}">
+                            <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M12 2a7 7 0 0 0-7 7 3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1c.6 0 1-.4 1-1V9a5 5 0 1 1 10 0v7a3 3 0 0 1-3 3 2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v1c0 1.1.9 2 2 2h1a2 2 0 0 0 1.7-1h.4a5 5 0 0 0 4.8-4h.1a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3 7 7 0 0 0-7-7Zm1.5 3.3a4 4 0 0 0-4.4 1 1 1 0 0 0 1.4 1.3 2 2 0 0 1 2.9 0A1 1 0 1 0 14.8 6a4 4 0 0 0-1.3-.8Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                            <span class="ms-3 flex-1 whitespace-nowrap">Staff Notaris</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ request()->routeIs('staff-cabang.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                            href="{{ Route('staff-cabang.index') }}">
+                            <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M12 2a7 7 0 0 0-7 7 3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1c.6 0 1-.4 1-1V9a5 5 0 1 1 10 0v7a3 3 0 0 1-3 3 2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v1c0 1.1.9 2 2 2h1a2 2 0 0 0 1.7-1h.4a5 5 0 0 0 4.8-4h.1a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3 7 7 0 0 0-7-7Zm1.5 3.3a4 4 0 0 0-4.4 1 1 1 0 0 0 1.4 1.3 2 2 0 0 1 2.9 0A1 1 0 1 0 14.8 6a4 4 0 0 0-1.3-.8Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                            <span class="ms-3 flex-1 whitespace-nowrap">Staff Cabang</span>
+                        </a>
+                    </li>
+                    {{-- <li>
                         <a class="group flex items-center rounded-lg p-2 text-slate-100 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-900"
                             href="#">
                             <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
@@ -183,8 +208,8 @@
                             </svg>
                             <span class="ms-3 flex-1 whitespace-nowrap">Products</span>
                         </a>
-                    </li>
-                    <li>
+                    </li> --}}
+                    {{-- <li>
                         <a class="group flex items-center rounded-lg p-2 text-slate-100 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-900"
                             href="#">
                             <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
@@ -196,8 +221,8 @@
                             </svg>
                             <span class="ms-3 flex-1 whitespace-nowrap">Sign In</span>
                         </a>
-                    </li>
-                    <li>
+                    </li> --}}
+                    {{-- <li>
                         <a class="group flex items-center rounded-lg p-2 text-slate-100 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-900"
                             href="#">
                             <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
@@ -211,7 +236,7 @@
                             </svg>
                             <span class="ms-3 flex-1 whitespace-nowrap">Sign Up</span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </ul>
         </div>

@@ -19,16 +19,16 @@ class DeveloperLivewire extends Component
     public $sortBy = 'kode_developer';
 
     public $sortDirection = 'asc';
-    
+
     public function rules()
     {
-        return[
+        return [
             'kode_developer' => 'required|unique:developers,kode_developer',
             'nama_developer' => 'required',
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
             'required' => ':attribute harus diisi!',
@@ -38,9 +38,9 @@ class DeveloperLivewire extends Component
 
     public function validationAttributes()
     {
-        return[
-        'kode_developer' => 'Kode developer',
-        'nama_developer' => 'Nama developer'
+        return [
+            'kode_developer' => 'Kode developer',
+            'nama_developer' => 'Nama developer'
         ];
     }
 

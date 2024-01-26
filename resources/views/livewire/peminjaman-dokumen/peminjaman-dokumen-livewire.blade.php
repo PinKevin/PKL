@@ -320,10 +320,10 @@
                 Pengisian Berita Acara Serah Terima Dokumen Pokok
             </h1>
             <form wire:submit.prevent="storePeminjaman">
-                <div class="mb-6 ms-3 mt-3 grid gap-7 md:grid-cols-2">
-
-                    <div class="mr-4">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="notaris_id">
+                <div class="mb-6 ms-4 me-4 mt-3 grid gap-7 md:grid-cols-2">
+                    <div>
+                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                            for="notaris_id">
                             Nama Notaris</label>
                         <select
                             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
@@ -349,8 +349,9 @@
                         @enderror
                     </div>
 
-                    <div class="">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="peminjam">
+                    <div>
+                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                            for="peminjam">
                             Staff Notaris</label>
                         <select
                             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
@@ -376,7 +377,7 @@
                     </div>
 
                     <div>
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                             for="pendukung">Dokumen
                             Pendukung</label>
                         <textarea
@@ -396,8 +397,8 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="mr-4">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    <div>
+                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                             for="keperluan">Keperluan</label>
                         <textarea
                             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
@@ -417,7 +418,7 @@
                         @enderror
                     </div>
                     <div>
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                             for="tanggal_jatuh_tempo">Tanggal Jatuh Tempo</label>
                         <input
                             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
@@ -436,8 +437,8 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="mr-4">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    <div>
+                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                             for="pemberi_perintah">
                             Pemberi perintah</label>
                         <select

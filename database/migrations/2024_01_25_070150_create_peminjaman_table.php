@@ -13,17 +13,9 @@ return new class extends Migration
     {
         Schema::create('peminjaman', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('pemberi');
-            $table->unsignedBigInteger('peminjam');
-            $table->unsignedBigInteger('pemberi_perintah');
-            $table->longText('pendukung');
-            $table->string('keperluan');
-            $table->date('tanggal_pinjam');
-            $table->date('tanggal_jatuh_tempo');
+            $table->unsignedBigInteger('bast_peminjaman_id');
 
-            $table->foreign('pemberi')->references('id')->on('users');
-            $table->foreign('peminjam')->references('id')->on('staff_notaris');
-            $table->foreign('pemberi_perintah')->references('id')->on('staff_cabangs');
+            $table->foreign('bast_peminjaman_id')->references('id')->on('bast_peminjaman');
             $table->foreignId('dokumen_id')->constrained();
             // $table->timestamps();
         });

@@ -18,4 +18,9 @@ class Peminjaman extends Model
     {
         return $this->belongsTo(Dokumen::class);
     }
+
+    public function bastPeminjaman(): BelongsTo
+    {
+        return $this->belongsTo(BastPeminjaman::class);
+    }
 }

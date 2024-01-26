@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\BastPeminjaman;
 use App\Models\Debitur;
 use App\Models\Dokumen;
 use App\Models\Notaris;
@@ -110,19 +111,25 @@ class PeminjamanDokumenLivewire extends Component
     public function storePeminjaman()
     {
         // dd($this->checkedDokumen, $this->dokumen_id, $this->no_debitur);
-
+        $bastId = '';
         $this->validate();
 
-        DB::transaction(function () {
+        DB::transaction(function () use (&$bastId) {
+            $bast = BastPeminjaman::create([
+                'pemberi' => auth()->user()->id,
+                'peminjam' => $this->peminjam,
+                'pemberi_perintah' => $this->pemberi_perintah,
+                'pendukung' => $this->pendukung,
+                'keperluan' => $this->keperluan,
+                'tanggal_pinjam' => date('Y-m-d'),
+                'tanggal_jatuh_tempo' => $this->tanggal_jatuh_tempo,
+            ]);
+
+            $bastId = $bast->id;
+
             foreach ($this->checkedDokumen as $dokumenId) {
                 Peminjaman::create([
-                    'pemberi' => auth()->user()->id,
-                    'peminjam' => $this->peminjam,
-                    'pemberi_perintah' => $this->pemberi_perintah,
-                    'pendukung' => $this->pendukung,
-                    'keperluan' => $this->keperluan,
-                    'tanggal_pinjam' => date('Y-m-d'),
-                    'tanggal_jatuh_tempo' => $this->tanggal_jatuh_tempo,
+                    'bast_peminjaman_id' => $bast->id,
                     'dokumen_id' => $dokumenId
                 ]);
 
@@ -132,9 +139,11 @@ class PeminjamanDokumenLivewire extends Component
             }
         });
 
-        // $this->resetInput();
-        // $this->dispatch('closeCreateModal');
-        session()->flash('storeSuccess', 'Peminjaman berhasil dilakukan!');
+        $this->resetInput();
+        redirect()->route('peminjaman.cetak', ['id' => $bastId]);
+
+        // $this->dispatch('scrollToTop');
+        // session()->flash('storeSuccess', 'Peminjaman berhasil dilakukan!');
     }
 
     public function showLog($id)

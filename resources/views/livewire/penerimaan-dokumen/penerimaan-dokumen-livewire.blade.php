@@ -166,7 +166,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (['PPJB', 'AJB', 'SKMHT', 'APHT', 'PH', 'SHT', 'IMB', 'Sertipikat', 'PK', 'CN'] as $jenis)
+                @foreach (['PPJB', 'AJB', 'SKMHT', 'APHT', 'PH', 'SHT', 'IMB', 'Sertipikat', 'PK', 'CN', 'Roya'] as $jenis)
                     @php
                         $dok = $dokumen->where('jenis', $jenis)->first();
                     @endphp

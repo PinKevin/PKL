@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BastController;
+use App\Http\Controllers\BastPeminjamanController;
 use App\Http\Controllers\BerkasController;
 use App\Http\Controllers\NotarisController;
 use Illuminate\Support\Facades\Route;
@@ -60,6 +61,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [PeminjamanDokumenController::class, 'index'])->name('peminjaman.index');
         Route::post('/cari', [PeminjamanDokumenController::class, 'search'])->name('peminjaman.search');
         Route::get('/{no_debitur}', [PeminjamanDokumenController::class, 'show'])->name('peminjaman.peminjaman');
+        Route::get('/cetak-bast/{id}', [BastPeminjamanController::class, 'cetakBast'])->name('peminjaman.cetak');
     });
 
 

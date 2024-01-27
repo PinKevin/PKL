@@ -58,6 +58,7 @@
 
     {{-- @include('livewire.peminjaman-dokumen.create-modal') --}}
     @include('livewire.peminjaman-dokumen.show-log-modal')
+    @include('livewire.peminjaman-dokumen.show-bast-log-modal')
     {{-- @include('livewire.penerimaan-dokumen.edit-modal')
     @include('livewire.penerimaan-dokumen.delete-modal') --}}
 
@@ -75,6 +76,9 @@
                     <th class="px-6 py-3" scope="col">
                         Nomor Debitur
                     </th>
+                    <th class="px-6 py-3" scope="col">
+                        Riwayat Peminjaman
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -84,6 +88,15 @@
                     </th>
                     <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
                         {{ $debitur->no_debitur }}
+                    </td>
+                    <td>
+                        <button
+                            class="mb-2 inline-flex w-full items-center rounded-lg bg-blue-600 px-9 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                            id="button-show-bast-log-modal" data-modal-target="show-bast-log-modal"
+                            data-modal-toggle="show-bast-log-modal" type="button"
+                            wire:click="showBastLog({{ $debitur->no_debitur }})">
+                            Riwayat
+                        </button>
                     </td>
                 </tr>
             </tbody>

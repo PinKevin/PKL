@@ -19,7 +19,8 @@ class PeminjamanDokumenLivewire extends Component
     public $peminjamList = [];
 
     public $dokumen_id;
-    public $logPeminjaman;
+    public $logPeminjaman, $jenisList;
+    public $logBast;
     public $checkedDokumen = [];
 
     public function rules()
@@ -110,7 +111,6 @@ class PeminjamanDokumenLivewire extends Component
 
     public function storePeminjaman()
     {
-        // dd($this->checkedDokumen, $this->dokumen_id, $this->no_debitur);
         $bastId = '';
         $this->validate();
 
@@ -156,6 +156,41 @@ class PeminjamanDokumenLivewire extends Component
         }
     }
 
+    public function showBastLog($no_debitur)
+    {
+        $debitur = Debitur::where('no_debitur', $no_debitur)->first();
+
+        $dokumen = Dokumen::where('debitur_id', $debitur->id)->get();
+        $dokumenIdList = $dokumen->pluck('id')->toArray();
+
+        $peminjaman = Peminjaman::whereIn('dokumen_id', $dokumenIdList)->get();
+
+        $bastIdList = $peminjaman->pluck('bast_peminjaman_id')->toArray();
+        $bastLog = BastPeminjaman::whereIn('id', $bastIdList)->get();
+
+        $jenisDokumenByBast = [];
+
+        if ($bastLog->isNotEmpty()) {
+            foreach ($bastLog as $bast) {
+                $jenisDokumenByBast[$bast->id] = [];
+
+                foreach ($peminjaman as $p) {
+                    if ($p->bast_peminjaman_id === $bast->id) {
+                        $jenisDokumenByBast[$bast->id][] = $p->dokumen->jenis;
+                    }
+                }
+            }
+
+            $this->logBast = $bastLog;
+            $this->jenisList = $jenisDokumenByBast;
+        } else {
+            $this->logBast = [];
+            $this->jenisList = [];
+        }
+    }
+
+
+
     // public function ubahStatusPinjaman($id)
     // {
     //     Dokumen::where('id', $id)->update([
@@ -174,6 +209,7 @@ class PeminjamanDokumenLivewire extends Component
         $this->keperluan = '';
         $this->tanggal_jatuh_tempo = '';
         $this->pemberi_perintah = '';
+        $this->checkedDokumen = [];
     }
 
     public function render()

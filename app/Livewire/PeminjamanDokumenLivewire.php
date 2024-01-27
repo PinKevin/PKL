@@ -139,11 +139,11 @@ class PeminjamanDokumenLivewire extends Component
             }
         });
 
-        $this->resetInput();
-        redirect()->route('peminjaman.cetak', ['id' => $bastId]);
+        $route = route('peminjaman.cetak', ['id' => $bastId]);
 
-        // $this->dispatch('scrollToTop');
-        // session()->flash('storeSuccess', 'Peminjaman berhasil dilakukan!');
+        $this->resetInput();
+        $this->dispatch('scrollToTop');
+        session()->flash('storeSuccess', "Peminjaman berhasil dilakukan! Silakan download BAST di <a href=\"$route\" class=\"underline\">sini!</a>");
     }
 
     public function showLog($id)

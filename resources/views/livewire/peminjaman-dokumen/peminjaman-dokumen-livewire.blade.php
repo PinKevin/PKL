@@ -9,7 +9,7 @@
             </svg>
             <span class="sr-only">Info</span>
             <div class="ms-3 text-sm font-medium">
-                {{ session('storeSuccess') }}
+                {!! session('storeSuccess') !!}
             </div>
         </div>
     @endif

@@ -320,9 +320,9 @@
                 Pengisian Berita Acara Serah Terima Dokumen Pokok
             </h1>
             <form wire:submit.prevent="storePeminjaman">
-                <div class="mb-6 ms-4 me-4 mt-3 grid gap-7 md:grid-cols-2">
+                <div class="mb-6 me-4 ms-4 mt-3 grid gap-7 md:grid-cols-2">
                     <div>
-                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                        <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
                             for="notaris_id">
                             Nama Notaris</label>
                         <select
@@ -350,7 +350,7 @@
                     </div>
 
                     <div>
-                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                        <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
                             for="peminjam">
                             Staff Notaris</label>
                         <select
@@ -377,12 +377,12 @@
                     </div>
 
                     <div>
-                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                        <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
                             for="pendukung">Dokumen
                             Pendukung</label>
                         <textarea
                             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                            id="pendukung" name="pendukung" wire:model="pendukung"></textarea>
+                            id="pendukung" name="pendukung" placeholder="Dokumen penunjuk" wire:model="pendukung"></textarea>
                         @error('pendukung')
                             <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                 role="alert">
@@ -398,11 +398,11 @@
                         @enderror
                     </div>
                     <div>
-                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                        <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
                             for="keperluan">Keperluan</label>
                         <textarea
                             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                            id="keperluan" name="keperluan" wire:model="keperluan"></textarea>
+                            id="keperluan" name="keperluan" placeholder="Keperluan peminjaman" wire:model="keperluan"></textarea>
                         @error('keperluan')
                             <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                 role="alert">
@@ -418,7 +418,7 @@
                         @enderror
                     </div>
                     <div>
-                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                        <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
                             for="tanggal_jatuh_tempo">Tanggal Jatuh Tempo</label>
                         <input
                             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
@@ -438,7 +438,7 @@
                         @enderror
                     </div>
                     <div>
-                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                        <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
                             for="pemberi_perintah">
                             Pemberi perintah</label>
                         <select

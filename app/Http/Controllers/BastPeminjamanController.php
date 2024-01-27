@@ -106,13 +106,20 @@ class BastPeminjamanController extends Controller
 
         // end dokumen menunjuk
 
-        $templateProcessor = new TemplateProcessor('format/format-bast-peminjaman.docx');
-
+        // tanggal
         $hariIni = DataConverterController::getHariIndonesia(date('N'));
         $tanggal = date('d');
         $bulan = DataConverterController::getBulanIndonesia(date('m'));
         $tahun = date('Y');
 
+        // end tanggal
+
+        // nama file
+        $namaDebitur = strtoupper($peminjaman->first()->dokumen->debitur->nama_debitur);
+        $pemberiPerintah = strtoupper($bastPeminjaman->pemberiPerintah()->first()->nama);
+        $namaFile = "PEMINJAMAN - $pemberiPerintah - $namaDebitur" . ".docx";
+
+        $templateProcessor = new TemplateProcessor('format/format-bast-peminjaman.docx');
 
         $data = [
             'hari_ini' => $hariIni,
@@ -123,7 +130,7 @@ class BastPeminjamanController extends Controller
             'keperluan' => $bastPeminjaman->keperluan,
             'tanggal_pinjam' => date('d/m/Y'),
             'tanggal_jatuh_tempo' => $bastPeminjaman->tanggal_jatuh_tempo->format('d/m/Y'),
-            'pemberi_perintah' => $bastPeminjaman->pemberiPerintah()->first()->nama,
+            'pemberi_perintah' => $pemberiPerintah,
             'nip' => $bastPeminjaman->pemberiPerintah()->first()->nip,
             'kantor' => $bastPeminjaman->pemberiPerintah()->first()->kantor,
         ];
@@ -131,7 +138,7 @@ class BastPeminjamanController extends Controller
         $templateProcessor->setValues($data);
         $templateProcessor->cloneRowAndSetValues('no_tabel', $dokumenDipinjam);
         $templateProcessor->cloneBlock('blok_menunjuk', 0, true, false, $hasil);
-        $templateProcessor->saveAs("PEMINJAMAN.docx");
-        return response()->download('PEMINJAMAN.docx')->deleteFileAfterSend(true);
+        $templateProcessor->saveAs($namaFile);
+        return response()->download($namaFile)->deleteFileAfterSend(true);
     }
 }

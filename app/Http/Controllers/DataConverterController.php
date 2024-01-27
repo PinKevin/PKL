@@ -47,4 +47,13 @@ class DataConverterController extends Controller
 
         return $bulanArray[$bulan - 1];
     }
+
+    public static function getHariIndonesia($hari)
+    {
+        $hariArray = [
+            'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'
+        ];
+
+        return $hariArray[$hari - 1];
+    }
 }

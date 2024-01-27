@@ -15,8 +15,28 @@ class BastPeminjaman extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'tanggal_pinjam' => 'date',
+        'tanggal_jatuh_tempo' => 'date',
+    ];
+
     public function peminjaman(): HasMany
     {
         return $this->hasMany(Peminjaman::class);
+    }
+
+    public function pemberi()
+    {
+        return $this->belongsTo(User::class, 'pemberi');
+    }
+
+    public function peminjam()
+    {
+        return $this->belongsTo(StaffNotaris::class, 'peminjam');
+    }
+
+    public function pemberiPerintah()
+    {
+        return $this->belongsTo(StaffCabang::class, 'pemberi_perintah');
     }
 }

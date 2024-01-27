@@ -11,4 +11,9 @@ class StaffCabang extends Model
 
     public $timestamps = FALSE;
     protected $guarded = ['id'];
+
+    public function bastPeminjaman()
+    {
+        return $this->hasMany(BastPeminjaman::class, 'pemberi_perintah');
+    }
 }

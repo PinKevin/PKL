@@ -17,4 +17,9 @@ class StaffNotaris extends Model
     {
         return $this->belongsTo(Notaris::class);
     }
+
+    public function bastPeminjaman()
+    {
+        return $this->hasMany(BastPeminjaman::class, 'peminjam');
+    }
 }

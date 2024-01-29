@@ -65,10 +65,10 @@
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <caption
-                class="bg-slate-200 p-5 text-left text-lg font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
+                class="bg-slate-300 p-5 text-left text-lg font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
                 Hasil Pencarian "{{ $debitur->nama_debitur }}, {{ $debitur->no_debitur }}"
             </caption>
-            <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="bg-slate-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th class="px-6 py-3" scope="col">
                         Nama Debitur
@@ -347,12 +347,12 @@
         <div class="relative mt-4 overflow-x-auto shadow-lg sm:rounded-lg">
             <table>
                 <h1
-                    class="bg-gray-300 p-5 text-left text-xl font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
+                    class="bg-slate-300 p-5 text-left text-xl font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
                     Hai, Kamu memilih SHT
                 </h1>
 
-                <form class="ml-0.5 mt-4" wire:submit.prevent="storeSuratRoya" method="POST">
-                    <div class="mb-6 grid gap-6 md:grid-cols-2">
+                <form wire:submit.prevent="storeSuratRoya" method="POST">
+                    <div class="mb-6 me-4 ms-4 mt-3 grid gap-6 md:grid-cols-2">
                         <div>
                             <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                                 for="no_surat">
@@ -692,10 +692,10 @@
         </div>
     @endif
 
-    <div class="relative mt-4 overflow-x-auto shadow-lg sm:rounded-lg">
+    <div class="bg-slate-100 relative mt-4 overflow-x-auto shadow-lg sm:rounded-lg">
         <table class="bg-gray-100">
             <h1
-                class="bg-gray-300 p-5 text-left text-xl font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
+                class="bg-slate-300 p-5 text-left text-xl font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
                 Pengisian Berita Acara Serah Terima Dokumen Pokok
             </h1>
             <form wire:submit.prevent="storePeminjaman">

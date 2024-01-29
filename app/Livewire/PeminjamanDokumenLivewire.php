@@ -2,15 +2,17 @@
 
 namespace App\Livewire;
 
-use App\Models\BastPeminjaman;
 use App\Models\Debitur;
 use App\Models\Dokumen;
 use App\Models\Notaris;
 use Livewire\Component;
+use App\Models\SuratRoya;
 use App\Models\Peminjaman;
 use App\Models\StaffCabang;
 use App\Models\StaffNotaris;
+use App\Models\BastPeminjaman;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\DataConverterController;
 
 class PeminjamanDokumenLivewire extends Component
 {
@@ -22,6 +24,10 @@ class PeminjamanDokumenLivewire extends Component
     public $logPeminjaman, $jenisList;
     public $logBast;
     public $checkedDokumen = [];
+
+    public $no_surat_depan, $no_surat, $tanggal_pelunasan, $kota_bpn, $lokasi_kepala_bpn, $no_agunan;
+    public $kelurahan, $kecamatan, $no_surat_ukur, $nib, $luas, $pemilik, $peringkat_sht, $no_sht;
+    public $tanggal_sht;
 
     public function rules()
     {
@@ -61,6 +67,45 @@ class PeminjamanDokumenLivewire extends Component
     public function mount()
     {
         $this->updatedNotarisId();
+        $this->debitur();
+        $this->autoFillSuratRoya();
+    }
+
+    public function autoFillSuratRoya()
+    {
+        $this->no_surat_depan = $this->generateNoDepanSurat();
+        $this->no_surat = $this->generateNoSurat();
+
+        $sertipikat = Dokumen::where('jenis', 'Sertipikat')
+            ->where('debitur_id', $this->debitur->id)
+            ->first();
+
+        $sht = Dokumen::where('jenis', 'SHT')
+            ->where('debitur_id', $this->debitur->id)
+            ->first();
+
+        $this->no_agunan = $sertipikat->no_dokumen;
+
+        $this->no_sht = $sht->no_dokumen;
+        $this->tanggal_sht = $sht->tanggal_terbit;
+    }
+
+    public function generateNoDepanSurat()
+    {
+        $tahun = date('Y');
+        $noDepan = SuratRoya::whereYear('created_at', $tahun)->max('no_surat_depan');
+        $noDepan = $noDepan ? $noDepan + 1 : 1;
+        return $noDepan;
+    }
+
+    public function generateNoSurat()
+    {
+        $bulan = DataConverterController::bulanToRomawi(date('m'));
+        $tahun = date('Y');
+        $noDepan = $this->no_surat_depan;
+
+        $noSurat = "$noDepan/SMG/LD/$bulan/$tahun";
+        return $noSurat;
     }
 
     public function debitur()
@@ -93,6 +138,12 @@ class PeminjamanDokumenLivewire extends Component
         return $notaris;
     }
 
+    public function getRoyaDebitur()
+    {
+        $roya = SuratRoya::where('debitur_id', $this->debitur->id)->first();
+        return $roya;
+    }
+
     public function updatedNotarisId()
     {
         $this->peminjam = '';
@@ -114,9 +165,63 @@ class PeminjamanDokumenLivewire extends Component
     public function storePeminjaman()
     {
         $bastId = '';
-        $this->validate();
+        $routeSuratRoya = '';
 
-        DB::transaction(function () use (&$bastId) {
+        if (in_array('SHT', $this->checkedDokumen)) {
+            $this->validate([
+                'checkedDokumen' => 'required',
+                'notaris_id' => 'required',
+                'peminjam' => 'required',
+                'pendukung' => 'required',
+                'keperluan' => 'required',
+                'tanggal_jatuh_tempo' => 'required|date',
+                'peminta' => 'required',
+                'tanggal_pelunasan' => 'required|date',
+                'kota_bpn' => 'required',
+                'lokasi_kepala_bpn' => 'required',
+                'no_agunan' => 'required',
+                'kelurahan' => 'required',
+                'kecamatan' => 'required',
+                'no_surat_ukur' => 'required',
+                'nib' => 'required',
+                'luas' => 'required|integer',
+                'pemilik' => 'required',
+                'peringkat_sht' => 'required',
+                'no_sht' => 'required',
+                'tanggal_sht' => 'required|date'
+            ], [
+                'required' => ':attribute harus diisi!',
+                'date' => ':attribute harus berupa tanggal!',
+                'checkedDokumen.required' => 'Dokumen harus dipilih!',
+                'integer' => ':attribute harus berupa numerik!',
+                'unique' => ':attribute sudah ada di dalam database!'
+            ], [
+                'checkedDokumen' => 'Dokumen',
+                'notaris_id' => 'Nama notaris',
+                'peminjam' => 'Nama staff notaris peminjam',
+                'pendukung' => 'Dokumen pendukung',
+                'keperluan' => 'Keperluan',
+                'tanggal_jatuh_tempo' => 'Tanggal jatuh tempo',
+                'peminta' => 'Staff peminta',
+                'tanggal_pelunasan' => 'Tanggal pelunasan',
+                'kota_bpn' => 'Kota BPN',
+                'lokasi_kepala_bpn' => 'Lokasi Kepala BPN',
+                'no_agunan' => 'Nomor agunan',
+                'kelurahan' => 'Kelurahan bangunan',
+                'kecamatan' => 'Kecamatan bangunan',
+                'no_surat_ukur' => 'Nomor surat ukur',
+                'nib' => 'NIB',
+                'luas' => 'Luas bangunan',
+                'pemilik' => 'Pemilik bangunan',
+                'peringkat_sht' => 'Peringkat SHT',
+                'no_sht' => 'Nomor SHT',
+                'tanggal_sht' => 'Tanggal SHT'
+            ]);
+        } else {
+            $this->validate();
+        }
+
+        DB::transaction(function () use (&$bastId, &$routeSuratRoya) {
             $bast = BastPeminjaman::create([
                 'pemberi' => auth()->user()->id,
                 'peminjam' => $this->peminjam,
@@ -130,12 +235,35 @@ class PeminjamanDokumenLivewire extends Component
 
             $bastId = $bast->id;
 
+            if (in_array('SHT', $this->checkedDokumen)) {
+                $suratRoya = SuratRoya::create([
+                    'no_surat_depan' => $this->no_surat_depan,
+                    'no_surat' => $this->no_surat,
+                    'tanggal_pelunasan' => $this->tanggal_pelunasan,
+                    'kota_bpn' => $this->kota_bpn,
+                    'lokasi_kepala_bpn' => $this->lokasi_kepala_bpn,
+                    'no_agunan' => $this->no_agunan,
+                    'kelurahan' => $this->kelurahan,
+                    'kecamatan' => $this->kecamatan,
+                    'no_surat_ukur' => $this->no_surat_ukur,
+                    'nib' => $this->nib,
+                    'luas' => $this->luas,
+                    'pemilik' => $this->pemilik,
+                    'peringkat_sht' => $this->peringkat_sht,
+                    'no_sht' => $this->no_sht,
+                    'tanggal_sht' => $this->tanggal_sht,
+                    'debitur_id' => $this->debitur->id,
+                    'bast_peminjaman_id' => $bastId
+                ]);
+                $routeSuratRoya = route('surat-roya.cetak', ['id' => $suratRoya->id]);
+            }
+
             foreach ($this->checkedDokumen as $jenis) {
                 $dokumen = Dokumen::where('jenis', $jenis)
                     ->where('debitur_id', $this->debitur->id)->first();
 
                 Peminjaman::create([
-                    'bast_peminjaman_id' => $bast->id,
+                    'bast_peminjaman_id' => $bastId,
                     'dokumen_id' => $dokumen->id
                 ]);
 
@@ -149,7 +277,11 @@ class PeminjamanDokumenLivewire extends Component
 
         $this->resetInput();
         $this->dispatch('scrollToTop');
-        session()->flash('storeSuccess', "Peminjaman berhasil dilakukan! Silakan download BAST di <a href=\"$route\" class=\"underline\">sini!</a>");
+        if (in_array('SHT', $this->checkedDokumen)) {
+            session()->flash('storeSuccess', "Peminjaman berhasil dilakukan! Silakan download BAST di <a href=\"$route\" class=\"underline\">sini!</a> dan Surat Roya di <a href=\"$routeSuratRoya\" class=\"underline\">sini!</a>");
+        } else {
+            session()->flash('storeSuccess', "Peminjaman berhasil dilakukan! Silakan download BAST di <a href=\"$route\" class=\"underline\">sini!</a>");
+        }
     }
 
     public function showLog($id)
@@ -171,6 +303,8 @@ class PeminjamanDokumenLivewire extends Component
 
         $bastIdList = $peminjaman->pluck('bast_peminjaman_id')->toArray();
         $bastLog = BastPeminjaman::whereIn('id', $bastIdList)->get();
+
+        $suratRoyaSht = SuratRoya::where('bast_peminjaman_id', '');
 
         $jenisDokumenByBast = [];
 
@@ -219,12 +353,12 @@ class PeminjamanDokumenLivewire extends Component
     public function render()
     {
         return view('livewire.peminjaman-dokumen.peminjaman-dokumen-livewire', [
-            'debitur' => $this->debitur(),
             'dokumen' => $this->indexDokumen(),
             'peminjaman' => $this->indexPeminjaman(),
             'notaris' => $this->getAllNotaris(),
             'peminjamList' => $this->peminjamList,
-            'pemintaList' => $this->getAllPeminta()
+            'pemintaList' => $this->getAllPeminta(),
+            'roya' => $this->getRoyaDebitur()
         ]);
     }
 }

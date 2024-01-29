@@ -176,12 +176,12 @@
                                     class="me-2 inline-block rounded-full bg-green-200 px-7 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">Tersedia</span>
 
                             </td>
-                            <td class="px-8 py-4">
+                            {{-- <td class="px-8 py-4">
                                 -
                             </td>
                             <td class="px-8 py-4">
                                 -
-                            </td>
+                            </td> --}}
                             <td class="flex flex-col items-center justify-between px-2 py-4">
                                 <div class="flex items-center">
                                     <input

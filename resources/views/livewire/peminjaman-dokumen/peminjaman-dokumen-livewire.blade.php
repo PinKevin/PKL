@@ -91,7 +91,7 @@
                     </td>
                     <td>
                         <button
-                            class="mb-2 inline-flex w-full items-center rounded-lg bg-blue-600 px-9 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                            class="ml-10 mr-16 flex rounded-lg bg-blue-600 px-5 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
                             id="button-show-bast-log-modal" data-modal-target="show-bast-log-modal"
                             data-modal-toggle="show-bast-log-modal" type="button"
                             wire:click="showBastLog({{ $debitur->no_debitur }})">
@@ -244,7 +244,7 @@
                             {{-- <td class="px-6 py-4">
                                 {{ $dok->peminjaman->max()->bastPeminjaman->tanggal_jatuh_tempo->format('d-m-Y') }}
                             </td> --}}
-                            <td class="px-6 py-4">
+                            <td class="text-center px-6 py-4">
                                 -
                             </td>
                             {{-- <td class="flex flex-col items-center justify-between px-2 py-4">
@@ -313,7 +313,7 @@
                                     Belum Tersedia
                                 </span>
                             </td>
-                            <td class="px-8 py-4">
+                            <td class="text-center px-8 py-4">
                                 -
                             </td>
                             {{-- <td class="px-8 py-4">
@@ -328,6 +328,20 @@
             </tbody>
         </table>
     </div>
+
+    @error('checkedDokumen')
+        <div class="mb-4 mt-2 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+            role="alert">
+            <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>
+            <div class="text-sm font-semibold">
+                {{ $message }}
+            </div>
+        </div>
+    @enderror
 
     <div class="relative mt-4 overflow-x-auto shadow-lg sm:rounded-lg">
         <table class="bg-gray-100">
@@ -483,7 +497,7 @@
                     </div>
                 </div>
                 <button
-                    class="mb-5 ms-3 w-full rounded-lg bg-blue-700 px-8 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                    class="mb-5 ms-4 w-full rounded-lg bg-blue-700 px-8 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
                     type="submit">Submit</button>
             </form>
         </table>
@@ -498,18 +512,6 @@
         </svg>
         Kembali
     </a>
-    @error('checkedDokumen')
-        <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-            role="alert">
-            <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor" viewBox="0 0 20 20">
-                <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-            </svg>
-            <div class="text-sm font-semibold">
-                {{ $message }}
-            </div>
-        </div>
-    @enderror
+
 
 </div>

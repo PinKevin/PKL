@@ -80,11 +80,15 @@
                                     <td class="px-6 py-4">
                                         {{ $log->tanggal_jatuh_tempo->format('d-m-Y') }}
                                     </td>
-                                    <td>
-                                        @foreach ($jenisList[$log->id] as $jenis)
-                                            {{ $jenis }}<br>
-                                        @endforeach
+                                    <td class="px-14 py-4">
+                                        <ul
+                                            class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                                            @foreach ($jenisList[$log->id] as $jenis)
+                                                <li>{{ $jenis }}</li>
+                                            @endforeach
+                                        </ul>
                                     </td>
+
                                     <td class="px-6 py-4">
                                         <a class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                             href="{{ route('peminjaman.cetak', ['id' => $log->id]) }}">Cetak</a>

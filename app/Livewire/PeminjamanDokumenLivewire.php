@@ -41,12 +41,14 @@ class PeminjamanDokumenLivewire extends Component
         return [
             'required' => ':attribute harus diisi!',
             'date' => ':attribute harus berupa tanggal!',
+            'checkedDokumen.required' => 'Dokumen harus dipilih!'
         ];
     }
 
     public function validationAttributes()
     {
         return [
+            'checkedDokumen'=> 'Dokumen',
             'notaris_id' => 'Nama notaris',
             'peminjam' => 'Nama staff notaris peminjam',
             'pendukung' => 'Dokumen pendukung',

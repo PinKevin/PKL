@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Debitur;
 use App\Models\Dokumen;
+use App\Models\SuratRoya;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -63,6 +64,12 @@ class PenerimaanDokumenLivewire extends Component
         $dokumen = Dokumen::where('debitur_id', $this->debitur->id)
             ->get();
         return $dokumen;
+    }
+
+    public function getRoyaDebitur()
+    {
+        $roya = SuratRoya::where('debitur_id', $this->debitur->id)->first();
+        return $roya;
     }
 
     public function createDokumen($jenis)
@@ -192,7 +199,8 @@ class PenerimaanDokumenLivewire extends Component
     {
         return view('livewire.penerimaan-dokumen.penerimaan-dokumen-livewire', [
             'debitur' => $this->debitur(),
-            'dokumen' => $this->indexDokumen()
+            'dokumen' => $this->indexDokumen(),
+            'roya' => $this->getRoyaDebitur()
         ]);
     }
 }

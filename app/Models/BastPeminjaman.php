@@ -35,8 +35,8 @@ class BastPeminjaman extends Model
         return $this->belongsTo(StaffNotaris::class, 'peminjam');
     }
 
-    public function pemberiPerintah()
+    public function peminta()
     {
-        return $this->belongsTo(StaffCabang::class, 'pemberi_perintah');
+        return $this->belongsTo(StaffCabang::class, 'peminta');
     }
 }

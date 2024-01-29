@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BastPeminjaman;
 use App\Http\Requests\StoreBastPeminjamanRequest;
 use App\Http\Requests\UpdateBastPeminjamanRequest;
+use App\Models\SuratRoya;
 use PhpOffice\PhpWord\TemplateProcessor;
 
 class BastPeminjamanController extends Controller
@@ -67,7 +68,7 @@ class BastPeminjamanController extends Controller
 
     public function cetakBast($id)
     {
-        $bastPeminjaman = BastPeminjaman::with(['pemberi', 'peminjam', 'pemberiPerintah'])->findOrFail($id);
+        $bastPeminjaman = BastPeminjaman::findOrFail($id);
 
         // dokumen yang dipinjam
         $peminjaman = $bastPeminjaman->peminjaman;
@@ -87,6 +88,18 @@ class BastPeminjamanController extends Controller
                 "pemilik" => $pemilik,
                 "no_debitur" => $no_debitur,
             ];
+
+            if ($p->dokumen->jenis == 'SHT') {
+                $suratRoya = SuratRoya::where('bast_peminjaman_id', $bastPeminjaman->id)->first();
+                $noSuratRoya = $suratRoya->no_surat;
+
+                $dokumenDipinjam[] = [
+                    "no_tabel" => $counter,
+                    "jenis" => "Surat Roya No. $noSuratRoya",
+                    "pemilik" => $suratRoya->pemilik,
+                    "no_debitur" => $no_debitur,
+                ];
+            }
             $counter++;
         }
 
@@ -116,8 +129,8 @@ class BastPeminjamanController extends Controller
 
         // nama file
         $namaDebitur = strtoupper($peminjaman->first()->dokumen->debitur->nama_debitur);
-        $pemberiPerintah = strtoupper($bastPeminjaman->pemberiPerintah()->first()->nama);
-        $namaFile = "PEMINJAMAN - $pemberiPerintah - $namaDebitur" . ".docx";
+        $peminta = strtoupper($bastPeminjaman->peminta()->first()->nama);
+        $namaFile = "PEMINJAMAN - $peminta - $namaDebitur" . ".docx";
 
         $templateProcessor = new TemplateProcessor('format/format-bast-peminjaman.docx');
 
@@ -130,9 +143,9 @@ class BastPeminjamanController extends Controller
             'keperluan' => $bastPeminjaman->keperluan,
             'tanggal_pinjam' => date('d/m/Y'),
             'tanggal_jatuh_tempo' => $bastPeminjaman->tanggal_jatuh_tempo->format('d/m/Y'),
-            'pemberi_perintah' => $pemberiPerintah,
-            'nip' => $bastPeminjaman->pemberiPerintah()->first()->nip,
-            'kantor' => $bastPeminjaman->pemberiPerintah()->first()->kantor,
+            'pemberi_perintah' => $peminta,
+            'nip' => $bastPeminjaman->peminta()->first()->nip,
+            'kantor' => $bastPeminjaman->peminta()->first()->kantor,
         ];
 
         $templateProcessor->setValues($data);

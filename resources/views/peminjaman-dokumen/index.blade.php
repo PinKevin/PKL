@@ -1,7 +1,7 @@
 @extends('layouts.content')
 
 @section('page_title')
-    Penerimaan
+    Peminjaman
 @endsection
 
 @push('styles')

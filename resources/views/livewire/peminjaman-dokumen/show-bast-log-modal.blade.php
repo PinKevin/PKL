@@ -82,16 +82,25 @@
                                     </td>
                                     <td class="px-14 py-4">
                                         <ul
-                                            class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                                            class="max-w-md list-inside list-disc space-y-1 text-gray-500 dark:text-gray-400">
                                             @foreach ($jenisList[$log->id] as $jenis)
                                                 <li>{{ $jenis }}</li>
                                             @endforeach
+                                            @if (in_array('SHT', $jenisList[$log->id]) &&
+                                                    ($suratRoya = App\Models\SuratRoya::where('bast_peminjaman_id', $log->id)->first()))
+                                                <li>Roya</li>
+                                            @endif
                                         </ul>
                                     </td>
 
                                     <td class="px-6 py-4">
                                         <a class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                            href="{{ route('peminjaman.cetak', ['id' => $log->id]) }}">Cetak</a>
+                                            href="{{ route('peminjaman.cetak', ['id' => $log->id]) }}">Cetak BAST</a>
+                                        @if (in_array('SHT', $jenisList[$log->id]) && $suratRoya)
+                                            <a class="rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                                                href="{{ route('surat-roya.cetak', ['id' => $suratRoya->id]) }}">Cetak
+                                                Roya</a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

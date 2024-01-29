@@ -29,7 +29,9 @@ return new class extends Migration
             $table->string('no_sht');
             $table->date('tanggal_sht');
             $table->foreignId('debitur_id')->constrained();
-            $table->boolean('status_pinjaman');
+
+            $table->unsignedBigInteger('bast_peminjaman_id');
+            $table->foreign('bast_peminjaman_id')->references('id')->on('bast_peminjaman');
             $table->timestamps();
         });
     }

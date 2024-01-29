@@ -166,7 +166,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (['PPJB', 'AJB', 'SKMHT', 'APHT', 'PH', 'SHT', 'IMB', 'Sertipikat', 'PK', 'CN', 'Roya'] as $jenis)
+                @foreach (['PPJB', 'AJB', 'SKMHT', 'APHT', 'PH', 'SHT', 'IMB', 'Sertipikat', 'PK', 'CN'] as $jenis)
                     @php
                         $dok = $dokumen->where('jenis', $jenis)->first();
                     @endphp
@@ -341,6 +341,140 @@
                         </tr>
                     @endif
                 @endforeach
+
+                @if ($roya)
+                    <tr
+                        class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
+                        <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                            scope="row">
+                            11
+                        </th>
+                        <td class="px-6 py-4">
+                            Roya
+                        </td>
+                        <td class="px-6 py-4">
+                            @if ($roya->status_pinjaman == 0)
+                                <span
+                                    class="me-2 inline-block rounded-full bg-green-200 px-7 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">Tersedia</span>
+                            @else
+                                <span
+                                    class="me-2 inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
+                            @endif
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $roya->no_surat }}
+                        </td>
+                        <td class="px-6 py-4">
+                            -
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $roya->created_at }}
+                        </td>
+                        <td class="px-8 py-4">
+                            -
+                        </td>
+                        <td class="flex flex-col items-center justify-between px-4 py-4">
+                            {{-- <button class="mb-3" id="button-show-modal" data-modal-target="show-modal"
+                                data-modal-toggle="show-modal" type="button"
+                                wire:click="showDokumen({{ $dok->id }})">
+                                <svg class="h-[16px] w-[16px] text-yellow-300 hover:text-gray-900 dark:text-white"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                </svg>
+                            </button> --}}
+                            {{-- <button class="mb-3" id="button-edit-modal" data-modal-target="edit-modal"
+                                data-modal-toggle="edit-modal" type="button"
+                                wire:click="editDokumen({{ $dok->id }})">
+                                <svg class="h-[16px] w-[16px] text-blue-600 hover:text-blue-900 dark:text-white"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 20 18">
+                                    <path
+                                        d="M12.687 14.408a3.01 3.01 0 0 1-1.533.821l-3.566.713a3 3 0 0 1-3.53-3.53l.713-3.566a3.01 3.01 0 0 1 .821-1.533L10.905 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V11.1l-3.313 3.308Zm5.53-9.065.546-.546a2.518 2.518 0 0 0 0-3.56 2.576 2.576 0 0 0-3.559 0l-.547.547 3.56 3.56Z" />
+                                    <path
+                                        d="M13.243 3.2 7.359 9.081a.5.5 0 0 0-.136.256L6.51 12.9a.5.5 0 0 0 .59.59l3.566-.713a.5.5 0 0 0 .255-.136L16.8 6.757 13.243 3.2Z" />
+                                </svg>
+                                <div class="sr-only">Edit</div>
+                            </button> --}}
+                            {{-- <button id="button-delete-modal" data-modal-target="delete-modal"
+                                data-modal-toggle="delete-modal" type="button"
+                                wire:click="deleteDokumen({{ $dok->id }})">
+                                <svg class="h-[16px] w-[16px] text-red-600 hover:text-red-900 dark:text-white"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 18 20">
+                                    <path
+                                        d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
+                                </svg>
+                            </button> --}}
+                        </td>
+                    </tr>
+                @else
+                    <tr
+                        class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
+                        <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                            scope="row">
+                            11
+                        </th>
+                        <td class="px-6 py-4">
+                            Roya
+                        </td>
+                        <td class="px-6 py-4">
+                            <span
+                                class="inline-inline-block rounded-full bg-red-200 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
+                                Belum Tersedia
+                            </span>
+                        </td>
+                        <td class="px-6 py-4">
+                            -
+                        </td>
+                        <td class="px-6 py-4">
+                            -
+                        </td>
+                        <td class="px-6 py-4">
+                            -
+                        </td>
+                        <td class="px-8 py-4">
+                            -
+                        </td>
+                        <td class="flex flex-col items-center justify-between px-4 py-4">
+                            {{-- <button class="mb-3" id="button-show-modal" data-modal-target="show-modal"
+                        data-modal-toggle="show-modal" type="button"
+                        wire:click="showDokumen({{ $dok->id }})">
+                        <svg class="h-[16px] w-[16px] text-yellow-300 hover:text-gray-900 dark:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                        </svg>
+                    </button> --}}
+                            {{-- <button class="mb-3" id="button-edit-modal" data-modal-target="edit-modal"
+                        data-modal-toggle="edit-modal" type="button"
+                        wire:click="editDokumen({{ $dok->id }})">
+                        <svg class="h-[16px] w-[16px] text-blue-600 hover:text-blue-900 dark:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 18">
+                            <path
+                                d="M12.687 14.408a3.01 3.01 0 0 1-1.533.821l-3.566.713a3 3 0 0 1-3.53-3.53l.713-3.566a3.01 3.01 0 0 1 .821-1.533L10.905 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V11.1l-3.313 3.308Zm5.53-9.065.546-.546a2.518 2.518 0 0 0 0-3.56 2.576 2.576 0 0 0-3.559 0l-.547.547 3.56 3.56Z" />
+                            <path
+                                d="M13.243 3.2 7.359 9.081a.5.5 0 0 0-.136.256L6.51 12.9a.5.5 0 0 0 .59.59l3.566-.713a.5.5 0 0 0 .255-.136L16.8 6.757 13.243 3.2Z" />
+                        </svg>
+                        <div class="sr-only">Edit</div>
+                    </button> --}}
+                            {{-- <button id="button-delete-modal" data-modal-target="delete-modal"
+                        data-modal-toggle="delete-modal" type="button"
+                        wire:click="deleteDokumen({{ $dok->id }})">
+                        <svg class="h-[16px] w-[16px] text-red-600 hover:text-red-900 dark:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 18 20">
+                            <path
+                                d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
+                        </svg>
+                    </button> --}}
+                        </td>
+                    </tr>
+                @endif
+
             </tbody>
         </table>
     </div>

@@ -93,15 +93,29 @@
                                         </ul>
                                     </td>
 
-                                    <td class="px-6 py-4">
-                                        <a class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                            href="{{ route('peminjaman.cetak', ['id' => $log->id]) }}">Cetak BAST</a>
+                                    <td class="px-4 py-4">
+                                        <div class="text-center">
+                                            <button
+                                                class="flex rounded-lg bg-blue-700 px-5 py-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                <a href="{{ route('peminjaman.cetak', ['id' => $log->id]) }}"
+                                                    class="flex items-center">
+                                                    Cetak BAST
+                                                </a>
+                                            </button>
+                                        </div>
                                         @if (in_array('SHT', $jenisList[$log->id]) && $suratRoya)
-                                            <a class="rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-                                                href="{{ route('surat-roya.cetak', ['id' => $suratRoya->id]) }}">Cetak
-                                                Roya</a>
+                                            <div class="mt-2">
+                                                <button
+                                                    class="flex rounded-lg bg-green-700 px-5 py-2 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                                    <a href="{{ route('surat-roya.cetak', ['id' => $suratRoya->id]) }}"
+                                                        class="flex items-center">
+                                                        Cetak Roya
+                                                    </a>
+                                                </button>
+                                            </div>
                                         @endif
                                     </td>
+
                                 </tr>
                             @endforeach
                         @else

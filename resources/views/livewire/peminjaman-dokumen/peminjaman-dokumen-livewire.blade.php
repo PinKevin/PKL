@@ -215,7 +215,7 @@
                         <td class="px-6 py-4">
                             Roya
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-2 py-4">
                             @if ($roya->status_pinjaman == 0)
                                 <span
                                     class="me-2 inline-block rounded-full bg-green-200 px-7 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">Tersedia</span>
@@ -224,7 +224,7 @@
                                     class="me-2 inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
                             @endif
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="text-center px-6 py-4">
                             -
                         </td>
                     </tr>
@@ -238,7 +238,7 @@
                         <td class="px-6 py-4">
                             Roya
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-2 py-4">
                             <span
                                 class="inline-inline-block rounded-full bg-red-200 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
                                 Belum Tersedia
@@ -275,7 +275,7 @@
                 </h1>
 
                 <form class="ml-0.5 mt-4">
-                    <div class="mb-6 grid gap-6 md:grid-cols-2">
+                    <div class="me-4 ms-4 mt-3 mb-6 grid gap-6 md:grid-cols-2">
                         <div>
                             <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
                                 for="no_surat">

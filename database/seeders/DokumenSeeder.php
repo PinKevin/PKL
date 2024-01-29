@@ -18,6 +18,7 @@ class DokumenSeeder extends Seeder
             $this->createDokumen($debitur, 'Sertipikat');
             $this->createDokumen($debitur, 'IMB');
             $this->createDokumen($debitur, 'PK');
+            $this->createDokumen($debitur, 'SHT');
         });
     }
 

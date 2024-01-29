@@ -15,15 +15,17 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('pemberi');
             $table->unsignedBigInteger('peminjam');
-            $table->unsignedBigInteger('pemberi_perintah');
-            $table->longText('pendukung');
-            $table->string('keperluan');
+            $table->unsignedBigInteger('peminta');
+            $table->unsignedBigInteger('debitur');
+            $table->text('pendukung');
+            $table->text('keperluan');
             $table->date('tanggal_pinjam');
             $table->date('tanggal_jatuh_tempo');
 
             $table->foreign('pemberi')->references('id')->on('users');
             $table->foreign('peminjam')->references('id')->on('staff_notaris');
-            $table->foreign('pemberi_perintah')->references('id')->on('staff_cabangs');
+            $table->foreign('peminta')->references('id')->on('staff_cabangs');
+            $table->foreign('debitur')->references('id')->on('debiturs');
         });
     }
 

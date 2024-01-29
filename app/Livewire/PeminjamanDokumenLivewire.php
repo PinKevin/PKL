@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 class PeminjamanDokumenLivewire extends Component
 {
     public $debitur, $no_debitur;
-    public $notaris_id, $peminjam, $pendukung, $keperluan, $tanggal_jatuh_tempo, $pemberi_perintah;
+    public $notaris_id, $peminjam, $pendukung, $keperluan, $tanggal_jatuh_tempo, $peminta;
     public $peminjamList = [];
 
     public $dokumen_id;
@@ -32,7 +32,7 @@ class PeminjamanDokumenLivewire extends Component
             'pendukung' => 'required',
             'keperluan' => 'required',
             'tanggal_jatuh_tempo' => 'required|date',
-            'pemberi_perintah' => 'required',
+            'peminta' => 'required',
         ];
     }
 
@@ -48,13 +48,13 @@ class PeminjamanDokumenLivewire extends Component
     public function validationAttributes()
     {
         return [
-            'checkedDokumen'=> 'Dokumen',
+            'checkedDokumen' => 'Dokumen',
             'notaris_id' => 'Nama notaris',
             'peminjam' => 'Nama staff notaris peminjam',
             'pendukung' => 'Dokumen pendukung',
             'keperluan' => 'Keperluan',
             'tanggal_jatuh_tempo' => 'Tanggal jatuh tempo',
-            'pemberi_perintah' => 'Staff pemberi perintah',
+            'peminta' => 'Staff peminta',
         ];
     }
 
@@ -99,10 +99,10 @@ class PeminjamanDokumenLivewire extends Component
         $this->peminjamList = StaffNotaris::where('notaris_id', $this->notaris_id)->get();
     }
 
-    public function getAllPemberiPerintah()
+    public function getAllPeminta()
     {
-        $pemberiPerintah = StaffCabang::all();
-        return $pemberiPerintah;
+        $peminta = StaffCabang::all();
+        return $peminta;
     }
 
     public function createPeminjaman($dokumen_id)
@@ -120,7 +120,8 @@ class PeminjamanDokumenLivewire extends Component
             $bast = BastPeminjaman::create([
                 'pemberi' => auth()->user()->id,
                 'peminjam' => $this->peminjam,
-                'pemberi_perintah' => $this->pemberi_perintah,
+                'peminta' => $this->peminta,
+                'debitur' => $this->debitur->id,
                 'pendukung' => $this->pendukung,
                 'keperluan' => $this->keperluan,
                 'tanggal_pinjam' => date('Y-m-d'),
@@ -129,13 +130,16 @@ class PeminjamanDokumenLivewire extends Component
 
             $bastId = $bast->id;
 
-            foreach ($this->checkedDokumen as $dokumenId) {
+            foreach ($this->checkedDokumen as $jenis) {
+                $dokumen = Dokumen::where('jenis', $jenis)
+                    ->where('debitur_id', $this->debitur->id)->first();
+
                 Peminjaman::create([
                     'bast_peminjaman_id' => $bast->id,
-                    'dokumen_id' => $dokumenId
+                    'dokumen_id' => $dokumen->id
                 ]);
 
-                Dokumen::where('id', $dokumenId)->update([
+                $dokumen->update([
                     'status_pinjaman' => 1
                 ]);
             }
@@ -158,11 +162,9 @@ class PeminjamanDokumenLivewire extends Component
         }
     }
 
-    public function showBastLog($no_debitur)
+    public function showBastLog()
     {
-        $debitur = Debitur::where('no_debitur', $no_debitur)->first();
-
-        $dokumen = Dokumen::where('debitur_id', $debitur->id)->get();
+        $dokumen = Dokumen::where('debitur_id', $this->debitur->id)->get();
         $dokumenIdList = $dokumen->pluck('id')->toArray();
 
         $peminjaman = Peminjaman::whereIn('dokumen_id', $dokumenIdList)->get();
@@ -210,7 +212,7 @@ class PeminjamanDokumenLivewire extends Component
         $this->pendukung = '';
         $this->keperluan = '';
         $this->tanggal_jatuh_tempo = '';
-        $this->pemberi_perintah = '';
+        $this->peminta = '';
         $this->checkedDokumen = [];
     }
 
@@ -222,7 +224,7 @@ class PeminjamanDokumenLivewire extends Component
             'peminjaman' => $this->indexPeminjaman(),
             'notaris' => $this->getAllNotaris(),
             'peminjamList' => $this->peminjamList,
-            'pemberiPerintah' => $this->getAllPemberiPerintah()
+            'pemintaList' => $this->getAllPeminta()
         ]);
     }
 }

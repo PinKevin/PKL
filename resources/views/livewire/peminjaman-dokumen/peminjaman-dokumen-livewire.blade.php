@@ -93,8 +93,7 @@
                         <button
                             class="ml-10 mr-16 flex rounded-lg bg-blue-600 px-5 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
                             id="button-show-bast-log-modal" data-modal-target="show-bast-log-modal"
-                            data-modal-toggle="show-bast-log-modal" type="button"
-                            wire:click="showBastLog({{ $debitur->no_debitur }})">
+                            data-modal-toggle="show-bast-log-modal" type="button" wire:click="showBastLog()">
                             Riwayat
                         </button>
                     </td>
@@ -159,6 +158,7 @@
                 @foreach (['PPJB', 'AJB', 'SKMHT', 'APHT', 'PH', 'SHT', 'IMB', 'Sertipikat', 'PK', 'CN', 'Roya'] as $jenis)
                     @php
                         $dok = $dokumen->where('jenis', $jenis)->first();
+                        $shtSelected = false;
                     @endphp
 
                     @if ($dok && $dok->status_pinjaman == 0)
@@ -186,8 +186,8 @@
                                 <div class="flex items-center">
                                     <input
                                         class="mb-2 h-4 w-4 rounded border-gray-300 bg-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                                        id="checkbox-{{ $dok->id }}" type="checkbox" value="{{ $dok->id }}"
-                                        wire:model="checkedDokumen">
+                                        id="checkbox-{{ $dok->id }}" type="checkbox" value="{{ $jenis }}"
+                                        wire:model.live="checkedDokumen">
                                     <label class="mb-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                                         for="checkbox-{{ $dok->id }}">Pilih Dokumen</label>
                                 </div>
@@ -244,7 +244,7 @@
                             {{-- <td class="px-6 py-4">
                                 {{ $dok->peminjaman->max()->bastPeminjaman->tanggal_jatuh_tempo->format('d-m-Y') }}
                             </td> --}}
-                            <td class="text-center px-6 py-4">
+                            <td class="px-6 py-4 text-center">
                                 -
                             </td>
                             {{-- <td class="flex flex-col items-center justify-between px-2 py-4">
@@ -313,7 +313,7 @@
                                     Belum Tersedia
                                 </span>
                             </td>
-                            <td class="text-center px-8 py-4">
+                            <td class="px-8 py-4 text-center">
                                 -
                             </td>
                             {{-- <td class="px-8 py-4">
@@ -342,6 +342,10 @@
             </div>
         </div>
     @enderror
+
+    @if (in_array('SHT', $checkedDokumen))
+        <h1>Hai, kamu memilih SHT</h1>
+    @endif
 
     <div class="relative mt-4 overflow-x-auto shadow-lg sm:rounded-lg">
         <table class="bg-gray-100">
@@ -469,19 +473,19 @@
                     </div>
                     <div>
                         <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
-                            for="pemberi_perintah">
-                            Pemberi perintah</label>
+                            for="peminta">
+                            Peminta</label>
                         <select
                             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                            id="pemberi_perintah" name="pemberi_perintah" wire:model="pemberi_perintah">
-                            <option value="">Pilih Pemberi Perintah</option>
-                            @foreach ($pemberiPerintah as $p)
+                            id="peminta" name="peminta" wire:model="peminta">
+                            <option value="">Pilih Peminta</option>
+                            @foreach ($pemintaList as $p)
                                 <option value="{{ $p->id }}">
                                     {{ $p->nip }} - {{ $p->nama }} - {{ $p->kantor }}
                                 </option>
                             @endforeach
                         </select>
-                        @error('pemberi_perintah')
+                        @error('peminta')
                             <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                 role="alert">
                                 <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
@@ -512,6 +516,5 @@
         </svg>
         Kembali
     </a>
-
 
 </div>

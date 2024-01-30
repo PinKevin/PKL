@@ -136,6 +136,19 @@
                         <span class="ms-3 flex-1 whitespace-nowrap">Peminjaman</span>
                     </a>
                 </li>
+                <li>
+                    <a class="{{ request()->routeIs('pengembalian.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                        href="{{ route('pengembalian.index') }}">
+                        <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M9 7V2.2a2 2 0 0 0-.5.4l-4 3.9a2 2 0 0 0-.3.5H9Zm2 0V2h7a2 2 0 0 1 2 2v9.3l-2-2a1 1 0 0 0-1.4 1.4l.3.3h-6.6a1 1 0 1 0 0 2h6.6l-.3.3a1 1 0 0 0 1.4 1.4l2-2V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Z"
+                                clip-rule="evenodd" />
+                        </svg>
+
+                        <span class="ms-3 flex-1 whitespace-nowrap">Pengembalian</span>
+                    </a>
+                </li>
 
                 <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
                     <li>

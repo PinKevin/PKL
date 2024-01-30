@@ -224,7 +224,7 @@
                                     class="me-2 inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
                             @endif
                         </td>
-                        <td class="text-center px-6 py-4">
+                        <td class="px-6 py-4 text-center">
                             -
                         </td>
                     </tr>
@@ -275,7 +275,7 @@
                 </h1>
 
                 <form class="ml-0.5 mt-4">
-                    <div class="me-4 ms-4 mt-3 mb-6 grid gap-6 md:grid-cols-2">
+                    <div class="mb-6 me-4 ms-4 mt-3 grid gap-6 md:grid-cols-2">
                         <div>
                             <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
                                 for="no_surat">
@@ -326,9 +326,19 @@
                                 for="kota_bpn">
                                 Kota BPN
                             </label>
-                            <input
+                            {{-- <input
                                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                                id="kota_bpn" type="text" wire:model="kota_bpn" placeholder="Kota BPN">
+                                id="kota_bpn" type="text" wire:model="kota_bpn" placeholder="Kota BPN"> --}}
+                            <select
+                                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                                id="kota_bpn" name="kota_bpn" wire:model.change="kota_bpn">
+                                <option value="">Pilih Kota BPN</option>
+                                @foreach ($kotaList as $kota)
+                                    <option value="{{ $kota->id }}">
+                                        {{ $kota->name }}
+                                    </option>
+                                @endforeach
+                            </select>
                             @error('kota_bpn')
                                 <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                     role="alert">
@@ -413,13 +423,23 @@
                         </div>
                         <div>
                             <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
-                                for="kelurahan">
-                                Kelurahan
+                                for="kecamatan">
+                                Kecamatan
                             </label>
-                            <input
+                            {{-- <input
                                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                                id="kelurahan" type="text" wire:model="kelurahan" placeholder="Kelurahan">
-                            @error('kelurahan')
+                                id="kecamatan" type="text" wire:model="kecamatan" placeholder="Kecamatan"> --}}
+                            <select
+                                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                                id="kecamatan" name="kecamatan" wire:model.change="kecamatan">
+                                <option value="">Pilih Kecamatan</option>
+                                @foreach ($kecamatanList as $kecamatan)
+                                    <option value="{{ $kecamatan->id }}">
+                                        {{ $kecamatan->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('kecamatan')
                                 <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                     role="alert">
                                     <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
@@ -435,13 +455,20 @@
                         </div>
                         <div>
                             <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
-                                for="kecamatan">
-                                Kecamatan
+                                for="kelurahan">
+                                Kelurahan
                             </label>
-                            <input
+                            <select
                                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                                id="kecamatan" type="text" wire:model="kecamatan" placeholder="Kecamatan">
-                            @error('kecamatan')
+                                id="kelurahan" name="kelurahan" wire:model="kelurahan">
+                                <option value="">Pilih kelurahan</option>
+                                @foreach ($kelurahanList as $kelurahan)
+                                    <option value="{{ $kelurahan->id }}">
+                                        {{ $kelurahan->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('kelurahan')
                                 <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                     role="alert">
                                     <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
@@ -594,7 +621,7 @@
         </div>
     @endif
 
-    <div class="bg-slate-100 relative mt-4 overflow-x-auto shadow-lg sm:rounded-lg">
+    <div class="relative mt-4 overflow-x-auto bg-slate-100 shadow-lg sm:rounded-lg">
         <table class="bg-gray-100">
             <h1
                 class="bg-slate-300 p-5 text-left text-xl font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">

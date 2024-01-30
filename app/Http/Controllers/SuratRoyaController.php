@@ -83,14 +83,16 @@ class SuratRoyaController extends Controller
 
         $peringkatShtHuruf = $suratRoya->peringkat_sht == 1 ? 'Pertama' : 'Kedua';
 
+        // dd($suratRoya->kelurahan()->where('id', $suratRoya->kelurahan)->first()->name);
+
         $data = [
             'no_surat' => $suratRoya->no_surat,
             'tanggal_surat' => "$tanggalPelunasan $bulanPelunasan $tahunPelunasan",
-            'kota_bpn' => $suratRoya->kota_bpn,
+            'kota_bpn' => $suratRoya->kota->name,
             'lokasi_kepala_bpn' => strtoupper($suratRoya->lokasi_kepala_bpn),
             'no_agunan' => $suratRoya->no_agunan,
-            'kelurahan' => $suratRoya->kelurahan,
-            'kecamatan' => $suratRoya->kecamatan,
+            'kecamatan' => $suratRoya->kecamatan()->where('id', $suratRoya->kecamatan)->first()->name,
+            'kelurahan' => $suratRoya->kelurahan()->where('id', $suratRoya->kelurahan)->first()->name,
             'no_surat_ukur' => $suratRoya->no_surat_ukur,
             'nib' => $suratRoya->nib,
             'luas' => $suratRoya->luas,

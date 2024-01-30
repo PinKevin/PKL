@@ -56,4 +56,9 @@ class District extends Model
     {
         return $this->hasMany(Village::class);
     }
+
+    public function suratRoya()
+    {
+        return $this->hasMany(SuratRoya::class, 'kecamatan', 'id');
+    }
 }

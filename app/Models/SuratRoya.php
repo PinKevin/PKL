@@ -15,4 +15,19 @@ class SuratRoya extends Model
         'tanggal_pelunasan' => 'date',
         'tanggal_sht' => 'date'
     ];
+
+    public function kota()
+    {
+        return $this->belongsTo(Regency::class, 'kota_bpn', 'id');
+    }
+
+    public function kecamatan()
+    {
+        return $this->belongsTo(District::class, 'kecamatan', 'id');
+    }
+
+    public function kelurahan()
+    {
+        return $this->belongsTo(Village::class, 'kelurahan', 'id');
+    }
 }

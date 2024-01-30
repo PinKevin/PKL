@@ -13,12 +13,16 @@ use App\Models\StaffNotaris;
 use App\Models\BastPeminjaman;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\DataConverterController;
+use App\Models\District;
+use App\Models\Regency;
+use App\Models\Village;
 
 class PeminjamanDokumenLivewire extends Component
 {
     public $debitur, $no_debitur;
     public $notaris_id, $peminjam, $pendukung, $keperluan, $tanggal_jatuh_tempo, $peminta;
     public $peminjamList = [];
+    public $kotaList, $kecamatanList, $kelurahanList;
 
     public $dokumen_id;
     public $logPeminjaman, $jenisList;
@@ -69,6 +73,9 @@ class PeminjamanDokumenLivewire extends Component
         $this->updatedNotarisId();
         $this->debitur();
         $this->autoFillSuratRoya();
+        $this->getAllKotaJawaTengah();
+        $this->updatedKotaBpn();
+        $this->updatedKecamatan();
     }
 
     public function autoFillSuratRoya()
@@ -154,6 +161,24 @@ class PeminjamanDokumenLivewire extends Component
     {
         $peminta = StaffCabang::all();
         return $peminta;
+    }
+
+    public function getAllKotaJawaTengah()
+    {
+        $this->kotaList = Regency::where('province_id', 33)->get();
+    }
+
+    public function updatedKotaBpn()
+    {
+        $this->kecamatan = '';
+        $this->kelurahan = '';
+        $this->kecamatanList = District::where('regency_id', $this->kota_bpn)->get();
+    }
+
+    public function updatedKecamatan()
+    {
+        $this->kelurahan = '';
+        $this->kelurahanList = Village::where('district_id', $this->kecamatan)->get();
     }
 
     public function createPeminjaman($dokumen_id)

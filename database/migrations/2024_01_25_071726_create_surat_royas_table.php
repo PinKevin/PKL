@@ -16,11 +16,11 @@ return new class extends Migration
             $table->integer('no_surat_depan');
             $table->string('no_surat');
             $table->date('tanggal_pelunasan');
-            $table->string('kota_bpn');
+            $table->char('kota_bpn');
             $table->string('lokasi_kepala_bpn');
             $table->string('no_agunan');
-            $table->string('kelurahan');
-            $table->string('kecamatan');
+            $table->char('kecamatan');
+            $table->char('kelurahan');
             $table->string('no_surat_ukur');
             $table->string('nib');
             $table->integer('luas');
@@ -32,6 +32,9 @@ return new class extends Migration
 
             $table->unsignedBigInteger('bast_peminjaman_id');
             $table->foreign('bast_peminjaman_id')->references('id')->on('bast_peminjaman');
+            $table->foreign('kota_bpn')->references('id')->on('regencies');
+            $table->foreign('kecamatan')->references('id')->on('districts');
+            $table->foreign('kelurahan')->references('id')->on('villages');
             $table->timestamps();
         });
     }

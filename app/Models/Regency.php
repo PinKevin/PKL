@@ -54,4 +54,9 @@ class Regency extends Model
     {
         return $this->hasMany(District::class);
     }
+
+    public function suratRoya()
+    {
+        return $this->hasMany(SuratRoya::class, 'kota_bpn', 'id');
+    }
 }

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\BastController;
 use App\Http\Controllers\BastPeminjamanController;
 use App\Http\Controllers\BerkasController;
 use App\Http\Controllers\NotarisController;
@@ -11,6 +10,7 @@ use App\Http\Controllers\DebiturController;
 use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\PeminjamanDokumenController;
 use App\Http\Controllers\PenerimaanDokumenController;
+use App\Http\Controllers\PengembalianDokumenController;
 use App\Http\Controllers\StaffCabangController;
 use App\Http\Controllers\StaffNotarisController;
 use App\Http\Controllers\SuratRoyaController;
@@ -64,6 +64,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/cetak-bast/{id}', [BastPeminjamanController::class, 'cetakBast'])->name('peminjaman.cetak');
     });
 
+    Route::prefix('/pengembalian-dokumen')->group(function () {
+        Route::get('/', [PengembalianDokumenController::class, 'index'])->name('pengembalian.index');
+        Route::post('/cari', [PengembalianDokumenController::class, 'search'])->name('pengembalian.search');
+        Route::get('/{no_debitur}', [PengembalianDokumenController::class, 'show'])->name('pengembalian.pengembalian');
+        // Route::get('/');
+    });
 
     Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
 

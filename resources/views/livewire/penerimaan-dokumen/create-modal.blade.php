@@ -49,21 +49,20 @@
                         <div>
                             <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                                 for="jenis">Jenis</label>
-                            <select
-                                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                                id="jenis" name="jenis" wire:model="jenis">
-                                <option value="" selected>Pilih jenis</option>
-                                <option value="PPJB">PPJB</option>
-                                <option value="AJB">AJB</option>
-                                <option value="SKMHT">SKMHT</option>
-                                <option value="APHT">APHT</option>
-                                <option value="PH">PH</option>
-                                <option value="SHT">SHT</option>
-                                <option value="IMB">IMB</option>
-                                <option value="Sertipikat">Sertipikat</option>
-                                <option value="PK">PK</option>
-                                <option value="CN">CN</option>
-                            </select>
+                            <input type="text"
+                                class="block w-full cursor-not-allowed rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                                id="jenis" name="jenis" wire:model="jenis"  disabled>
+                            {{-- <option value="" selected>Pilih jenis</option>
+                            <option value="PPJB">PPJB</option>
+                            <option value="AJB">AJB</option>
+                            <option value="SKMHT">SKMHT</option>
+                            <option value="APHT">APHT</option>
+                            <option value="PH">PH</option>
+                            <option value="SHT">SHT</option>
+                            <option value="IMB">IMB</option>
+                            <option value="Sertipikat">Sertipikat</option>
+                            <option value="PK">PK</option>
+                            <option value="CN">CN</option> --}}
                             @error('jenis')
                                 <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                                     role="alert">

@@ -361,13 +361,13 @@
                                     class="me-2 inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
                             @endif
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-3 py-4">
                             {{ $roya->no_surat }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-8 py-4">
                             -
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-3 py-4">
                             {{ $roya->created_at }}
                         </td>
                         <td class="px-8 py-4">

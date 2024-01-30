@@ -326,9 +326,6 @@
                                 for="kota_bpn">
                                 Kota BPN
                             </label>
-                            {{-- <input
-                                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                                id="kota_bpn" type="text" wire:model="kota_bpn" placeholder="Kota BPN"> --}}
                             <select
                                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                 id="kota_bpn" name="kota_bpn" wire:model.change="kota_bpn">
@@ -426,9 +423,6 @@
                                 for="kecamatan">
                                 Kecamatan
                             </label>
-                            {{-- <input
-                                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                                id="kecamatan" type="text" wire:model="kecamatan" placeholder="Kecamatan"> --}}
                             <select
                                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                 id="kecamatan" name="kecamatan" wire:model.change="kecamatan">

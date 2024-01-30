@@ -21,8 +21,6 @@ class DatabaseSeeder extends Seeder
             DeveloperSeeder::class,
             DebiturSeeder::class,
             DokumenSeeder::class
-            // BerkasSeeder::class,
-            // SuratRoyaSeeder::class
         ]);
     }
 }

@@ -352,18 +352,6 @@ class PeminjamanDokumenLivewire extends Component
         }
     }
 
-
-
-    // public function ubahStatusPinjaman($id)
-    // {
-    //     Dokumen::where('id', $id)->update([
-    //         'status_pinjaman' => 0
-    //     ]);
-
-    //     $this->dispatch('scrollToTop');
-    //     session()->flash('updateSuccess', 'Pengembalian berhasil dilakukan!');
-    // }
-
     public function resetInput()
     {
         $this->notaris_id = '';

@@ -15,7 +15,6 @@ class PenerimaanDokumenLivewire extends Component
     public $id, $jenis, $no_dokumen, $tanggal_terima, $tanggal_terbit, $tanggal_jatuh_tempo;
     public $status_pinjaman, $file, $withFile;
     public $no_debitur;
-    // public $debiturInfo, $dokumen;
     public $debitur;
 
     public function rules()
@@ -82,7 +81,6 @@ class PenerimaanDokumenLivewire extends Component
     {
         $this->validate();
 
-        // $debitur = Debitur::where('id', $this->debiturResult->id)->select('nama_debitur')->first();
         $namaDebitur = $this->debitur->nama_debitur;
         $idDebitur = $this->debitur->id;
 

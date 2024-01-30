@@ -159,18 +159,6 @@
                                     scope="row">
                                     {{ $dok->tanggal_terima }}
                                 </th>
-                                {{-- <th class="whitespace-nowrap px-7 py-4 font-normal text-gray-900 dark:text-white"
-                                    scope="row">
-                                    {{ $dok->tanggal_terbit }}
-                                </th>
-                                <th class="whitespace-nowrap px-8 py-4 font-normal text-gray-900 dark:text-white"
-                                    scope="row">
-                                    {{ $dok->tanggal_jatuh_tempo }}
-                                </th>
-                                <th class="whitespace-nowrap px-8 py-4 font-normal text-gray-900 dark:text-white"
-                                    scope="row">
-                                    {{ $dok->status_pinjaman }}
-                                </th> --}}
                         </tbody>
                     </table>
 

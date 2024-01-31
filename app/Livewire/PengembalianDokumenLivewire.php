@@ -158,7 +158,7 @@ class PengembalianDokumenLivewire extends Component
 
         $this->resetInput();
         $this->dispatch('scrollToTop');
-        session()->flash('storeSuccess', "Pengembalian berhasil dilakukan! Silakan download BAST di <a href=\"$route\" class=\"underline\">sini!");
+        session()->flash('storeSuccess', "Pengembalian berhasil dilakukan! Silakan download BAST di <a href=\"$route\" class=\"underline\">sini!</a>");
     }
 
 

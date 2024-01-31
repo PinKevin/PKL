@@ -143,7 +143,7 @@ class BastPengembalianController extends Controller
             'keperluan' => $bastPengembalian->keperluan,
             // 'tanggal_pinjam' => date('d/m/Y'),
             // 'tanggal_jatuh_tempo' => $bastPengembalian->tanggal_jatuh_tempo->format('d/m/Y'),
-            'tanggal_kembali' => $bastPengembalian->tanggal_pengembalian,
+            'tanggal_kembali' => $bastPengembalian->tanggal_kembali->format('d/m/Y'),
             'pemberi_perintah' => $peminta,
             'nip' => $bastPengembalian->peminta()->first()->nip,
             'kantor' => $bastPengembalian->peminta()->first()->kantor,

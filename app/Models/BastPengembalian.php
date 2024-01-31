@@ -13,6 +13,10 @@ class BastPengembalian extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'tanggal_kembali' => 'date'
+    ];
+
     public function pengembalian()
     {
         return $this->hasMany(Pengembalian::class);

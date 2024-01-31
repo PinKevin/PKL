@@ -2,32 +2,38 @@
 
 namespace App\Livewire;
 
-use App\Models\BastPeminjaman;
-use App\Models\BastPengembalian;
 use App\Models\Debitur;
 use App\Models\Dokumen;
-use App\Models\Peminjaman;
-use App\Models\Pengembalian;
+use App\Models\Notaris;
 use Livewire\Component;
 use App\Models\SuratRoya;
+use App\Models\Peminjaman;
+use App\Models\StaffCabang;
+use App\Models\Pengembalian;
+use App\Models\StaffNotaris;
+use App\Models\BastPeminjaman;
+use App\Models\BastPengembalian;
 use Illuminate\Support\Facades\DB;
 
 class PengembalianDokumenLivewire extends Component
 {
+
     public $debitur, $no_debitur;
     public $checkedDokumen = [];
-    public $keperluan;
+    public $notaris_id, $peminjam, $pendukung, $keperluan, $tanggal_kembali, $peminta;
+
+    public $peminjamList;
 
     public function rules()
     {
         return [
             'checkedDokumen' => 'required',
-            // 'notaris_id' => 'required',
-            // 'peminjam' => 'required',
-            // 'pendukung' => 'required',
+            'notaris_id' => 'required',
+            'peminjam' => 'required',
+            'pendukung' => 'required',
             'keperluan' => 'required',
-            // 'tanggal_jatuh_tempo' => 'required|date',
-            // 'peminta' => 'required',
+            'tanggal_kembali' => 'required|date',
+            'peminta' => 'required',
         ];
     }
 
@@ -48,7 +54,7 @@ class PengembalianDokumenLivewire extends Component
             'peminjam' => 'Nama staff notaris peminjam',
             'pendukung' => 'Dokumen pendukung',
             'keperluan' => 'Keperluan',
-            'tanggal_jatuh_tempo' => 'Tanggal jatuh tempo',
+            'tanggal_kembali' => 'Tanggal kembali',
             'peminta' => 'Staff peminta',
         ];
     }
@@ -56,6 +62,7 @@ class PengembalianDokumenLivewire extends Component
     public function mount()
     {
         $this->debitur();
+        $this->updatedNotarisId();
     }
 
     public function debitur()
@@ -77,16 +84,33 @@ class PengembalianDokumenLivewire extends Component
         return $roya;
     }
 
+    public function getAllNotaris()
+    {
+        $notaris = Notaris::all();
+        return $notaris;
+    }
+
+    public function updatedNotarisId()
+    {
+        $this->peminjam = '';
+        $this->peminjamList = StaffNotaris::where('notaris_id', $this->notaris_id)->get();
+    }
+
+    public function getAllPeminta()
+    {
+        $peminta = StaffCabang::all();
+        return $peminta;
+    }
+
     public function storePengembalian()
     {
         $this->validate();
 
         $dokumen = Dokumen::where('debitur_id', $this->debitur->id)->pluck('id')->toArray();
 
-        // Initialize an array to store peminjaman for each jenis dokumen
+        $bastPengembalianId = '';
         $peminjamanByJenis = [];
 
-        // Loop through each selected jenis dokumen
         foreach ($this->checkedDokumen as $jenisDokumen) {
             $bastTerbaru = BastPeminjaman::whereHas('peminjaman', function ($query) use ($dokumen, $jenisDokumen) {
                 $query->whereIn('dokumen_id', $dokumen)->whereHas('dokumen', function ($subQuery) use ($jenisDokumen) {
@@ -100,16 +124,21 @@ class PengembalianDokumenLivewire extends Component
                 return $peminjaman->dokumen->jenis === $jenisDokumen;
             });
 
-            // Store peminjaman for each jenis dokumen
             $peminjamanByJenis[$jenisDokumen] = $peminjamanUntukPengembalian;
         }
 
-        // Create a single BastPengembalian outside the loop
-        DB::transaction(function () use ($peminjamanByJenis) {
+        DB::transaction(function () use ($peminjamanByJenis, &$bastPengembalianId) {
             $bastPengembalian = BastPengembalian::create([
                 'penerima' => auth()->user()->id,
-                'tanggal_kembali' => now()
+                'peminjam' => $this->peminjam,
+                'peminta' => $this->peminta,
+                'debitur' => $this->debitur->id,
+                'pendukung' => $this->pendukung,
+                'keperluan' => $this->keperluan,
+                'tanggal_kembali' => $this->tanggal_kembali,
             ]);
+
+            $bastPengembalianId = $bastPengembalian->id;
 
             foreach ($peminjamanByJenis as $jenisDokumen => $peminjamanUntukPengembalian) {
                 foreach ($peminjamanUntukPengembalian as $peminjaman) {
@@ -125,19 +154,22 @@ class PengembalianDokumenLivewire extends Component
             }
         });
 
+        $route = route('pengembalian.cetak', ['id' => $bastPengembalianId]);
+
         $this->resetInput();
         $this->dispatch('scrollToTop');
+        session()->flash('storeSuccess', "Pengembalian berhasil dilakukan! Silakan download BAST di <a href=\"$route\" class=\"underline\">sini!");
     }
 
 
     public function resetInput()
     {
-        // $this->notaris_id = '';
-        // $this->peminjam = '';
-        // $this->pendukung = '';
+        $this->notaris_id = '';
+        $this->peminjam = '';
+        $this->pendukung = '';
         $this->keperluan = '';
-        // $this->tanggal_jatuh_tempo = '';
-        // $this->peminta = '';
+        $this->tanggal_kembali = '';
+        $this->peminta = '';
         $this->checkedDokumen = [];
     }
 
@@ -145,7 +177,9 @@ class PengembalianDokumenLivewire extends Component
     {
         return view('livewire.pengembalian-dokumen.pengembalian-dokumen-livewire', [
             'dokumen' => $this->indexDokumen(),
-            'roya' => $this->getRoyaDebitur()
+            'roya' => $this->getRoyaDebitur(),
+            'notaris' => $this->getAllNotaris(),
+            'pemintaList' => $this->getAllPeminta()
         ]);
     }
 }

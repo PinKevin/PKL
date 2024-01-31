@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pengembalian extends Model
 {
@@ -12,4 +13,14 @@ class Pengembalian extends Model
     public $timestamps = FALSE;
 
     protected $guarded = ['id'];
+
+    public function dokumen(): BelongsTo
+    {
+        return $this->belongsTo(Dokumen::class);
+    }
+
+    public function bastPengembalian(): BelongsTo
+    {
+        return $this->belongsTo(BastPengembalian::class);
+    }
 }

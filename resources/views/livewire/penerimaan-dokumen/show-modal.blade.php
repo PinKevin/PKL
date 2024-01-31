@@ -1,5 +1,5 @@
 <!-- Main modal -->
-<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-16"
+<div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-9"
     id="show-modal" aria-hidden="true" tabindex="-1" wire:ignore.self>
     <div class="relative max-h-full w-full max-w-4xl p-4">
         <!-- Modal content -->

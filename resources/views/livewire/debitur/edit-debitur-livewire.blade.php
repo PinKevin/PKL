@@ -10,19 +10,6 @@
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="no_debitur" type="text" wire:model="no_debitur" placeholder="Nomor debitur" disabled>
-                @error('no_debitur')
-                    <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <div class="text-sm font-semibold">
-                            {{ $message }}
-                        </div>
-                    </div>
-                @enderror
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama_debitur">
@@ -44,6 +31,14 @@
                         </div>
                     </div>
                 @enderror
+            </div>
+            <div>
+                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="no_ktp">
+                    Nomor KTP
+                </label>
+                <input
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    id="no_ktp" type="text" wire:model="no_ktp" placeholder="Nomor KTP" disabled>
             </div>
             <div>
                 <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="alamat_ktp">Alamat
@@ -140,8 +135,7 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="proyek_perumahan" type="text" wire:model="proyek_perumahan"
-                    placeholder="Proyek perumahan">
+                    id="proyek_perumahan" type="text" wire:model="proyek_perumahan" placeholder="Proyek perumahan">
                 @error('proyek_perumahan')
                     <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                         role="alert">

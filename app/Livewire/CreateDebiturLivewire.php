@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class CreateDebiturLivewire extends Component
 {
-    public $no_debitur, $nama_debitur, $alamat_ktp, $tanggal_realisasi, $jenis_kredit, $kode_developer;
+    public $no_debitur, $nama_debitur, $no_ktp, $alamat_ktp, $tanggal_realisasi, $jenis_kredit, $kode_developer;
     public $proyek_perumahan, $kode_notaris, $plafon_kredit, $saldo_pokok, $alamat_agunan, $blok, $no, $luas_tanah, $luas_bangunan;
 
     public $notarisList, $developerList;
@@ -20,6 +20,7 @@ class CreateDebiturLivewire extends Component
         return [
             'no_debitur' => 'required|numeric|digits:13|unique:debiturs,no_debitur',
             'nama_debitur' => 'required|min:5|string',
+            'no_ktp' => 'required|numeric|digits:16|unique:debiturs,no_ktp',
             'alamat_ktp' => 'required',
             'tanggal_realisasi' => 'required|date',
             'jenis_kredit' => 'required',
@@ -54,6 +55,7 @@ class CreateDebiturLivewire extends Component
         return [
             'no_debitur' => 'Nomor debitur',
             'nama_debitur' => 'Nama debitur',
+            'no_ktp' => 'Nomor KTP',
             'alamat_ktp' => 'Alamat KTP',
             'tanggal_realisasi' => 'Tanggal realisasi',
             'jenis_kredit' => 'Jenis kredit',
@@ -88,6 +90,7 @@ class CreateDebiturLivewire extends Component
             Debitur::create([
                 'no_debitur' => $this->no_debitur,
                 'nama_debitur' => $this->nama_debitur,
+                'no_ktp' => $this->no_ktp,
                 'alamat_ktp' => $this->alamat_ktp,
                 'tanggal_realisasi' => $this->tanggal_realisasi,
                 'jenis_kredit' => $this->jenis_kredit,

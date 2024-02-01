@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('debiturs', function (Blueprint $table) {
             $table->id();
-            $table->string('no_debitur', 13);
+            $table->string('no_debitur', 13)->unique();
             $table->string('nama_debitur');
+            $table->string('no_ktp', 16)->unique();
             $table->string('alamat_ktp');
             $table->date('tanggal_realisasi');
             $table->string('jenis_kredit');

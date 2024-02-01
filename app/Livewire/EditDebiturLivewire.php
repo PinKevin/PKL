@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class EditDebiturLivewire extends Component
 {
-    public $id, $no_debitur, $nama_debitur, $alamat_ktp, $tanggal_realisasi, $jenis_kredit, $kode_developer;
+    public $id, $no_debitur, $nama_debitur, $no_ktp, $alamat_ktp, $tanggal_realisasi, $jenis_kredit, $kode_developer;
     public $proyek_perumahan, $kode_notaris, $plafon_kredit, $saldo_pokok, $alamat_agunan, $blok, $no, $luas_tanah, $luas_bangunan;
 
     public $notarisList, $developerList;
@@ -86,6 +86,7 @@ class EditDebiturLivewire extends Component
 
         $this->no_debitur = $data->no_debitur;
         $this->nama_debitur = $data->nama_debitur;
+        $this->no_ktp = $data->no_ktp;
         $this->alamat_ktp = $data->alamat_ktp;
         $this->tanggal_realisasi = $data->tanggal_realisasi;
         $this->jenis_kredit = $data->jenis_kredit;

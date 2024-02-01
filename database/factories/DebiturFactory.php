@@ -17,8 +17,9 @@ class DebiturFactory extends Factory
     public function definition(): array
     {
         return [
-            'no_debitur' => fake()->numerify('#############'),
+            'no_debitur' => fake()->unique()->numerify('#############'),
             'nama_debitur' => fake()->name(),
+            'no_ktp' => fake()->unique()->numerify('################'),
             'alamat_ktp' => fake()->address(),
             'tanggal_realisasi' => fake()->date(),
             'jenis_kredit' => fake()->randomElement(['Kredit Setan', 'Kredit2an']),

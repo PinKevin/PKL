@@ -17,8 +17,10 @@ class DebiturFactory extends Factory
     public function definition(): array
     {
         return [
-            'no_debitur' => fake()->numerify('#############'),
+            'no_debitur' => fake()->unique()->numerify('#############'),
             'nama_debitur' => fake()->name(),
+            'no_ktp' => fake()->unique()->numerify('################'),
+            'alamat_ktp' => fake()->address(),
             'tanggal_realisasi' => fake()->date(),
             'jenis_kredit' => fake()->randomElement(['Kredit Setan', 'Kredit2an']),
             'kode_developer' => fake()->numberBetween(1, 10),
@@ -26,10 +28,12 @@ class DebiturFactory extends Factory
             'kode_notaris' => fake()->numberBetween(1, 10),
             'plafon_kredit' => fake()->randomNumber(6, true),
             'saldo_pokok' => fake()->randomNumber(6, true),
+            'alamat_agunan' => fake()->address(),
             'blok' => fake()->numerify('A#'),
             'no' => fake()->randomDigit(),
             'luas_tanah' => fake()->randomNumber(3),
-            'luas_bangunan' => fake()->randomNumber(3)
+            'luas_bangunan' => fake()->randomNumber(3),
+            'sudah_lunas' => 0
         ];
     }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('tanggal_jatuh_tempo');
             $table->string('file');
             $table->boolean('status_pinjaman');
+            $table->boolean('status_keluar');
             $table->foreignId('debitur_id')->constrained();
         });
     }

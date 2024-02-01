@@ -13,7 +13,7 @@ class PenerimaanDokumenLivewire extends Component
     use WithFileUploads;
 
     public $id, $jenis, $no_dokumen, $tanggal_terima, $tanggal_terbit, $tanggal_jatuh_tempo;
-    public $status_pinjaman, $file, $withFile;
+    public $status_pinjaman, $status_keluar, $file, $withFile;
     public $no_debitur;
     public $debitur;
 
@@ -96,6 +96,7 @@ class PenerimaanDokumenLivewire extends Component
             'tanggal_jatuh_tempo' => $this->tanggal_jatuh_tempo,
             'file' => $path_file,
             'status_pinjaman' => 0,
+            'status_keluar' => 0,
         ]);
 
         $this->resetInput();
@@ -190,6 +191,7 @@ class PenerimaanDokumenLivewire extends Component
         $this->tanggal_jatuh_tempo = '';
         $this->file = '';
         $this->status_pinjaman = 0;
+        $this->status_keluar = 0;
         $this->withFile = FALSE;
     }
 

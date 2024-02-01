@@ -11,6 +11,7 @@ use App\Http\Controllers\DebiturController;
 use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\PeminjamanDokumenController;
 use App\Http\Controllers\PenerimaanDokumenController;
+use App\Http\Controllers\PengambilanDokumenController;
 use App\Http\Controllers\PengembalianDokumenController;
 use App\Http\Controllers\StaffCabangController;
 use App\Http\Controllers\StaffNotarisController;
@@ -70,6 +71,12 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/cari', [PengembalianDokumenController::class, 'search'])->name('pengembalian.search');
         Route::get('/{no_debitur}', [PengembalianDokumenController::class, 'show'])->name('pengembalian.pengembalian');
         Route::get('/cetak-bast/{id}', [BastPengembalianController::class, 'cetakBast'])->name('pengembalian.cetak');
+    });
+
+    Route::prefix('/pengambilan-dokumen')->group(function () {
+        Route::get('/', [PengambilanDokumenController::class, 'index'])->name('pengambilan.index');
+        Route::post('/cari', [PengambilanDokumenController::class, 'search'])->name('pengambilan.search');
+        Route::get('/{no_debitur}', [PengambilanDokumenController::class, 'show'])->name('pengambilan.pengambilan');
     });
 
     Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');

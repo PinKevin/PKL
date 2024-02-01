@@ -57,7 +57,7 @@
                 @csrf
                 <div class="bg-slate-100 py-2.5 dark:bg-gray-900">
                     <div class="inline-flex justify-start">
-                        <div class="relative mt-1">
+                        <div class="relative ">
                             <label class="sr-only" for="table-search">Search</label>
                             <div
                                 class="rtl:inset-r-0 pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">

@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('pengambilans', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('bast_pengambilan_id')->constrained();
+            $table->foreignId('dokumen_id')->constrained();
+            $table->boolean('sudah_selesai');
+            // $table->timestamps();
         });
     }
 

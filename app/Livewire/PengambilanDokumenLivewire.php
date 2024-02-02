@@ -6,18 +6,23 @@ use App\Models\BastPengambilan;
 use App\Models\Debitur;
 use App\Models\Developer;
 use App\Models\Dokumen;
+use App\Models\Pelunasan;
 use App\Models\Pengambilan;
 use Livewire\Component;
 use App\Models\SuratRoya;
 use Illuminate\Support\Facades\DB;
+use Livewire\WithFileUploads;
 
 class PengambilanDokumenLivewire extends Component
 {
+    use WithFileUploads;
 
     public $debitur, $no_debitur;
     public $nama_debitur, $nama_developer, $no_ktp, $alamat_ktp, $alamat_agunan, $no, $blok, $pengambil;
     public $tanggal_pelunasan, $nama_pengambil, $no_ktp_pengambil;
     public $checkedDokumen = [];
+
+    public $bastPengambilan, $file_pelunasan;
 
     public function rules()
     {
@@ -72,6 +77,7 @@ class PengambilanDokumenLivewire extends Component
     {
         $this->debitur();
         $this->updatedPengambil();
+        $this->getBastPengambilanDebitur();
     }
 
     public function debitur()
@@ -123,7 +129,9 @@ class PengambilanDokumenLivewire extends Component
     {
         $this->validate();
 
-        DB::transaction(function () {
+        $bastId =  '';
+
+        DB::transaction(function () use (&$bastId) {
             $bast = BastPengambilan::create([
                 'no_debitur' => $this->no_debitur,
                 'nama_debitur' => $this->nama_debitur,
@@ -140,6 +148,8 @@ class PengambilanDokumenLivewire extends Component
                 'debitur_id' => $this->debitur->id,
             ]);
 
+            $bastId = $bast->id;
+
             foreach ($this->checkedDokumen as $jenis) {
                 $dokumen = Dokumen::where('jenis', $jenis)
                     ->where('debitur_id', $this->debitur->id)->first();
@@ -152,7 +162,60 @@ class PengambilanDokumenLivewire extends Component
             }
         });
 
+        $route = route('pengambilan.cetak', ['id' => $bastId]);
         // $this->reset();
+        $this->dispatch('scrollToTop');
+        session()->flash('storeSuccess', "Penerimaan berhasil dilakukan! Silakan download BAST di <a href=\"$route\" class=\"underline\">sini!</a>");
+    }
+
+    public function getBastPengambilanDebitur()
+    {
+        $bast = BastPengambilan::where('debitur_id', $this->debitur->id)->first();
+        if ($bast) {
+            $this->bastPengambilan = $bast;
+        }
+    }
+
+    public function storePelunasan()
+    {
+        $pengambilan = Pengambilan::where('bast_pengambilan_id', $this->bastPengambilan->id)->get();
+
+        $dokumenDiambil = [];
+        foreach ($pengambilan as $p) {
+            $dokumenDiambil[] = $p->dokumen;
+        }
+
+        $this->validate([
+            'file_pelunasan' => 'required|file',
+        ], [
+            'required' => ':attribute harus diisi!',
+            'file' => ':attribute harus berupa file!',
+        ], [
+            'file_pelunasan' => 'File pelunasan'
+        ]);
+
+
+        DB::transaction(function () use ($dokumenDiambil) {
+            $namaFile = "bast_pengambilan_" . strtolower(str_replace(' ', '_', $this->debitur->nama_debitur)) . ".pdf";
+            $path_file = $this->file_pelunasan->storeAs('bast_pengambilan', $namaFile);
+
+            Pelunasan::create([
+                'bast_pengambilan_id' => $this->bastPengambilan->id,
+                'debitur_id' => $this->debitur->id,
+                'file_pelunasan' => $path_file
+            ]);
+
+            foreach ($dokumenDiambil as $d) {
+                $d->update([
+                    'status_keluar' => 1
+                ]);
+            }
+
+            $this->debitur->update([
+                'sudah_lunas' => 1
+            ]);
+        });
+
         $this->dispatch('scrollToTop');
     }
 

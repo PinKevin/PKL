@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BastPeminjamanController;
+use App\Http\Controllers\BastPengambilanController;
 use App\Http\Controllers\BastPengembalianController;
 use App\Http\Controllers\BerkasController;
 use App\Http\Controllers\NotarisController;
@@ -77,6 +78,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [PengambilanDokumenController::class, 'index'])->name('pengambilan.index');
         Route::post('/cari', [PengambilanDokumenController::class, 'search'])->name('pengambilan.search');
         Route::get('/{no_debitur}', [PengambilanDokumenController::class, 'show'])->name('pengambilan.pengambilan');
+        Route::get('/cetak-bast/{id}', [BastPengambilanController::class, 'cetakBast'])->name('pengambilan.cetak');
     });
 
     Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');

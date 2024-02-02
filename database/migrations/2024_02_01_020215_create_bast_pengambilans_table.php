@@ -21,11 +21,12 @@ return new class extends Migration
             $table->string('no');
             $table->string('blok');
             $table->string('tanggal_pelunasan');
-            $table->string('nama_developer');
+            $table->unsignedBigInteger('nama_developer');
             $table->string('pengambil');
             $table->string('nama_pengambil');
             $table->string('no_ktp_pengambil');
             $table->foreignId('debitur_id')->constrained();
+            $table->foreign('nama_developer')->references('id')->on('developers');
             // $table->timestamps();
         });
     }

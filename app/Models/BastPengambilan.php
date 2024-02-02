@@ -17,4 +17,14 @@ class BastPengambilan extends Model
     {
         return $this->hasMany(Pengambilan::class);
     }
+
+    public function debitur()
+    {
+        return $this->belongsTo(Debitur::class);
+    }
+
+    public function developer()
+    {
+        return $this->belongsTo(Developer::class, 'nama_developer');
+    }
 }

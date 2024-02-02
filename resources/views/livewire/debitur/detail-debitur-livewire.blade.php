@@ -27,12 +27,12 @@
                     id="no_ktp" type="text" disabled wire:model="no_ktp" placeholder="Nomor KTP">
             </div>
             <div>
-                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="alamat_ktp">
-                    Alamat KTP
+                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="saldo_pokok">
+                    Saldo Pokok
                 </label>
-                <textarea
+                <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="alamat_ktp" name="alamat_ktp" placeholder="Alamat agunan" disabled wire:model="alamat_ktp"></textarea>
+                    id="saldo_pokok" type="number" disabled wire:model="saldo_pokok" placeholder="Saldo pokok">
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="tanggal_realisasi">
@@ -85,12 +85,12 @@
                     id="plafon_kredit" type="number" disabled wire:model="plafon_kredit" placeholder="Plafon kredit">
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="saldo_pokok">
-                    Saldo Pokok
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="alamat_ktp">
+                    Alamat KTP
                 </label>
-                <input
+                <textarea
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="saldo_pokok" type="number" disabled wire:model="saldo_pokok" placeholder="Saldo pokok">
+                    id="alamat_ktp" name="alamat_ktp" placeholder="Alamat agunan" disabled wire:model="alamat_ktp"></textarea>
             </div>
             <div>
                 <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="alamat_agunan">

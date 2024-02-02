@@ -8,9 +8,11 @@ TBD merupakan aplikasi _website_ yang dibangun untuk Loan Document Bank BTN KC S
 
 -   Login.
 -   Dashboard (TBD isinya).
--   CRUD berkas peminjaman.
--   CRUD surat roya.
--   Ekspor word untuk surat roya
+-   Penanganan penerimaan dokumen pokok.
+-   Penanganan peminjaman dokumen pokok.
+-   Penanganan pengembalian dokumen pokok.
+-   Pembuatan surat roya.
+-   Ekspor word untuk surat roya dan berita acara.
 
 ## Teknologi
 

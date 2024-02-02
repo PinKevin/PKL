@@ -4,7 +4,7 @@
     <form class="ml-0.5 mt-4" wire:submit.prevent="storeDebitur" method="POST">
         <div class="mb-6 grid gap-6 md:grid-cols-2">
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="no_debitur">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="no_debitur">
                     Nomor Debitur
                 </label>
                 <input
@@ -25,7 +25,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama_debitur">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="nama_debitur">
                     Nama debitur
                 </label>
                 <input
@@ -46,7 +46,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="no_ktp">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="no_ktp">
                     Nomor KTP
                 </label>
                 <input
@@ -67,17 +67,17 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="alamat_ktp">Alamat
-                    KTP
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="saldo_pokok">
+                    Saldo Pokok
                 </label>
-                <textarea
+                <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="alamat_ktp" name="alamat_ktp" placeholder="Alamat KTP" wire:model="alamat_ktp"></textarea>
-                @error('alamat_ktp')
+                    id="saldo_pokok" type="number" wire:model="saldo_pokok" placeholder="Saldo pokok">
+                @error('saldo_pokok')
                     <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                         role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path
                                 d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                         </svg>
@@ -88,7 +88,8 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="tanggal_realisasi">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
+                    for="tanggal_realisasi">
                     Tanggal Realisasi
                 </label>
                 <input
@@ -109,7 +110,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="jenis_kredit">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="jenis_kredit">
                     Jenis Kredit
                 </label>
                 <input
@@ -130,7 +131,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="kode_developer">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="kode_developer">
                     Developer
                 </label>
                 <select
@@ -156,7 +157,8 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="proyek_perumahan">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
+                    for="proyek_perumahan">
                     Proyek Perumahan
                 </label>
                 <input
@@ -178,7 +180,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="kode_notaris">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="kode_notaris">
                     Notaris
                 </label>
                 <select
@@ -204,7 +206,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="plafon_kredit">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="plafon_kredit">
                     Plafon Kredit
                 </label>
                 <input
@@ -225,17 +227,17 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="saldo_pokok">
-                    Saldo Pokok
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="alamat_ktp">Alamat
+                    KTP
                 </label>
-                <input
-                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="saldo_pokok" type="number" wire:model="saldo_pokok" placeholder="Saldo pokok">
-                @error('saldo_pokok')
+                <textarea
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    id="alamat_ktp" name="alamat_ktp" placeholder="Alamat KTP" style="text-align: start;" wire:model="alamat_ktp"></textarea>
+                @error('alamat_ktp')
                     <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                         role="alert">
-                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 20 20">
                             <path
                                 d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                         </svg>
@@ -267,7 +269,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="blok">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="blok">
                     Blok
                 </label>
                 <input
@@ -288,7 +290,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="no">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="no">
                     Nomor Rumah
                 </label>
                 <input
@@ -309,7 +311,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="luas_tanah">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="luas_tanah">
                     Luas Tanah
                 </label>
                 <input
@@ -330,7 +332,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="luas_bangunan">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="luas_bangunan">
                     Luas Bangunan
                 </label>
                 <input

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BastPengambilan;
 use Illuminate\Http\Request;
+use App\Models\BastPengambilan;
+use PhpOffice\PhpWord\TemplateProcessor;
 
 class BastPengambilanController extends Controller
 {
@@ -81,9 +82,8 @@ class BastPengambilanController extends Controller
             $tanggal_terbit = $p->dokumen->tanggal_terbit;
 
             $dokumenDiambil[] = [
-                "no_tabel" => $counter,
-                "jenis" => "$jenis",
-                "no" => $no,
+                "jenis" => $jenis,
+                "no_dokumen" => $no,
                 "tanggal_terbit" => $tanggal_terbit,
             ];
 
@@ -104,8 +104,12 @@ class BastPengambilanController extends Controller
         $namaDebitur = strtoupper($bast->debitur->nama_debitur);
         $namaFile = "PENGAMBILAN - $namaDebitur" . ".docx";
 
-        // $templateProcessor = new TemplateProcessor('format/format-bast-pengambilan.docx');
+        $templateProcessor = new TemplateProcessor('format/format-bast-pengambilan.docx');
         // dd($bast->developer->nama_developer);
+
+        if ($bast->nama_debitur == $bast->nama_pengambil) {
+            $templateProcessor->cloneBlock('blok_pengambil', 0, true, false, null);
+        }
 
         $data = [
             'tanggal_nomor' => date('d-m-Y'),
@@ -121,14 +125,16 @@ class BastPengambilanController extends Controller
             'nama_developer' => $bast->developer->nama_developer,
             'nama_pengambil' => $bast->nama_pengambil,
             'no_ktp_pengambil' => $bast->no_ktp_pengambil,
+            'pengambil' => $bast->pengambil,
+            'pemberi' => auth()->user()->nama,
         ];
 
-        dd($data);
+        // dd($data);
 
-        // $templateProcessor->setValues($data);
-        // $templateProcessor->cloneRowAndSetValues('no_tabel', $dokumenDiambil);
-        // $templateProcessor->cloneBlock('blok_menunjuk', 0, true, false, $hasil);
-        // $templateProcessor->saveAs($namaFile);
-        // return response()->download($namaFile)->deleteFileAfterSend(true);
+        $templateProcessor->setValues($data);
+        $templateProcessor->cloneBlock('blok_dokumen', 0, true, false, $dokumenDiambil);
+
+        $templateProcessor->saveAs($namaFile);
+        return response()->download($namaFile)->deleteFileAfterSend(true);
     }
 }

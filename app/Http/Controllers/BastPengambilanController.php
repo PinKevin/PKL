@@ -109,6 +109,8 @@ class BastPengambilanController extends Controller
 
         if ($bast->nama_debitur == $bast->nama_pengambil) {
             $templateProcessor->cloneBlock('blok_pengambil', 0, true, false, null);
+        } else {
+            $templateProcessor->cloneBlock('blok_pengambil', 1, true);
         }
 
         $data = [
@@ -127,6 +129,7 @@ class BastPengambilanController extends Controller
             'no_ktp_pengambil' => $bast->no_ktp_pengambil,
             'pengambil' => $bast->pengambil,
             'pemberi' => auth()->user()->nama,
+            'nip_pemberi' => auth()->user()->nip
         ];
 
         // dd($data);

@@ -31,6 +31,9 @@
                     <th class="px-6 py-3" scope="col">
                         Status Pelunasan
                     </th>
+                    <th class="px-6 py-3" scope="col">
+                        Riwayat Pengambilan
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -44,18 +47,28 @@
                     <td class="whitespace-nowrap px-8 py-4 font-medium text-gray-900 dark:text-white">
                         @if ($debitur->sudah_lunas)
                             <span
-                                class="bg-green-200 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Sudah
+                                class="me-2 rounded-full bg-green-200 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">Sudah
                                 Lunas</span>
                         @else
                             <span
-                                class="bg-red-200 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Belum
+                                class="me-2 rounded-full bg-red-200 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">Belum
                                 Lunas</span>
                         @endif
+                    </td>
+                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
+                        <button
+                            class="ml-10 mr-16 flex rounded-lg bg-blue-600 px-5 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                            id="button-show-bast-log-modal" data-modal-target="show-bast-log-modal"
+                            data-modal-toggle="show-bast-log-modal" type="button" wire:click="showBastLog()">
+                            Riwayat
+                        </button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
+
+    @include('livewire.pengambilan-dokumen.show-bast-log-modal')
 
     <div class="relative mt-3 overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">

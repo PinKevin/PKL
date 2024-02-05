@@ -22,6 +22,7 @@ class PengambilanDokumenLivewire extends Component
     public $tanggal_pelunasan, $nama_pengambil, $no_ktp_pengambil;
     public $checkedDokumen = [];
 
+    public $logBast, $jenisList;
     public $bastPengambilan, $file_pelunasan, $file_bast;
 
     public function rules()
@@ -224,6 +225,40 @@ class PengambilanDokumenLivewire extends Component
 
         $this->dispatch('scrollToTop');
         session()->flash('storeSuccess', "Upload BAST berhasil dilakukan!");
+    }
+
+    public function showBastLog()
+    {
+        $dokumen = Dokumen::where('debitur_id', $this->debitur->id)->get();
+        $dokumenIdList = $dokumen->pluck('id')->toArray();
+
+        $pengambilan = Pengambilan::whereIn('dokumen_id', $dokumenIdList)->get();
+
+        $bastIdList = $pengambilan->pluck('bast_pengambilan_id')->toArray();
+        $bastLog = BastPengambilan::whereIn('id', $bastIdList)->get();
+
+        // dd($bastLog);
+
+        $jenisDokumenByBast = [];
+
+        if ($bastLog->isNotEmpty()) {
+            foreach ($bastLog as $bast) {
+                $jenisDokumenByBast[$bast->id] = [];
+
+                foreach ($pengambilan as $p) {
+                    if ($p->bast_pengambilan_id === $bast->id) {
+                        $jenisDokumenByBast[$bast->id][] = $p->dokumen->jenis;
+                    }
+                }
+            }
+
+            $this->logBast = $bastLog;
+            $this->jenisList = $jenisDokumenByBast;
+            // dd($this->logBast);
+        } else {
+            $this->logBast = [];
+            $this->jenisList = [];
+        }
     }
 
     public function render()

@@ -28,9 +28,9 @@
                     <th class="px-6 py-3" scope="col">
                         Nomor Debitur
                     </th>
-                    {{-- <th class="px-6 py-3" scope="col">
-                        Riwayat Peminjaman
-                    </th> --}}
+                    <th class="px-6 py-3" scope="col">
+                        Riwayat Pengembalian
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -41,18 +41,20 @@
                     <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
                         {{ $debitur->no_debitur }}
                     </td>
-                    {{-- <td>
+                    <td>
                         <button
                             class="ml-10 mr-16 flex rounded-lg bg-blue-600 px-5 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
                             id="button-show-bast-log-modal" data-modal-target="show-bast-log-modal"
                             data-modal-toggle="show-bast-log-modal" type="button" wire:click="showBastLog()">
                             Riwayat
                         </button>
-                    </td> --}}
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
+
+    @include('livewire.pengembalian-dokumen.show-bast-log-modal')
 
     <div class="relative mt-3 overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">

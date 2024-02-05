@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('pengambil');
             $table->string('nama_pengambil');
             $table->string('no_ktp_pengambil');
+            $table->string('file_pelunasan');
             $table->foreignId('debitur_id')->constrained();
             $table->foreign('nama_developer')->references('id')->on('developers');
             // $table->timestamps();

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('bast_pengambilan_id')->constrained();
             $table->foreignId('debitur_id')->constrained();
-            $table->string('file_pelunasan');
+            $table->string('file_bast');
             // $table->timestamps();
         });
     }

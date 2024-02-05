@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('bast_pengambilan_id')->constrained();
             $table->foreignId('dokumen_id')->constrained();
-            $table->boolean('sudah_selesai');
             // $table->timestamps();
         });
     }

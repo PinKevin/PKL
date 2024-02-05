@@ -22,7 +22,7 @@ class PengambilanDokumenLivewire extends Component
     public $tanggal_pelunasan, $nama_pengambil, $no_ktp_pengambil;
     public $checkedDokumen = [];
 
-    public $bastPengambilan, $file_pelunasan;
+    public $bastPengambilan, $file_pelunasan, $file_bast;
 
     public function rules()
     {
@@ -39,7 +39,8 @@ class PengambilanDokumenLivewire extends Component
             'nama_developer' => 'required',
             'pengambil' => 'required',
             'nama_pengambil' => 'required',
-            'no_ktp_pengambil' => 'required'
+            'no_ktp_pengambil' => 'required',
+            'file_pelunasan' => 'required|file|mimes:pdf'
         ];
     }
 
@@ -51,7 +52,9 @@ class PengambilanDokumenLivewire extends Component
             'digits' => ':attribute harus terdiri atas :values digit!',
             'string' => ':attribute harus berupa huruf!',
             'numeric' => ':attribute harus berupa angka!',
-            'checkedDokumen.required' => 'Dokumen harus dipilih!'
+            'checkedDokumen.required' => 'Dokumen harus dipilih!',
+            'file' => ':attribute harus berupa file!',
+            'mimes' => ':attribute harus berformat :mimes'
         ];
     }
 
@@ -69,7 +72,8 @@ class PengambilanDokumenLivewire extends Component
             'nama_developer' => 'Nama developer',
             'pengambil' => 'Pengambil',
             'nama_pengambil' => 'Nama pengambil',
-            'no_ktp_pengambil' => 'Nomor KTP pengambil'
+            'no_ktp_pengambil' => 'Nomor KTP pengambil',
+            'file_pelunasan' => 'Bukti pelunasan'
         ];
     }
 
@@ -132,6 +136,9 @@ class PengambilanDokumenLivewire extends Component
         $bastId =  '';
 
         DB::transaction(function () use (&$bastId) {
+            $namaFile = "file_pelunasan_" . strtolower(str_replace(' ', '_', $this->debitur->nama_debitur)) . ".pdf";
+            $path_file = $this->file_pelunasan->storeAs('file_pelunasan', $namaFile);
+
             $bast = BastPengambilan::create([
                 'no_debitur' => $this->no_debitur,
                 'nama_debitur' => $this->nama_debitur,
@@ -146,6 +153,7 @@ class PengambilanDokumenLivewire extends Component
                 'nama_pengambil' => $this->nama_pengambil,
                 'no_ktp_pengambil' => $this->no_ktp_pengambil,
                 'debitur_id' => $this->debitur->id,
+                'file_pelunasan' => $path_file
             ]);
 
             $bastId = $bast->id;
@@ -157,7 +165,10 @@ class PengambilanDokumenLivewire extends Component
                 Pengambilan::create([
                     'bast_pengambilan_id' => $bast->id,
                     'dokumen_id' => $dokumen->id,
-                    'sudah_selesai' => 0
+                ]);
+
+                $dokumen->update([
+                    'status_keluar' => 1
                 ]);
             }
         });
@@ -165,7 +176,7 @@ class PengambilanDokumenLivewire extends Component
         $route = route('pengambilan.cetak', ['id' => $bastId]);
         // $this->reset();
         $this->dispatch('scrollToTop');
-        session()->flash('storeSuccess', "Penerimaan berhasil dilakukan! Silakan download BAST di <a href=\"$route\" class=\"underline\">sini!</a>");
+        session()->flash('storeSuccess', "Pengambilan berhasil dilakukan! Silakan download BAST di <a href=\"$route\" class=\"underline\">sini!</a>");
     }
 
     public function getBastPengambilanDebitur()
@@ -186,30 +197,25 @@ class PengambilanDokumenLivewire extends Component
         }
 
         $this->validate([
-            'file_pelunasan' => 'required|file',
+            'file_bast' => 'required|file|mimes:pdf',
         ], [
             'required' => ':attribute harus diisi!',
             'file' => ':attribute harus berupa file!',
+            'mimes' => ':attribute harus berformat :values'
         ], [
-            'file_pelunasan' => 'File pelunasan'
+            'file_bast' => 'File berita acara'
         ]);
 
 
         DB::transaction(function () use ($dokumenDiambil) {
             $namaFile = "bast_pengambilan_" . strtolower(str_replace(' ', '_', $this->debitur->nama_debitur)) . ".pdf";
-            $path_file = $this->file_pelunasan->storeAs('bast_pengambilan', $namaFile);
+            $path_file = $this->file_bast->storeAs('bast_pengambilan', $namaFile);
 
             Pelunasan::create([
                 'bast_pengambilan_id' => $this->bastPengambilan->id,
                 'debitur_id' => $this->debitur->id,
-                'file_pelunasan' => $path_file
+                'file_bast' => $path_file
             ]);
-
-            foreach ($dokumenDiambil as $d) {
-                $d->update([
-                    'status_keluar' => 1
-                ]);
-            }
 
             $this->debitur->update([
                 'sudah_lunas' => 1
@@ -217,6 +223,7 @@ class PengambilanDokumenLivewire extends Component
         });
 
         $this->dispatch('scrollToTop');
+        session()->flash('storeSuccess', "Upload BAST berhasil dilakukan!");
     }
 
     public function render()

@@ -126,7 +126,7 @@
                                 <span
                                     class="me-1 inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
                             </td>
-                            <td class="px-6 py-4 text-center">
+                            <td class="flex flex-col items-center px-2 py-4">
                                 <div class="flex items-center">
                                     <input
                                         class="mb-2 h-4 w-4 rounded border-gray-300 bg-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"

@@ -41,8 +41,16 @@
                     <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
                         {{ $debitur->no_debitur }}
                     </td>
-                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
-                        {{ $debitur->sudah_lunas ? 'Sudah Lunas' : 'Belum Lunas' }}
+                    <td class="whitespace-nowrap px-8 py-4 font-medium text-gray-900 dark:text-white">
+                        @if ($debitur->sudah_lunas)
+                            <span
+                                class="bg-green-200 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Sudah
+                                Lunas</span>
+                        @else
+                            <span
+                                class="bg-red-200 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Belum
+                                Lunas</span>
+                        @endif
                     </td>
                 </tr>
             </tbody>

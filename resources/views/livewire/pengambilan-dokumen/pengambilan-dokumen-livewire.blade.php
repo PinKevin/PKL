@@ -107,14 +107,19 @@
                                 @endif
                             </td>
                             <td class="flex flex-col items-center justify-between px-2 py-4">
-                                <div class="flex items-center">
-                                    <input
-                                        class="mb-2 h-4 w-4 rounded border-gray-300 bg-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                                        id="checkbox-{{ $dok->id }}" type="checkbox" value="{{ $jenis }}"
-                                        wire:model.live="checkedDokumen">
-                                    <label class="mb-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                        for="checkbox-{{ $dok->id }}">Pilih Dokumen</label>
-                                </div>
+                                @if ($dok->status_keluar == 0)
+                                    <div class="flex items-center">
+                                        <input
+                                            class="mb-2 h-4 w-4 rounded border-gray-300 bg-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                            id="checkbox-{{ $dok->id }}" type="checkbox"
+                                            value="{{ $jenis }}" wire:model.live="checkedDokumen">
+                                        <label class="mb-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                            for="checkbox-{{ $dok->id }}">Pilih Dokumen</label>
+                                    </div>
+                                @else
+                                    -
+                                @endif
+
                             </td>
                         </tr>
                     @elseif ($dok && $dok->status_pinjaman == 1)

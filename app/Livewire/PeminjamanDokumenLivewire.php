@@ -309,16 +309,6 @@ class PeminjamanDokumenLivewire extends Component
         }
     }
 
-    public function showLog($id)
-    {
-        $log = Peminjaman::where('dokumen_id', $id)->get();
-        if ($log->isNotEmpty()) {
-            $this->logPeminjaman = $log;
-        } else {
-            $this->logPeminjaman = [];
-        }
-    }
-
     public function showBastLog()
     {
         $dokumen = Dokumen::where('debitur_id', $this->debitur->id)->get();

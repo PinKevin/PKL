@@ -12,6 +12,7 @@ use App\Models\StaffCabang;
 use App\Models\Pengembalian;
 use App\Models\StaffNotaris;
 use App\Models\BastPeminjaman;
+use App\Models\BastPengambilan;
 use App\Models\BastPengembalian;
 use Illuminate\Support\Facades\DB;
 
@@ -23,6 +24,7 @@ class PengembalianDokumenLivewire extends Component
     public $notaris_id, $peminjam, $pendukung, $keperluan, $tanggal_kembali, $peminta;
 
     public $peminjamList;
+    public $logBast, $jenisList;
 
     public function rules()
     {
@@ -159,6 +161,38 @@ class PengembalianDokumenLivewire extends Component
         $this->resetInput();
         $this->dispatch('scrollToTop');
         session()->flash('storeSuccess', "Pengembalian berhasil dilakukan! Silakan download BAST di <a href=\"$route\" class=\"underline\">sini!</a>");
+    }
+
+    public function showBastLog()
+    {
+        $dokumen = Dokumen::where('debitur_id', $this->debitur->id)->get();
+        $dokumenIdList = $dokumen->pluck('id')->toArray();
+
+        $pengembalian = Pengembalian::whereIn('dokumen_id', $dokumenIdList)->get();
+
+        $bastIdList = $pengembalian->pluck('bast_pengembalian_id')->toArray();
+        $bastLog = BastPengembalian::whereIn('id', $bastIdList)->get();
+
+        $jenisDokumenByBast = [];
+
+        if ($bastLog->isNotEmpty()) {
+            foreach ($bastLog as $bast) {
+                $jenisDokumenByBast[$bast->id] = [];
+
+                foreach ($pengembalian as $p) {
+                    if ($p->bast_pengembalian_id === $bast->id) {
+                        $jenisDokumenByBast[$bast->id][] = $p->dokumen->jenis;
+                    }
+                }
+            }
+
+
+            $this->logBast = $bastLog;
+            $this->jenisList = $jenisDokumenByBast;
+        } else {
+            $this->logBast = [];
+            $this->jenisList = [];
+        }
     }
 
 

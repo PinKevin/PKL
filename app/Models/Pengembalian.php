@@ -14,6 +14,10 @@ class Pengembalian extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'tanggal_kembali' => 'date'
+    ];
+
     public function dokumen(): BelongsTo
     {
         return $this->belongsTo(Dokumen::class);

@@ -22,6 +22,8 @@ class PengembalianDokumenLivewire extends Component
     public $peminjamList;
     public $logBast, $jenisList;
 
+    public $selectAll = false;
+
     public function rules()
     {
         return [
@@ -85,6 +87,17 @@ class PengembalianDokumenLivewire extends Component
     {
         $this->peminjam = '';
         $this->peminjamList = StaffNotaris::where('notaris_id', $this->notaris_id)->get();
+    }
+
+    public function selectAllDokumen()
+    {
+        $this->selectAll = !$this->selectAll;
+        $this->checkedDokumen = $this->selectAll ? $this->indexDokumen()->pluck('jenis')->toArray() : [];
+    }
+
+    public function updatedCheckAllDokumen()
+    {
+        $this->selectAll = count($this->checkedDokumen) == count($this->indexDokumen());
     }
 
     public function storePengembalian()

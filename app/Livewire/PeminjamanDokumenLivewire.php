@@ -33,6 +33,8 @@ class PeminjamanDokumenLivewire extends Component
     public $kelurahan, $kecamatan, $no_surat_ukur, $nib, $luas, $pemilik, $peringkat_sht, $no_sht;
     public $tanggal_sht;
 
+    public $selectAll = false;
+
     public function rules()
     {
         return [
@@ -177,6 +179,17 @@ class PeminjamanDokumenLivewire extends Component
     {
         $this->kelurahan = '';
         $this->kelurahanList = Village::where('district_id', $this->kecamatan)->get();
+    }
+
+    public function selectAllDokumen()
+    {
+        $this->selectAll = !$this->selectAll;
+        $this->checkedDokumen = $this->selectAll ? $this->indexDokumen()->pluck('jenis')->toArray() : [];
+    }
+
+    public function updatedCheckAllDokumen()
+    {
+        $this->selectAll = count($this->checkedDokumen) == count($this->indexDokumen());
     }
 
     public function createPeminjaman($dokumen_id)

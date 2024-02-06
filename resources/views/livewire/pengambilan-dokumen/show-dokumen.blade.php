@@ -100,7 +100,7 @@
                         <td class="px-6 py-4">
                             {{ $jenis }}
                         </td>
-                        <td class="px-2 py-4">
+                        <td class="px-1 py-4">
                             <span
                                 class="inline-block rounded-full bg-red-200 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
                                 Belum Tersedia

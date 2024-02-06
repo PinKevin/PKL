@@ -70,14 +70,12 @@ class BastPengembalianController extends Controller
 
         // dokumen yang dipinjam
         $pengembalian = $bastPengembalian->pengembalian;
-        // dd($pengembalian);
 
         $dokumenDipinjam = [];
         $counter = 1;
 
         foreach ($pengembalian as $p) {
             $jenis = $p->dokumen->jenis;
-            // dd($jenis);
             $no = $p->dokumen->no_dokumen;
             $pemilik = $p->dokumen->debitur->nama_debitur;
             $no_debitur = $p->dokumen->debitur->no_debitur;
@@ -89,17 +87,6 @@ class BastPengembalianController extends Controller
                 "no_debitur" => $no_debitur,
             ];
 
-            // if ($p->dokumen->jenis == 'SHT') {
-            //     $suratRoya = SuratRoya::where('bast_peminjaman_id', $bastPengembalian->id)->first();
-            //     $noSuratRoya = $suratRoya->no_surat;
-
-            //     $dokumenDipinjam[] = [
-            //         "no_tabel" => $counter,
-            //         "jenis" => "Surat Roya No. $noSuratRoya",
-            //         "pemilik" => $suratRoya->pemilik,
-            //         "no_debitur" => $no_debitur,
-            //     ];
-            // }
             $counter++;
         }
 
@@ -129,8 +116,7 @@ class BastPengembalianController extends Controller
 
         // nama file
         $namaDebitur = strtoupper($pengembalian->first()->dokumen->debitur->nama_debitur);
-        $peminta = strtoupper($bastPengembalian->peminta()->first()->nama);
-        $namaFile = "PENGEMBALIAN - $peminta - $namaDebitur" . ".docx";
+        $namaFile = "PENGEMBALIAN - $namaDebitur" . ".docx";
 
         $templateProcessor = new TemplateProcessor('format/format-bast-pengembalian.docx');
 
@@ -141,12 +127,7 @@ class BastPengembalianController extends Controller
             'staff_notaris' => strtoupper($bastPengembalian->peminjam()->first()->nama),
             'notaris' => strtoupper($bastPengembalian->peminjam()->first()->notaris()->first()->nama_notaris),
             'keperluan' => $bastPengembalian->keperluan,
-            // 'tanggal_pinjam' => date('d/m/Y'),
-            // 'tanggal_jatuh_tempo' => $bastPengembalian->tanggal_jatuh_tempo->format('d/m/Y'),
             'tanggal_kembali' => $bastPengembalian->tanggal_kembali->format('d/m/Y'),
-            'pemberi_perintah' => $peminta,
-            'nip' => $bastPengembalian->peminta()->first()->nip,
-            'kantor' => $bastPengembalian->peminta()->first()->kantor,
         ];
 
         $templateProcessor->setValues($data);

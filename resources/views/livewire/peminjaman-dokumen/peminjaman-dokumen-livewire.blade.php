@@ -13,48 +13,6 @@
             </div>
         </div>
     @endif
-    @if (session('updateSuccess'))
-        <div class="mb-4 flex items-center rounded-lg border-t-4 border-green-300 bg-green-100 p-4 text-green-800 dark:border-green-800 dark:bg-gray-800 dark:text-green-400"
-            role="alert">
-            <svg class="h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                viewBox="0 0 20 20">
-                <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-            </svg>
-            <span class="sr-only">Info</span>
-            <div class="ms-3 text-sm font-medium">
-                {{ session('updateSuccess') }}
-            </div>
-        </div>
-    @endif
-    @if (session('deleteSuccess'))
-        <div class="mb-4 flex items-center rounded-lg border-t-4 border-green-300 bg-green-100 p-4 text-green-800 dark:border-green-800 dark:bg-gray-800 dark:text-green-400"
-            role="alert">
-            <svg class="h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                viewBox="0 0 20 20">
-                <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-            </svg>
-            <span class="sr-only">Info</span>
-            <div class="ms-3 text-sm font-medium">
-                {{ session('deleteSuccess') }}
-            </div>
-        </div>
-    @endif
-    @if (session('deleteError'))
-        <div class="mb-4 flex items-center rounded-lg bg-red-50 p-4 text-red-800 dark:bg-gray-800 dark:text-red-400"
-            id="alert-danger" role="alert">
-            <svg class="h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                viewBox="0 0 20 20">
-                <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-            </svg>
-            <span class="sr-only">Info</span>
-            <div class="ms-3 text-sm font-medium">
-                {{ session('deleteError') }}
-            </div>
-        </div>
-    @endif
 
     @include('livewire.peminjaman-dokumen.show-bast-log-modal')
 
@@ -98,13 +56,12 @@
         </table>
     </div>
 
-
-    <div class="mt-4 shadow-lg sm:rounded-lg" id="accordion-color" data-accordion="collapse"
-        data-active-classes="bg-blue-100 mt-4 dark:bg-gray-800 text-blue-600 dark:text-white">
+    <div class="mt-4 shadow-lg sm:rounded-lg bg-slate-100" id="accordion-color" data-accordion="collapse"
+        data-active-classes="bg-slate-200 mt-4 dark:bg-gray-800 text-blue-600 dark:text-white">
         <h2 id="accordion-color-heading-1">
             <button type="button"
-                class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-700 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-slate-200 dark:hover:bg-gray-800 gap-3"
-                data-accordion-target="#accordion-color-body-1" aria-expanded="true"
+                class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-800 border border-b-0 border-slate-200 rounded-t-xl focus:ring-4 focus:ring-slate-300 dark:focus:ring-blue-100 dark:border-gray-700 dark:text-gray-400 hover:bg-slate-200 dark:hover:bg-gray-800 gap-3"
+                data-accordion-target="#accordion-color-body-1" aria-expanded="false"
                 aria-controls="accordion-color-body-1">
                 <span>Riwayat Peminjaman</span>
                 <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
@@ -115,69 +72,101 @@
             </button>
         </h2>
         <div id="accordion-color-body-1" class="hidden" aria-labelledby="accordion-color-heading-1">
-            <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive
-                    components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
-                <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a
-                        href="/docs/getting-started/introduction/"
-                        class="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing
-                    websites even faster with components on top of Tailwind CSS.</p>
+            <div class="border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                <div class="relative space-y-4 overflow-x-auto bg-slate-100 p-4 shadow-md md:p-5"
+                    style="max-height: 400px; overflow-y: auto;">
+                    <table
+                        class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400 sm:rounded-lg">
+                        <thead class="bg-gray-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th class="px-6 py-3" scope="col">
+                                    No
+                                </th>
+                                <th class="px-4 py-4" scope="col">
+                                    Tanggal Buat
+                                </th>
+                                <th class="px-4 py-4" scope="col">
+                                    Tanggal Pinjam
+                                </th>
+                                <th class="px-4 py-4" scope="col">
+                                    Tanggal Jatuh Tempo
+                                </th>
+                                <th class="px-4 py-4" scope="col">
+                                    Dokumen yang Dipinjam
+                                </th>
+                                <th class="px-4 py-4" scope="col">
+                                    Download BAST
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if ($logBast)
+                                @foreach ($logBast as $log)
+                                    <tr
+                                        class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
+                                        <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                                            scope="row">
+                                            {{ $loop->iteration }}
+                                        </th>
+                                        <td class="px-6 py-4">
+                                            {{ $log->created_at->format('d-m-Y') }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $log->tanggal_pinjam->format('d-m-Y') }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $log->tanggal_jatuh_tempo->format('d-m-Y') }}
+                                        </td>
+                                        <td class="px-14 py-4">
+                                            <ul
+                                                class="max-w-md list-inside list-disc space-y-1 text-gray-500 dark:text-gray-400">
+                                                @foreach ($jenisList[$log->id] as $jenis)
+                                                    <li>{{ $jenis }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
+
+                                        <td class="px-4 py-4">
+                                            <div class="text-center">
+                                                <button
+                                                    class="flex rounded-lg bg-blue-700 px-5 py-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                    <a class="flex items-center"
+                                                        href="{{ route('peminjaman.cetak', ['id' => $log->id]) }}">
+                                                        Cetak BAST
+                                                    </a>
+                                                </button>
+                                            </div>
+                                            @php
+                                                $suratRoya = App\Models\SuratRoya::where('bast_peminjaman_id', $log->id)->first();
+                                            @endphp
+                                            @if (in_array('SHT', $jenisList[$log->id]) && $suratRoya)
+                                                <div class="mt-2">
+                                                    <button
+                                                        class="flex rounded-lg bg-green-700 px-5 py-2 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                                        <a class="flex items-center"
+                                                            href="{{ route('surat-roya.cetak', ['id' => $suratRoya->id]) }}">
+                                                            Cetak Roya
+                                                        </a>
+                                                    </button>
+                                                </div>
+                                            @endif
+                                        </td>
+
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr
+                                    class="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
+                                    <td class="px-6 py-4 text-center" colspan="6">
+                                        Tidak ada data!
+                                    </td>
+                                </tr>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        {{-- <h2 id="accordion-color-heading-2">
-            <button type="button"
-                class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3"
-                data-accordion-target="#accordion-color-body-2" aria-expanded="false"
-                aria-controls="accordion-color-body-2">
-                <span>Is there a Figma file available?</span>
-                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 5 5 1 1 5" />
-                </svg>
-            </button>
-        </h2>
-        <div id="accordion-color-body-2" class="hidden" aria-labelledby="accordion-color-heading-2">
-            <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-                <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using
-                    the Figma software so everything you see in the library has a design equivalent in our Figma file.
-                </p>
-                <p class="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/"
-                        class="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the
-                    utility classes from Tailwind CSS and components from Flowbite.</p>
-            </div>
-        </div>
-        <h2 id="accordion-color-heading-3">
-            <button type="button"
-                class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3"
-                data-accordion-target="#accordion-color-body-3" aria-expanded="false"
-                aria-controls="accordion-color-body-3">
-                <span>What are the differences between Flowbite and Tailwind UI?</span>
-                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 5 5 1 1 5" />
-                </svg>
-            </button>
-        </h2>
-        <div id="accordion-color-body-3" class="hidden" aria-labelledby="accordion-color-heading-3">
-            <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components from
-                    Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another
-                    difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers
-                    sections of pages.</p>
-                <p class="mb-2 text-gray-500 dark:text-gray-400">However, we actually recommend using both Flowbite,
-                    Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best
-                    of two worlds.</p>
-                <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-                <ul class="ps-5 text-gray-500 list-disc dark:text-gray-400">
-                    <li><a href="https://flowbite.com/pro/"
-                            class="text-blue-600 dark:text-blue-500 hover:underline">Flowbite Pro</a></li>
-                    <li><a href="https://tailwindui.com/" rel="nofollow"
-                            class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
-                </ul>
-            </div>
-        </div> --}}
     </div>
 
 

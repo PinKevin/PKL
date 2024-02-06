@@ -88,14 +88,16 @@ class PeminjamanDokumenLivewire extends Component
             ->where('debitur_id', $this->debitur->id)
             ->first();
 
+        $this->no_agunan = $sertipikat ? $sertipikat->no_dokumen : '';
+
         $sht = Dokumen::where('jenis', 'SHT')
             ->where('debitur_id', $this->debitur->id)
             ->first();
 
-        $this->no_agunan = $sertipikat->no_dokumen;
-
-        $this->no_sht = $sht->no_dokumen;
-        $this->tanggal_sht = $sht->tanggal_terbit;
+        if ($sht) {
+            $this->no_sht = $sht->no_dokumen;
+            $this->tanggal_sht = $sht->tanggal_terbit;
+        }
     }
 
     public function generateNoDepanSurat()

@@ -27,7 +27,6 @@ class PengambilanDokumenLivewire extends Component
     public $tanggal_pelunasan, $nama_pengambil, $no_ktp_pengambil;
     public $checkedDokumen = [];
 
-    public $logBast, $jenisList;
     public $bastPengambilan, $file_pelunasan, $file_bast;
 
     public $no_surat_depan, $no_surat, $kota_bpn, $lokasi_kepala_bpn, $no_agunan;
@@ -35,6 +34,8 @@ class PengambilanDokumenLivewire extends Component
     public $tanggal_sht;
 
     public $kotaList, $kecamatanList, $kelurahanList;
+
+    public $bast, $suratRoya, $pelunasan, $bastTtd;
 
     public function rules()
     {
@@ -123,6 +124,15 @@ class PengambilanDokumenLivewire extends Component
         $this->updatedKotaBpn();
         $this->updatedKecamatan();
         $this->getBastPengambilanDebitur();
+        $this->getDebiturBerkas();
+    }
+
+    public function getDebiturBerkas()
+    {
+        $this->bast = BastPengambilan::where('debitur_id', $this->debitur->id)->first();
+        $this->suratRoya = $this->bast->suratRoya;
+        $this->pelunasan = $this->bast->file_pelunasan;
+        $this->bastTtd = Pelunasan::where('debitur_id', $this->debitur->id)->select('file_bast')->first();
     }
 
     public function autoFillSuratRoya()

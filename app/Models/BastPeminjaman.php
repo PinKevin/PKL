@@ -11,7 +11,6 @@ class BastPeminjaman extends Model
     use HasFactory;
 
     public $table = 'bast_peminjaman';
-    public $timestamps = FALSE;
 
     protected $guarded = ['id'];
 

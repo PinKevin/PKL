@@ -26,6 +26,8 @@ return new class extends Migration
             $table->foreign('peminjam')->references('id')->on('staff_notaris');
             $table->foreign('peminta')->references('id')->on('staff_cabangs');
             $table->foreign('debitur')->references('id')->on('debiturs');
+
+            $table->timestamps();
         });
     }
 

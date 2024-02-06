@@ -287,50 +287,6 @@
                         </tr>
                     @endif
                 @endforeach
-
-                @if ($roya)
-                    <tr
-                        class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
-                        <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                            scope="row">
-                            11
-                        </th>
-                        <td class="px-6 py-4">
-                            Roya
-                        </td>
-                        <td class="px-2 py-4">
-                            @if ($roya->status_pinjaman == 0)
-                                <span
-                                    class="me-2 inline-block rounded-full bg-green-200 px-7 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">Tersedia</span>
-                            @else
-                                <span
-                                    class="me-2 inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
-                            @endif
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            -
-                        </td>
-                    </tr>
-                @else
-                    <tr
-                        class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
-                        <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                            scope="row">
-                            11
-                        </th>
-                        <td class="px-6 py-4">
-                            Roya
-                        </td>
-                        <td class="px-2 py-4">
-                            <span
-                                class="inline-inline-block rounded-full bg-red-200 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
-                                Belum Tersedia
-                            </span>
-                        </td>
-                        <td class="flex flex-col items-center justify-between px-4 py-4">
-                        </td>
-                    </tr>
-                @endif
             </tbody>
         </table>
     </div>
@@ -354,9 +310,8 @@
             <table>
                 <h1
                     class="bg-gray-300 p-5 text-left text-xl font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
-                    Buat surat roya untuk SHT
+                    Pengisian Surat Roya untuk SHT
                 </h1>
-
                 <form class="ml-0.5 mt-4">
                     <div class="mb-6 me-4 ms-4 mt-3 grid gap-6 md:grid-cols-2">
                         <div>
@@ -702,7 +657,7 @@
         <table class="bg-gray-100">
             <h1
                 class="bg-slate-300 p-5 text-left text-xl font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
-                Pengisian Berita Acara Serah Terima Dokumen Pokok
+                Pengisian Berita Acara Serah Terima Dokumen Pokok untuk Peminjaman
             </h1>
             <form wire:submit.prevent="storePeminjaman">
                 <div class="mb-6 me-4 ms-4 mt-3 grid gap-7 md:grid-cols-2">

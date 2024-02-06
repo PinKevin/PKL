@@ -102,6 +102,7 @@ class PeminjamanDokumenLivewire extends Component
         $tahun = date('Y');
         $noDepan = SuratRoya::whereYear('created_at', $tahun)->max('no_surat_depan');
         $noDepan = $noDepan ? $noDepan + 1 : 1;
+        $noDepan = $noDepan < 10 ? "0$noDepan" : $noDepan;
         return $noDepan;
     }
 
@@ -143,12 +144,6 @@ class PeminjamanDokumenLivewire extends Component
     {
         $notaris = Notaris::all();
         return $notaris;
-    }
-
-    public function getRoyaDebitur()
-    {
-        $roya = SuratRoya::where('debitur_id', $this->debitur->id)->first();
-        return $roya;
     }
 
     public function updatedNotarisId()
@@ -319,8 +314,6 @@ class PeminjamanDokumenLivewire extends Component
         $bastIdList = $peminjaman->pluck('bast_peminjaman_id')->toArray();
         $bastLog = BastPeminjaman::whereIn('id', $bastIdList)->get();
 
-        $suratRoyaSht = SuratRoya::where('bast_peminjaman_id', '');
-
         $jenisDokumenByBast = [];
 
         if ($bastLog->isNotEmpty()) {
@@ -361,7 +354,6 @@ class PeminjamanDokumenLivewire extends Component
             'notaris' => $this->getAllNotaris(),
             'peminjamList' => $this->peminjamList,
             'pemintaList' => $this->getAllPeminta(),
-            'roya' => $this->getRoyaDebitur()
         ]);
     }
 }

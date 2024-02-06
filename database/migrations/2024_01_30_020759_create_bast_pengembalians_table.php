@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('penerima');
             $table->unsignedBigInteger('peminjam');
-            $table->unsignedBigInteger('peminta');
             $table->unsignedBigInteger('debitur');
             $table->text('pendukung');
             $table->text('keperluan');
@@ -23,7 +22,6 @@ return new class extends Migration
 
             $table->foreign('penerima')->references('id')->on('users');
             $table->foreign('peminjam')->references('id')->on('staff_notaris');
-            $table->foreign('peminta')->references('id')->on('staff_cabangs');
             $table->foreign('debitur')->references('id')->on('debiturs');
 
             // $table->timestamps();

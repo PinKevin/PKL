@@ -21,7 +21,7 @@ class PengembalianDokumenLivewire extends Component
 
     public $debitur, $no_debitur;
     public $checkedDokumen = [];
-    public $notaris_id, $peminjam, $pendukung, $keperluan, $tanggal_kembali, $peminta;
+    public $notaris_id, $peminjam, $pendukung, $keperluan, $tanggal_kembali;
 
     public $peminjamList;
     public $logBast, $jenisList;
@@ -35,7 +35,6 @@ class PengembalianDokumenLivewire extends Component
             'pendukung' => 'required',
             'keperluan' => 'required',
             'tanggal_kembali' => 'required|date',
-            'peminta' => 'required',
         ];
     }
 
@@ -57,7 +56,6 @@ class PengembalianDokumenLivewire extends Component
             'pendukung' => 'Dokumen pendukung',
             'keperluan' => 'Keperluan',
             'tanggal_kembali' => 'Tanggal kembali',
-            'peminta' => 'Staff peminta',
         ];
     }
 
@@ -98,12 +96,6 @@ class PengembalianDokumenLivewire extends Component
         $this->peminjamList = StaffNotaris::where('notaris_id', $this->notaris_id)->get();
     }
 
-    public function getAllPeminta()
-    {
-        $peminta = StaffCabang::all();
-        return $peminta;
-    }
-
     public function storePengembalian()
     {
         $this->validate();
@@ -133,7 +125,6 @@ class PengembalianDokumenLivewire extends Component
             $bastPengembalian = BastPengembalian::create([
                 'penerima' => auth()->user()->id,
                 'peminjam' => $this->peminjam,
-                'peminta' => $this->peminta,
                 'debitur' => $this->debitur->id,
                 'pendukung' => $this->pendukung,
                 'keperluan' => $this->keperluan,
@@ -203,7 +194,6 @@ class PengembalianDokumenLivewire extends Component
         $this->pendukung = '';
         $this->keperluan = '';
         $this->tanggal_kembali = '';
-        $this->peminta = '';
         $this->checkedDokumen = [];
     }
 
@@ -213,7 +203,6 @@ class PengembalianDokumenLivewire extends Component
             'dokumen' => $this->indexDokumen(),
             'roya' => $this->getRoyaDebitur(),
             'notaris' => $this->getAllNotaris(),
-            'pemintaList' => $this->getAllPeminta()
         ]);
     }
 }

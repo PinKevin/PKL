@@ -48,12 +48,27 @@
                             {{ $dok->jenis }}
                         </td>
                         <td class="px-2 py-4">
-                            <span
-                                class="me-2 inline-block rounded-full bg-green-200 px-7 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">Tersedia</span>
-
+                            @if ($dok->status_keluar == 0)
+                                <span
+                                    class="me-2 inline-block rounded-full bg-green-200 px-7 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">Tersedia</span>
+                            @else
+                                <span
+                                    class="me-2 rounded-full bg-gray-700 px-8 py-0.5 text-xs font-medium text-white dark:bg-indigo-900 dark:text-indigo-300">Keluar</span>
+                            @endif
                         </td>
                         <td class="flex flex-col items-center justify-between px-2 py-4">
-                            -
+                            @if ($dok->status_keluar == 0)
+                                <div class="flex items-center">
+                                    <input
+                                        class="mb-2 h-4 w-4 rounded border-gray-300 bg-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                        id="checkbox-{{ $dok->id }}" type="checkbox" value="{{ $jenis }}"
+                                        wire:model.live="checkedDokumen">
+                                    <label class="mb-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                        for="checkbox-{{ $dok->id }}">Pilih Dokumen</label>
+                                </div>
+                            @else
+                                -
+                            @endif
                         </td>
                     </tr>
                 @elseif ($dok && $dok->status_pinjaman == 1)
@@ -70,15 +85,9 @@
                             <span
                                 class="me-1 inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
                         </td>
-                        <td class="flex flex-col items-center px-2 py-4">
-                            <div class="flex items-center">
-                                <input
-                                    class="mb-2 h-4 w-4 rounded border-gray-300 bg-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                                    id="checkbox-{{ $dok->id }}" type="checkbox" value="{{ $jenis }}"
-                                    wire:model.live="checkedDokumen">
-                                <label class="mb-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                    for="checkbox-{{ $dok->id }}">Pilih Dokumen</label>
-                            </div>
+                        <td class="px-6 py-4 text-center">
+                            -
+                        </td>
                         </td>
                     </tr>
                 @else
@@ -103,7 +112,6 @@
                     </tr>
                 @endif
             @endforeach
-
         </tbody>
     </table>
 </div>

@@ -215,7 +215,6 @@ class PeminjamanDokumenLivewire extends Component
                 'date' => ':attribute harus berupa tanggal!',
                 'checkedDokumen.required' => 'Dokumen harus dipilih!',
                 'integer' => ':attribute harus berupa numerik!',
-                'unique' => ':attribute sudah ada di dalam database!'
             ], [
                 'checkedDokumen' => 'Dokumen',
                 'notaris_id' => 'Nama notaris',
@@ -356,6 +355,17 @@ class PeminjamanDokumenLivewire extends Component
         $this->tanggal_jatuh_tempo = '';
         $this->peminta = '';
         $this->checkedDokumen = [];
+
+        $this->tanggal_pelunasan = '';
+        $this->kota_bpn = '';
+        $this->lokasi_kepala_bpn = '';
+        $this->no_surat_ukur = '';
+        $this->kecamatan = '';
+        $this->kelurahan = '';
+        $this->nib = '';
+        $this->luas = '';
+        $this->pemilik = '';
+        $this->peringkat_sht = '';
     }
 
     public function render()

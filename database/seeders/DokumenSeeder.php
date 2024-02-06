@@ -15,10 +15,9 @@ class DokumenSeeder extends Seeder
     public function run(): void
     {
         Debitur::all()->each(function ($debitur) {
-            $this->createDokumen($debitur, 'Sertipikat');
-            $this->createDokumen($debitur, 'IMB');
-            $this->createDokumen($debitur, 'PK');
-            $this->createDokumen($debitur, 'SHT');
+            foreach (['PPJB', 'AJB', 'SKMHT', 'APHT', 'PH', 'SHT', 'IMB', 'Sertipikat', 'PK', 'CN'] as $jenis) {
+                $this->createDokumen($debitur, $jenis);
+            }
         });
     }
 

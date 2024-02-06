@@ -125,7 +125,7 @@
                                         class="me-2 inline-block rounded-full bg-green-200 px-7 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">Tersedia</span>
                                 @else
                                     <span
-                                        class="bg-indigo-200 text-indigo-800 text-xs font-medium me-2 px-8 py-0.5 rounded-full dark:bg-indigo-900 dark:text-indigo-300">Keluar</span>
+                                        class="bg-gray-700 text-white text-xs font-medium me-2 px-8 py-0.5 rounded-full dark:bg-indigo-900 dark:text-indigo-300">Keluar</span>
                                 @endif
                             </td>
                             <td class="flex flex-col items-center justify-between px-2 py-4">

@@ -38,4 +38,9 @@ class BastPeminjaman extends Model
     {
         return $this->belongsTo(StaffCabang::class, 'peminta');
     }
+
+    public function suratRoya()
+    {
+        return $this->belongsTo(SuratRoya::class);
+    }
 }

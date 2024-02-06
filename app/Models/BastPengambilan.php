@@ -25,4 +25,9 @@ class BastPengambilan extends Model
     {
         return $this->belongsTo(Developer::class, 'nama_developer');
     }
+
+    public function suratRoya()
+    {
+        return $this->belongsTo(SuratRoya::class);
+    }
 }

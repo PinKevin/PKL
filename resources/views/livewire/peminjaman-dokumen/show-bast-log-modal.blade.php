@@ -84,7 +84,7 @@
                                             </button>
                                         </div>
                                         @php
-                                            $suratRoya = App\Models\SuratRoya::where('bast_peminjaman_id', $log->id)->first();
+                                            $suratRoya = $log->suratRoya;
                                         @endphp
                                         @if (in_array('SHT', $jenisList[$log->id]) && $suratRoya)
                                             <div class="mt-2">

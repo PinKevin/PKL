@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('file_pelunasan');
             $table->foreignId('debitur_id')->constrained();
             $table->foreign('nama_developer')->references('id')->on('developers');
+
+            $table->foreignId('surat_roya_id')->constrained();
             $table->timestamps();
         });
     }

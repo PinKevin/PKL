@@ -30,4 +30,14 @@ class SuratRoya extends Model
     {
         return $this->belongsTo(Village::class, 'kelurahan', 'id');
     }
+
+    public function bastPeminjaman()
+    {
+        return $this->hasOne(BastPeminjaman::class);
+    }
+
+    public function bastPengambilan()
+    {
+        return $this->hasOne(BastPengambilan::class);
+    }
 }

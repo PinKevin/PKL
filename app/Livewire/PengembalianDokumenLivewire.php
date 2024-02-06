@@ -7,12 +7,9 @@ use App\Models\Dokumen;
 use App\Models\Notaris;
 use Livewire\Component;
 use App\Models\SuratRoya;
-use App\Models\Peminjaman;
-use App\Models\StaffCabang;
 use App\Models\Pengembalian;
 use App\Models\StaffNotaris;
 use App\Models\BastPeminjaman;
-use App\Models\BastPengambilan;
 use App\Models\BastPengembalian;
 use Illuminate\Support\Facades\DB;
 
@@ -63,6 +60,7 @@ class PengembalianDokumenLivewire extends Component
     {
         $this->debitur();
         $this->updatedNotarisId();
+        $this->showBastLog();
     }
 
     public function debitur()

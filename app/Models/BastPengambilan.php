@@ -9,8 +9,6 @@ class BastPengambilan extends Model
 {
     use HasFactory;
 
-    public $timestamps = FALSE;
-
     protected $guarded = ['id'];
 
     public function pengambilan()
@@ -26,5 +24,10 @@ class BastPengambilan extends Model
     public function developer()
     {
         return $this->belongsTo(Developer::class, 'nama_developer');
+    }
+
+    public function suratRoya()
+    {
+        return $this->belongsTo(SuratRoya::class);
     }
 }

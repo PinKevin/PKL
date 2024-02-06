@@ -30,8 +30,6 @@ return new class extends Migration
             $table->date('tanggal_sht');
             $table->foreignId('debitur_id')->constrained();
 
-            $table->unsignedBigInteger('bast_peminjaman_id');
-            $table->foreign('bast_peminjaman_id')->references('id')->on('bast_peminjaman');
             $table->foreign('kota_bpn')->references('id')->on('regencies');
             $table->foreign('kecamatan')->references('id')->on('districts');
             $table->foreign('kelurahan')->references('id')->on('villages');

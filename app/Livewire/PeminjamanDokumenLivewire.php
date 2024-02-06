@@ -242,19 +242,6 @@ class PeminjamanDokumenLivewire extends Component
         }
 
         DB::transaction(function () use (&$bastId, &$routeSuratRoya) {
-            $bast = BastPeminjaman::create([
-                'pemberi' => auth()->user()->id,
-                'peminjam' => $this->peminjam,
-                'peminta' => $this->peminta,
-                'debitur' => $this->debitur->id,
-                'pendukung' => $this->pendukung,
-                'keperluan' => $this->keperluan,
-                'tanggal_pinjam' => date('Y-m-d'),
-                'tanggal_jatuh_tempo' => $this->tanggal_jatuh_tempo,
-            ]);
-
-            $bastId = $bast->id;
-
             if (in_array('SHT', $this->checkedDokumen)) {
                 $suratRoya = SuratRoya::create([
                     'no_surat_depan' => $this->no_surat_depan,
@@ -273,10 +260,23 @@ class PeminjamanDokumenLivewire extends Component
                     'no_sht' => $this->no_sht,
                     'tanggal_sht' => $this->tanggal_sht,
                     'debitur_id' => $this->debitur->id,
-                    'bast_peminjaman_id' => $bastId
                 ]);
                 $routeSuratRoya = route('surat-roya.cetak', ['id' => $suratRoya->id]);
             }
+
+            $bast = BastPeminjaman::create([
+                'pemberi' => auth()->user()->id,
+                'peminjam' => $this->peminjam,
+                'peminta' => $this->peminta,
+                'debitur' => $this->debitur->id,
+                'pendukung' => $this->pendukung,
+                'keperluan' => $this->keperluan,
+                'tanggal_pinjam' => date('Y-m-d'),
+                'tanggal_jatuh_tempo' => $this->tanggal_jatuh_tempo,
+                'surat_roya_id' => $suratRoya->id
+            ]);
+
+            $bastId = $bast->id;
 
             foreach ($this->checkedDokumen as $jenis) {
                 $dokumen = Dokumen::where('jenis', $jenis)

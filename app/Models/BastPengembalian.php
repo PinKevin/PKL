@@ -9,8 +9,6 @@ class BastPengembalian extends Model
 {
     use HasFactory;
 
-    public $timestamps = FALSE;
-
     protected $guarded = ['id'];
 
     protected $casts = [
@@ -30,10 +28,5 @@ class BastPengembalian extends Model
     public function peminjam()
     {
         return $this->belongsTo(StaffNotaris::class, 'peminjam');
-    }
-
-    public function peminta()
-    {
-        return $this->belongsTo(StaffCabang::class, 'peminta');
     }
 }

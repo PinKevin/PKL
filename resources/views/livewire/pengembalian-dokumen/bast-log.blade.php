@@ -15,8 +15,8 @@
     </h2>
     <div class="hidden" id="accordion-color-body-1" aria-labelledby="accordion-color-heading-1">
         <div class="border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-            <div class="relative space-y-4 overflow-x-auto bg-slate-100 p-4 shadow-md md:p-5"
-                style="max-height: 400px; overflow-y: auto;">
+            <div
+                class="relative space-y-4 overflow-x-auto max-h-[400px] overflow-y-auto bg-slate-100 p-4 shadow-md md:p-5">
                 <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400 sm:rounded-lg">
                     <thead class="bg-gray-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                         <tr>

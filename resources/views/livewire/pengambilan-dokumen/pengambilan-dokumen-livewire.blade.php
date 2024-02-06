@@ -30,7 +30,9 @@
 
     @include('livewire.pengambilan-dokumen.debitur-info')
 
-    @include('livewire.pengambilan-dokumen.download-area')
+    @if ($bast || $suratRoya || $pelunasan || $bastTtd)
+        @include('livewire.pengambilan-dokumen.download-area')
+    @endif
 
     @include('livewire.pengambilan-dokumen.show-dokumen')
 

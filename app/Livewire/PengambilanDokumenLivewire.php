@@ -130,9 +130,11 @@ class PengambilanDokumenLivewire extends Component
     public function getDebiturBerkas()
     {
         $this->bast = BastPengambilan::where('debitur_id', $this->debitur->id)->first();
-        $this->suratRoya = $this->bast->suratRoya;
-        $this->pelunasan = $this->bast->file_pelunasan;
-        $this->bastTtd = Pelunasan::where('debitur_id', $this->debitur->id)->select('file_bast')->first();
+        if ($this->bast) {
+            $this->suratRoya = $this->bast->suratRoya;
+            $this->pelunasan = $this->bast->file_pelunasan;
+            $this->bastTtd = Pelunasan::where('debitur_id', $this->debitur->id)->select('file_bast')->first();
+        }
     }
 
     public function autoFillSuratRoya()

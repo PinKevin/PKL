@@ -25,7 +25,7 @@
                         </svg>
                     </button>
                 </th>
-                <th class="px-4 py-4 text-center" scope="col">
+                <th class="px-6 py-4 text-center" scope="col">
                     Detail
                 </th>
             </tr>
@@ -56,7 +56,7 @@
                                     class="me-2 rounded-full bg-gray-700 px-8 py-0.5 text-xs font-medium text-white dark:bg-indigo-900 dark:text-indigo-300">Keluar</span>
                             @endif
                         </td>
-                        <td class="flex flex-col items-center justify-between px-2 py-4">
+                        <td class="me-11 flex flex-col items-center justify-between px-2 py-4">
                             @if ($dok->status_keluar == 0)
                                 <div class="flex items-center">
                                     <input
@@ -64,7 +64,7 @@
                                         id="checkbox-{{ $dok->id }}" type="checkbox" value="{{ $jenis }}"
                                         wire:model.live="checkedDokumen">
                                     <label class="mb-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                        for="checkbox-{{ $dok->id }}">Pilih Dokumen</label>
+                                        for="checkbox-{{ $dok->id }}">Pilih Dokumen </label>
                                 </div>
                             @else
                                 -
@@ -112,6 +112,21 @@
                     </tr>
                 @endif
             @endforeach
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class=" flex flex-col items-center justify-start px-2 py-4">
+                    <div class=" flex items-center">
+                        <input
+                            class="mb-2 h-4 w-4 rounded border-gray-300 bg-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                            id="checkbox" type="checkbox" value="" wire:model.live="checkedDokumen">
+                        <label class="mb-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            for="checkbox">Pilih Semua Dokumen</label>
+                    </div>
+                </td>
+            </tr>
+
         </tbody>
     </table>
 </div>

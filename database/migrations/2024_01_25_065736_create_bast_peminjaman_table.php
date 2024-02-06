@@ -27,7 +27,7 @@ return new class extends Migration
             $table->foreign('peminta')->references('id')->on('staff_cabangs');
             $table->foreign('debitur')->references('id')->on('debiturs');
 
-            $table->foreignId('surat_roya_id')->constrained();
+            $table->foreignId('surat_roya_id')->nullable()->constrained();
 
             $table->timestamps();
         });

@@ -76,6 +76,7 @@ class PeminjamanDokumenLivewire extends Component
         $this->getAllKotaJawaTengah();
         $this->updatedKotaBpn();
         $this->updatedKecamatan();
+        $this->showBastLog();
     }
 
     public function autoFillSuratRoya()
@@ -262,19 +263,30 @@ class PeminjamanDokumenLivewire extends Component
                     'debitur_id' => $this->debitur->id,
                 ]);
                 $routeSuratRoya = route('surat-roya.cetak', ['id' => $suratRoya->id]);
-            }
 
-            $bast = BastPeminjaman::create([
-                'pemberi' => auth()->user()->id,
-                'peminjam' => $this->peminjam,
-                'peminta' => $this->peminta,
-                'debitur' => $this->debitur->id,
-                'pendukung' => $this->pendukung,
-                'keperluan' => $this->keperluan,
-                'tanggal_pinjam' => date('Y-m-d'),
-                'tanggal_jatuh_tempo' => $this->tanggal_jatuh_tempo,
-                'surat_roya_id' => $suratRoya->id
-            ]);
+                $bast = BastPeminjaman::create([
+                    'pemberi' => auth()->user()->id,
+                    'peminjam' => $this->peminjam,
+                    'peminta' => $this->peminta,
+                    'debitur' => $this->debitur->id,
+                    'pendukung' => $this->pendukung,
+                    'keperluan' => $this->keperluan,
+                    'tanggal_pinjam' => date('Y-m-d'),
+                    'tanggal_jatuh_tempo' => $this->tanggal_jatuh_tempo,
+                    'surat_roya_id' => $suratRoya->id
+                ]);
+            } else {
+                $bast = BastPeminjaman::create([
+                    'pemberi' => auth()->user()->id,
+                    'peminjam' => $this->peminjam,
+                    'peminta' => $this->peminta,
+                    'debitur' => $this->debitur->id,
+                    'pendukung' => $this->pendukung,
+                    'keperluan' => $this->keperluan,
+                    'tanggal_pinjam' => date('Y-m-d'),
+                    'tanggal_jatuh_tempo' => $this->tanggal_jatuh_tempo,
+                ]);
+            }
 
             $bastId = $bast->id;
 

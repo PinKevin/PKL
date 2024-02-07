@@ -1,12 +1,12 @@
 <div>
-    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Daftar Debitur</h2>
+    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Dokumen Tersedia</h2>
 
     {{-- {!! $allDokumen !!} --}}
-    <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
+    <div class="mt-4 relative overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th class="px-6 py-3" scope="col">
+                    <th class="px-6 py-4" scope="col">
                         No
                     </th>
                     <th class="px-7 py-4" scope="col">
@@ -32,41 +32,55 @@
                     <th class="px-4 py-4" scope="col">
                         Dokumen
                     </th>
-                    <th class="px-4 py-4" scope="col">
+                    <th class="px-12 py-4" scope="col">
                         Status
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($allDokumen as $dok)
-                    <tr>
-                        <td rowspan="11">{{ $loop->iteration }}</td>
-                        <td rowspan="11">{{ $dok->first()->debitur->no_debitur }}</td>
-                        <td rowspan="11">{{ $dok->first()->debitur->nama_debitur }}</td>
+                    <tr
+                        class="border-b-2 bg-white odd:bg-slate-100 even:bg-gray-50  dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
+                        <th class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-white" scope="row"
+                            rowspan="11">{{ $loop->iteration }}</th>
+                        <td class="px-6 py-4 border-b-2 text-gray-600" rowspan="11">
+                            {{ $dok->first()->debitur->no_debitur }}</td>
+                        <td class="px-6 py-4 border-b-2 text-gray-600" rowspan="11">
+                            {{ $dok->first()->debitur->nama_debitur }}</td>
                     </tr>
                     @foreach (['PPJB', 'AJB', 'SKMHT', 'APHT', 'PH', 'SHT', 'IMB', 'Sertipikat', 'PK', 'CN'] as $jenis)
                         @php
                             $d = $dok->where('jenis', $jenis)->first();
                         @endphp
                         @if ($d)
-                            <tr>
-                                <td>
+                            <tr
+                                class="text-gray-600 border-b-2 bg-white odd:bg-slate-100 even:bg-gray-50  dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
+                                <td class="px-6 py-1">
                                     {{ $jenis }}
                                 </td>
-                                <td>
+                                <td class="px-6 py-1">
                                     @if ($d->status_pinjaman == 0)
-                                        Tersedia
+                                        <span
+                                            class="bg-green-200 text-green-800 text-xs font-medium me-2 px-[27px] py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Tersedia</span>
                                     @elseif ($d->status_keluar == 1)
-                                        Keluar
+                                        <span
+                                            class="bg-gray-700 text-indigo-800 text-xs font-medium me-2 px-6 py-0.5 rounded-full dark:bg-indigo-900 dark:text-indigo-300">Keluar</span>
                                     @elseif ($d->status_pinjaman == 1)
-                                        Dipinjam
+                                        <span
+                                            class="bg-yellow-200 text-yellow-800 text-xs font-medium me-2 px-6 py-0.5 rounded dark:bg-gray-700 dark:text-yellow-300 border border-yellow-300">Dipinjam</span>
                                     @endif
                                 </td>
                             </tr>
                         @else
-                            <tr>
-                                <td>{{ $jenis }}</td>
-                                <td>Tidak Tersedia</td>
+                            <tr
+                                class="border-b-2 bg-white odd:bg-slate-100 even:bg-gray-50  dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
+                                <td class="px-6 py-1">{{ $jenis }}</td>
+                                <td class="px-6 py-1">
+                                    <span
+                                        class="bg-red-200 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-red-400 border border-red-400">
+                                        TIdak Tersedia
+                                    </span>
+                                </td>
                             </tr>
                         @endif
                     @endforeach

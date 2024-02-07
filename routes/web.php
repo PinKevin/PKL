@@ -14,11 +14,10 @@ use App\Http\Controllers\PeminjamanDokumenController;
 use App\Http\Controllers\PenerimaanDokumenController;
 use App\Http\Controllers\PengambilanDokumenController;
 use App\Http\Controllers\PengembalianDokumenController;
+use App\Http\Controllers\RekapDokumenController;
 use App\Http\Controllers\StaffCabangController;
 use App\Http\Controllers\StaffNotarisController;
 use App\Http\Controllers\SuratRoyaController;
-use App\Models\Debitur;
-use App\Models\SuratRoya;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,7 +80,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/cetak-bast/{id}', [BastPengambilanController::class, 'cetakBast'])->name('pengambilan.cetak');
     });
 
-    Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
+    Route::get('/rekap-dokumen', [RekapDokumenController::class, 'index'])->name('rekap-dokumen.index');
+    // Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
 
     Route::prefix('/surat-roya')->group(function () {
         Route::get('/', [SuratRoyaController::class, 'index'])->name('surat-roya.index');

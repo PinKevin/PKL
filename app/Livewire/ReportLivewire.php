@@ -14,17 +14,13 @@ class ReportLivewire extends Component
     public function getAllTransaksi()
     {
         if (!$this->date_filter_awal && !$this->date_filter_akhir) {
-            $awalMinggu = now()->startOfWeek()->subWeek()->toDateString();
-            $akhirMinggu = now()->endOfWeek()->subWeek()->toDateString();
-
-            $bastPeminjaman = BastPeminjaman::with('debitur')->whereBetween('created_at', [$awalMinggu, $akhirMinggu])->get();
-            $bastPengembalian = BastPengembalian::with('debitur')->whereBetween('created_at', [$awalMinggu, $akhirMinggu])->get();
-            $bastPengambilan = BastPengambilan::with('debitur')->whereBetween('created_at', [$awalMinggu, $akhirMinggu])->get();
-        } else {
-            $bastPeminjaman = BastPeminjaman::with('debitur')->whereBetween('created_at', [$this->date_filter_awal, $this->date_filter_akhir])->get();
-            $bastPengembalian = BastPengembalian::with('debitur')->whereBetween('created_at', [$this->date_filter_awal, $this->date_filter_akhir])->get();
-            $bastPengambilan = BastPengambilan::with('debitur')->whereBetween('created_at', [$this->date_filter_awal, $this->date_filter_akhir])->get();
+            $this->date_filter_awal = now()->subDays(7)->toDateString();
+            $this->date_filter_akhir = now()->toDateString();
         }
+
+        $bastPeminjaman = BastPeminjaman::with('debitur')->whereBetween('created_at', [$this->date_filter_awal, $this->date_filter_akhir])->get();
+        $bastPengembalian = BastPengembalian::with('debitur')->whereBetween('created_at', [$this->date_filter_awal, $this->date_filter_akhir])->get();
+        $bastPengambilan = BastPengambilan::with('debitur')->whereBetween('created_at', [$this->date_filter_awal, $this->date_filter_akhir])->get();
 
         $bastPeminjaman = $bastPeminjaman->map(function ($item) {
             $peminjamanList = [];
@@ -41,6 +37,7 @@ class ReportLivewire extends Component
                 'nama_debitur' => $item->debitur()->first()->nama_debitur,
                 'dokumen' => $peminjamanList,
                 'jenis' => 'Peminjaman',
+                'tanggal_buat' => $item->created_at
             ];
         });
 
@@ -58,7 +55,8 @@ class ReportLivewire extends Component
                 'no_debitur' => $item->debitur()->first()->no_debitur,
                 'nama_debitur' => $item->debitur()->first()->nama_debitur,
                 'dokumen' => $pengembalianList,
-                'jenis' => 'Pengembalian'
+                'jenis' => 'Pengembalian',
+                'tanggal_buat' => $item->created_at
             ];
         });
 
@@ -76,7 +74,8 @@ class ReportLivewire extends Component
                 'no_debitur' => $item->debitur->no_debitur,
                 'nama_debitur' => $item->debitur->nama_debitur,
                 'dokumen' => $pengambilanList,
-                'jenis' => 'Pengambilan'
+                'jenis' => 'Pengambilan',
+                'tanggal_buat' => $item->created_at
             ];
         });
 

@@ -27,4 +27,9 @@ class Debitur extends Model
     {
         return $this->belongsTo(Developer::class, 'kode_developer', 'kode_developer');
     }
+
+    public function bastPeminjaman()
+    {
+        return $this->hasMany(BastPeminjaman::class, 'debitur');
+    }
 }

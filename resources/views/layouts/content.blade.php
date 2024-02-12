@@ -175,7 +175,7 @@
                                 clip-rule="evenodd" />
                         </svg>
 
-                        <span class="ms-3 flex-1 whitespace-nowrap">Dokumen Tersedia</span>
+                        <span class="ms-3 flex-1 whitespace-nowrap">Rekap Dokumen</span>
                     </a>
                 </li>
                 <li>

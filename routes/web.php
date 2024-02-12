@@ -80,7 +80,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/cetak-bast/{id}', [BastPengambilanController::class, 'cetakBast'])->name('pengambilan.cetak');
     });
 
-    Route::get('/rekap-dokumen', [RekapDokumenController::class, 'index'])->name('rekap-dokumen.index');
+    Route::prefix('/rekap-dokumen')->group(function () {
+        Route::get('/', [RekapDokumenController::class, 'index'])->name('rekap-dokumen.index');
+        Route::post('/cari', [RekapDokumenController::class, 'search'])->name('rekap-dokumen.search');
+        Route::get('/{no_debitur}', [RekapDokumenController::class, 'show'])->name('rekap-dokumen.show');
+    });
+
     // Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
 
     Route::prefix('/surat-roya')->group(function () {

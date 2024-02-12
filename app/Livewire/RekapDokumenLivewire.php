@@ -2,38 +2,37 @@
 
 namespace App\Livewire;
 
+use App\Models\Debitur;
 use App\Models\Dokumen;
 use Livewire\Component;
-use Livewire\WithPagination;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class RekapDokumenLivewire extends Component
 {
-    use WithPagination;
+    public $debitur, $no_debitur;
 
-    // public $allDokumen;
-
-    // public function mount()
-    // {
-    //     $this->getAllDokumen();
-    // // }
-
-    public function getAllDokumen()
+    public function mount()
     {
-        $dokumen = Dokumen::get()->groupBy('debitur_id')->all();
-        return $dokumen;
+        $this->debitur();
     }
 
-    // public function getAllDokumen()
-    // {
-    //     $dokumen = Dokumen::paginate(10);
-    //     return $dokumen;
-    // }
+    public function debitur()
+    {
+        $this->debitur = Debitur::select('id', 'nama_debitur', 'no_debitur')
+            ->where('no_debitur', $this->no_debitur)
+            ->first();
+    }
+
+    public function indexDokumen()
+    {
+        $dokumen = Dokumen::where('debitur_id', $this->debitur->id)
+            ->get();
+        return $dokumen;
+    }
 
     public function render()
     {
         return view('livewire.rekap-dokumen.rekap-dokumen-livewire', [
-            'allDokumen' => $this->getAllDokumen()
+            'allDokumen' => $this->indexDokumen()
         ]);
     }
 }

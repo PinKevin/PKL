@@ -14,13 +14,24 @@ class ReportLivewire extends Component
     public function getAllTransaksi()
     {
         if (!$this->date_filter_awal && !$this->date_filter_akhir) {
-            $this->date_filter_awal = now()->subDays(7)->toDateString();
-            $this->date_filter_akhir = now()->toDateString();
+            $this->date_filter_awal = now()->subDays(7)->startOfDay()->toDateString();
+            $this->date_filter_akhir = now()->endOfDay()->toDateString();
         }
 
-        $bastPeminjaman = BastPeminjaman::with('debitur')->whereBetween('created_at', [$this->date_filter_awal, $this->date_filter_akhir])->get();
-        $bastPengembalian = BastPengembalian::with('debitur')->whereBetween('created_at', [$this->date_filter_awal, $this->date_filter_akhir])->get();
-        $bastPengambilan = BastPengambilan::with('debitur')->whereBetween('created_at', [$this->date_filter_awal, $this->date_filter_akhir])->get();
+        $bastPeminjaman = BastPeminjaman::with('debitur')
+            ->whereDate('created_at', '>=', $this->date_filter_awal)
+            ->whereDate('created_at', '<=', $this->date_filter_akhir)
+            ->get();
+
+        $bastPengembalian = BastPengembalian::with('debitur')
+            ->whereDate('created_at', '>=', $this->date_filter_awal)
+            ->whereDate('created_at', '<=', $this->date_filter_akhir)
+            ->get();
+
+        $bastPengambilan = BastPengambilan::with('debitur')
+            ->whereDate('created_at', '>=', $this->date_filter_awal)
+            ->whereDate('created_at', '<=', $this->date_filter_akhir)
+            ->get();
 
         $bastPeminjaman = $bastPeminjaman->map(function ($item) {
             $peminjamanList = [];

@@ -1,23 +1,24 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BerkasController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\DebiturController;
+use App\Http\Controllers\NotarisController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DeveloperController;
+use App\Http\Controllers\SuratRoyaController;
+use App\Http\Controllers\StaffCabangController;
+use App\Http\Controllers\RekapDokumenController;
+use App\Http\Controllers\StaffNotarisController;
 use App\Http\Controllers\BastPeminjamanController;
 use App\Http\Controllers\BastPengambilanController;
 use App\Http\Controllers\BastPengembalianController;
-use App\Http\Controllers\BerkasController;
-use App\Http\Controllers\NotarisController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DebiturController;
-use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\PeminjamanDokumenController;
 use App\Http\Controllers\PenerimaanDokumenController;
 use App\Http\Controllers\PengambilanDokumenController;
 use App\Http\Controllers\PengembalianDokumenController;
-use App\Http\Controllers\RekapDokumenController;
-use App\Http\Controllers\StaffCabangController;
-use App\Http\Controllers\StaffNotarisController;
-use App\Http\Controllers\SuratRoyaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +85,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [RekapDokumenController::class, 'index'])->name('rekap-dokumen.index');
         Route::post('/cari', [RekapDokumenController::class, 'search'])->name('rekap-dokumen.search');
         Route::get('/{no_debitur}', [RekapDokumenController::class, 'show'])->name('rekap-dokumen.show');
+    });
+
+    Route::prefix('/report')->group(function () {
+        Route::get('/', [ReportController::class, 'index'])->name('report.index');
     });
 
     // Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');

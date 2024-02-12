@@ -1,90 +1,64 @@
 <div>
     <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Report</h2>
 
-    <input
-        class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-        id="date_filter_awal" name="date_filter_awal" type="date" wire:model.live="date_filter_awal" />
+    <div class="mt-5 grid grid-cols-4 gap-4  max-w-screen-md">
+        <div>
+            <label class="ml-1 mb-1 block text-sm font-medium text-gray-800">Tanggal Awal</label>
+            <input
+                class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                id="date_filter_awal" name="date_filter_awal" type="date" wire:model.live="date_filter_awal" />
+        </div>
 
-    <input
-        class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-        id="date_filter_akhir" name="date_filter_akhir" type="date" wire:model.live="date_filter_akhir" />
+        <div>
+            <label class="ml-1 mb-1 block text-sm font-medium text-gray-800">Tanggal Akhir</label>
+            <input
+                class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                id="date_filter_akhir" name="date_filter_akhir" type="date" wire:model.live="date_filter_akhir" />
+        </div>
+        <div>
+            <label class="ml-1 mb-1 lock text-sm font-medium text-gray-800">Filter</label>
+            <select
+                class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                id="jenis_filter" name="jenis_filter" wire:model.live="jenis_filter">
+                <option value="" selected>Semua</option>
+                <option value="Peminjaman">Peminjaman</option>
+                <option value="Pengembalian">Pengembalian</option>
+                <option value="Pengambilan">Pengambilan</option>
+            </select>
+        </div>
+        <button type="button"
+            class="ms-96 mt-5 w-full rounded-lg bg-green-700 px-5 py-3 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Default</button>
+    </div>
 
-    <select
-        class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-        id="jenis_filter" name="jenis_filter" wire:model.live="jenis_filter">
-        <option value="" selected>Semua</option>
-        <option value="Peminjaman">Peminjaman</option>
-        <option value="Pengembalian">Pengembalian</option>
-        <option value="Pengambilan">Pengambilan</option>
-    </select>
 
-    <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
+    <div class="mt-5 relative overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th class="px-6 py-3" scope="col">
                         No
                     </th>
-                    <th class="px-7 py-4" scope="col">
-                        <button class="flex items-center uppercase" wire:click="sortResult('nip')">
-                            Nomor Debitur
-                            <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                            </svg>
-                        </button>
+                    <th class="px-6 py-4" scope="col">
+                        Nomor Debitur
+                    </th>
+                    <th class="px-5 py-4" scope="col">
+                        Nama
                     </th>
                     <th class="px-7 py-4" scope="col">
-                        <button class="flex items-center uppercase" wire:click="sortResult('nama')">
-                            Nama
-                            <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                            </svg>
-                        </button>
+                        Jenis
                     </th>
                     <th class="px-7 py-4" scope="col">
-                        <button class="flex items-center uppercase" wire:click="sortResult('kantor')">
-                            Jenis
-                            <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                            </svg>
-                        </button>
+                        Dokumen
                     </th>
                     <th class="px-7 py-4" scope="col">
-                        <button class="flex items-center uppercase" wire:click="sortResult('kantor')">
-                            Dokumen
-                            <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                            </svg>
-                        </button>
+                        Tanggal Pembuatan
                     </th>
-                    <th class="px-7 py-4" scope="col">
-                        <button class="flex items-center uppercase" wire:click="sortResult('kantor')">
-                            Tanggal Pembuatan
-                            <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                            </svg>
-                        </button>
-                    </th>
-
-                    {{-- <th class="px-4 py-4" scope="col">
-                        Detail
-                    </th> --}}
                 </tr>
             </thead>
             <tbody>
                 @forelse ($allTransaksi as $transaksi)
                     <tr
-                        class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
+                        class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
                         <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                             scope="row">
                             {{ $transaksi['urutan'] }}
@@ -92,20 +66,32 @@
                         <td class="px-6 py-4">
                             {{ $transaksi['no_debitur'] }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-4 py-4">
                             {{ $transaksi['nama_debitur'] }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $transaksi['jenis'] }}
+                            @if ($transaksi['jenis'] == 'Peminjaman')
+                                <span
+                                    class="bg-yellow-200 text-yellow-800 text-xs font-medium me-2 px-4 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">
+                                    Peminjaman
+                                </span>
+                            @elseif ($transaksi['jenis'] == 'Pengembalian')
+                                <span
+                                    class="bg-green-200 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Pengembalian</span>
+                            @else
+                                <span
+                                    class="bg-blue-300 text-blue-800 text-xs font-medium me-2 px-3.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Pengambilan</span>
+                            @endif
+
                         </td>
-                        <td class="px-6 py-4">
-                            @foreach ($transaksi['dokumen'] as $dok)
-                                <ul>
+                        <td class="px-8 py-4">
+                            <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                                @foreach ($transaksi['dokumen'] as $dok)
                                     <li>{{ $dok }}</li>
-                                </ul>
-                            @endforeach
+                                @endforeach
+                            </ul>
                         </td>
-                        <td>
+                        <td class="px-11 py-4">
                             {{ $transaksi['tanggal_buat']->format('d-m-Y') }}
                         </td>
                         {{-- <td class="flex justify-between px-6 py-4">
@@ -144,7 +130,7 @@
                 @empty
                     <tr
                         class="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
-                        <td class="px-6 py-4 text-center" colspan="5">
+                        <td class="px-6 py-4 text-center" colspan="6">
                             Tidak ada data!
                         </td>
                     </tr>

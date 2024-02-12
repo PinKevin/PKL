@@ -9,29 +9,22 @@ use Livewire\Component;
 
 class ReportLivewire extends Component
 {
-    public function getAllPeminjaman()
-    {
-        $bastPeminjaman = BastPeminjaman::with('debitur')->get();
-        return $bastPeminjaman;
-    }
-
-    public function getAllPengembalian()
-    {
-        $bastPengembalian = BastPengembalian::with('debitur')->get();
-        return $bastPengembalian;
-    }
-
-    public function getAllPengambilan()
-    {
-        $bastPengambilan = BastPengambilan::with('debitur')->get();
-        return $bastPengambilan;
-    }
+    public $date_filter_awal, $date_filter_akhir, $jenis_filter;
 
     public function getAllTransaksi()
     {
-        $bastPeminjaman = $this->getAllPeminjaman();
-        $bastPengembalian = $this->getAllPengembalian();
-        $bastPengambilan = $this->getAllPengambilan();
+        if (!$this->date_filter_awal && !$this->date_filter_akhir) {
+            $awalMinggu = now()->startOfWeek()->subWeek()->toDateString();
+            $akhirMinggu = now()->endOfWeek()->subWeek()->toDateString();
+
+            $bastPeminjaman = BastPeminjaman::with('debitur')->whereBetween('created_at', [$awalMinggu, $akhirMinggu])->get();
+            $bastPengembalian = BastPengembalian::with('debitur')->whereBetween('created_at', [$awalMinggu, $akhirMinggu])->get();
+            $bastPengambilan = BastPengambilan::with('debitur')->whereBetween('created_at', [$awalMinggu, $akhirMinggu])->get();
+        } else {
+            $bastPeminjaman = BastPeminjaman::with('debitur')->whereBetween('created_at', [$this->date_filter_awal, $this->date_filter_akhir])->get();
+            $bastPengembalian = BastPengembalian::with('debitur')->whereBetween('created_at', [$this->date_filter_awal, $this->date_filter_akhir])->get();
+            $bastPengambilan = BastPengambilan::with('debitur')->whereBetween('created_at', [$this->date_filter_awal, $this->date_filter_akhir])->get();
+        }
 
         $bastPeminjaman = $bastPeminjaman->map(function ($item) {
             $peminjamanList = [];
@@ -87,7 +80,25 @@ class ReportLivewire extends Component
             ];
         });
 
-        $allTransaksi = $bastPeminjaman->merge($bastPengembalian)->merge($bastPengambilan);
+        if ($this->jenis_filter) {
+            switch ($this->jenis_filter) {
+                case 'Peminjaman':
+                    $allTransaksi = $bastPeminjaman;
+                    break;
+                case 'Pengembalian':
+                    $allTransaksi = $bastPengembalian;
+                    break;
+                case 'Pengambilan':
+                    $allTransaksi = $bastPengambilan;
+                    break;
+                default:
+                    $allTransaksi = collect([]);
+                    break;
+            }
+        } else {
+            $allTransaksi = $bastPeminjaman->merge($bastPengembalian)->merge($bastPengambilan);
+        }
+
         $allTransaksi = $allTransaksi->map(function ($item, $key) {
             $item['urutan'] = $key + 1;
             return $item;
@@ -98,9 +109,6 @@ class ReportLivewire extends Component
     public function render()
     {
         return view('livewire.report.report-livewire', [
-            'allBastPeminjaman' => $this->getAllPeminjaman(),
-            'allBastPengembalian' => $this->getAllPengembalian(),
-            'allBastPengambilan' => $this->getAllPengambilan(),
             'allTransaksi' => $this->getAllTransaksi()
         ]);
     }

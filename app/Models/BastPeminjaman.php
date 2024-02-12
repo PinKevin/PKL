@@ -43,4 +43,9 @@ class BastPeminjaman extends Model
     {
         return $this->belongsTo(SuratRoya::class);
     }
+
+    public function debitur()
+    {
+        return $this->belongsTo(Debitur::class, 'debitur');
+    }
 }

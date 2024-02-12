@@ -29,4 +29,9 @@ class BastPengembalian extends Model
     {
         return $this->belongsTo(StaffNotaris::class, 'peminjam');
     }
+
+    public function debitur()
+    {
+        return $this->belongsTo(Debitur::class, 'debitur');
+    }
 }

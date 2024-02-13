@@ -6,6 +6,7 @@ use App\Models\BastPeminjaman;
 use App\Models\BastPengambilan;
 use App\Models\BastPengembalian;
 use Livewire\Component;
+use PhpOffice\PhpWord\TemplateProcessor;
 
 class ReportLivewire extends Component
 {
@@ -119,7 +120,31 @@ class ReportLivewire extends Component
     public function printReport()
     {
         $report = $this->getAllTransaksi();
-        dd($report);
+        $reportForRow = $report->map(function ($item) {
+            return [
+                'urutan' => $item['urutan'],
+                'no_debitur' => $item['no_debitur'],
+                'nama_debitur' => $item['nama_debitur'],
+                'jenis' => $item['jenis'],
+                'tanggal_buat' => $item['tanggal_buat']->format('d-m-Y'),
+            ];
+        });
+
+        $template = new TemplateProcessor('format/format-laporan.docx');
+        $template->cloneRowAndSetValues('urutan', $reportForRow->toArray());
+
+        foreach ($report as $key => $item) {
+            foreach ($item['dokumen'] as $index => $dok) {
+                $replacement = array_map(function ($itemDok) use ($key) {
+                    return ['dokumen#' . ($key + 1) => $itemDok];
+                }, $item['dokumen']);
+
+                $template->cloneBlock('blok_dokumen#' . ($key + 1), 0, true, false, $replacement);
+            }
+        }
+
+        $template->saveAs('coba.docx');
+        return response()->download('coba.docx')->deleteFileAfterSend(true);
     }
 
     public function render()

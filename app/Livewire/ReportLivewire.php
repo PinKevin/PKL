@@ -116,6 +116,12 @@ class ReportLivewire extends Component
         return $allTransaksi;
     }
 
+    public function printReport()
+    {
+        $report = $this->getAllTransaksi();
+        dd($report);
+    }
+
     public function render()
     {
         return view('livewire.report.report-livewire', [

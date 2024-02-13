@@ -1,7 +1,7 @@
 <div>
     <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Report</h2>
 
-    <div class="mt-5 grid grid-cols-4 gap-4  max-w-screen-md">
+    <div class="mt-5 grid grid-cols-4 gap-4 md:max-w-screen-md">
         <div>
             <label class="ml-1 mb-1 block text-sm font-medium text-gray-800">Tanggal Awal</label>
             <input
@@ -18,7 +18,7 @@
         <div>
             <label class="ml-1 mb-1 lock text-sm font-medium text-gray-800">Filter</label>
             <select
-                class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                class="gap-48 w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 id="jenis_filter" name="jenis_filter" wire:model.live="jenis_filter">
                 <option value="" selected>Semua</option>
                 <option value="Peminjaman">Peminjaman</option>
@@ -26,8 +26,10 @@
                 <option value="Pengambilan">Pengambilan</option>
             </select>
         </div>
-        <button type="button"
-            class="ms-96 mt-5 w-full rounded-lg bg-green-700 px-5 py-3 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Default</button>
+        <div class="md:ml-96">
+            <button type="button"
+                class=" mt-7 rounded-lg px-9 py-2 bg-blue-700 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Print</button>
+        </div>
     </div>
 
 
@@ -69,7 +71,7 @@
                         <td class="px-4 py-4">
                             {{ $transaksi['nama_debitur'] }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-4 py-4">
                             @if ($transaksi['jenis'] == 'Peminjaman')
                                 <span
                                     class="bg-yellow-200 text-yellow-800 text-xs font-medium me-2 px-4 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">

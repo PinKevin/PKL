@@ -1,39 +1,42 @@
 <div>
     <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Report</h2>
 
-    <div class="mt-5 grid grid-cols-4 gap-4 md:max-w-screen-md">
-        <div>
-            <label class="ml-1 mb-1 block text-sm font-medium text-gray-800">Tanggal Awal</label>
-            <input
-                class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                id="date_filter_awal" name="date_filter_awal" type="date" wire:model.live="date_filter_awal" />
-        </div>
+    <div class="mt-5 flex max-w-full justify-between">
+        <div class="flex justify-stretch">
+            <div class="mr-2">
+                <label class="mb-1 ml-1 block text-sm font-medium text-gray-800">Tanggal Awal</label>
+                <input
+                    class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    id="date_filter_awal" name="date_filter_awal" type="date" wire:model.live="date_filter_awal" />
+            </div>
 
-        <div>
-            <label class="ml-1 mb-1 block text-sm font-medium text-gray-800">Tanggal Akhir</label>
-            <input
-                class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                id="date_filter_akhir" name="date_filter_akhir" type="date" wire:model.live="date_filter_akhir" />
+            <div class="mr-2">
+                <label class="mb-1 ml-1 block text-sm font-medium text-gray-800">Tanggal Akhir</label>
+                <input
+                    class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    id="date_filter_akhir" name="date_filter_akhir" type="date"
+                    wire:model.live="date_filter_akhir" />
+            </div>
+            <div>
+                <label class="lock mb-1 ml-1 text-sm font-medium text-gray-800">Filter</label>
+                <select
+                    class="w-full gap-48 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    id="jenis_filter" name="jenis_filter" wire:model.live="jenis_filter">
+                    <option value="" selected>Semua</option>
+                    <option value="Peminjaman">Peminjaman</option>
+                    <option value="Pengembalian">Pengembalian</option>
+                    <option value="Pengambilan">Pengambilan</option>
+                </select>
+            </div>
         </div>
-        <div>
-            <label class="ml-1 mb-1 lock text-sm font-medium text-gray-800">Filter</label>
-            <select
-                class="gap-48 w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                id="jenis_filter" name="jenis_filter" wire:model.live="jenis_filter">
-                <option value="" selected>Semua</option>
-                <option value="Peminjaman">Peminjaman</option>
-                <option value="Pengembalian">Pengembalian</option>
-                <option value="Pengambilan">Pengambilan</option>
-            </select>
-        </div>
-        <div class="md:ml-96">
-            <button type="button"
-                class=" mt-7 rounded-lg px-9 py-2 bg-blue-700 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Print</button>
+        <div class="ml-2 md:ml-0">
+            <button
+                class="mt-7 rounded-lg bg-blue-700 px-9 py-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                type="button">Print</button>
         </div>
     </div>
 
-
-    <div class="mt-5 relative overflow-x-auto shadow-lg sm:rounded-md">
+    <div class="relative mt-5 overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -74,20 +77,20 @@
                         <td class="px-4 py-4">
                             @if ($transaksi['jenis'] == 'Peminjaman')
                                 <span
-                                    class="bg-yellow-200 text-yellow-800 text-xs font-medium me-2 px-4 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">
+                                    class="me-2 rounded-full bg-yellow-200 px-4 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">
                                     Peminjaman
                                 </span>
                             @elseif ($transaksi['jenis'] == 'Pengembalian')
                                 <span
-                                    class="bg-green-200 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Pengembalian</span>
+                                    class="me-2 rounded-full bg-green-200 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">Pengembalian</span>
                             @else
                                 <span
-                                    class="bg-blue-300 text-blue-800 text-xs font-medium me-2 px-3.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Pengambilan</span>
+                                    class="me-2 rounded-full bg-blue-300 px-3.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">Pengambilan</span>
                             @endif
 
                         </td>
                         <td class="px-8 py-4">
-                            <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                            <ul class="max-w-md list-inside list-disc space-y-1 text-gray-500 dark:text-gray-400">
                                 @foreach ($transaksi['dokumen'] as $dok)
                                     <li>{{ $dok }}</li>
                                 @endforeach

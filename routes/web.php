@@ -19,6 +19,7 @@ use App\Http\Controllers\PeminjamanDokumenController;
 use App\Http\Controllers\PenerimaanDokumenController;
 use App\Http\Controllers\PengambilanDokumenController;
 use App\Http\Controllers\PengembalianDokumenController;
+use App\Http\Controllers\ReportPeminjamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +90,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/report')->group(function () {
         Route::get('/', [ReportController::class, 'index'])->name('report.index');
+    });
+
+    Route::prefix('/report-peminjaman')->group(function () {
+        Route::get('/', [ReportPeminjamanController::class, 'index'])->name('report-peminjaman.index');
     });
 
     // Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');

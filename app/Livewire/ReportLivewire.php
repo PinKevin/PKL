@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\BastPeminjaman;
 use App\Models\BastPengambilan;
 use App\Models\BastPengembalian;
+use Carbon\Carbon;
 use Livewire\Component;
 use PhpOffice\PhpWord\TemplateProcessor;
 
@@ -119,6 +120,9 @@ class ReportLivewire extends Component
 
     public function printReport()
     {
+        $dateAwal = Carbon::parse($this->date_filter_awal)->format('d-m-Y');
+        $dateAkhir = Carbon::parse($this->date_filter_akhir)->format('d-m-Y');
+
         $report = $this->getAllTransaksi();
         $reportForRow = $report->map(function ($item) {
             return [
@@ -130,7 +134,16 @@ class ReportLivewire extends Component
             ];
         });
 
+        $data = [
+            'date_filter_awal' => $dateAwal,
+            'date_filter_akhir' => $dateAkhir,
+            'jenis_filter' => $this->jenis_filter == '' ? "semua transaksi" : "transaksi" . $this->jenis_filter
+        ];
+
+        $namaFile = "LAPORAN - " . $dateAwal . " - " . $dateAkhir . " - " . strtoupper($this->jenis_filter == '' ? 'SEMUA' : $this->jenis_filter) . ".docx";
+
         $template = new TemplateProcessor('format/format-laporan.docx');
+        $template->setValues($data);
         $template->cloneRowAndSetValues('urutan', $reportForRow->toArray());
 
         foreach ($report as $key => $item) {
@@ -143,8 +156,8 @@ class ReportLivewire extends Component
             }
         }
 
-        $template->saveAs('coba.docx');
-        return response()->download('coba.docx')->deleteFileAfterSend(true);
+        $template->saveAs($namaFile);
+        return response()->download($namaFile)->deleteFileAfterSend(true);
     }
 
     public function render()

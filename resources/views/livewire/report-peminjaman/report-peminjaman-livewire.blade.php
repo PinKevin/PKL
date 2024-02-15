@@ -81,9 +81,9 @@
                                 <td rowspan="{{ count($debitur->dokumen) }}">{{ $debitur->nama_debitur }}</td>
                             @endif
                             <td>{{ $dokumen->jenis }}</td>
-                            <td>{{ $dokumen->peminjaman()->orderByDesc('bast_peminjaman_id')->first()->bastPeminjaman->tanggal_pinjam->format('d-m-Y') }}
+                            <td>{{ $dokumen->tanggal_pinjam }}
                             </td>
-                            <td>{{ $dokumen->peminjaman()->orderByDesc('bast_peminjaman_id')->first()->bastPeminjaman->tanggal_jatuh_tempo->format('d-m-Y') }}
+                            <td>{{ $dokumen->tanggal_jatuh_tempo }}
                             </td>
                         </tr>
                     @endforeach

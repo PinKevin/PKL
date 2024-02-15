@@ -17,31 +17,25 @@
         <div class="border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
             <div
                 class="relative max-h-[400px] space-y-4 overflow-x-auto overflow-y-auto bg-slate-100 p-4 shadow-md md:p-5">
-                <div class="grid grid-cols-3 gap-4 max-w-lg">
+                <div class="grid grid-cols-4 gap-5 max-w-full">
                     @if ($bast)
-                        <button
-                            class="flex w-full rounded-lg bg-blue-700 px-5 py-3 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            <a class="flex items-center" href="{{ route('pengambilan.cetak', ['id' => $bast->id]) }}">
-                                Cetak BAST
-                            </a>
-                        </button>
+                        <a class="items-center text-center w-full rounded-lg bg-blue-700 py-3 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            href="{{ route('pengambilan.cetak', ['id' => $bast->id]) }}">
+                            Cetak BAST
+                        </a>
                     @endif
                     @if ($suratRoya)
-                        <button
-                            class="flex w-full rounded-lg bg-green-700 px-5 py-3 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                            <a class="flex items-center"
-                                href="{{ route('surat-roya.cetak', ['id' => $suratRoya->id]) }}">
-                                Cetak Roya
-                            </a>
-                        </button>
+                        <a class="text-center items-center w-full rounded-lg bg-green-700 px-5 py-3 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                            href="{{ route('surat-roya.cetak', ['id' => $suratRoya->id]) }}">
+                            Cetak Roya
+                        </a>
                     @endif
                     @if ($pelunasan)
-                        <button
-                            class="flex w-full rounded-lg bg-green-700 px-5 py-3 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                        <a class="text-center w-full items-center rounded-lg bg-orange-700 px-5 py-3 text-sm font-medium text-white hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
                             id="button-show-pelunasan" data-modal-target="show-pelunasan"
                             data-modal-toggle="show-pelunasan" type="button">
                             Lihat Pelunasan
-                        </button>
+                        </a>
 
                         <!-- Main modal -->
                         <div class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-9"
@@ -76,7 +70,7 @@
                     @endif
                     @if ($bastTtd)
                         <button
-                            class="flex rounded-lg bg-green-700 px-5 py-2 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                            class=" items-center text-center rounded-lg bg-lime-700 px-5 py-2 text-sm font-medium text-white hover:bg-lime-800 focus:outline-none focus:ring-4 focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800"
                             id="button-show-bast" data-modal-target="show-bast" data-modal-toggle="show-bast"
                             type="button">
                             Lihat Berita Acara Bertanda Tangan

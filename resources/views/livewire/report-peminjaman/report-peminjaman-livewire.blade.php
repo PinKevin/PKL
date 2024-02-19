@@ -76,14 +76,16 @@
                     @foreach ($sortedDokumen as $dokumenIndex => $dokumen)
                         <tr>
                             @if ($dokumenIndex === 0)
-                                <td rowspan="{{ count($debitur->dokumen) }}">{{ $index + 1 }}</td>
-                                <td rowspan="{{ count($debitur->dokumen) }}">{{ $debitur->no_debitur }}</td>
-                                <td rowspan="{{ count($debitur->dokumen) }}">{{ $debitur->nama_debitur }}</td>
+                                <td class="px-6 py-3" rowspan="{{ count($debitur->dokumen) }}">{{ $index + 1 }}</td>
+                                <td class="px-6 py-4" rowspan="{{ count($debitur->dokumen) }}">
+                                    {{ $debitur->no_debitur }}</td>
+                                <td class="px-4 py-3" rowspan="{{ count($debitur->dokumen) }}">
+                                    {{ $debitur->nama_debitur }}</td>
                             @endif
-                            <td>{{ $dokumen->jenis }}</td>
-                            <td>{{ $dokumen->tanggal_pinjam }}
+                            <td class="px-7 py-3">{{ $dokumen->jenis }}</td>
+                            <td class="px-12 py-3">{{ $dokumen->tanggal_pinjam }}
                             </td>
-                            <td>{{ $dokumen->tanggal_jatuh_tempo }}
+                            <td class="px-12 py-3">{{ $dokumen->tanggal_jatuh_tempo }}
                             </td>
                         </tr>
                     @endforeach

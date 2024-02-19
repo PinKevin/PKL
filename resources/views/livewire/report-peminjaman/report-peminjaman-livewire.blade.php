@@ -3,7 +3,7 @@
 
     <div class="mt-5 flex max-w-full justify-between">
         <div class="flex justify-stretch">
-            <div class="mr-2">
+            {{-- <div class="mr-2">
                 <label class="mb-1 ml-1 block text-sm font-medium text-gray-800">Tanggal Pinjam</label>
                 <input
                     class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
@@ -17,7 +17,7 @@
                     class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="tanggal_jatuh_tempo_filter" name="tanggal_jatuh_tempo_filter" type="date"
                     wire:model.live="tanggal_jatuh_tempo_filter" />
-            </div>
+            </div> --}}
             <div class="bg-slate-100 dark:bg-gray-900">
                 <label class="mb-1 ml-1 block text-sm font-medium text-gray-800">Cari Nama/Nomor Debitur</label>
                 <label class="sr-only" for="table-search">Search</label>
@@ -66,7 +66,8 @@
                     </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody
+                class="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
                 @php
                     $sortedDebitur = $allDebitur->values();
                 @endphp
@@ -75,7 +76,8 @@
                         $sortedDokumen = $debitur->dokumen->values();
                     @endphp
                     @foreach ($sortedDokumen as $dokumenIndex => $dokumen)
-                        <tr>
+                        <tr
+                            class="border-b odd:bg-slate-100 even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
                             @if ($dokumenIndex === 0)
                                 <td class="px-6 py-3" rowspan="{{ count($debitur->dokumen) }}">{{ $index + 1 }}</td>
                                 <td class="px-6 py-4" rowspan="{{ count($debitur->dokumen) }}">
@@ -83,7 +85,7 @@
                                 <td class="px-4 py-3" rowspan="{{ count($debitur->dokumen) }}">
                                     {{ $debitur->nama_debitur }}</td>
                             @endif
-                            <td class="px-7 py-3">{{ $dokumen->jenis }}</td>
+                            <td class="px-8 py-1">{{ $dokumen->jenis }}</td>
                             <td class="px-12 py-3">{{ $dokumen->tanggal_pinjam }}
                             </td>
                             <td class="px-12 py-3">{{ $dokumen->tanggal_jatuh_tempo }}

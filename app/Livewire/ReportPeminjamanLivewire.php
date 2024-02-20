@@ -6,6 +6,8 @@ use App\Models\Debitur;
 use App\Models\Dokumen;
 use Livewire\Component;
 use App\Models\BastPeminjaman;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 class ReportPeminjamanLivewire extends Component
 {
@@ -78,6 +80,21 @@ class ReportPeminjamanLivewire extends Component
     //     // dd($debiturWithDokumenDipinjam);
     //     return $debiturWithDokumenDipinjam;
     // }
+
+    public function printReport()
+    {
+        $spreadsheet = IOFactory::load('format/format-laporan.xlsx');
+
+        $worksheet = $spreadsheet->getActiveSheet();
+
+        $worksheet->getCell('A5')->setValue('Tes');
+        $worksheet->getCell('B5')->setValue('Dari PHP');
+
+        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $writer->save('tes.xlsx');
+
+        return response()->download('tes.xlsx')->deleteFileAfterSend(true);
+    }
 
     public function render()
     {

@@ -1,5 +1,5 @@
 <div>
-    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Report Peminjaman</h2>
+    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Report Pengambilan</h2>
 
     <div class="mt-5 flex max-w-full justify-between">
         <div class="flex justify-stretch">
@@ -68,26 +68,33 @@
                 @php
                     $sortedDebitur = $allDebitur->values();
                 @endphp
-                @foreach ($sortedDebitur as $index => $debitur)
-                    @php
-                        $sortedDokumen = $debitur->dokumen->values();
-                    @endphp
-                    @foreach ($sortedDokumen as $dokumenIndex => $dokumen)
-                        <tr
-                            class="border-b odd:bg-slate-100 even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
-                            @if ($dokumenIndex === 0)
-                                <td class="px-6 py-3" rowspan="{{ count($debitur->dokumen) }}">{{ $index + 1 }}</td>
-                                <td class="px-6 py-4" rowspan="{{ count($debitur->dokumen) }}">
-                                    {{ $debitur->no_debitur }}</td>
-                                <td class="px-4 py-3" rowspan="{{ count($debitur->dokumen) }}">
-                                    {{ $debitur->nama_debitur }}</td>
-                            @endif
-                            <td class="px-8 py-1">{{ $dokumen->jenis }}</td>
-                            <td class="px-12 py-3">{{ $dokumen->tanggal_diambil }}
-                            </td>
-                        </tr>
+                @if ($sortedDebitur->isEmpty())
+                    <tr>
+                        <td colspan="5" class="p-4 text-center bg-slate-100 text-gray-600">"Data tidak tersedia"</td>
+                    </tr>
+                @else
+                    @foreach ($sortedDebitur as $index => $debitur)
+                        @php
+                            $sortedDokumen = $debitur->dokumen->values();
+                        @endphp
+                        @foreach ($sortedDokumen as $dokumenIndex => $dokumen)
+                            <tr
+                                class="border-b-2 odd:bg-slate-100 even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                @if ($dokumenIndex === 0)
+                                    <td class="px-6 py-3" rowspan="{{ count($debitur->dokumen) }}">{{ $index + 1 }}
+                                    </td>
+                                    <td class="px-6 py-4" rowspan="{{ count($debitur->dokumen) }}">
+                                        {{ $debitur->no_debitur }}</td>
+                                    <td class="px-4 py-3" rowspan="{{ count($debitur->dokumen) }}">
+                                        {{ $debitur->nama_debitur }}</td>
+                                @endif
+                                <td class="px-8 py-1">{{ $dokumen->jenis }}</td>
+                                <td class="px-12 py-3">{{ $dokumen->tanggal_diambil }}
+                                </td>
+                            </tr>
+                        @endforeach
                     @endforeach
-                @endforeach
+                @endif
             </tbody>
         </table>
     </div>

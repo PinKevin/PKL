@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\BerkasController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\DebiturController;
 use App\Http\Controllers\NotarisController;
@@ -10,17 +9,18 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\SuratRoyaController;
 use App\Http\Controllers\StaffCabangController;
+use App\Http\Controllers\StockOpnameController;
 use App\Http\Controllers\RekapDokumenController;
 use App\Http\Controllers\StaffNotarisController;
 use App\Http\Controllers\BastPeminjamanController;
 use App\Http\Controllers\BastPengambilanController;
 use App\Http\Controllers\BastPengembalianController;
+use App\Http\Controllers\ReportPeminjamanController;
 use App\Http\Controllers\PeminjamanDokumenController;
 use App\Http\Controllers\PenerimaanDokumenController;
+use App\Http\Controllers\ReportPengambilanController;
 use App\Http\Controllers\PengambilanDokumenController;
 use App\Http\Controllers\PengembalianDokumenController;
-use App\Http\Controllers\ReportPeminjamanController;
-use App\Http\Controllers\ReportPengambilanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,6 +99,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/report-pengambilan')->group(function () {
         Route::get('/', [ReportPengambilanController::class, 'index'])->name('report-pengambilan.index');
+    });
+
+    Route::prefix('/stock-opname')->group(function () {
+        Route::get('/', [StockOpnameController::class, 'index'])->name('stock-opname.index');
     });
 
     // Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');

@@ -11,7 +11,6 @@ class Dokumen extends Model
 {
     use HasFactory;
 
-    public $timestamps = FALSE;
     protected $guarded = ['id'];
 
     public function debitur(): BelongsTo

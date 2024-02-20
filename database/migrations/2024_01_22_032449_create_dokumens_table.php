@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('status_pinjaman');
             $table->boolean('status_keluar');
             $table->foreignId('debitur_id')->constrained();
+            $table->timestamps();
         });
     }
 

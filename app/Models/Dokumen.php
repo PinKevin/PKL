@@ -23,4 +23,9 @@ class Dokumen extends Model
     {
         return $this->hasMany(Peminjaman::class);
     }
+
+    public function pengambilan(): HasMany
+    {
+        return $this->hasMany(Pengambilan::class);
+    }
 }

@@ -1,5 +1,5 @@
 <div>
-    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Report</h2>
+    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Report Peminjaman</h2>
 
     <div class="mt-5 flex max-w-full justify-between">
         <div class="flex justify-stretch">

@@ -6,6 +6,7 @@ use App\Models\Debitur;
 use App\Models\Dokumen;
 use Livewire\Component;
 use App\Models\BastPeminjaman;
+use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
@@ -93,20 +94,26 @@ class ReportPeminjamanLivewire extends Component
             $spreadsheet = IOFactory::load('format/format-laporan.xlsx');
             $worksheet = $spreadsheet->getActiveSheet();
 
+            $startRow = 5;
             foreach ($data as $index => $debitur) {
                 $dokumen = $debitur->dokumen->values();
                 $dokumenCount = count($dokumen);
-                $startRow = 5 + $index;
-                $endRow = $startRow + $dokumenCount - 1;
 
-                $worksheet->mergeCells("A{$startRow}:A{$endRow}");
-                $worksheet->getCell("A{$startRow}")->setValueExplicit($index + 1);
+                $worksheet->setCellValue("A$startRow", $index + 1);
+                $worksheet->setCellValueExplicit("B$startRow", $debitur->no_debitur, DataType::TYPE_STRING);
+                $worksheet->setCellValue("C$startRow", $debitur->nama_debitur);
 
-                $worksheet->mergeCells("B{$startRow}:B{$endRow}");
-                $worksheet->getCell("B{$startRow}")->setValueExplicit($debitur->no_debitur);
+                $worksheet->mergeCells("A$startRow:A" . ($startRow + $dokumenCount - 1));
+                $worksheet->mergeCells("B$startRow:B" . ($startRow + $dokumenCount - 1));
+                $worksheet->mergeCells("C$startRow:C" . ($startRow + $dokumenCount - 1));
 
-                $worksheet->mergeCells("C{$startRow}:C{$endRow}");
-                $worksheet->getCell("C{$startRow}")->setValueExplicit($debitur->nama_debitur);
+                foreach ($dokumen as $key => $dok) {
+                    $worksheet->setCellValue("D" . ($startRow + $key), $dok->jenis);
+                    $worksheet->setCellValue("E" . ($startRow + $key), $dok->tanggal_pinjam);
+                    $worksheet->setCellValue("F" . ($startRow + $key), $dok->tanggal_jatuh_tempo);
+                }
+
+                $startRow += $dokumenCount;
             }
 
             $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');

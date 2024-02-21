@@ -309,6 +309,10 @@ class PengambilanDokumenLivewire extends Component
                     'status_keluar' => 1
                 ]);
             }
+
+            $this->debitur->update([
+                'sudah_lunas' => 1
+            ]);
         });
 
         $route = route('pengambilan.cetak', ['id' => $bastId]);

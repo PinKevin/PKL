@@ -24,7 +24,7 @@
             <form class="rounded-b-md bg-slate-100 p-4 md:p-5" wire:submit.prevent="createDeveloper" method="POST">
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="col-span-2">
-                        <label class="mb-1 block text-sm font-medium text-gray-900 dark:text-white"
+                        <label class="ml-1 mb-1 block text-sm font-medium text-gray-900 dark:text-white"
                             for="kode_developer">Kode Developer
                         </label>
                         <input
@@ -32,7 +32,7 @@
                             id="kode_developer" name="kode_developer" type="text"
                             aria-describedby="helper-nomor-developer" placeholder="Kode Developer"
                             wire:model="kode_developer" />
-                        <p class="mt-0.5 text-sm text-gray-500 dark:text-gray-400" id="helper-nomor-developer">
+                        <p class="ml-1 mt-0.5 text-sm text-gray-500 dark:text-gray-400" id="helper-nomor-developer">
                             Pastikan kode developer sudah benar.
                         </p>
                         @error('kode_developer')
@@ -50,7 +50,7 @@
                         @enderror
                     </div>
                     <div class="col-span-2">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                        <label class="ml-1 mb-1 block text-sm font-medium text-gray-900 dark:text-white"
                             for="nama_developer">
                             Nama Developer
                         </label>

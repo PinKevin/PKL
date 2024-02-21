@@ -24,7 +24,7 @@
             <form class="rounded-b-md bg-slate-100 p-4 md:p-5" wire:submit.prevent="updateStaffCabang" method="POST">
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="col-span-2">
-                        <label class="mb-1 block text-sm font-medium text-gray-900 dark:text-white" for="nip">
+                        <label class="ml-1 mb-1 block text-sm font-medium text-gray-900 dark:text-white" for="nip">
                             NIP
                         </label>
                         <input
@@ -32,7 +32,7 @@
                             id="nip" name="nip" type="text" disabled placeholder="NIP" wire:model="nip" />
                     </div>
                     <div class="col-span-2">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama">
+                        <label class="ml-1 mb-1 block text-sm font-medium text-gray-900 dark:text-white" for="nama">
                             Nama
                         </label>
                         <input
@@ -53,7 +53,7 @@
                         @enderror
                     </div>
                     <div class="col-span-2">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="kantor">
+                        <label class="ml-1 mb-1 block text-sm font-medium text-gray-900 dark:text-white" for="kantor">
                             Kantor
                         </label>
                         <input

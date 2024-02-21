@@ -24,7 +24,7 @@
             <form class="rounded-b-md bg-slate-100 p-4 md:p-5" wire:submit.prevent="updateDeveloper" method="POST">
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="col-span-2">
-                        <label class="mb-1 block text-sm font-medium text-gray-900 dark:text-white"
+                        <label class="ml-1 mb-1 block text-sm font-medium text-gray-900 dark:text-white"
                             for="kode_developer">Kode Developer
                         </label>
                         <input
@@ -47,7 +47,7 @@
                         @enderror
                     </div>
                     <div class="col-span-2">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                        <label class="ml-1 mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                             for="nama_developer">
                             Nama Developer
                         </label>

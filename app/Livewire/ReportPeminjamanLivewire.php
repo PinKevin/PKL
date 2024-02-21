@@ -9,6 +9,8 @@ use App\Models\BastPeminjaman;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
+// require 'vendor/autoload.php';
+
 class ReportPeminjamanLivewire extends Component
 {
     public $tanggal_pinjam_filter, $tanggal_jatuh_tempo_filter, $nama_filter;
@@ -83,17 +85,35 @@ class ReportPeminjamanLivewire extends Component
 
     public function printReport()
     {
-        $spreadsheet = IOFactory::load('format/format-laporan.xlsx');
+        $data = $this->allDokumenDipinjam();
 
-        $worksheet = $spreadsheet->getActiveSheet();
+        if ($data) {
+            $data = $data->values();
 
-        $worksheet->getCell('A5')->setValue('Tes');
-        $worksheet->getCell('B5')->setValue('Dari PHP');
+            $spreadsheet = IOFactory::load('format/format-laporan.xlsx');
+            $worksheet = $spreadsheet->getActiveSheet();
 
-        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
-        $writer->save('tes.xlsx');
+            foreach ($data as $index => $debitur) {
+                $dokumen = $debitur->dokumen->values();
+                $dokumenCount = count($dokumen);
+                $startRow = 5 + $index;
+                $endRow = $startRow + $dokumenCount - 1;
 
-        return response()->download('tes.xlsx')->deleteFileAfterSend(true);
+                $worksheet->mergeCells("A{$startRow}:A{$endRow}");
+                $worksheet->getCell("A{$startRow}")->setValueExplicit($index + 1);
+
+                $worksheet->mergeCells("B{$startRow}:B{$endRow}");
+                $worksheet->getCell("B{$startRow}")->setValueExplicit($debitur->no_debitur);
+
+                $worksheet->mergeCells("C{$startRow}:C{$endRow}");
+                $worksheet->getCell("C{$startRow}")->setValueExplicit($debitur->nama_debitur);
+            }
+
+            $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+            $writer->save('tes.xlsx');
+
+            return response()->download('tes.xlsx')->deleteFileAfterSend(true);
+        }
     }
 
     public function render()

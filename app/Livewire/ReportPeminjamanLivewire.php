@@ -6,6 +6,10 @@ use App\Models\Debitur;
 use App\Models\Dokumen;
 use Livewire\Component;
 use App\Models\BastPeminjaman;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+
+// require 'vendor/autoload.php';
 
 class ReportPeminjamanLivewire extends Component
 {
@@ -78,6 +82,39 @@ class ReportPeminjamanLivewire extends Component
     //     // dd($debiturWithDokumenDipinjam);
     //     return $debiturWithDokumenDipinjam;
     // }
+
+    public function printReport()
+    {
+        $data = $this->allDokumenDipinjam();
+
+        if ($data) {
+            $data = $data->values();
+
+            $spreadsheet = IOFactory::load('format/format-laporan.xlsx');
+            $worksheet = $spreadsheet->getActiveSheet();
+
+            foreach ($data as $index => $debitur) {
+                $dokumen = $debitur->dokumen->values();
+                $dokumenCount = count($dokumen);
+                $startRow = 5 + $index;
+                $endRow = $startRow + $dokumenCount - 1;
+
+                $worksheet->mergeCells("A{$startRow}:A{$endRow}");
+                $worksheet->getCell("A{$startRow}")->setValueExplicit($index + 1);
+
+                $worksheet->mergeCells("B{$startRow}:B{$endRow}");
+                $worksheet->getCell("B{$startRow}")->setValueExplicit($debitur->no_debitur);
+
+                $worksheet->mergeCells("C{$startRow}:C{$endRow}");
+                $worksheet->getCell("C{$startRow}")->setValueExplicit($debitur->nama_debitur);
+            }
+
+            $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+            $writer->save('tes.xlsx');
+
+            return response()->download('tes.xlsx')->deleteFileAfterSend(true);
+        }
+    }
 
     public function render()
     {

@@ -82,19 +82,20 @@
                         @endphp
                         @foreach ($sortedDokumen as $dokumenIndex => $dokumen)
                             <tr
-                                class="border-b-2 odd:bg-slate-100 even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                class="border-b-2 border-gray-300 odd:bg-gray-100 even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
                                 @if ($dokumenIndex === 0)
-                                    <td class="px-6 py-3" rowspan="{{ count($debitur->dokumen) }}">{{ $index + 1 }}
-                                    </td>
-                                    <td class="px-6 py-4" rowspan="{{ count($debitur->dokumen) }}">
+                                    <th class="px-6 py-3 font-medium text-gray-900"
+                                        rowspan="{{ count($debitur->dokumen) }}">{{ $index + 1 }}
+                                    </th>
+                                    <td class="px-6 py-4 text-gray-600" rowspan="{{ count($debitur->dokumen) }}">
                                         {{ $debitur->no_debitur }}</td>
-                                    <td class="px-4 py-3" rowspan="{{ count($debitur->dokumen) }}">
+                                    <td class="px-4 py-3 text-gray-600" rowspan="{{ count($debitur->dokumen) }}">
                                         {{ $debitur->nama_debitur }}</td>
                                 @endif
-                                <td class="px-8 py-1">{{ $dokumen->jenis }}</td>
-                                <td class="px-12 py-3">{{ $dokumen->tanggal_pinjam }}
+                                <td class="px-8 py-1 text-gray-600">{{ $dokumen->jenis }}</td>
+                                <td class="px-12 py-3 text-gray-600">{{ $dokumen->tanggal_pinjam }}
                                 </td>
-                                <td class="px-12 py-3">{{ $dokumen->tanggal_jatuh_tempo }}
+                                <td class="px-12 py-3 text-gray-600">{{ $dokumen->tanggal_jatuh_tempo }}
                                 </td>
                             </tr>
                         @endforeach

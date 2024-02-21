@@ -24,7 +24,8 @@
             <form class="bg-slate-100 p-4 md:p-5">
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="col-span-2">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="notaris_id">
+                        <label class="ml-1 mb-1 block text-sm font-medium text-gray-900 dark:text-white"
+                            for="notaris_id">
                             Nama Notaris
                         </label>
                         <input
@@ -32,7 +33,8 @@
                             id="notaris_id" name="notaris_id" type="text" disabled wire:model="notaris_id" />
                     </div>
                     <div class="col-span-2">
-                        <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama">Nama
+                        <label class="ml-1 mb-1 block text-sm font-medium text-gray-900 dark:text-white"
+                            for="nama">Nama
                         </label>
                         <input
                             class="block w-full cursor-not-allowed rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"

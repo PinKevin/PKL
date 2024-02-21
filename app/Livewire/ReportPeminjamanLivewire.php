@@ -9,6 +9,8 @@ use App\Models\BastPeminjaman;
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Style\Border;
+
 
 // require 'vendor/autoload.php';
 
@@ -116,11 +118,23 @@ class ReportPeminjamanLivewire extends Component
                 $startRow += $dokumenCount;
             }
 
+            $styleArray = [
+                'borders' => [
+                    'allBorders' => [
+                        'borderStyle' => Border::BORDER_THIN,
+                    ],
+                ],
+            ];
+            
+            $worksheet->getStyle('A4:')->applyFromArray($styleArray);
+
             $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
             $writer->save('tes.xlsx');
 
             return response()->download('tes.xlsx')->deleteFileAfterSend(true);
         }
+
+        
     }
 
     public function render()

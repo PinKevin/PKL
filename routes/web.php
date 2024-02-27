@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BantuanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ReportController;
@@ -113,5 +114,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}', [SuratRoyaController::class, 'show'])->name('surat-roya.show');
         Route::get('/{id}/edit', [SuratRoyaController::class, 'edit'])->name('surat-roya.edit');
         Route::get('/{id}/cetak', [SuratRoyaController::class, 'cetakWord'])->name('surat-roya.cetak');
+    });
+
+    Route::prefix('/bantuan')->group(function () {
+        Route::get('/', [BantuanController::class, 'index'])->name('bantuan');
     });
 });

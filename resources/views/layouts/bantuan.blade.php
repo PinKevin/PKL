@@ -17,54 +17,43 @@
                             </path>
                         </svg>
                     </button>
-                    <a class="center ms-2 flex items-center md:me-24" href="">
-                        <img class="me-3 h-9 items-center" src="/img/logo-baru.png" alt="btn-logo" />
+                    <a class="center ms-2 flex items-center rounded-lg px-2 font-semibold hover:bg-slate-200 md:me-24"
+                        href="{{ route('dashboard') }}">
+                        Kembali ke halaman utama
                     </a>
                 </div>
                 <div class="flex items-center">
-                    <a class="ms-60" href="{{ route('bantuan') }}">
-                        <svg class="h-6 w-6 text-slate-500 hover:text-slate-800 dark:text-white" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                                d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm9-3a1.5 1.5 0 0 1 2.5 1.1 1.4 1.4 0 0 1-1.5 1.5 1 1 0 0 0-1 1V14a1 1 0 1 0 2 0v-.5a3.4 3.4 0 0 0 2.5-3.3 3.5 3.5 0 0 0-7-.3 1 1 0 0 0 2 .1c0-.4.2-.7.5-1Zm1 7a1 1 0 1 0 0 2 1 1 0 1 0 0-2Z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <div class="flex items-center">
-                        <div class="ms-3 flex items-center">
-                            <div>
-                                <button
-                                    class="flex rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                                    data-dropdown-toggle="dropdown-user" type="button" aria-expanded="false">
-                                    <span class="sr-only">Open user menu</span>
-                                    <img class="h-8 w-8 rounded-full"
-                                        src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                                        alt="user photo">
-                                </button>
+                    <div class="ms-3 flex items-center">
+                        <div>
+                            <button
+                                class="flex rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                                data-dropdown-toggle="dropdown-user" type="button" aria-expanded="false">
+                                <span class="sr-only">Open user menu</span>
+                                <img class="h-8 w-8 rounded-full"
+                                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+                            </button>
+                        </div>
+                        <div class="z-50 my-4 hidden list-none divide-y divide-gray-100 rounded bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700"
+                            id="dropdown-user">
+                            <div class="px-4 py-3" role="none">
+                                <p class="text-sm text-gray-900 dark:text-white" role="none">
+                                    {{ auth()->user()->nama }}
+                                </p>
+                                <p class="truncate text-sm font-medium text-gray-900 dark:text-gray-300" role="none">
+                                    {{ auth()->user()->username }}
+                                </p>
                             </div>
-                            <div class="z-50 my-4 hidden list-none divide-y divide-gray-100 rounded bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700"
-                                id="dropdown-user">
-                                <div class="px-4 py-3" role="none">
-                                    <p class="text-sm text-gray-900 dark:text-white" role="none">
-                                        {{ auth()->user()->nama }}
-                                    </p>
-                                    <p class="truncate text-sm font-medium text-gray-900 dark:text-gray-300" role="none">
-                                        {{ auth()->user()->username }}
-                                    </p>
-                                </div>
-                                <ul class="py-1" role="none">
-                                    <li>
-                                        <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                            href="/logout" role="menuitem">
-                                            Keluar
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <ul class="py-1" role="none">
+                                <li>
+                                    <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        href="/logout" role="menuitem">
+                                        Keluar
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </nav>
@@ -75,16 +64,15 @@
         <div class="h-full overflow-y-auto bg-blue-500 px-3 pb-4 dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a class="{{ request()->routeIs('dashboard') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
-                        href="/dashboard">
-                        <svg class="h-5 w-5 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                            <path
-                                d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                            <path
-                                d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
-                        </svg>
-                        <span class="ms-3">Dashboard</span>
+                    <span
+                        class="group flex items-center rounded-lg p-2 uppercase text-slate-100 dark:text-white dark:hover:bg-gray-700">
+                        Memulai
+                    </span>
+                </li>
+                <li>
+                    <a class="{{ request()->routeIs('bantuan') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                        href="">
+                        <span class="">Selamat datang</span>
                     </a>
                 </li>
                 {{-- <li>
@@ -164,8 +152,7 @@
                     <a class="{{ request()->routeIs('pengambilan.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
                         href="{{ route('pengambilan.index') }}">
                         <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 24 24">
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd"
                                 d="M9 7V2.2a2 2 0 0 0-.5.4l-4 3.9a2 2 0 0 0-.3.5H9Zm2 0V2h7a2 2 0 0 1 2 2v9.3l-2-2a1 1 0 0 0-1.4 1.4l.3.3h-6.6a1 1 0 1 0 0 2h6.6l-.3.3a1 1 0 0 0 1.4 1.4l2-2V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Z"
                                 clip-rule="evenodd" />
@@ -194,8 +181,7 @@
                     <a class="{{ request()->routeIs('stock-opname.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
                         href="{{ Route('stock-opname.index') }}">
                         <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 24 24">
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd"
                                 d="M8 3c0-.6.4-1 1-1h6c.6 0 1 .4 1 1h2a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h2Zm6 1h-4v2H9a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2h-1V4Zm-3 8c0-.6.4-1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1Zm-2-1a1 1 0 1 0 0 2 1 1 0 1 0 0-2Zm2 5c0-.6.4-1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1Zm-2-1a1 1 0 1 0 0 2 1 1 0 1 0 0-2Z"
                                 clip-rule="evenodd" />

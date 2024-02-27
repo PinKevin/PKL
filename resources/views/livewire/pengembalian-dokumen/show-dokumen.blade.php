@@ -15,9 +15,9 @@
                         </svg>
                     </button>
                 </th>
-                <th class="px-5 py-4" scope="col">
+                <th class="px-7 py-4" scope="col">
                     <button class="flex items-center uppercase" wire:click="sortResult('nama_notaris')">
-                        Tersedia
+                        Status
                         <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -39,7 +39,7 @@
 
                 @if ($dok && $dok->status_pinjaman == 0)
                     <tr
-                        class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 hover:bg-slate-100 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
+                        class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
                         <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                             scope="row">
                             {{ $loop->iteration }}
@@ -108,7 +108,7 @@
                 @endif
             @endforeach
 
-            <tr>
+            {{-- <tr>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -122,7 +122,7 @@
                             for="checkbox">Pilih Semua Dokumen</label>
                     </div>
                 </td>
-            </tr>
+            </tr> --}}
 
         </tbody>
     </table>

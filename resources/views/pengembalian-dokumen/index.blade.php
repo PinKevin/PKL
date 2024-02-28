@@ -4,6 +4,10 @@
     Pengembalian
 @endsection
 
+@section('link_bantuan')
+    {{ route('bantuan.pengembalian') }}
+@endsection
+
 @push('styles')
     @livewireStyles
 @endpush

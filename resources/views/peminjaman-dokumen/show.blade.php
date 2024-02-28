@@ -4,6 +4,10 @@
     Peminjaman
 @endsection
 
+@section('link_bantuan')
+    {{ route('bantuan.peminjaman') }}
+@endsection
+
 @push('styles')
     @livewireStyles
 @endpush
@@ -36,5 +40,4 @@
 
 @section('content')
     @livewire('peminjaman-dokumen-livewire', ['no_debitur' => $no_debitur])
-    {{-- <h1>Hai</h1> --}}
 @endsection

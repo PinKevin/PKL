@@ -4,6 +4,10 @@
     Peminjaman
 @endsection
 
+@section('link_bantuan')
+    {{ route('bantuan.peminjaman') }}
+@endsection
+
 @push('styles')
     @livewireStyles
 @endpush

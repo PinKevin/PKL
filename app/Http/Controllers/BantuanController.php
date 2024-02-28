@@ -35,4 +35,9 @@ class BantuanController extends Controller
     {
         return view('bantuan.pengambilan');
     }
+
+    public function report()
+    {
+        return view('bantuan.report');
+    }
 }

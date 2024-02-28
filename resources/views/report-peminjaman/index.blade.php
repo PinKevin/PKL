@@ -4,6 +4,10 @@
     Report Peminjaman
 @endsection
 
+@section('link_bantuan')
+    {{ route('bantuan.report') }}
+@endsection
+
 @push('styles')
     @livewireStyles
 @endpush

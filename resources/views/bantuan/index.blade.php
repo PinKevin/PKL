@@ -13,7 +13,7 @@
     <p class="text-base">
         Berikut adalah beberapa bantuan utama yang dapat Anda gunakan:
     </p>
-    <ol class="max-w-full list-inside list-decimal space-y-1 text-base dark:text-gray-400">
+    <ol class="mt-1 max-w-full list-inside list-decimal space-y-1 text-base dark:text-gray-400">
         <li>
             {{-- <span class="font-semibold text-gray-900 dark:text-white">Bonnie Green</span> with <span
                 class="font-semibold text-gray-900 dark:text-white">70</span> points --}}

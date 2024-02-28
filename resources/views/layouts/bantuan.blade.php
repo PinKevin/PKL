@@ -65,7 +65,7 @@
             <ul class="space-y-2 font-medium">
                 <li>
                     <span
-                        class="group flex items-center rounded-lg pl-2 uppercase text-slate-100 dark:text-white dark:hover:bg-gray-700">
+                        class="group flex items-center rounded-lg pl-2 uppercase text-lg font-bold text-slate-300 dark:text-white dark:hover:bg-gray-700">
                         Memulai
                     </span>
                 </li>
@@ -86,7 +86,7 @@
             <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
                 <li>
                     <span
-                        class="group flex items-center rounded-lg pl-2 uppercase text-slate-100 dark:text-white dark:hover:bg-gray-700">
+                        class="group flex items-center rounded-lg pl-2 uppercase text-lg font-bold text-slate-300 dark:text-white dark:hover:bg-gray-700">
                         Transaksi Dokumen
                     </span>
                 </li>
@@ -119,7 +119,7 @@
             <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
                 <li>
                     <span
-                        class="group flex items-center rounded-lg pl-2 uppercase text-slate-100 dark:text-white dark:hover:bg-gray-700">
+                        class="group flex items-center rounded-lg pl-2 uppercase text-lg font-bold text-slate-300 dark:text-white dark:hover:bg-gray-700">
                         Report
                     </span>
                 </li>
@@ -134,7 +134,7 @@
             <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
                 <li>
                     <span
-                        class="group flex items-center rounded-lg pl-2 uppercase text-slate-100 dark:text-white dark:hover:bg-gray-700">
+                        class="group flex items-center rounded-lg pl-2 uppercase text-lg font-bold text-slate-300 dark:text-white dark:hover:bg-gray-700">
                         Data
                     </span>
                 </li>

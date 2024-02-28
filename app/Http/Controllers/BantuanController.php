@@ -40,4 +40,9 @@ class BantuanController extends Controller
     {
         return view('bantuan.report');
     }
+
+    public function data()
+    {
+        return view('bantuan.data');
+    }
 }

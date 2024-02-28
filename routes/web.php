@@ -124,5 +124,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/pengembalian', [BantuanController::class, 'pengembalian'])->name('bantuan.pengembalian');
         Route::get('/pengambilan', [BantuanController::class, 'pengambilan'])->name('bantuan.pengambilan');
         Route::get('/report', [BantuanController::class, 'report'])->name('bantuan.report');
+        Route::get('/data', [BantuanController::class, 'data'])->name('bantuan.data');
     });
 });

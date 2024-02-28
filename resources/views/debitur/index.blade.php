@@ -4,6 +4,10 @@
     Debitur
 @endsection
 
+@section('link_bantuan')
+    {{ route('bantuan.data') }}
+@endsection
+
 @push('styles')
     @livewireStyles
 @endpush

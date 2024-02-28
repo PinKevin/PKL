@@ -30,4 +30,9 @@ class BantuanController extends Controller
     {
         return view('bantuan.pengembalian');
     }
+
+    public function pengambilan()
+    {
+        return view('bantuan.pengambilan');
+    }
 }

@@ -4,6 +4,10 @@
     Dokumen
 @endsection
 
+@section('link_bantuan')
+    {{ route('bantuan.pengambilan') }}
+@endsection
+
 @push('styles')
     @livewireStyles
 @endpush

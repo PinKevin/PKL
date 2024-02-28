@@ -108,6 +108,12 @@
                         Pengembalian
                     </a>
                 </li>
+                <li>
+                    <a class="{{ request()->routeIs('bantuan.pengambilan') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                        href="{{ route('bantuan.pengambilan') }}">
+                        Pengambilan
+                    </a>
+                </li>
             </ul>
 
             <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
@@ -167,7 +173,8 @@
                     <a class="{{ request()->routeIs('debitur.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
                         href="{{ route('debitur.index') }}">
                         <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 24 24">
                             <path fill-rule="evenodd"
                                 d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"
                                 clip-rule="evenodd" />

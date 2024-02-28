@@ -65,51 +65,25 @@
             <ul class="space-y-2 font-medium">
                 <li>
                     <span
-                        class="group flex items-center rounded-lg p-2 uppercase text-slate-100 dark:text-white dark:hover:bg-gray-700">
+                        class="group flex items-center rounded-lg pl-2 uppercase text-slate-100 dark:text-white dark:hover:bg-gray-700">
                         Memulai
                     </span>
                 </li>
                 <li>
                     <a class="{{ request()->routeIs('bantuan') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
-                        href="">
+                        href="{{ route('bantuan') }}">
                         <span class="">Selamat datang</span>
                     </a>
                 </li>
-                {{-- <li>
-                    <a class="{{ request()->routeIs('berkas') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
-                        href="/berkas">
-                        <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                            <path
-                                d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                        </svg>
-                        <span class="ms-3 flex-1 whitespace-nowrap">Berkas Pengambilan</span>
+                <li>
+                    <a class="{{ request()->routeIs('bantuan.dashboard') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                        href="{{ route('bantuan.dashboard') }}">
+                        <span class="">Dashboard</span>
                     </a>
-                </li> --}}
-                {{-- <li>
-                    <a class="{{ request()->routeIs('surat-roya.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
-                        href="/surat-roya">
-                        <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                            <path
-                                d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
-                            <path
-                                d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
-                        </svg>
-                        <span class="ms-3 flex-1 whitespace-nowrap">Surat Roya</span>
-                    </a>
-                </li> --}}
-                {{-- <li>
-                    <a class="{{ request()->routeIs('bast.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
-                        href="/bast">
-                        <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <span class="ms-3 flex-1 whitespace-nowrap">BAST</span>
-                    </a>
-                </li> --}}
+                </li>
+            </ul>
+
+            <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
                 <li>
                     <a class="{{ request()->routeIs('penerimaan.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
                         href="{{ route('penerimaan.index') }}">
@@ -164,19 +138,6 @@
             </ul>
 
             <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
-                {{-- <li>
-                    <a class="{{ request()->routeIs('rekap-dokumen.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
-                        href="{{ route('rekap-dokumen.index') }}">
-                        <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                                d="M4 4a2 2 0 1 0 0 4h16a2 2 0 1 0 0-4H4Zm0 6h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8Zm10.7 5.7a1 1 0 0 0-1.4-1.4l-.3.3V12a1 1 0 1 0-2 0v2.6l-.3-.3a1 1 0 0 0-1.4 1.4l2 2a1 1 0 0 0 1.4 0l2-2Z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        <span class="ms-3 flex-1 whitespace-nowrap">Rekap Dokumen</span>
-                    </a>
-                </li> --}}
                 <li>
                     <a class="{{ request()->routeIs('stock-opname.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
                         href="{{ Route('stock-opname.index') }}">

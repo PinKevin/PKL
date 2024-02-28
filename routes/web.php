@@ -118,5 +118,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/bantuan')->group(function () {
         Route::get('/', [BantuanController::class, 'index'])->name('bantuan');
+        Route::get('/dashboard', [BantuanController::class, 'dashboard'])->name('bantuan.dashboard');
     });
 });

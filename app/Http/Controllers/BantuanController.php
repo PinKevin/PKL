@@ -10,4 +10,9 @@ class BantuanController extends Controller
     {
         return view('bantuan.index');
     }
+
+    public function dashboard()
+    {
+        return view('bantuan.dashboard');
+    }
 }

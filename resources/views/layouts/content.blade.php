@@ -22,7 +22,7 @@
                     </a>
                 </div>
                 <div class="flex items-center">
-                    <a class="ms-60" href="{{ route('bantuan') }}">
+                    <a class="ms-60" href="@yield('link_bantuan')">
                         <svg class="h-6 w-6 text-slate-500 hover:text-slate-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd"

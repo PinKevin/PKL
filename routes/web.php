@@ -119,5 +119,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('/bantuan')->group(function () {
         Route::get('/', [BantuanController::class, 'index'])->name('bantuan');
         Route::get('/dashboard', [BantuanController::class, 'dashboard'])->name('bantuan.dashboard');
+        Route::get('/penerimaan', [BantuanController::class, 'penerimaan'])->name('bantuan.penerimaan');
+        Route::get('/peminjaman', [BantuanController::class, 'peminjaman'])->name('bantuan.peminjaman');
     });
 });

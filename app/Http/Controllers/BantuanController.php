@@ -15,4 +15,14 @@ class BantuanController extends Controller
     {
         return view('bantuan.dashboard');
     }
+
+    public function penerimaan()
+    {
+        return view('bantuan.penerimaan');
+    }
+
+    public function peminjaman()
+    {
+        return view('bantuan.peminjaman');
+    }
 }

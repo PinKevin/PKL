@@ -5,7 +5,7 @@
         <div class="bg-gray-50 px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <button
+                    {{-- <button
                         class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 sm:hidden"
                         data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" type="button"
                         aria-controls="logo-sidebar">
@@ -16,12 +16,17 @@
                                 d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
                             </path>
                         </svg>
-                    </button>
-                    <a class="center ms-2 flex items-center rounded-lg px-2 font-semibold hover:bg-slate-200 md:me-24"
+                    </button> --}}
+                    <a class="flex items-center rounded-lg px-2 font-semibold hover:bg-slate-200"
                         href="{{ route('dashboard') }}">
                         Kembali ke halaman utama
                     </a>
                 </div>
+                {{-- <div class="flex items-center">
+                    <a class="flex items-center me-16" href="">
+                        <img class="h-9" src="/img/logo-baru.png" alt="btn-logo" />
+                    </a>
+                </div> --}}
                 <div class="flex items-center">
                     <div class="ms-3 flex items-center">
                         <div>

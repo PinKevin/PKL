@@ -6,8 +6,9 @@
 
 @section('content')
     <h2 class="mb-5 text-4xl font-semibold text-gray-900 dark:text-gray-100">Halaman Data!</h2>
-    <p class="mb-3 text-base">Ini adalah halaman yang digunakan untuk mendata master data, seperti debitur, developer,
-        notaris, staff notaris, dan staff cabang. </p>
+    <p class="mb-3 text-base">Ini adalah halaman yang digunakan untuk mendata master data, seperti <span
+            class="font-bold">Debitur, Developer,
+            Notaris, Staff Notaris, dan Staff Cabang.</span> </p>
     <p class="text-base">
         Cara menggunakan halaman data:
     </p>

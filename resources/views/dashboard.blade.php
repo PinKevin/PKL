@@ -10,6 +10,6 @@
 
 @section('content')
     <h2 class="text-4xl font-semibold dark:text-white">Selamat datang,</h2>
-    <h5 class="text-xl dark:text-white">{{ auth()->user()->nama }}</h5>
-    <h5 class="text-xl dark:text-white">NIP {{ auth()->user()->nip }}</h5>
+    <h3 class="text-2xl dark:text-white">{{ auth()->user()->nama }}</h3>
+    <h5 class="text-lg dark:text-white">NIP. {{ auth()->user()->nip }}</h5>
 @endsection

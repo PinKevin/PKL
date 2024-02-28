@@ -34,7 +34,7 @@
                         <a class="text-center w-full items-center rounded-lg bg-orange-700 px-5 py-3 text-sm font-medium text-white hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
                             id="button-show-pelunasan" data-modal-target="show-pelunasan"
                             data-modal-toggle="show-pelunasan" type="button">
-                            Lihat Pelunasan
+                            Cetak Pelunasan
                         </a>
 
                         <!-- Main modal -->

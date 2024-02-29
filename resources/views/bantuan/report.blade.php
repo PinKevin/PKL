@@ -8,7 +8,8 @@
     <h2 class="mb-5 text-4xl font-semibold text-gray-900 dark:text-gray-100">Halaman Report!</h2>
     <p class="mb-3 text-justify text-base">Ini adalah halaman yang digunakan untuk mencetak report yang diinginkan. Report
         dapat berupa
-        stock opname, peminjaman, dan pengambilan</p>
+        <span class="font-bold">stock opname, peminjaman, dan pengambilan</span>
+    </p>
     <p class="mb-3 text-justify text-base">
         Pada halaman ini akan ditampilkan tabel dengan isi nomor debitur, nama debitur, jenis dokumen, serta tanggal
         diterima/dipinjam/diambil.

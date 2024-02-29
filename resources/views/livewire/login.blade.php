@@ -1,5 +1,5 @@
 <div
-    class="w-full rounded-lg bg-slate-100 shadow dark:border dark:border-gray-700 dark:bg-gray-800 sm:max-w-md md:mt-0 xl:p-0">
+    class="w-full rounded-sm bg-slate-100 shadow dark:border dark:border-gray-700 dark:bg-gray-800 sm:max-w-md md:mt-0 xl:p-0">
     <div class="space-y-4 p-6 sm:p-8 md:space-y-6">
         @if (session('loginError'))
             <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"

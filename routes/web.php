@@ -16,6 +16,7 @@ use App\Http\Controllers\StaffNotarisController;
 use App\Http\Controllers\BastPeminjamanController;
 use App\Http\Controllers\BastPengambilanController;
 use App\Http\Controllers\BastPengembalianController;
+use App\Http\Controllers\KelolaAkunController;
 use App\Http\Controllers\ReportPeminjamanController;
 use App\Http\Controllers\PeminjamanDokumenController;
 use App\Http\Controllers\PenerimaanDokumenController;
@@ -131,6 +132,8 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['checkrole:1'])->group(function () {
         Route::prefix('/admin')->group(function () {
             Route::get('/dashboard', [DashboardController::class, 'showAdminDashboard'])->name('admin-dashboard');
+
+            Route::get('/akun', [KelolaAkunController::class, 'index'])->name('admin-akun');
         });
     });
 });

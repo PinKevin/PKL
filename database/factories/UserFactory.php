@@ -28,7 +28,7 @@ class UserFactory extends Factory
             'nip' => fake()->unique()->numerify('########'),
             'username' => fake()->unique()->userName(),
             'password' => Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'role' => 2
         ];
     }
 }

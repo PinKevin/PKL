@@ -29,7 +29,7 @@
             </div>
         @endif
         <a class="mx-auto mb-8 flex items-center justify-center text-center text-2xl font-semibold text-gray-900 dark:text-white"
-            href="/">
+            href="{{ route('login') }}">
             <img class="mr-2 h-9 w-36" src="{{ asset('img/btn-logo.png') }}" alt="logo">
         </a>
         <h1

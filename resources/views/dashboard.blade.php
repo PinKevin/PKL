@@ -15,21 +15,30 @@
 
     <div>
         <div class="mt-10 rounded-md bg-slate-100 dark:border-gray-700">
-            <div class="p-4 border-2 border-gray-300 rounded-lg dark:border-gray-700">
-                <div class="w-full grid grid-cols-3 gap-4 mb-4">
-                    <div class="flex justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+            <div class="rounded-lg border-2 border-gray-300 p-4 dark:border-gray-700">
+                <div class="mb-4 grid w-full grid-cols-3 gap-4">
+                    <div class="flex h-24 justify-center rounded bg-gray-50 dark:bg-gray-800">
                         <p class="text-xl text-gray-700 dark:text-gray-500">
                             Dokumen Dipinjam Hari Ini
                         </p>
+                        <p class="text-lg text-gray-800 dark:text-gray-500">
+                            {{ $countDokumenTerimaToday }}
+                        </p>
                     </div>
-                    <div class="flex justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+                    <div class="flex h-24 justify-center rounded bg-gray-50 dark:bg-gray-800">
                         <p class="text-xl text-gray-700 dark:text-gray-500">
                             Dokumen Diambil Hari Ini
                         </p>
+                        <p class="text-lg text-gray-800 dark:text-gray-500">
+                            {{ $countDokumenPinjamToday }}
+                        </p>
                     </div>
-                    <div class="flex justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+                    <div class="flex h-24 justify-center rounded bg-gray-50 dark:bg-gray-800">
                         <p class="text-xl text-gray-700 dark:text-gray-500">
                             Dokumen Keluar Hari Ini
+                        </p>
+                        <p class="text-lg text-gray-800 dark:text-gray-500">
+                            {{ $countDokumenKeluarToday }}
                         </p>
                     </div>
                 </div>

@@ -13,34 +13,34 @@
     <h3 class="text-2xl dark:text-white">{{ auth()->user()->nama }}</h3>
     <h5 class="text-lg dark:text-white">NIP. {{ auth()->user()->nip }}</h5>
 
-    <div>
-        <div class="mt-10 rounded-md bg-slate-100 dark:border-gray-700">
-            <div class="rounded-lg border-2 border-gray-300 p-4 dark:border-gray-700">
-                <div class="mb-4 grid w-full grid-cols-3 gap-4">
-                    <div class="flex h-24 justify-center rounded bg-gray-50 dark:bg-gray-800">
-                        <p class="text-xl text-gray-700 dark:text-gray-500">
-                            Dokumen Dipinjam Hari Ini
-                        </p>
-                        <p class="text-lg text-gray-800 dark:text-gray-500">
+
+    <div class="mt-8 bg-white">
+        <div class="flex items-center rounded-lg w-full border-2 border-gray-300 p-4 dark:border-gray-700">
+            <div class="mt-3 mb-4 rounded-lg grid w-full grid-cols-3 md:gap-4">
+                <div class="p-4 rounded-lg flex justify-center bg-green-400 dark:bg-gray-800">
+                    <p class="text-center text-xl font-semibold text-white dark:text-gray-50">
+                        Dokumen Diterima Hari Ini
+                        <span class=" block text-5xl text-center text-gray-50 dark:text-gray-500">
                             {{ $countDokumenTerimaToday }}
-                        </p>
-                    </div>
-                    <div class="flex h-24 justify-center rounded bg-gray-50 dark:bg-gray-800">
-                        <p class="text-xl text-gray-700 dark:text-gray-500">
-                            Dokumen Diambil Hari Ini
-                        </p>
-                        <p class="text-lg text-gray-800 dark:text-gray-500">
+                        </span>
+                    </p>
+                </div>
+                <div class="p-4 flex rounded-lg justify-center bg-blue-400 dark:bg-gray-50">
+                    <p class="text-center text-xl font-semibold text-white dark:text-gray-500">
+                        Dokumen Dipinjam Hari Ini
+                        <span class="block text-5xl text-center text-gray-50 dark:text-gray-500">
                             {{ $countDokumenPinjamToday }}
-                        </p>
-                    </div>
-                    <div class="flex h-24 justify-center rounded bg-gray-50 dark:bg-gray-800">
-                        <p class="text-xl text-gray-700 dark:text-gray-500">
-                            Dokumen Keluar Hari Ini
-                        </p>
-                        <p class="text-lg text-gray-800 dark:text-gray-500">
+                        </span>
+                    </p>
+                </div>
+                <div class="p-4 flex rounded-lg justify-center bg-red-500 dark:bg-gray-50">
+                    <p class="text-center text-xl font-semibold text-white dark:text-gray-500">
+                        Dokumen Keluar Hari Ini
+                        <span class="block text-center text-5xl text-gray-50 dark:text-gray-500">
                             {{ $countDokumenKeluarToday }}
-                        </p>
-                    </div>
+                        </span>
+                    </p>
+
                 </div>
             </div>
         </div>

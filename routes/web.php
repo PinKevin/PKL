@@ -40,9 +40,10 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('/dashboard', [DashboardController::class, 'showPage'])->name('dashboard');
 
     Route::middleware(['checkrole:2'])->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'showPage'])->name('dashboard');
+
         Route::prefix('/debitur')->group(function () {
             Route::get('/', [DebiturController::class, 'index'])->name('debitur.index');
             Route::get('/create', [DebiturController::class, 'create'])->name('debitur.create');
@@ -107,8 +108,6 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/', [StockOpnameController::class, 'index'])->name('stock-opname.index');
         });
 
-        // Route::get('/berkas', [BerkasController::class, 'index'])->name('berkas');
-
         Route::prefix('/surat-roya')->group(function () {
             Route::get('/', [SuratRoyaController::class, 'index'])->name('surat-roya.index');
             Route::get('/create', [SuratRoyaController::class, 'create'])->name('surat-roya.create');
@@ -126,6 +125,12 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/pengambilan', [BantuanController::class, 'pengambilan'])->name('bantuan.pengambilan');
             Route::get('/report', [BantuanController::class, 'report'])->name('bantuan.report');
             Route::get('/data', [BantuanController::class, 'data'])->name('bantuan.data');
+        });
+    });
+
+    Route::middleware(['checkrole:1'])->group(function () {
+        Route::prefix('/admin')->group(function () {
+            Route::get('/dashboard', [DashboardController::class, 'showAdminDashboard'])->name('admin-dashboard');
         });
     });
 });

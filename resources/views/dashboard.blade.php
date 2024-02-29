@@ -44,5 +44,14 @@
                 </div>
             </div>
         </div>
+
+        <div class="container mx-auto px-4">
+            <div class="m-20 rounded bg-white p-6 shadow">
+                {!! $chart->container() !!}
+            </div>
+        </div>
+
+        <script src="{{ $chart->cdn() }}"></script>
+        {{ $chart->script() }}
     </div>
 @endsection

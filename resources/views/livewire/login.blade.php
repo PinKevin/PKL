@@ -30,7 +30,7 @@
         @endif
         <a class="mx-auto mb-8 flex items-center justify-center text-center text-2xl font-semibold text-gray-900 dark:text-white"
             href="{{ route('login') }}">
-            <img class="mr-2 h-9 w-36" src="{{ asset('img/btn-logo.png') }}" alt="logo">
+            <img class="mr-2 h-10 w-20" src="{{ asset('img/logo.png') }}" alt="logo">
         </a>
         <h1
             class="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">

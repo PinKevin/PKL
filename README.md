@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/PinKevin/PKL/blob/main/public/img/logo.png" width="450" height="100">
+    <img src="https://github.com/PinKevin/PKL/blob/main/public/img/BTN_2024.svg" width="200" height="100">
 </p>
 
 ## TBD
@@ -7,12 +7,16 @@
 TBD merupakan aplikasi _website_ yang dibangun untuk Loan Document Bank BTN KC Semarang. Beberapa fitur yang tersedia:
 
 -   Login.
--   Dashboard (TBD isinya).
+-   Dashboard.
 -   Penanganan penerimaan dokumen pokok.
 -   Penanganan peminjaman dokumen pokok.
 -   Penanganan pengembalian dokumen pokok.
+-   Penanganan pengambilan dokumen pokok.
 -   Pembuatan surat roya.
--   Ekspor word untuk surat roya dan berita acara.
+-   Pembuatan Berita Acara Serah Terima untuk semua transaksi dokumen pokok.
+-   Pengelolaan master data.
+-   Ekspor word untuk surat roya dan berita acara serah terima.
+-   Pengelolaan akun.
 
 ## Teknologi
 

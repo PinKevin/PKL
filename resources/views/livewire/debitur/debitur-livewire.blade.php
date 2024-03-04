@@ -75,7 +75,7 @@
             </div>
         </div>
         <!-- Create modal toggle -->
-        <a class="inline-flex w-full items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+        <a class="inline-flex w-auto items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             href="{{ route('debitur.create') }}">
             <svg class="mr-2 h-3 w-3 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 18 18">
@@ -132,7 +132,7 @@
                         <td class="px-7 py-4">
                             {{ $db->nama_debitur }}
                         </td>
-                        <td class="flex justify-between px-6 py-4">
+                        <td class="flex justify-between px-6 py-4 sm:justify-around">
                             <a href="{{ route('debitur.show', ['id' => $db->id]) }}">
                                 <svg class="h-4 w-4 text-yellow-300 hover:text-gray-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"

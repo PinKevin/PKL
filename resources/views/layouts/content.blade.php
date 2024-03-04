@@ -6,7 +6,7 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <button
-                        class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 sm:hidden"
+                        class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 sm:hidden"
                         data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" type="button"
                         aria-controls="logo-sidebar">
                         <span class="sr-only">Open sidebar</span>

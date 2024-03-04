@@ -16,7 +16,7 @@
     <div class="hidden" id="accordion-color-body-1" aria-labelledby="accordion-color-heading-1">
         <div class="border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
             <div
-                class="relative space-y-4 overflow-x-auto max-h-[400px] overflow-y-auto bg-slate-100 p-4 shadow-md md:p-5">
+                class="relative max-h-[400px] space-y-4 overflow-x-auto overflow-y-auto bg-slate-100 p-4 shadow-md md:p-5">
                 <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400 sm:rounded-lg">
                     <thead class="bg-gray-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -71,17 +71,6 @@
                                                 </a>
                                             </button>
                                         </div>
-                                        {{-- @if (in_array('SHT', $jenisList[$log->id]) && $suratRoya)
-                                                <div class="mt-2">
-                                                    <button
-                                                        class="flex rounded-lg bg-green-700 px-5 py-2 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                                                        <a class="flex items-center"
-                                                            href="{{ route('surat-roya.cetak', ['id' => $suratRoya->id]) }}">
-                                                            Cetak Roya
-                                                        </a>
-                                                    </button>
-                                                </div>
-                                            @endif --}}
                                     </td>
 
                                 </tr>

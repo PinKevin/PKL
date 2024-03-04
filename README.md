@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/PinKevin/PKL/blob/main/public/img/btn-logo.png" width="450" height="100">
+    <img src="https://github.com/PinKevin/PKL/blob/main/public/img/logo.png" width="450" height="100">
 </p>
 
 ## TBD

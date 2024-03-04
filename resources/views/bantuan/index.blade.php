@@ -15,8 +15,6 @@
     </p>
     <ol class="mt-1 max-w-full list-inside list-decimal space-y-1 text-base dark:text-gray-400">
         <li>
-            {{-- <span class="font-semibold text-gray-900 dark:text-white">Bonnie Green</span> with <span
-                class="font-semibold text-gray-900 dark:text-white">70</span> points --}}
             <a class="text-blue-600 hover:underline dark:text-blue-500" href="{{ route('bantuan.dashboard') }}">Halaman
                 Dashboard</a>
         </li>
@@ -39,8 +37,10 @@
             Report untuk:
             <ul class="mt-2 list-inside list-disc space-y-1 ps-5">
                 <li><a class="text-blue-600 hover:underline" href="{{ route('bantuan.report') }}">Stock Opname</a></li>
-                <li><a class="text-blue-600 hover:underline" href="{{ route('bantuan.report') }}">Dokumen Sedang Dipinjam</a></li>
-                <li><a class="text-blue-600 hover:underline" href="{{ route('bantuan.report') }}">Dokumen Sudah Diambil</a></li>
+                <li><a class="text-blue-600 hover:underline" href="{{ route('bantuan.report') }}">Dokumen Sedang
+                        Dipinjam</a></li>
+                <li><a class="text-blue-600 hover:underline" href="{{ route('bantuan.report') }}">Dokumen Sudah Diambil</a>
+                </li>
             </ul>
         </li>
     </ol>

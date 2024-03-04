@@ -107,23 +107,6 @@
                     </tr>
                 @endif
             @endforeach
-
-            {{-- <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="flex flex-col items-center justify-start px-2 py-4">
-                    <div class="flex items-center">
-                        <input
-                            class="mb-2 h-4 w-4 rounded border-gray-300 bg-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                            id="checkbox" type="checkbox" value="" wire:model.live="checkAllDokumen"
-                            wire:click="selectAllDokumen()">
-                        <label class="mb-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                            for="checkbox">Pilih Semua Dokumen</label>
-                    </div>
-                </td>
-            </tr> --}}
-
         </tbody>
     </table>
 </div>

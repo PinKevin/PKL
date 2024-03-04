@@ -4,10 +4,6 @@
     Kelola Akun
 @endsection
 
-{{-- @section('link_bantuan')
-    {{ route('bantuan.dashboard') }}
-@endsection --}}
-
 @push('styles')
     @livewireStyles
 @endpush

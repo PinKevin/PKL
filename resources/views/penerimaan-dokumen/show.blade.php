@@ -40,5 +40,4 @@
 
 @section('content')
     @livewire('penerimaan-dokumen-livewire', ['no_debitur' => $no_debitur])
-    {{-- <h1>Hai</h1> --}}
 @endsection

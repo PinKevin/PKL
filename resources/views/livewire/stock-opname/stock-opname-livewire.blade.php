@@ -3,21 +3,6 @@
 
     <div class="mt-5 flex max-w-full justify-between">
         <div class="flex justify-stretch">
-            {{-- <div class="mr-2">
-                <label class="mb-1 ml-1 block text-sm font-medium text-gray-800">Tanggal Pinjam</label>
-                <input
-                    class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="tanggal_pinjam_filter" name="tanggal_pinjam_filter" type="date"
-                    wire:model.live="tanggal_pinjam_filter" />
-            </div>
-
-            <div class="mr-2">
-                <label class="mb-1 ml-1 block text-sm font-medium text-gray-800">Tanggal Jatuh Tempo</label>
-                <input
-                    class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="tanggal_jatuh_tempo_filter" name="tanggal_jatuh_tempo_filter" type="date"
-                    wire:model.live="tanggal_jatuh_tempo_filter" />
-            </div> --}}
             <div class="bg-slate-100 dark:bg-gray-900">
                 <label class="mb-1 ml-1 block text-sm font-medium text-gray-800">Cari Nama/Nomor Debitur</label>
                 <label class="sr-only" for="table-search">Search</label>

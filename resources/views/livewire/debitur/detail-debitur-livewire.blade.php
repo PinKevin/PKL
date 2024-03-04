@@ -147,10 +147,4 @@
             </a>
         </div>
     </form>
-
-    {{-- <hr class="my-8 h-2 rounded-md bg-slate-300 dark:bg-gray-700">
-    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Daftar Berkas</h2>
-
-    @livewire('dokumen-livewire', ['debiturId' => $id]) --}}
-
 </div>

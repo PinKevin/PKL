@@ -5,28 +5,11 @@
         <div class="bg-gray-50 px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    {{-- <button
-                        class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 sm:hidden"
-                        data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" type="button"
-                        aria-controls="logo-sidebar">
-                        <span class="sr-only">Open sidebar</span>
-                        <svg class="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path clip-rule="evenodd" fill-rule="evenodd"
-                                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
-                            </path>
-                        </svg>
-                    </button> --}}
                     <a class="flex items-center rounded-lg px-2 font-semibold hover:bg-slate-200"
                         href="{{ route('dashboard') }}">
                         Kembali ke halaman utama
                     </a>
                 </div>
-                {{-- <div class="flex items-center">
-                    <a class="flex items-center me-16" href="">
-                        <img class="h-9" src="/img/logo-baru.png" alt="btn-logo" />
-                    </a>
-                </div> --}}
                 <div class="flex items-center">
                     <div class="ms-3 flex items-center">
                         <div>
@@ -70,7 +53,7 @@
             <ul class="space-y-2 font-medium">
                 <li>
                     <span
-                        class="group flex items-center rounded-lg pl-2 uppercase text-lg font-bold text-slate-300 dark:text-white dark:hover:bg-gray-700">
+                        class="group flex items-center rounded-lg pl-2 text-lg font-bold uppercase text-slate-300 dark:text-white dark:hover:bg-gray-700">
                         Memulai
                     </span>
                 </li>
@@ -91,7 +74,7 @@
             <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
                 <li>
                     <span
-                        class="group flex items-center rounded-lg pl-2 uppercase text-lg font-bold text-slate-300 dark:text-white dark:hover:bg-gray-700">
+                        class="group flex items-center rounded-lg pl-2 text-lg font-bold uppercase text-slate-300 dark:text-white dark:hover:bg-gray-700">
                         Transaksi Dokumen
                     </span>
                 </li>
@@ -124,7 +107,7 @@
             <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
                 <li>
                     <span
-                        class="group flex items-center rounded-lg pl-2 uppercase text-lg font-bold text-slate-300 dark:text-white dark:hover:bg-gray-700">
+                        class="group flex items-center rounded-lg pl-2 text-lg font-bold uppercase text-slate-300 dark:text-white dark:hover:bg-gray-700">
                         Report
                     </span>
                 </li>
@@ -139,7 +122,7 @@
             <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
                 <li>
                     <span
-                        class="group flex items-center rounded-lg pl-2 uppercase text-lg font-bold text-slate-300 dark:text-white dark:hover:bg-gray-700">
+                        class="group flex items-center rounded-lg pl-2 text-lg font-bold uppercase text-slate-300 dark:text-white dark:hover:bg-gray-700">
                         Data
                     </span>
                 </li>

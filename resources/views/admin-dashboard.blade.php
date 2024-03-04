@@ -4,10 +4,6 @@
     Admin Dashboard
 @endsection
 
-{{-- @section('link_bantuan')
-    {{ route('bantuan.dashboard') }}
-@endsection --}}
-
 @section('content')
     <h2 class="text-4xl font-semibold dark:text-white">Selamat datang,</h2>
     <h3 class="text-2xl dark:text-white">Admin {{ auth()->user()->nama }}</h3>

@@ -52,6 +52,7 @@
                 class="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
                 @php
                     $sortedDebitur = $allDebitur->values();
+                    $offset = $paginator->perPage() * ($paginator->currentPage() - 1) + 1;
                 @endphp
                 @foreach ($sortedDebitur as $index => $debitur)
                     @php
@@ -63,7 +64,7 @@
                             @if ($dokumenIndex === 0)
                                 <th class="px-6 py-3 font-medium text-gray-900"
                                     rowspan="{{ count($debitur->dokumen) }}">
-                                    {{ $index + 1 }}</th>
+                                    {{ $offset + $index }}</th>
                                 <td class="px-6 py-4 text-gray-600" rowspan="{{ count($debitur->dokumen) }}">
                                     {{ $debitur->no_debitur }}</td>
                                 <td class="px-4 py-3 text-gray-600" rowspan="{{ count($debitur->dokumen) }}">
@@ -77,6 +78,10 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+
+    <div class="mt-4 items-center">
+        {{ $paginator->links() }}
     </div>
 
 </div>

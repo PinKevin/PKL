@@ -13,7 +13,7 @@ class KelolaAkunLivewire extends Component
 {
     use WithPagination;
 
-    public $id, $nama, $nip, $username, $password, $role;
+    public $id, $nama, $nip, $username, $password, $role, $roleShow;
 
     public $search = '';
 
@@ -24,8 +24,8 @@ class KelolaAkunLivewire extends Component
     {
         return [
             'nama' => 'required',
-            'nip' => 'required|unique:users,nip',
-
+            'nip' => 'required|numeric|unique:users,nip',
+            'role' => 'required'
         ];
     }
 
@@ -33,6 +33,7 @@ class KelolaAkunLivewire extends Component
     {
         return [
             'required' => ':attribute harus diisi!',
+            'numeric' => ':attribute harus berupa angka!',
             'nip.unique' => 'NIP sudah ada!'
         ];
     }
@@ -42,6 +43,7 @@ class KelolaAkunLivewire extends Component
         return [
             'nama' =>  'Nama',
             'nip' => 'NIP',
+            'role' => 'Role'
         ];
     }
 
@@ -80,7 +82,7 @@ class KelolaAkunLivewire extends Component
                 'nip' => $this->nip,
                 'username' => $username,
                 'password' => Hash::make($username),
-                'role' => 2
+                'role' => $this->role
             ]);
         });
 
@@ -99,6 +101,7 @@ class KelolaAkunLivewire extends Component
         $this->nip = $user->nip;
         $this->nama = $user->nama;
         $this->username = $user->username;
+        $this->roleShow = $user->role == '1' ? 'Admin' : 'User';
     }
 
     public function editUser($id)
@@ -109,6 +112,7 @@ class KelolaAkunLivewire extends Component
         $this->id = $user->id;
         $this->nip = $user->nip;
         $this->nama = $user->nama;
+        $this->role = $user->role;
     }
 
     public function updateUser()
@@ -119,6 +123,7 @@ class KelolaAkunLivewire extends Component
         DB::transaction(function () {
             User::where('id', $this->id)->update([
                 'nama' => $this->nama,
+                'role' => $this->role
             ]);
         });
 

@@ -4,16 +4,19 @@ namespace App\Livewire;
 
 use App\Models\Debitur;
 use Livewire\Component;
+use Livewire\WithPagination;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ReportPengambilanLivewire extends Component
 {
+    use WithPagination;
     public $nama_filter;
 
-    public function allDokumenDiambil()
+    public function debiturWithDokumenDiambil()
     {
         $debiturWithDokumen = Debitur::with('dokumen.pengambilan.bastPengambilan')
             ->where('nama_debitur', 'like', '%' . trim($this->nama_filter) . '%')
@@ -40,7 +43,7 @@ class ReportPengambilanLivewire extends Component
 
     public function printReport()
     {
-        $data = $this->allDokumenDiambil();
+        $data = $this->debiturWithDokumenDiambil();
 
         if ($data) {
             $data = $data->values();
@@ -109,8 +112,15 @@ class ReportPengambilanLivewire extends Component
 
     public function render()
     {
+        $debiturWithDokumenDiambil = $this->debiturWithDokumenDiambil();
+        $perPage = 5;
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $currentItems = $debiturWithDokumenDiambil->slice(($currentPage - 1) * $perPage, $perPage);
+        $paginator = new LengthAwarePaginator($currentItems, $debiturWithDokumenDiambil->count(), $perPage, $currentPage);
+
         return view('livewire.report-pengambilan.report-pengambilan-livewire', [
-            'allDebitur' => $this->allDokumenDiambil()
+            'allDebitur' => $currentItems,
+            'paginator' => $paginator
         ]);
     }
 }

@@ -52,10 +52,11 @@
                 class="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
                 @php
                     $sortedDebitur = $allDebitur->values();
+                    $offset = $paginator->perPage() * ($paginator->currentPage() - 1) + 1;
                 @endphp
                 @if ($sortedDebitur->isEmpty())
                     <tr>
-                        <td class="bg-slate-100 p-4 text-center text-gray-600" colspan="5">"Data tidak tersedia"</td>
+                        <td class="bg-slate-100 p-4 text-center text-gray-600" colspan="5">Data tidak tersedia</td>
                     </tr>
                 @else
                     @foreach ($sortedDebitur as $index => $debitur)
@@ -67,7 +68,7 @@
                                 class="border-b-2 border-gray-300 odd:bg-gray-100 even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
                                 @if ($dokumenIndex === 0)
                                     <th class="px-6 py-3 font-medium text-gray-900"
-                                        rowspan="{{ count($debitur->dokumen) }}">{{ $index + 1 }}
+                                        rowspan="{{ count($debitur->dokumen) }}">{{ $index + $offset }}
                                     </th>
                                     <td class="px-6 py-4 text-gray-600" rowspan="{{ count($debitur->dokumen) }}">
                                         {{ $debitur->no_debitur }}</td>
@@ -83,5 +84,9 @@
                 @endif
             </tbody>
         </table>
+    </div>
+
+    <div class="mt-4 items-center">
+        {{ $paginator->links() }}
     </div>
 </div>

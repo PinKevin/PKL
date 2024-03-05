@@ -5,7 +5,7 @@
         <div class="bg-gray-50 px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <a class="flex items-center rounded-lg px-2 font-semibold hover:bg-slate-200"
+                    <a class="p-1 flex items-center rounded-lg px-2 font-semibold hover:bg-slate-200"
                         href="{{ route('dashboard') }}">
                         Kembali ke halaman utama
                     </a>

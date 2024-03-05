@@ -19,7 +19,7 @@ class CreateDebiturLivewire extends Component
     {
         return [
             'no_debitur' => 'required|numeric|digits:13|unique:debiturs,no_debitur',
-            'nama_debitur' => 'required|min:5|string',
+            'nama_debitur' => 'required|string',
             'no_ktp' => 'required|numeric|digits:16|unique:debiturs,no_ktp',
             'alamat_ktp' => 'required',
             'tanggal_realisasi' => 'required|date',
@@ -27,13 +27,13 @@ class CreateDebiturLivewire extends Component
             'kode_developer' => 'required',
             'proyek_perumahan' => 'required',
             'kode_notaris' => 'required',
-            'plafon_kredit' => 'required|numeric',
-            'saldo_pokok' => 'required|numeric',
+            'plafon_kredit' => 'required|numeric|gt:0',
+            'saldo_pokok' => 'required|numeric|gt:0',
             'alamat_agunan' => 'required',
             'blok' => 'required',
-            'no' => 'required|numeric',
-            'luas_tanah' => 'required|numeric',
-            'luas_bangunan' => 'required|numeric'
+            'no' => 'required|numeric|gt:0',
+            'luas_tanah' => 'required|numeric|gt:0',
+            'luas_bangunan' => 'required|numeric|gt:0'
         ];
     }
 
@@ -46,7 +46,8 @@ class CreateDebiturLivewire extends Component
             'unique' => ':attribute sudah ada di dalam database!',
             'min' => ':attribute minimal terdiri atas :min karakter!',
             'string' => ':attribute hanya terdiri atas huruf!',
-            'date' => ':attribute harus berupa tanggal!'
+            'date' => ':attribute harus berupa tanggal!',
+            'gt' => ':attribute harus lebih besar dari 0!'
         ];
     }
 

@@ -22,7 +22,7 @@ class NotarisLivewire extends Component
     public function rules()
     {
         return [
-            'kode_notaris' => 'required|unique:notaris,kode_notaris',
+            'kode_notaris' => 'required|numeric|unique:notaris,kode_notaris',
             'nama_notaris' => 'required',
 
         ];
@@ -32,6 +32,7 @@ class NotarisLivewire extends Component
     {
         return [
             'required' => ':attribute harus diisi!',
+            'numeric' => ':attribute harus berupa angka!',
             'kode_notaris.unique' => 'Kode notaris telah digunakan!'
         ];
     }

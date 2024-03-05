@@ -4,16 +4,19 @@ namespace App\Livewire;
 
 use App\Models\Debitur;
 use Livewire\Component;
-use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Border;
+use PhpOffice\PhpSpreadsheet\Cell\DataType;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Livewire\WithPagination;
 
 class ReportPeminjamanLivewire extends Component
 {
+    use WithPagination;
     public $tanggal_pinjam_filter, $tanggal_jatuh_tempo_filter, $nama_filter;
 
-    public function allDokumenDipinjam()
+    public function debiturWithDokumenDipinjam()
     {
         $this->tanggal_pinjam_filter = '2024-02-15';
         $this->tanggal_jatuh_tempo_filter = '2024-02-24';
@@ -39,12 +42,12 @@ class ReportPeminjamanLivewire extends Component
         })->reject(function ($debitur) {
             return $debitur->dokumen->isEmpty();
         });
-        return $debiturWithDokumenDipinjam;
+        return $debiturWithDokumenDipinjam->values();
     }
 
     public function printReport()
     {
-        $data = $this->allDokumenDipinjam();
+        $data = $this->debiturWithDokumenDipinjam();
 
         if ($data) {
             $data = $data->values();
@@ -113,8 +116,15 @@ class ReportPeminjamanLivewire extends Component
 
     public function render()
     {
+        $debiturWithDokumenDipinjam = $this->debiturWithDokumenDipinjam();
+        $perPage = 5;
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $currentItems = $debiturWithDokumenDipinjam->slice(($currentPage - 1) * $perPage, $perPage);
+        $paginator = new LengthAwarePaginator($currentItems, $debiturWithDokumenDipinjam->count(), $perPage, $currentPage);
+
         return view('livewire.report-peminjaman.report-peminjaman-livewire', [
-            'allDebitur' => $this->allDokumenDipinjam()
+            'allDebitur' => $currentItems,
+            'paginator' => $paginator
         ]);
     }
 }

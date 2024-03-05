@@ -8,12 +8,15 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Livewire\WithPagination;
 
 class StockOpnameLivewire extends Component
 {
+    use WithPagination;
     public $nama_filter;
 
-    public function allDokumenTersedia()
+    public function debiturWithDokumenTersedia()
     {
         $nama_filter = $this->nama_filter;
 
@@ -34,13 +37,12 @@ class StockOpnameLivewire extends Component
             return $debitur;
         });
 
-        // dd($debiturWithDokumenTersedia->values());
         return $debiturWithDokumenTersedia->values();
     }
 
     public function printReport()
     {
-        $data = $this->allDokumenTersedia();
+        $data = $this->debiturWithDokumenTersedia();
 
         if ($data) {
             $data = $data->values();
@@ -111,8 +113,15 @@ class StockOpnameLivewire extends Component
 
     public function render()
     {
+        $debiturWithDokumenTersedia = $this->debiturWithDokumenTersedia();
+        $perPage = 5;
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $currentItems = $debiturWithDokumenTersedia->slice(($currentPage - 1) * $perPage, $perPage);
+        $paginator = new LengthAwarePaginator($currentItems, $debiturWithDokumenTersedia->count(), $perPage, $currentPage);
+
         return view('livewire.stock-opname.stock-opname-livewire', [
-            'allDebitur' => $this->allDokumenTersedia()
+            'allDebitur' => $currentItems,
+            'paginator' => $paginator
         ]);
     }
 }

@@ -23,7 +23,7 @@ class DeveloperLivewire extends Component
     public function rules()
     {
         return [
-            'kode_developer' => 'required|unique:developers,kode_developer',
+            'kode_developer' => 'required|numeric|unique:developers,kode_developer',
             'nama_developer' => 'required',
         ];
     }
@@ -32,6 +32,7 @@ class DeveloperLivewire extends Component
     {
         return [
             'required' => ':attribute harus diisi!',
+            'numeric' => ':attribute harus berupa angka!',
             'kode_developer.unique' => 'Kode developer telah digunakan!'
         ];
     }

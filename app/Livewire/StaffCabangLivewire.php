@@ -21,7 +21,7 @@ class StaffCabangLivewire extends Component
     public function rules()
     {
         return [
-            'nip' => 'required|unique:staff_cabangs,nip',
+            'nip' => 'required|numeric|unique:staff_cabangs,nip',
             'nama' => 'required|string',
             'kantor' => 'required|string',
         ];
@@ -31,6 +31,7 @@ class StaffCabangLivewire extends Component
     {
         return [
             'required' => ':attribute harus diisi!',
+            'numeric' => ':attribute harus berupa angka!',
             'string' => ':attribute harus berupa huruf!',
             'nip.unique' => 'NIP sudah ada di database!'
         ];

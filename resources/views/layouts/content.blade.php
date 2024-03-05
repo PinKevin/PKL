@@ -23,7 +23,7 @@
                 </div>
                 <div class="flex items-center">
                     <a class="ms-60" href="{{ route('bantuan') }}">
-                        <svg class="h-6 w-6 text-slate-500 hover:text-slate-800 dark:text-white" aria-hidden="true"
+                        <svg class="h-7 w-7 text-slate-500 hover:text-slate-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd"
                                 d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm9-3a1.5 1.5 0 0 1 2.5 1.1 1.4 1.4 0 0 1-1.5 1.5 1 1 0 0 0-1 1V14a1 1 0 1 0 2 0v-.5a3.4 3.4 0 0 0 2.5-3.3 3.5 3.5 0 0 0-7-.3 1 1 0 0 0 2 .1c0-.4.2-.7.5-1Zm1 7a1 1 0 1 0 0 2 1 1 0 1 0 0-2Z"
@@ -37,9 +37,15 @@
                                     class="flex rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                                     data-dropdown-toggle="dropdown-user" type="button" aria-expanded="false">
                                     <span class="sr-only">Open user menu</span>
-                                    <img class="h-8 w-8 rounded-full"
-                                        src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                                        alt="user photo">
+                                    <div
+                                        class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                                        <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+                                            </path>
+                                        </svg>
+                                    </div>
                                 </button>
                             </div>
                             <div class="z-50 my-4 hidden list-none divide-y divide-gray-100 rounded bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700"
@@ -70,12 +76,12 @@
     </nav>
 
     <aside
-        class="fixed left-0 top-0 z-40 h-screen w-64 -translate-x-full border-r border-gray-200 bg-blue-500 pt-20 transition-transform dark:border-gray-700 dark:bg-gray-800 sm:translate-x-0"
+        class=" fixed left-0 top-0 z-40 h-screen w-64 -translate-x-full border-r border-gray-200 bg-blue-500 pt-16 transition-transform dark:border-gray-700 dark:bg-gray-800 sm:translate-x-0"
         id="logo-sidebar" aria-label="Sidebar">
-        <div class="h-full overflow-y-auto bg-blue-500 px-3 pb-4 dark:bg-gray-800">
+        <div class=" h-full overflow-y-auto bg-blue-500 px-3 pb-4 dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a class="{{ request()->routeIs('dashboard') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                    <a class="{{ request()->routeIs('dashboard') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg mt-2 p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
                         href="{{ route('dashboard') }}">
                         <svg class="h-5 w-5 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">

@@ -2,20 +2,22 @@
 
 namespace App\Livewire;
 
+use Carbon\Carbon;
 use App\Models\Debitur;
 use App\Models\Dokumen;
 use App\Models\Notaris;
+use App\Models\Regency;
+use App\Models\Village;
 use Livewire\Component;
+use App\Models\District;
 use App\Models\SuratRoya;
 use App\Models\Peminjaman;
 use App\Models\StaffCabang;
 use App\Models\StaffNotaris;
 use App\Models\BastPeminjaman;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\DataConverterController;
-use App\Models\District;
-use App\Models\Regency;
-use App\Models\Village;
 
 class PeminjamanDokumenLivewire extends Component
 {
@@ -43,7 +45,15 @@ class PeminjamanDokumenLivewire extends Component
             'peminjam' => 'required',
             'pendukung' => 'required',
             'keperluan' => 'required',
-            'tanggal_jatuh_tempo' => 'required|date',
+            'tanggal_jatuh_tempo' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) {
+                    if (Carbon::parse($value)->lessThan(Carbon::today())) {
+                        $fail('Tanggal jatuh tempo harus lebih besar dari atau sama dengan tanggal saat ini.');
+                    }
+                },
+            ],
             'peminta' => 'required',
         ];
     }

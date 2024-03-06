@@ -15,49 +15,62 @@
         <h5 class="ml-2 text-lg dark:text-white">NIP. {{ auth()->user()->nip }}</h5>
     </div>
 
-    <div class="mt-8 relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm  text-left rtl:text-right text-gray-700 dark:text-gray-400">
+    <div class="relative mt-8 overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-left text-sm text-gray-700 rtl:text-right dark:text-gray-400">
             <caption
-                class="p-5 border-gray-300 border-2 rounded-t-lg text-lg font-semibold text-left rtl:text-right text-gray-900 bg-gray-50 dark:text-white dark:bg-gray-800">
+                class="rounded-t-lg border-2 border-gray-300 bg-gray-50 p-5 text-left text-lg font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
                 Dokumen Jatuh Tempo
             </caption>
-            <thead class="text-xs text-gray-700 uppercase bg-slate-200 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="bg-slate-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3" scope="col">
                         Nomor Debitur
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3" scope="col">
                         Nama Debitur
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3" scope="col">
                         Staff Notaris
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3" scope="col">
                         Staff Cabang
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3" scope="col">
                         Dokumen
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="bg-slate-100 border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        ---
-                    </th>
-                    <td class="px-6 py-4">
-                        ---
-                    </td>
-                    <td class="px-6 py-4">
-                        ---
-                    </td>
-                    <td class="px-6 py-4">
-                        --
-                    </td>
-                    <td class="px-6 py-4">
-                        --
-                    </td>
-                </tr>
+                @if ($bastPeminjaman->isEmpty())
+                    <tr class="border-b bg-slate-100 dark:border-gray-700 dark:bg-gray-800">
+                        <td class="px-6 py-4" colspan="5">Tidak ada peminjaman jatuh tempo</td>
+                    </tr>
+                @else
+                    @foreach ($bastPeminjaman as $index => $bast)
+                        @foreach ($bast->peminjaman as $peminjamanIndex => $peminjaman)
+                            <tr class="border-b bg-slate-100 dark:border-gray-700 dark:bg-gray-800">
+                                @if ($peminjamanIndex == 0)
+                                    <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                                        scope="row" rowspan="{{ count($bast->peminjaman) }}">
+                                        {{ $bast->debitur()->first()->no_debitur }}
+                                    </th>
+                                    <td class="px-6 py-4" rowspan="{{ count($bast->peminjaman) }}">
+                                        {{ $bast->debitur()->first()->nama_debitur }}
+                                    </td>
+                                    <td class="px-6 py-4" rowspan="{{ count($bast->peminjaman) }}">
+                                        {{ $bast->peminjam()->first()->nama }}
+                                    </td>
+                                    <td class="px-6 py-4" rowspan="{{ count($bast->peminjaman) }}">
+                                        {{ $bast->peminta()->first()->nama }}
+                                    </td>
+                                @endif
+                                <td class="px-6 py-4">
+                                    {{ $peminjaman->dokumen->jenis }}
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -94,10 +107,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 
     <div class="container">
         <div class="m-auto mt-10 rounded border-2 border-gray-300 bg-gray-50 p-6 shadow">

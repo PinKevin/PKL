@@ -59,7 +59,7 @@
                 @endphp
                 @if ($sortedDebitur->isEmpty())
                     <tr>
-                        <td class="bg-slate-100 p-4 text-center text-gray-600" colspan="6">"Data tidak tersedia"</td>
+                        <td class="bg-slate-100 p-4 text-center text-gray-600" colspan="6">Data tidak tersedia</td>
                     </tr>
                 @else
                     @foreach ($sortedDebitur as $index => $debitur)

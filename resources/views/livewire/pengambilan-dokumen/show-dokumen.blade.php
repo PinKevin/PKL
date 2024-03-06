@@ -82,8 +82,22 @@
                             {{ $dok->jenis }}
                         </td>
                         <td class="px-2 py-4">
-                            <span
-                                class="me-1 inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
+                            @php
+                                $latestBastPeminjaman = $dok->peminjaman
+                                    ->sortByDesc('bastPeminjaman.created_at')
+                                    ->first()->bastPeminjaman;
+                                $tanggalJatuhTempo = $latestBastPeminjaman->tanggal_jatuh_tempo;
+                                $today = now();
+                            @endphp
+
+                            @if ($tanggalJatuhTempo->greaterThanOrEqualTo($today))
+                                <span
+                                    class="inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
+                            @else
+                                <span
+                                    class="inline-block rounded-full bg-red-200 px-7 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
+                                    Peminjaman Jatuh Tempo</span>
+                            @endif
                         </td>
                         <td class="px-6 py-4 text-center">
                             -

@@ -2,7 +2,7 @@
     <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
         <caption
             class="bg-slate-300 p-5 text-left text-lg font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
-            Hasil Pencarian "{{ $debitur->nama_debitur }}, {{ $debitur->no_debitur }}"
+            Hasil Pencarian . . .
         </caption>
         <thead class="bg-slate-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
             <tr>

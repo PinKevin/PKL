@@ -65,7 +65,7 @@
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <caption
                 class="bg-slate-200 p-5 text-left text-lg font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
-                Hasil Pencarian "{{ $debitur->nama_debitur }}, {{ $debitur->no_debitur }}"
+                Hasil Pencarian . . .
             </caption>
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -261,7 +261,7 @@
                                         class="inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
                                 @else
                                     <span
-                                        class="inline-block rounded-full bg-red-200 px-7 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
+                                        class="inline-block flex-col text-center rounded-full bg-red-200 px-3 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
                                         Peminjaman Jatuh Tempo</span>
                                 @endif
                             </td>

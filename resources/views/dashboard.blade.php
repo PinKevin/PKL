@@ -16,12 +16,12 @@
     </div>
 
     <div class="relative mt-8 overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-left text-sm text-gray-700 rtl:text-right dark:text-gray-400">
+        <table class=" w-full text-left text-sm text-gray-700 rtl:text-right dark:text-gray-400">
             <caption
-                class="rounded-t-lg border-2 border-gray-300 bg-gray-50 p-5 text-left text-lg font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
+                class="rounded-t-lg border-2 border-gray-300 bg-slate-50 p-5 text-left text-lg font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
                 Dokumen Jatuh Tempo
             </caption>
-            <thead class="bg-slate-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="bg-slate-200 border-b-2 border-gray-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th class="px-6 py-3" scope="col">
                         Nomor Debitur
@@ -42,13 +42,13 @@
             </thead>
             <tbody>
                 @if ($bastPeminjaman->isEmpty())
-                    <tr class="border-b bg-slate-100 dark:border-gray-700 dark:bg-gray-800">
+                    <tr class="border-b-2 border-gray-300 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
                         <td class="px-6 py-4" colspan="5">Tidak ada peminjaman jatuh tempo</td>
                     </tr>
                 @else
                     @foreach ($bastPeminjaman as $index => $bast)
                         @foreach ($bast->peminjaman as $peminjamanIndex => $peminjaman)
-                            <tr class="border-b bg-slate-100 dark:border-gray-700 dark:bg-gray-800">
+                            <tr class="border-b-2 border-gray-300 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
                                 @if ($peminjamanIndex == 0)
                                     <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                                         scope="row" rowspan="{{ count($bast->peminjaman) }}">

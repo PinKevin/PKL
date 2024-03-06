@@ -199,7 +199,7 @@
                             <td class="px-12 py-4">
                                 {{ $dok->tanggal_jatuh_tempo }}
                             </td>
-                            <td class="flex flex-col items-center justify-between px-4 py-4">
+                            <td class="flex items-center gap-5 px-5 py-4">
                                 <button class="mb-3" id="button-show-modal" data-modal-target="show-modal"
                                     data-modal-toggle="show-modal" type="button"
                                     wire:click="showDokumen({{ $dok->id }})">
@@ -224,7 +224,7 @@
                                         </svg>
                                         <div class="sr-only">Edit</div>
                                     </button>
-                                    <button id="button-delete-modal" data-modal-target="delete-modal"
+                                    {{-- <button id="button-delete-modal" data-modal-target="delete-modal"
                                         data-modal-toggle="delete-modal" type="button"
                                         wire:click="deleteDokumen({{ $dok->id }})">
                                         <svg class="h-[16px] w-[16px] text-red-600 hover:text-red-900 dark:text-white"
@@ -233,7 +233,7 @@
                                             <path
                                                 d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
                                         </svg>
-                                    </button>
+                                    </button> --}}
                                 @endif
                             </td>
                         </tr>
@@ -261,8 +261,8 @@
                                         class="inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
                                 @else
                                     <span
-                                        class="inline-block flex-col text-center rounded-full bg-red-200 px-3 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
-                                        Peminjaman Jatuh Tempo</span>
+                                        class="inline-block text-center rounded-full bg-orange-300 px-4 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
+                                        Jatuh Tempo</span>
                                 @endif
                             </td>
                             <td class="px-12 py-4">
@@ -277,7 +277,7 @@
                             <td class="px-12 py-4">
                                 {{ $dok->tanggal_jatuh_tempo }}
                             </td>
-                            <td class="flex flex-col items-center justify-between px-4 py-4">
+                            <td class="flex items-center gap-5 px-5 py-4">
                                 <button class="mb-3" id="button-show-modal" data-modal-target="show-modal"
                                     data-modal-toggle="show-modal" type="button"
                                     wire:click="showDokumen({{ $dok->id }})">
@@ -301,7 +301,7 @@
                                     </svg>
                                     <div class="sr-only">Edit</div>
                                 </button>
-                                <button id="button-delete-modal" data-modal-target="delete-modal"
+                                {{-- <button id="button-delete-modal" data-modal-target="delete-modal"
                                     data-modal-toggle="delete-modal" type="button"
                                     wire:click="deleteDokumen({{ $dok->id }})">
                                     <svg class="h-[16px] w-[16px] text-red-600 hover:text-red-900 dark:text-white"
@@ -310,7 +310,7 @@
                                         <path
                                             d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
                                     </svg>
-                                </button>
+                                </button> --}}
                             </td>
                         </tr>
                     @else

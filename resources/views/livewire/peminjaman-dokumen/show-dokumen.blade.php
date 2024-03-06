@@ -96,8 +96,8 @@
                                     class="inline-block rounded-full bg-yellow-200 px-7 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dipinjam</span>
                             @else
                                 <span
-                                    class="inline-block flex-col text-center rounded-full bg-red-200 px-3 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
-                                    Peminjaman Jatuh Tempo</span>
+                                    class="inline-block text-center rounded-full bg-orange-300 px-4 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">
+                                    Jatuh Tempo</span>
                             @endif
                         </td>
                         <td class="px-6 py-4 text-center">

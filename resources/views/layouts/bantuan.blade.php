@@ -5,7 +5,7 @@
         <div class="bg-gray-50 px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <a class="flex items-center rounded-lg px-2 font-semibold hover:bg-slate-200"
+                    <a class="p-1 flex items-center rounded-lg px-2 font-semibold hover:bg-slate-200"
                         href="{{ route('dashboard') }}">
                         Kembali ke halaman utama
                     </a>
@@ -17,8 +17,14 @@
                                 class="flex rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                                 data-dropdown-toggle="dropdown-user" type="button" aria-expanded="false">
                                 <span class="sr-only">Open user menu</span>
-                                <img class="h-8 w-8 rounded-full"
-                                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+                                <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                                    <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor"
+                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                            clip-rule="evenodd">
+                                        </path>
+                                    </svg>
+                                </div>
                             </button>
                         </div>
                         <div class="z-50 my-4 hidden list-none divide-y divide-gray-100 rounded bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700"

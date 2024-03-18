@@ -2,68 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\BastPengambilan;
 use PhpOffice\PhpWord\TemplateProcessor;
 
 class BastPengambilanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(BastPengambilan $bastPengambilan)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(BastPengambilan $bastPengambilan)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, BastPengambilan $bastPengambilan)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(BastPengambilan $bastPengambilan)
-    {
-        //
-    }
-
     public function cetakBast($id)
     {
         $bast = BastPengambilan::findOrFail($id);
@@ -71,7 +14,6 @@ class BastPengambilanController extends Controller
 
         // dokumen yang dipinjam
         $pengambilan = $bast->pengambilan;
-        // dd($pengambilan);
 
         $dokumenDiambil = [];
         $counter = 1;
@@ -91,12 +33,9 @@ class BastPengambilanController extends Controller
         }
 
         // end dokumen yang dipinjam
-        // dd($dokumenDiambil);
-
 
         // tanggal
         $hariIni = DataConverterController::getHariIndonesia(date('N'));
-        // dd($tanggal);
 
         // end tanggal
 
@@ -105,7 +44,6 @@ class BastPengambilanController extends Controller
         $namaFile = "PENGAMBILAN - $namaDebitur" . ".docx";
 
         $templateProcessor = new TemplateProcessor('format/format-bast-pengambilan.docx');
-        // dd($bast->developer->nama_developer);
 
         if ($bast->nama_debitur == $bast->nama_pengambil) {
             $templateProcessor->cloneBlock('blok_pengambil', 0, true, false, null);
@@ -131,8 +69,6 @@ class BastPengambilanController extends Controller
             'pemberi' => auth()->user()->nama,
             'nip_pemberi' => auth()->user()->nip
         ];
-
-        // dd($data);
 
         $templateProcessor->setValues($data);
         $templateProcessor->cloneBlock('blok_dokumen', 0, true, false, $dokumenDiambil);

@@ -96,7 +96,7 @@
                     </div>
                     : Ubah informasi dokumen yang sudah ada dan/atau mengubah file
                 </li>
-                <li>
+                {{-- <li>
                     <div class="inline-flex">
                         <span class="font-bold">Delete</span>
                         <svg class="ml-1 mt-1 h-[16px] w-[16px] text-red-600 hover:text-red-900 dark:text-white"
@@ -106,7 +106,7 @@
                         </svg>
                     </div>
                     : Hapus dokumen dari sistem.
-                </li>
+                </li> --}}
             </ul>
         </li>
     </ol>

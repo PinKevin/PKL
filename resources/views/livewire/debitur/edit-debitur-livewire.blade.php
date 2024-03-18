@@ -4,7 +4,7 @@
     <form class="ml-0.5 mt-4" wire:submit.prevent="updateDebitur" method="POST">
         <div class="mb-6 grid gap-6 md:grid-cols-2">
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="no_debitur">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="no_debitur">
                     Nomor Debitur
                 </label>
                 <input
@@ -12,7 +12,7 @@
                     id="no_debitur" type="text" wire:model="no_debitur" placeholder="Nomor debitur" disabled>
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama_debitur">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="nama_debitur">
                     Nama debitur
                 </label>
                 <input
@@ -33,7 +33,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="no_ktp">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="no_ktp">
                     Nomor KTP
                 </label>
                 <input
@@ -41,7 +41,7 @@
                     id="no_ktp" type="text" wire:model="no_ktp" placeholder="Nomor KTP" disabled>
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="saldo_pokok">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="saldo_pokok">
                     Saldo Pokok
                 </label>
                 <input
@@ -62,7 +62,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="tanggal_realisasi">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="tanggal_realisasi">
                     Tanggal Realisasi
                 </label>
                 <input
@@ -83,7 +83,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="jenis_kredit">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="jenis_kredit">
                     Jenis Kredit
                 </label>
                 <input
@@ -104,7 +104,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="kode_developer">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="kode_developer">
                     Developer
                 </label>
                 <select
@@ -130,7 +130,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="proyek_perumahan">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="proyek_perumahan">
                     Proyek Perumahan
                 </label>
                 <input
@@ -152,7 +152,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="kode_notaris">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="kode_notaris">
                     Notaris
                 </label>
                 <select
@@ -178,7 +178,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="plafon_kredit">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="plafon_kredit">
                     Plafon Kredit
                 </label>
                 <input
@@ -243,7 +243,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="blok">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="blok">
                     Blok
                 </label>
                 <input
@@ -264,7 +264,7 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="no">
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="no">
                     Nomor Rumah
                 </label>
                 <input
@@ -285,8 +285,8 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="luas_tanah">
-                    Luas Tanah
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="luas_tanah">
+                    Luas Tanah (m²)
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
@@ -306,8 +306,8 @@
                 @enderror
             </div>
             <div>
-                <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="luas_bangunan">
-                    Luas Bangunan
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="luas_bangunan">
+                    Luas Bangunan (m²)
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"

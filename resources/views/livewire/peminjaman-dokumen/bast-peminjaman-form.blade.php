@@ -105,7 +105,8 @@
                         for="tanggal_jatuh_tempo">Tanggal Jatuh Tempo</label>
                     <input
                         class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                        id="tanggal_jatuh_tempo" type="date" wire:model="tanggal_jatuh_tempo">
+                        id="tanggal_jatuh_tempo" type="date" wire:model="tanggal_jatuh_tempo"
+                        min="{{ now()->format('Y-m-d') }}">
                     @error('tanggal_jatuh_tempo')
                         <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                             role="alert">
@@ -120,6 +121,7 @@
                         </div>
                     @enderror
                 </div>
+
                 <div>
                     <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="peminta">
                         Peminta</label>

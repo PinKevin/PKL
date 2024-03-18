@@ -314,11 +314,13 @@
             </div>
             <div>
                 <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="luas_tanah">
-                    Luas Tanah
+                    Luas Tanah (m²)
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="luas_tanah" type="number" min="1" wire:model="luas_tanah" placeholder="Luas tanah">
+                    id="luas_tanah" type="number" min="1" wire:model="luas_tanah"
+                    placeholder="Luas tanah (m²)">
+
                 @error('luas_tanah')
                     <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                         role="alert">
@@ -335,12 +337,12 @@
             </div>
             <div>
                 <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="luas_bangunan">
-                    Luas Bangunan
+                    Luas Bangunan (m²)
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     id="luas_bangunan" type="number" min="1" wire:model="luas_bangunan"
-                    placeholder="Luas bangunan">
+                    placeholder="Luas bangunan (m²)">
                 @error('luas_bangunan')
                     <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                         role="alert">

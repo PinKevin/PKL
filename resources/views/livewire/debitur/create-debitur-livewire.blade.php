@@ -9,7 +9,8 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="no_debitur" type="text" wire:model="no_debitur" placeholder="Nomor debitur" maxlength="13">
+                    id="no_debitur" type="text" title="Masukkan hanya angka!" wire:model="no_debitur"
+                    placeholder="Nomor debitur" maxlength="13" pattern="[0-9]*">
                 @error('no_debitur')
                     <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                         role="alert">
@@ -51,7 +52,8 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="no_ktp" type="text" wire:model="no_ktp" placeholder="Nomor KTP" maxlength="16">
+                    id="no_ktp" type="text" title="Masukkan hanya angka!" pattern="[0-9]*" wire:model="no_ktp"
+                    placeholder="Nomor KTP" maxlength="16">
                 @error('no_ktp')
                     <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                         role="alert">

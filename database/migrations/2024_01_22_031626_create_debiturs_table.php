@@ -22,8 +22,8 @@ return new class extends Migration
             $table->integer('kode_developer');
             $table->string('proyek_perumahan');
             $table->integer('kode_notaris');
-            $table->integer('plafon_kredit');
-            $table->integer('saldo_pokok');
+            $table->unsignedBigInteger('plafon_kredit');
+            $table->unsignedBigInteger('saldo_pokok');
             $table->string('alamat_agunan');
             $table->string('blok', 4);
             $table->integer('no');

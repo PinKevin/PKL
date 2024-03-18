@@ -9,7 +9,8 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="no_debitur" type="text" wire:model="no_debitur" placeholder="Nomor debitur" disabled>
+                    id="no_debitur" type="text" title="Masukkan hanya angka!" pattern="[0-9]*" wire:model="no_debitur"
+                    placeholder="Nomor debitur" disabled>
             </div>
             <div>
                 <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="nama_debitur">
@@ -38,7 +39,8 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="no_ktp" type="text" wire:model="no_ktp" placeholder="Nomor KTP" disabled>
+                    id="no_ktp" type="text" title="Masukkan hanya angka!" pattern="[0-9]*" wire:model="no_ktp"
+                    placeholder="Nomor KTP" disabled>
             </div>
             <div>
                 <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="saldo_pokok">

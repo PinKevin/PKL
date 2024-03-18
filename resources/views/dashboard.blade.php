@@ -21,7 +21,8 @@
                 class="rounded-t-lg border-2 border-gray-300 bg-slate-50 p-5 text-left text-lg font-semibold text-gray-900 rtl:text-right dark:bg-gray-800 dark:text-white">
                 Dokumen Jatuh Tempo
             </caption>
-            <thead class="bg-slate-200 border-b-2 border-gray-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+            <thead
+                class="bg-slate-200 border-b-2 border-gray-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th class="px-6 py-3" scope="col">
                         Nomor Debitur
@@ -42,8 +43,8 @@
             </thead>
             <tbody>
                 @if ($bastPeminjaman->isEmpty())
-                    <tr class="border-b-2 border-gray-300 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
-                        <td class="px-6 py-4" colspan="5">Tidak ada peminjaman jatuh tempo</td>
+                    <tr class="border-b-2 text-center border-gray-300 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
+                        <td class="px-6 py-4" colspan="5">"Tidak ada peminjaman jatuh tempo"</td>
                     </tr>
                 @else
                     @foreach ($bastPeminjaman as $index => $bast)

@@ -105,3 +105,4 @@ Selain empat teknologi tersebut, terdapat juga tambahan teknologi untuk membantu
 
 -   Emerio Kevin Aryaputra
 -   Sulthan Firmansyah
+

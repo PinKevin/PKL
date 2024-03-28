@@ -2,8 +2,9 @@
 
 namespace App\Livewire;
 
-use App\Models\Role;
 use Livewire\Component;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class CreateHakAksesLivewire extends Component
 {
@@ -13,7 +14,7 @@ class CreateHakAksesLivewire extends Component
     public function rules()
     {
         return [
-            'nama_role' => 'required|unique:roles,nama',
+            'nama_role' => 'required|unique:roles,name',
             'akses' => 'required'
         ];
     }
@@ -34,22 +35,53 @@ class CreateHakAksesLivewire extends Component
         ];
     }
 
+    public function getAllTransaksiPermissions()
+    {
+        $permissions = Permission::where('group', 'transaksi')->get();
+        return $permissions;
+    }
+
+    public function getAllReportPermissions()
+    {
+        $permissions = Permission::where('group', 'report')->get();
+        return $permissions;
+    }
+
+    public function getAllMasterDataPermissions()
+    {
+        $permissions = Permission::where('group', 'master-data')->get();
+        return $permissions;
+    }
+
+    public function getAllAkunPermissions()
+    {
+        $permissions = Permission::where('group', 'akun')->get();
+        return $permissions;
+    }
 
     public function createRole()
     {
         $this->validate();
 
-        // $role = Role::create([
-        //     'nama' => $this->nama_role,
-        // ]);
+        $role = Role::create([
+            'name' => $this->nama_role
+        ]);
 
-        session()->flash('message', 'Role berhasil ditambahkan!');
+        $role->syncPermissions($this->akses);
 
-        $this->reset(['nama_role', 'akses']);
+        return redirect()->route('admin-hak-akses.index');
+        // session()->flash('message', 'Role berhasil ditambahkan!');
+
+        // $this->reset(['nama_role', 'akses']);
     }
 
     public function render()
     {
-        return view('livewire.hak-akses.create-hak-akses-livewire');
+        return view('livewire.hak-akses.create-hak-akses-livewire', [
+            'transaksiPermissions' => $this->getAllTransaksiPermissions(),
+            'reportPermissions' => $this->getAllReportPermissions(),
+            'masterDataPermissions' => $this->getAllMasterDataPermissions(),
+            'akunPermissions' => $this->getAllAkunPermissions(),
+        ]);
     }
 }

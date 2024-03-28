@@ -1,5 +1,5 @@
 <div>
-    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Tambah Debitur</h2>
+    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Tambah Role</h2>
 
     <form class="ml-0.5 mt-4" wire:submit.prevent="createRole" method="POST">
         <div class="max-w-56 mb-6">
@@ -29,34 +29,19 @@
                 <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="akses">
                     Hak Akses Transaksi
                 </label>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Penerimaan" wire:model="akses" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        for="penerimaan">Penerimaan</label>
-                </div>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Peminjaman" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        for="peminjaman">Peminjaman</label>
-                </div>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Pengembalian" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        for="pengembalian">Pengembalian</label>
-                </div>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Pengambilan" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        for="pengambilaan">Pengambilan</label>
-                </div>
+
+                @if ($transaksiPermissions->isNotEmpty())
+                    @foreach ($transaksiPermissions as $permission)
+                        <div class="mb-4 flex items-center">
+                            <input
+                                class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                type="checkbox" value="{{ $permission->name }}" wire:model="akses">
+                            <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                for="{{ $permission->name }}">{{ $permission->name }}</label>
+                        </div>
+                    @endforeach
+                @endif
+
             </div>
         </div>
 
@@ -65,27 +50,17 @@
                 <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="akses">
                     Hak Akses Laporan
                 </label>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Stock Opname" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="penerimaan">Stock
-                        Opname</label>
-                </div>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Report Peminjaman" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="peminjaman">Report
-                        Peminjaman</label>
-                </div>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Report Pengembalian" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="pengembalian">Report
-                        Pengembalian</label>
-                </div>
+                @if ($reportPermissions->isNotEmpty())
+                    @foreach ($reportPermissions as $permission)
+                        <div class="mb-4 flex items-center">
+                            <input
+                                class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                type="checkbox" value="{{ $permission->name }}" wire:model="akses">
+                            <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                for="{{ $permission->name }}">{{ $permission->name }}</label>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
 
@@ -94,41 +69,17 @@
                 <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="akses">
                     Hak Akses Master Data
                 </label>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Debitur" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        for="penerimaan">Debitur</label>
-                </div>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Developer" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        for="peminjaman">Developer</label>
-                </div>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Notaris" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        for="pengembalian">Notaris</label>
-                </div>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Staff Notaris" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="pengambilaan">Staff
-                        Notaris</label>
-                </div>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Staff Cabang" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="pengambilaan">Staff
-                        Cabang</label>
-                </div>
+                @if ($masterDataPermissions->isNotEmpty())
+                    @foreach ($masterDataPermissions as $permission)
+                        <div class="mb-4 flex items-center">
+                            <input
+                                class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                type="checkbox" value="{{ $permission->name }}" wire:model="akses">
+                            <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                for="{{ $permission->name }}">{{ $permission->name }}</label>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
 
@@ -137,14 +88,19 @@
                 <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="akses">
                     Hak Akses Akun
                 </label>
-                <div class="mb-4 flex items-center">
-                    <input
-                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                        type="checkbox" value="Akun" wire:model="akses">
-                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        for="penerimaan">Akun</label>
-                </div>
-
+                @if ($akunPermissions->isNotEmpty())
+                    @foreach ($akunPermissions as $permission)
+                        <div class="mb-4 flex items-center">
+                            <input
+                                class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                type="checkbox" value="{{ $permission->name }}" wire:model="akses">
+                            <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                for="{{ $permission->name }}">{{ $permission->name }}</label>
+                        </div>
+                    @endforeach
+                @else
+                    Belum tersedia
+                @endif
             </div>
         </div>
 

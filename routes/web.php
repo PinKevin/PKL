@@ -1,20 +1,22 @@
 <?php
 
-use App\Http\Controllers\BantuanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BantuanController;
 use App\Http\Controllers\DebiturController;
 use App\Http\Controllers\NotarisController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\SuratRoyaController;
+use App\Http\Controllers\KelolaAkunController;
+use App\Http\Controllers\KelolaIzinController;
 use App\Http\Controllers\StaffCabangController;
 use App\Http\Controllers\StockOpnameController;
 use App\Http\Controllers\StaffNotarisController;
 use App\Http\Controllers\BastPeminjamanController;
+use App\Http\Controllers\KelolaHakAksesController;
 use App\Http\Controllers\BastPengambilanController;
 use App\Http\Controllers\BastPengembalianController;
-use App\Http\Controllers\KelolaAkunController;
 use App\Http\Controllers\ReportPeminjamanController;
 use App\Http\Controllers\PeminjamanDokumenController;
 use App\Http\Controllers\PenerimaanDokumenController;
@@ -113,11 +115,21 @@ Route::middleware(['auth'])->group(function () {
         });
     });
 
-    Route::middleware(['checkrole:1'])->group(function () {
+    Route::middleware(['role:Admin'])->group(function () {
         Route::prefix('/admin')->group(function () {
             Route::get('/dashboard', [DashboardController::class, 'showAdminDashboard'])->name('admin-dashboard');
 
             Route::get('/akun', [KelolaAkunController::class, 'index'])->name('admin-akun');
+
+            Route::prefix('/hak-akses')->group(function () {
+                Route::get('/', [KelolaHakAksesController::class, 'index'])->name('admin-hak-akses.index');
+                Route::get('/create', [KelolaHakAksesController::class, 'create'])->name('admin-hak-akses.create');
+            });
+
+            Route::prefix('/izin')->group(function () {
+                Route::get('/', [KelolaIzinController::class, 'index'])->name('admin-izin.index');
+                Route::get('/create', [KelolaIzinController::class, 'create'])->name('admin-izin.create');
+            });
         });
     });
 });

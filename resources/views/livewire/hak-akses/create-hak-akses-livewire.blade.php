@@ -1,0 +1,193 @@
+<div>
+    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Tambah Debitur</h2>
+
+    <form class="ml-0.5 mt-4" wire:submit.prevent="createRole" method="POST">
+        <div class="max-w-56 mb-6">
+            <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="nama_role">
+                Nama Role
+            </label>
+            <input
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                id="nama_role" type="text" wire:model="nama_role" placeholder="Nama">
+            @error('nama_role')
+                <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                    role="alert">
+                    <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                    </svg>
+                    <div class="text-sm font-semibold">
+                        {{ $message }}
+                    </div>
+                </div>
+            @enderror
+        </div>
+
+        <div class="mb-6 grid gap-6 md:grid-cols-3">
+            <div>
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="akses">
+                    Hak Akses Transaksi
+                </label>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Penerimaan" wire:model="akses" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        for="penerimaan">Penerimaan</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Peminjaman" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        for="peminjaman">Peminjaman</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Pengembalian" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        for="pengembalian">Pengembalian</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Pengambilan" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        for="pengambilaan">Pengambilan</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-6 grid gap-6 md:grid-cols-3">
+            <div>
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="akses">
+                    Hak Akses Laporan
+                </label>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Stock Opname" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="penerimaan">Stock
+                        Opname</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Report Peminjaman" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="peminjaman">Report
+                        Peminjaman</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Report Pengembalian" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="pengembalian">Report
+                        Pengembalian</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-6 grid gap-6 md:grid-cols-3">
+            <div>
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="akses">
+                    Hak Akses Master Data
+                </label>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Debitur" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        for="penerimaan">Debitur</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Developer" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        for="peminjaman">Developer</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Notaris" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        for="pengembalian">Notaris</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Staff Notaris" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="pengambilaan">Staff
+                        Notaris</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Staff Cabang" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="pengambilaan">Staff
+                        Cabang</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-6 grid gap-6 md:grid-cols-3">
+            <div>
+                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="akses">
+                    Hak Akses Akun
+                </label>
+                <div class="mb-4 flex items-center">
+                    <input
+                        class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        type="checkbox" value="Akun" wire:model="akses">
+                    <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        for="penerimaan">Akun</label>
+                </div>
+
+            </div>
+        </div>
+
+        @error('akses')
+            <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg class="me-3 inline h-4 w-4 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <div class="text-sm font-semibold">
+                    {{ $message }}
+                </div>
+            </div>
+        @enderror
+
+        <div class="flex items-center justify-start">
+            {{-- <a class="mr-2 inline-flex w-full items-center rounded-lg bg-gray-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 sm:w-auto"
+                href="{{ route('debitur.index') }}">
+                <svg class="mr-2 h-4 w-4 text-white dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 7 1 4l3-3m0 12h6.5a4.5 4.5 0 1 0 0-9H2" />
+                </svg>
+                Kembali
+            </a> --}}
+            <button
+                class="inline-flex w-full items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                type="submit">
+                <svg class="mr-2 h-3 w-3 text-white dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                </svg>
+                Simpan
+            </button>
+        </div>
+
+    </form>
+
+    {{-- @foreach ($akses as $a)
+        {{ $a }}
+    @endforeach --}}
+
+</div>

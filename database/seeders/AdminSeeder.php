@@ -7,19 +7,20 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class UserSeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        // User::create([
-        //     'nama' => 'Admin',
-        //     'nip' => '12345678',
-        //     'username' => 'admin',
-        //     'password' => Hash::make('password'),
-        //     'role' => 1
-        // ]);
+        $user = User::create([
+            'nama' => 'Admin',
+            'nip' => '12345678',
+            'username' => 'admin',
+            'password' => Hash::make('password')
+        ]);
+
+        $user->assignRole('Admin');
     }
 }

@@ -6,7 +6,6 @@ use App\Charts\DokumenTerima7HariChart;
 use App\Models\BastPeminjaman;
 use Carbon\Carbon;
 use App\Models\Dokumen;
-use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {

@@ -3,7 +3,6 @@
 use App\Http\Controllers\BantuanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ReportController;
 use App\Http\Controllers\DebiturController;
 use App\Http\Controllers\NotarisController;
 use App\Http\Controllers\DashboardController;
@@ -11,7 +10,6 @@ use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\SuratRoyaController;
 use App\Http\Controllers\StaffCabangController;
 use App\Http\Controllers\StockOpnameController;
-use App\Http\Controllers\RekapDokumenController;
 use App\Http\Controllers\StaffNotarisController;
 use App\Http\Controllers\BastPeminjamanController;
 use App\Http\Controllers\BastPengambilanController;
@@ -87,16 +85,6 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/cetak-bast/{id}', [BastPengambilanController::class, 'cetakBast'])->name('pengambilan.cetak');
         });
 
-        Route::prefix('/rekap-dokumen')->group(function () {
-            Route::get('/', [RekapDokumenController::class, 'index'])->name('rekap-dokumen.index');
-            Route::post('/cari', [RekapDokumenController::class, 'search'])->name('rekap-dokumen.search');
-            Route::get('/{no_debitur}', [RekapDokumenController::class, 'show'])->name('rekap-dokumen.show');
-        });
-
-        Route::prefix('/report')->group(function () {
-            Route::get('/', [ReportController::class, 'index'])->name('report.index');
-        });
-
         Route::prefix('/report-peminjaman')->group(function () {
             Route::get('/', [ReportPeminjamanController::class, 'index'])->name('report-peminjaman.index');
         });
@@ -110,10 +98,6 @@ Route::middleware(['auth'])->group(function () {
         });
 
         Route::prefix('/surat-roya')->group(function () {
-            Route::get('/', [SuratRoyaController::class, 'index'])->name('surat-roya.index');
-            Route::get('/create', [SuratRoyaController::class, 'create'])->name('surat-roya.create');
-            Route::get('/{id}', [SuratRoyaController::class, 'show'])->name('surat-roya.show');
-            Route::get('/{id}/edit', [SuratRoyaController::class, 'edit'])->name('surat-roya.edit');
             Route::get('/{id}/cetak', [SuratRoyaController::class, 'cetakWord'])->name('surat-roya.cetak');
         });
 

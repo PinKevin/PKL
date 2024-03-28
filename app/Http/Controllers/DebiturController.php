@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Debitur;
-use Illuminate\Http\Request;
-
 class DebiturController extends Controller
 {
     /**
@@ -21,14 +18,6 @@ class DebiturController extends Controller
     public function create()
     {
         return view('debitur.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -49,21 +38,5 @@ class DebiturController extends Controller
         return view('debitur.edit', [
             'id' => $id
         ]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Debitur $debitur)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Debitur $debitur)
-    {
-        //
     }
 }

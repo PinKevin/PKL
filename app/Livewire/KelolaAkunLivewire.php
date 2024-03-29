@@ -61,8 +61,6 @@ class KelolaAkunLivewire extends Component
 
     public function indexUsers()
     {
-        $this->authorize('viewAny', User::class);
-
         $users = User::select('id', 'nama', 'nip', 'username')
             ->where('nama', 'like', '%' . trim($this->search) . '%')
             ->orWhere('nip', 'like', '%' . trim($this->search) . '%')
@@ -73,7 +71,6 @@ class KelolaAkunLivewire extends Component
 
     public function createUser()
     {
-        $this->authorize('create', User::class);
         $this->validate();
 
         $username = strtolower(str_replace(' ', '.', $this->nama));
@@ -96,7 +93,6 @@ class KelolaAkunLivewire extends Component
 
     public function showUser($id)
     {
-        $this->authorize('view', User::class);
         $this->resetInput();
         $user = User::findOrFail($id);
 
@@ -120,7 +116,6 @@ class KelolaAkunLivewire extends Component
 
     public function updateUser()
     {
-        $this->authorize('update', User::class);
         $this->validateOnly('nama');
 
         DB::transaction(function () {

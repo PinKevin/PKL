@@ -1,4 +1,4 @@
-@extends('layouts.admin-content')
+@extends('layouts.content')
 
 @section('page_title')
     Kelola Izin

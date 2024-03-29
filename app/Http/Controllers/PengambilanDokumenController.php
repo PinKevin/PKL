@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Debitur;
-use App\Models\Pengambilan;
 use Illuminate\Http\Request;
 
 class PengambilanDokumenController extends Controller
@@ -39,23 +38,6 @@ class PengambilanDokumenController extends Controller
         }
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
     /**
      * Display the specified resource.
      */
@@ -64,29 +46,5 @@ class PengambilanDokumenController extends Controller
         return view('pengambilan-dokumen.show', [
             'no_debitur' => $no_debitur
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Pengambilan $pengambilan)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Pengambilan $pengambilan)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Pengambilan $pengambilan)
-    {
-        //
     }
 }

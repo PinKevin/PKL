@@ -3,103 +3,105 @@
 
     <form class="ml-0.5 mt-4" wire:submit.prevent="updateRole" method="POST">
         <div class="max-w-56 mb-6">
-            <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="nama_role">
+            <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="nama_role">
                 Nama Role
             </label>
             <input
-                class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                class="block w-96 rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 id="nama_role" type="text" wire:model="nama_role" placeholder="Nama" disabled>
         </div>
 
-        <div class="mb-6 grid gap-6 md:grid-cols-3">
-            <div>
-                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="akses">
-                    Hak Akses Transaksi
-                </label>
+        <div class="mb-4 grid gap-4 md:grid-cols-2 justify-between">
+            <div class="mb-6">
+                <div>
+                    <label class="mb-2 block text-lg font-medium text-gray-900 dark:text-white" for="akses">
+                        Hak Akses Transaksi
+                    </label>
 
-                @if ($transaksiPermissions->isNotEmpty())
-                    @foreach ($transaksiPermissions as $permission)
-                        <div class="mb-4 flex items-center">
-                            <input
-                                class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                                type="checkbox" value="{{ $permission->name }}" wire:model="akses">
-                            <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                for="{{ $permission->name }}">{{ $permission->name }}</label>
-                        </div>
-                    @endforeach
-                @else
-                    Tidak tersedia
-                @endif
+                    @if ($transaksiPermissions->isNotEmpty())
+                        @foreach ($transaksiPermissions as $permission)
+                            <div class="mb-4 flex items-center">
+                                <input
+                                    class="h-4 w-4 rounded border-gray-300 bg-white text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                    type="checkbox" value="{{ $permission->name }}" wire:model="akses">
+                                <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                    for="{{ $permission->name }}">{{ $permission->name }}</label>
+                            </div>
+                        @endforeach
+                    @else
+                        Tidak tersedia
+                    @endif
 
+                </div>
             </div>
-        </div>
 
-        <div class="mb-6 grid gap-6 md:grid-cols-3">
-            <div>
-                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="akses">
-                    Hak Akses Laporan
-                </label>
+            <div class="mb-6">
+                <div>
+                    <label class="mb-2 block text-lg font-medium text-gray-900 dark:text-white" for="akses">
+                        Hak Akses Laporan
+                    </label>
 
-                @if ($reportPermissions->isNotEmpty())
-                    @foreach ($reportPermissions as $permission)
-                        <div class="mb-4 flex items-center">
-                            <input
-                                class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                                type="checkbox" value="{{ $permission->name }}" wire:model="akses">
-                            <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                for="{{ $permission->name }}">{{ $permission->name }}</label>
-                        </div>
-                    @endforeach
-                @else
-                    Tidak tersedia
-                @endif
+                    @if ($reportPermissions->isNotEmpty())
+                        @foreach ($reportPermissions as $permission)
+                            <div class="mb-4 flex items-center">
+                                <input
+                                    class="h-4 w-4 rounded border-gray-300 bg-white text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                    type="checkbox" value="{{ $permission->name }}" wire:model="akses">
+                                <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                    for="{{ $permission->name }}">{{ $permission->name }}</label>
+                            </div>
+                        @endforeach
+                    @else
+                        Tidak tersedia
+                    @endif
 
+                </div>
             </div>
-        </div>
 
-        <div class="mb-6 grid gap-6 md:grid-cols-3">
-            <div>
-                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="akses">
-                    Hak Akses Master Data
-                </label>
+            <div class="mb-6">
+                <div>
+                    <label class="mb-2 block text-lg font-medium text-gray-900 dark:text-white" for="akses">
+                        Hak Akses Master Data
+                    </label>
 
-                @if ($masterDataPermissions->isNotEmpty())
-                    @foreach ($masterDataPermissions as $permission)
-                        <div class="mb-4 flex items-center">
-                            <input
-                                class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                                type="checkbox" value="{{ $permission->name }}" wire:model="akses">
-                            <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                for="{{ $permission->name }}">{{ $permission->name }}</label>
-                        </div>
-                    @endforeach
-                @else
-                    Tidak tersedia
-                @endif
+                    @if ($masterDataPermissions->isNotEmpty())
+                        @foreach ($masterDataPermissions as $permission)
+                            <div class="mb-4 flex items-center">
+                                <input
+                                    class="h-4 w-4 rounded border-gray-300 bg-white text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                    type="checkbox" value="{{ $permission->name }}" wire:model="akses">
+                                <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                    for="{{ $permission->name }}">{{ $permission->name }}</label>
+                            </div>
+                        @endforeach
+                    @else
+                        Tidak tersedia
+                    @endif
 
+                </div>
             </div>
-        </div>
 
-        <div class="mb-6 grid gap-6 md:grid-cols-3">
-            <div>
-                <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="akses">
-                    Hak Akses Akun
-                </label>
+            <div class="mb-6">
+                <div>
+                    <label class="mb-2 block text-lg font-medium text-gray-900 dark:text-white" for="akses">
+                        Hak Akses Akun
+                    </label>
 
-                @if ($akunPermissions->isNotEmpty())
-                    @foreach ($akunPermissions as $permission)
-                        <div class="mb-4 flex items-center">
-                            <input
-                                class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                                type="checkbox" value="{{ $permission->name }}" wire:model="akses">
-                            <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                for="{{ $permission->name }}">{{ $permission->name }}</label>
-                        </div>
-                    @endforeach
-                @else
-                    Tidak tersedia
-                @endif
+                    @if ($akunPermissions->isNotEmpty())
+                        @foreach ($akunPermissions as $permission)
+                            <div class="mb-4 flex items-center">
+                                <input
+                                    class="h-4 w-4 rounded border-gray-300 bg-white text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                    type="checkbox" value="{{ $permission->name }}" wire:model="akses">
+                                <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                    for="{{ $permission->name }}">{{ $permission->name }}</label>
+                            </div>
+                        @endforeach
+                    @else
+                        Tidak tersedia
+                    @endif
 
+                </div>
             </div>
         </div>
 
@@ -116,10 +118,10 @@
             <button
                 class="inline-flex w-full items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
                 type="submit">
-                <svg class="mr-2 h-3 w-3 text-white dark:text-white" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <svg class="-ms-1 me-1 h-5 w-5 text-white dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 1v16M1 9h16" />
+                        d="M12 5v9m-5 0H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2M8 9l4-5 4 5m1 8h.01" />
                 </svg>
                 Simpan
             </button>

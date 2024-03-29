@@ -92,7 +92,7 @@
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th class="px-6 py-3" scope="col">
+                    <th class="px-7 py-4" scope="col">
                         No
                     </th>
                     <th class="px-7 py-4" scope="col">
@@ -105,7 +105,7 @@
                             </svg>
                         </button>
                     </th>
-                    <th class="px-4 py-4" scope="col">
+                    <th class="px-7 py-4" scope="col">
                         Detail
                     </th>
                 </tr>
@@ -114,14 +114,14 @@
                 @forelse ($roles as $r)
                     <tr
                         class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
-                        <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                        <th class="whitespace-nowrap px-7 py-4 font-medium text-gray-900 dark:text-white"
                             scope="row">
                             {{ $loop->index + $roles->firstItem() }}
                         </th>
                         <td class="px-7 py-4">
                             {{ $r->name }}
                         </td>
-                        <td class="flex justify-between px-6 py-4 sm:justify-around">
+                        <td class="flex justify-between px-8 py-4 sm:justify-items-start">
                             <a href="{{ route('hak-akses.show', ['id' => $r->id]) }}">
                                 <svg class="h-4 w-4 text-yellow-300 hover:text-gray-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"

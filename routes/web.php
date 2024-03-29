@@ -140,22 +140,18 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::middleware(['role:Admin'])->group(function () {
-        Route::prefix('/admin')->group(function () {
-            Route::get('/dashboard', [DashboardController::class, 'showAdminDashboard'])->name('admin-dashboard');
+        Route::get('/akun', [KelolaAkunController::class, 'index'])->name('akun');
 
-            Route::get('/akun', [KelolaAkunController::class, 'index'])->name('akun');
+        Route::prefix('/hak-akses')->group(function () {
+            Route::get('/', [KelolaHakAksesController::class, 'index'])->name('hak-akses.index');
+            Route::get('/create', [KelolaHakAksesController::class, 'create'])->name('hak-akses.create');
+            Route::get('/{id}', [KelolaHakAksesController::class, 'show'])->name('hak-akses.show');
+            Route::get('/{id}/edit', [KelolaHakAksesController::class, 'edit'])->name('hak-akses.edit');
+        });
 
-            Route::prefix('/hak-akses')->group(function () {
-                Route::get('/', [KelolaHakAksesController::class, 'index'])->name('hak-akses.index');
-                Route::get('/create', [KelolaHakAksesController::class, 'create'])->name('hak-akses.create');
-                Route::get('/{id}', [KelolaHakAksesController::class, 'show'])->name('hak-akses.show');
-                Route::get('/{id}/edit', [KelolaHakAksesController::class, 'edit'])->name('hak-akses.edit');
-            });
-
-            Route::prefix('/izin')->group(function () {
-                Route::get('/', [KelolaIzinController::class, 'index'])->name('izin.index');
-                Route::get('/create', [KelolaIzinController::class, 'create'])->name('izin.create');
-            });
+        Route::prefix('/izin')->group(function () {
+            Route::get('/', [KelolaIzinController::class, 'index'])->name('izin.index');
+            Route::get('/create', [KelolaIzinController::class, 'create'])->name('izin.create');
         });
     });
 });

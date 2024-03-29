@@ -125,6 +125,7 @@ Route::middleware(['auth'])->group(function () {
                 Route::get('/', [KelolaHakAksesController::class, 'index'])->name('hak-akses.index');
                 Route::get('/create', [KelolaHakAksesController::class, 'create'])->name('hak-akses.create');
                 Route::get('/{id}', [KelolaHakAksesController::class, 'show'])->name('hak-akses.show');
+                Route::get('/{id}/edit', [KelolaHakAksesController::class, 'edit'])->name('hak-akses.edit');
             });
 
             Route::prefix('/izin')->group(function () {

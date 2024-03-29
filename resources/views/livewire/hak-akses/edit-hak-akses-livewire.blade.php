@@ -1,7 +1,7 @@
 <div>
-    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Detail Role</h2>
+    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Edit Role</h2>
 
-    <form class="ml-0.5 mt-4" method="">
+    <form class="ml-0.5 mt-4" wire:submit.prevent="updateRole" method="POST">
         <div class="max-w-56 mb-6">
             <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="nama_role">
                 Nama Role
@@ -22,7 +22,7 @@
                         <div class="mb-4 flex items-center">
                             <input
                                 class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                                type="checkbox" value="{{ $permission->name }}" wire:model="akses" disabled>
+                                type="checkbox" value="{{ $permission->name }}" wire:model="akses">
                             <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                                 for="{{ $permission->name }}">{{ $permission->name }}</label>
                         </div>
@@ -45,7 +45,7 @@
                         <div class="mb-4 flex items-center">
                             <input
                                 class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                                type="checkbox" value="{{ $permission->name }}" wire:model="akses" disabled>
+                                type="checkbox" value="{{ $permission->name }}" wire:model="akses">
                             <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                                 for="{{ $permission->name }}">{{ $permission->name }}</label>
                         </div>
@@ -68,7 +68,7 @@
                         <div class="mb-4 flex items-center">
                             <input
                                 class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                                type="checkbox" value="{{ $permission->name }}" wire:model="akses" disabled>
+                                type="checkbox" value="{{ $permission->name }}" wire:model="akses">
                             <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                                 for="{{ $permission->name }}">{{ $permission->name }}</label>
                         </div>
@@ -91,7 +91,7 @@
                         <div class="mb-4 flex items-center">
                             <input
                                 class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                                type="checkbox" value="{{ $permission->name }}" wire:model="akses" disabled>
+                                type="checkbox" value="{{ $permission->name }}" wire:model="akses">
                             <label class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                                 for="{{ $permission->name }}">{{ $permission->name }}</label>
                         </div>
@@ -113,6 +113,16 @@
                 </svg>
                 Kembali
             </a>
+            <button
+                class="inline-flex w-full items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+                type="submit">
+                <svg class="mr-2 h-3 w-3 text-white dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                </svg>
+                Simpan
+            </button>
         </div>
 
     </form>

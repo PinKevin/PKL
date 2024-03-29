@@ -86,6 +86,8 @@
         </a>
     </div>
 
+    @include('livewire.hak-akses.delete-modal')
+
     <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -128,7 +130,7 @@
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                 </svg>
                             </a>
-                            <a href="">
+                            <a href="{{ route('hak-akses.edit', ['id' => $r->id]) }}">
                                 <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 18">
@@ -140,7 +142,8 @@
                                 <div class="sr-only">Edit</div>
                             </a>
                             <button id="button-delete-modal" data-modal-target="delete-modal"
-                                data-modal-toggle="delete-modal" type="button" wire:click="deleteDebitur()">
+                                data-modal-toggle="delete-modal" type="button"
+                                wire:click="deleteRole({{ $r->id }})">
                                 <svg class="h-4 w-4 text-red-600 hover:text-red-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 18 20">

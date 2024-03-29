@@ -1,7 +1,7 @@
-@extends('layouts.content')
+@extends('layouts.admin-content')
 
 @section('page_title')
-    Edit Debitur
+    Edit Role
 @endsection
 
 @push('styles')
@@ -13,5 +13,5 @@
 @endpush
 
 @section('content')
-    @livewire('edit-debitur-livewire', ['id' => $id])
+    @livewire('edit-hak-akses-livewire', ['id' => $id])
 @endsection

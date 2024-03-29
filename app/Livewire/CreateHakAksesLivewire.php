@@ -69,10 +69,8 @@ class CreateHakAksesLivewire extends Component
 
         $role->syncPermissions($this->akses);
 
-        return redirect()->route('admin-hak-akses.index');
-        // session()->flash('message', 'Role berhasil ditambahkan!');
-
-        // $this->reset(['nama_role', 'akses']);
+        session()->flash('storeSuccess', 'Role berhasil ditambahkan');
+        return redirect()->route('hak-akses.index');
     }
 
     public function render()

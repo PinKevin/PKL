@@ -35,5 +35,5 @@
 @endpush
 
 @section('content')
-    @livewire('create-hak-akses-livewire')
+    {{-- @livewire('create-hak-akses-livewire') --}}
 @endsection

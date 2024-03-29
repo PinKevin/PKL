@@ -22,4 +22,11 @@ class KelolaHakAksesController extends Controller
             'id' => $id
         ]);
     }
+
+    public function edit($id)
+    {
+        return view('hak-akses.edit', [
+            'id' => $id
+        ]);
+    }
 }

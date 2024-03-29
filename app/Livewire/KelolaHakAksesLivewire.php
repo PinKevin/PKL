@@ -12,9 +12,27 @@ class KelolaHakAksesLivewire extends Component
 
     public $id, $name;
 
+    public $search = '';
+
+    public $sortBy = 'name';
+    public $sortDirection = 'asc';
+
+    public function sortResult($column)
+    {
+        if ($this->sortBy === $column) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortBy = $column;
+            $this->sortDirection = 'asc';
+        }
+    }
+
     public function getAllRoles()
     {
-        $roles = Role::paginate(10);
+        $roles = Role::select('id', 'name')
+            ->where('name', 'like', '%' . trim($this->search) . '%')
+            ->orderBy($this->sortBy, $this->sortDirection)
+            ->paginate(10);
         return $roles;
     }
 

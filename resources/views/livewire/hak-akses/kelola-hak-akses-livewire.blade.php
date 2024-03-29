@@ -96,7 +96,7 @@
                         No
                     </th>
                     <th class="px-7 py-4" scope="col">
-                        <button class="flex items-center uppercase" wire:click="sortResult('nama')">
+                        <button class="flex items-center uppercase" wire:click="sortResult('name')">
                             Nama
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 24 24">

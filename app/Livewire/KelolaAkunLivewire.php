@@ -3,17 +3,19 @@
 namespace App\Livewire;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class KelolaAkunLivewire extends Component
 {
     use WithPagination;
 
-    public $id, $nama, $nip, $username, $password, $role, $roleShow;
+    public $id, $nama, $nip, $username, $password, $role;
+    public $roleShow = [];
 
     public $search = '';
 
@@ -77,13 +79,14 @@ class KelolaAkunLivewire extends Component
         $username = strtolower(str_replace(' ', '.', $this->nama));
 
         DB::transaction(function () use ($username) {
-            User::create([
+            $user = User::create([
                 'nama' => $this->nama,
                 'nip' => $this->nip,
                 'username' => $username,
                 'password' => Hash::make($username),
-                'role' => $this->role
             ]);
+
+            $user->assignRole($this->role);
         });
 
         $this->resetInput();
@@ -101,7 +104,7 @@ class KelolaAkunLivewire extends Component
         $this->nip = $user->nip;
         $this->nama = $user->nama;
         $this->username = $user->username;
-        $this->roleShow = $user->role == '1' ? 'Admin' : 'User';
+        $this->roleShow = $user->getRoleNames();
     }
 
     public function editUser($id)
@@ -112,7 +115,7 @@ class KelolaAkunLivewire extends Component
         $this->id = $user->id;
         $this->nip = $user->nip;
         $this->nama = $user->nama;
-        $this->role = $user->role;
+        $this->role = $user->getRoleNames()->first();
     }
 
     public function updateUser()
@@ -121,10 +124,15 @@ class KelolaAkunLivewire extends Component
         $this->validateOnly('nama');
 
         DB::transaction(function () {
-            User::where('id', $this->id)->update([
+            $user = User::where('id', $this->id)->first();
+
+            $user->update([
                 'nama' => $this->nama,
-                'role' => $this->role
             ]);
+
+            $oldRole = $user->getRoleNames()->first();
+            $user->removeRole($oldRole);
+            $user->assignRole($this->role);
         });
 
         $this->resetInput();
@@ -170,7 +178,8 @@ class KelolaAkunLivewire extends Component
     public function render()
     {
         return view('livewire.akun.kelola-akun-livewire', [
-            'users' => $this->indexUsers()
+            'users' => $this->indexUsers(),
+            'roles' => Role::all()
         ]);
     }
 }

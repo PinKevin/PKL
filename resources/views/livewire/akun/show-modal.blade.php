@@ -48,13 +48,14 @@
                             id="username" name="username" type="text" disabled wire:model="username" />
                     </div>
                     <div class="col-span-2">
-                        <label class="mb-1 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="roleShow">
-                            Role
+                        <label class="ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="roleShow">
+                            Role :
                         </label>
-
-                        @foreach ($roleShow as $r)
-                            {{ $r }}
-                        @endforeach
+                        <div class="ml-1">
+                            @foreach ($roleShow as $r)
+                                {{ $r }}
+                            @endforeach
+                        </div>
 
                     </div>
                 </div>

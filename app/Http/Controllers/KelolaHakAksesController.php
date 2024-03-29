@@ -15,4 +15,11 @@ class KelolaHakAksesController extends Controller
     {
         return view('hak-akses.create');
     }
+
+    public function show($id)
+    {
+        return view('hak-akses.show', [
+            'id' => $id
+        ]);
+    }
 }

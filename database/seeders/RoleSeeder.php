@@ -13,6 +13,11 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        Role::create(['name' => 'Admin']);
+        $role = Role::create(['name' => 'Admin']);
+        $role->syncPermissions([
+            'kelola-akun',
+            'kelola-role',
+            'kelola-izin'
+        ]);
     }
 }

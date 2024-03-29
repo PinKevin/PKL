@@ -26,5 +26,8 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'staff-notaris', 'group' => 'master-data']);
         Permission::create(['name' => 'staff-cabang', 'group' => 'master-data']);
         Permission::create(['name' => 'kota', 'group' => 'master-data']);
+        Permission::create(['name' => 'kelola-akun', 'group' => 'akun']);
+        Permission::create(['name' => 'kelola-role', 'group' => 'akun']);
+        Permission::create(['name' => 'kelola-izin', 'group' => 'akun']);
     }
 }

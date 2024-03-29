@@ -76,7 +76,7 @@
         </div>
         <!-- Create modal toggle -->
         <a class="inline-flex w-auto items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            href="{{ route('admin-hak-akses.create') }}">
+            href="{{ route('hak-akses.create') }}">
             <svg class="mr-2 h-3 w-3 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 18 18">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -85,10 +85,7 @@
             Tambah Role
         </a>
     </div>
-    {{-- @include('livewire.akun.create-modal') --}}
-    {{-- @include('livewire.akun.edit-modal') --}}
-    {{-- @include('livewire.akun.show-modal') --}}
-    {{-- @include('livewire.akun.delete-modal') --}}
+
     <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -122,20 +119,16 @@
                         <td class="px-7 py-4">
                             {{ $r->name }}
                         </td>
-                        {{-- 
-                        <td class="flex justify-between px-6 py-4">
-                            <button id="button-show-modal" data-modal-target="show-modal" data-modal-toggle="show-modal"
-                                type="button" wire:click="showUser({{ $u->id }})">
+                        <td class="flex justify-between px-6 py-4 sm:justify-around">
+                            <a href="{{ route('hak-akses.show', ['id' => $r->id]) }}">
                                 <svg class="h-4 w-4 text-yellow-300 hover:text-gray-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 20">
                                     <path
                                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                 </svg>
-                            </button>
-                            <button id="button-edit-modal" data-modal-target="edit-modal"
-                                data-modal-toggle="edit-modal" type="button"
-                                wire:click="editUser({{ $u->id }})">
+                            </a>
+                            <a href="">
                                 <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 18">
@@ -145,10 +138,9 @@
                                         d="M13.243 3.2 7.359 9.081a.5.5 0 0 0-.136.256L6.51 12.9a.5.5 0 0 0 .59.59l3.566-.713a.5.5 0 0 0 .255-.136L16.8 6.757 13.243 3.2Z" />
                                 </svg>
                                 <div class="sr-only">Edit</div>
-                            </button>
+                            </a>
                             <button id="button-delete-modal" data-modal-target="delete-modal"
-                                data-modal-toggle="delete-modal" type="button"
-                                wire:click="deleteUser({{ $u->id }})">
+                                data-modal-toggle="delete-modal" type="button" wire:click="deleteDebitur()">
                                 <svg class="h-4 w-4 text-red-600 hover:text-red-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 18 20">
@@ -156,7 +148,7 @@
                                         d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
                                 </svg>
                             </button>
-                        </td> --}}
+                        </td>
                     </tr>
                 @empty
                     <tr

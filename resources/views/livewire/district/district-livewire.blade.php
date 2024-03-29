@@ -55,7 +55,7 @@
             </div>
         </div>
     @endif
-    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Daftar Kota Jawa Tengah</h2>
+    <h2 class="text-4xl font-semibold text-gray-900 dark:text-gray-100">Daftar Kecamatan Jawa Tengah</h2>
 
     <div class="mb-2 mt-2 flex items-center justify-between">
         {{-- Tabel --}}
@@ -84,13 +84,13 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M9 1v16M1 9h16" />
             </svg>
-            Tambah Kota
+            Tambah Kecamatan
         </button>
     </div>
-    @include('livewire.city.create-modal')
-    @include('livewire.city.edit-modal')
-    @include('livewire.city.show-modal')
-    @include('livewire.city.delete-modal')
+    @include('livewire.district.create-modal')
+    @include('livewire.district.edit-modal')
+    @include('livewire.district.show-modal')
+    @include('livewire.district.delete-modal')
     <div class="relative overflow-x-auto shadow-lg sm:rounded-md">
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
             <thead class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -100,7 +100,17 @@
                     </th>
                     <th class="px-7 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('id')">
-                            Kode Kota
+                            Kode Kecamatan
+                            <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
+                            </svg>
+                        </button>
+                    </th>
+                    <th class="px-7 py-4" scope="col">
+                        <button class="flex items-center uppercase" wire:click="sortResult('regency_id')">
+                            Kota
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -110,7 +120,7 @@
                     </th>
                     <th class="px-7 py-4" scope="col">
                         <button class="flex items-center uppercase" wire:click="sortResult('name')">
-                            Nama Kota
+                            Nama Kecamatan
                             <svg class="ms-1.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -124,23 +134,26 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($regencies as $r)
+                @forelse ($districts as $d)
                     <tr
                         class="border-b-2 bg-white odd:bg-gray-100 even:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-600">
                         <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                             scope="row">
-                            {{ $loop->index + $regencies->firstItem() }}
+                            {{ $loop->index + $districts->firstItem() }}
                         </th>
                         <td class="px-7 py-4">
-                            {{ $r->id }}
+                            {{ $d->id }}
                         </td>
                         <td class="px-7 py-4">
-                            {{ $r->name }}
+                            {{ $d->regency->name }}
+                        </td>
+                        <td class="px-7 py-4">
+                            {{ $d->name }}
                         </td>
                         <td class="flex justify-between px-6 py-4">
                             <button id="button-show-modal" data-modal-target="show-modal"
                                 data-modal-toggle="show-modal" type="button"
-                                wire:click="showRegency({{ $r->id }})">
+                                wire:click="showDistrict({{ $d->id }})">
                                 <svg class="h-4 w-4 text-yellow-300 hover:text-gray-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 20">
@@ -150,7 +163,7 @@
                             </button>
                             <button id="button-edit-modal" data-modal-target="edit-modal"
                                 data-modal-toggle="edit-modal" type="button"
-                                wire:click="editRegency({{ $r->id }})">
+                                wire:click="editDistrict({{ $d->id }})">
                                 <svg class="h-4 w-4 text-blue-600 hover:text-blue-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 20 18">
@@ -163,7 +176,7 @@
                             </button>
                             <button id="button-delete-modal" data-modal-target="delete-modal"
                                 data-modal-toggle="delete-modal" type="button"
-                                wire:click="deleteRegency({{ $r->id }})">
+                                wire:click="deleteDistrict({{ $d->id }})">
                                 <svg class="h-4 w-4 text-red-600 hover:text-red-900 dark:text-white"
                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     viewBox="0 0 18 20">
@@ -186,6 +199,6 @@
     </div>
 
     <div class="mt-4 items-center">
-        {{ $regencies->onEachSide(1)->links() }}
+        {{ $districts->onEachSide(1)->links() }}
     </div>
 </div>

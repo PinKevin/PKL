@@ -18,6 +18,7 @@ use App\Http\Controllers\KelolaHakAksesController;
 use App\Http\Controllers\BastPengambilanController;
 use App\Http\Controllers\BastPengembalianController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\ReportPeminjamanController;
 use App\Http\Controllers\PeminjamanDokumenController;
 use App\Http\Controllers\PenerimaanDokumenController;
@@ -140,8 +141,12 @@ Route::middleware(['auth'])->group(function () {
         });
     });
 
-    Route::group(['middleware' => ['permission:penerimaan|peminjaman|pengembalian|pengambilan']], function () {
+    Route::group(['middleware' => ['permission:kota']], function () {
         Route::get('/kota', [CityController::class, 'index'])->name('city.index');
+    });
+
+    Route::group(['middleware' => ['permission:kecamatan']], function () {
+        Route::get('/kecamatan', [DistrictController::class, 'index'])->name('district.index');
     });
 
     Route::middleware(['role:Admin'])->group(function () {

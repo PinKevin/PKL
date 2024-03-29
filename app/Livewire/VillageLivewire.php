@@ -2,16 +2,18 @@
 
 namespace App\Livewire;
 
-use App\Models\Regency;
-use Livewire\Component;
 use App\Models\District;
+use App\Models\Regency;
+use App\Models\Village;
+use Livewire\Component;
 use Livewire\WithPagination;
 
-class DistrictLivewire extends Component
+class VillageLivewire extends Component
 {
     use WithPagination;
 
-    public $code, $name, $regency_id, $regency_name;
+    public $code, $name, $district_id, $regency_id, $regency_name, $district_name;
+    public $districtList = [];
 
     public $search = '';
 
@@ -22,8 +24,8 @@ class DistrictLivewire extends Component
     public function rules()
     {
         return [
-            'code' => 'required|digits:7|numeric|unique:districts,id|regex:/^33\d{5}$/',
-            'regency_id' => 'required',
+            'code' => 'required|digits:10|numeric|unique:villages,id|regex:/^33\d{8}$/',
+            'district_id' => 'required',
             'name' => 'required',
         ];
     }
@@ -43,10 +45,15 @@ class DistrictLivewire extends Component
     {
         return [
             'code' => 'Kode kecamatan',
-            'regency_id' => 'Kota',
+            'district_id' => 'Kota',
             'name' => 'Nama kecamatan'
         ];
     }
+
+    // public function mount()
+    // {
+    //     $this->updatedRegencyId();
+    // }
 
     public function sortResult($column)
     {
@@ -58,9 +65,9 @@ class DistrictLivewire extends Component
         }
     }
 
-    public function indexDistricts()
+    public function indexVillages()
     {
-        $districts = District::whereHas('regency', function ($query) {
+        $villages = Village::whereHas('district.regency', function ($query) {
             $query->where('province_id', 33);
         })
             ->where(function ($query) {
@@ -70,89 +77,99 @@ class DistrictLivewire extends Component
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(10);
 
-
-        return $districts;
+        return $villages;
     }
 
-    public function storeDistrict()
+    public function updatedRegencyId()
+    {
+        $this->district_id = '';
+        $this->districtList = District::where('regency_id', $this->regency_id)->get();
+    }
+
+    public function storeVillage()
     {
         $this->validate();
 
-        District::create([
+        Village::create([
             'id' => $this->code,
-            'regency_id' => $this->regency_id,
+            'district_id' => $this->district_id,
             'name' => strtoupper($this->name)
         ]);
 
         $this->resetInput();
         $this->dispatch('closeCreateModal');
-        session()->flash('storeSuccess', 'Kecamatan berhasil dibuat!');
+        session()->flash('storeSuccess', 'Kelurahan berhasil dibuat!');
     }
 
-    public function showDistrict($id)
+    public function showVillage($id)
     {
         $this->resetInput();
-        $district = District::where('id', $id)->first();
+        $village = Village::where('id', $id)->first();
 
-        $this->code = $district->id;
-        $this->name = $district->name;
-        $this->regency_name = $district->regency->name;
+        $this->code = $village->id;
+        $this->name = $village->name;
+        $this->district_name = $village->district->name;
+        $this->regency_name = $village->district->regency->name;
     }
 
-    public function editDistrict($id)
+    public function editVillage($id)
     {
         $this->resetInput();
-        $district = District::where('id', $id)->first();
+        $village = Village::where('id', $id)->first();
 
-        $this->code = $district->id;
-        $this->name = $district->name;
-        $this->regency_id = $district->regency_id;
+        $this->code = $village->id;
+        $this->name = $village->name;
+        $this->district_id = $village->district_id;
+        $this->regency_id = $village->district->regency->id;
+
+        $this->districtList = District::where('regency_id', $this->regency_id)->get();
     }
 
-    public function updateDistrict()
+    public function updateVillage()
     {
         $this->validateOnly('regency_id');
+        $this->validateOnly('district_id');
         $this->validateOnly('name');
 
-        District::where('id', $this->code)->update([
-            'regency_id' => $this->regency_id,
+        Village::where('id', $this->code)->update([
+            'district_id' => $this->district_id,
             'name' => strtoupper($this->name)
         ]);
 
         $this->resetInput();
         $this->dispatch('closeEditModal');
-        session()->flash('updateSuccess', 'Kecamatan berhasil diubah!');
+        session()->flash('updateSuccess', 'Kelurahan berhasil diubah!');
     }
 
-    public function deleteDistrict($id)
+    public function deleteVillage($id)
     {
         $this->resetInput();
-        $district = District::where('id', $id)->first();
+        $village = Village::where('id', $id)->first();
 
-        $this->code = $district->id;
-        $this->name = $district->name;
+        $this->code = $village->id;
+        $this->name = $village->name;
     }
 
-    public function destroyDistrict()
+    public function destroyVillage()
     {
-        District::where('id', $this->code)->delete();
+        Village::where('id', $this->code)->delete();
 
         $this->resetInput();
         $this->dispatch('scrollToTop');
-        session()->flash('deleteSuccess', 'Kecamatan berhasil dihapus!');
+        session()->flash('deleteSuccess', 'Kelurahan berhasil dihapus!');
     }
 
     public function resetInput()
     {
         $this->code = '';
-        $this->regency_id = '';
+        $this->district_id = '';
         $this->name = '';
     }
 
     public function render()
     {
-        return view('livewire.district.district-livewire', [
-            'districts' => $this->indexDistricts(),
+        return view('livewire.village.village-livewire', [
+            'villages' => $this->indexVillages(),
             'regencies' => Regency::where('province_id', 33)->get()
         ]);
     }

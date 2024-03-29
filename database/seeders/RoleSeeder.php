@@ -28,6 +28,8 @@ class RoleSeeder extends Seeder
             'staff-notaris',
             'staff-cabang',
             'kota',
+            'kecamatan',
+            'kelurahan',
             'kelola-akun',
             'kelola-role',
             'kelola-izin'

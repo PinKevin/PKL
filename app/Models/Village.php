@@ -35,6 +35,13 @@ class Village extends Model
     protected $hidden = [
         'district_id'
     ];
+    protected $fillable = [
+        'id',
+        'district_id',
+        'name'
+    ];
+    public $timestamps = FALSE;
+
 
     /**
      * Village belongs to District.

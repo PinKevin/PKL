@@ -25,6 +25,7 @@ use App\Http\Controllers\PenerimaanDokumenController;
 use App\Http\Controllers\ReportPengambilanController;
 use App\Http\Controllers\PengambilanDokumenController;
 use App\Http\Controllers\PengembalianDokumenController;
+use App\Http\Controllers\VillageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -149,16 +150,25 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/kecamatan', [DistrictController::class, 'index'])->name('district.index');
     });
 
-    Route::middleware(['role:Admin'])->group(function () {
-        Route::get('/akun', [KelolaAkunController::class, 'index'])->name('akun');
+    Route::middleware(['permission:kelurahan'])->group(function () {
+        Route::get('/kelurahan', [VillageController::class, 'index'])->name('village.index');
+    });
 
+
+    Route::middleware(['permission:kelola-akun'])->group(function () {
+        Route::get('/akun', [KelolaAkunController::class, 'index'])->name('akun');
+    });
+
+    Route::middleware(['permission:kelola-role'])->group(function () {
         Route::prefix('/hak-akses')->group(function () {
             Route::get('/', [KelolaHakAksesController::class, 'index'])->name('hak-akses.index');
             Route::get('/create', [KelolaHakAksesController::class, 'create'])->name('hak-akses.create');
             Route::get('/{id}', [KelolaHakAksesController::class, 'show'])->name('hak-akses.show');
             Route::get('/{id}/edit', [KelolaHakAksesController::class, 'edit'])->name('hak-akses.edit');
         });
+    });
 
+    Route::middleware(['permission:kelola-izin'])->group(function () {
         Route::prefix('/izin')->group(function () {
             Route::get('/', [KelolaIzinController::class, 'index'])->name('izin.index');
             Route::get('/create', [KelolaIzinController::class, 'create'])->name('izin.create');

@@ -93,71 +93,81 @@
                         <span class="ms-3">Dashboard</span>
                     </a>
                 </li>
-
-                @can('penerimaan')
-                    <li>
-                        <a class="{{ request()->routeIs('penerimaan.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
-                            href="{{ route('penerimaan.index') }}">
-                            <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M9 7V2.2a2 2 0 0 0-.5.4l-4 3.9a2 2 0 0 0-.3.5H9Zm2 0V2h7a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-5h7.6l-.3.3a1 1 0 0 0 1.4 1.4l2-2c.4-.4.4-1 0-1.4l-2-2a1 1 0 0 0-1.4 1.4l.3.3H4V9h5a2 2 0 0 0 2-2Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-
-                            <span class="ms-3 flex-1 whitespace-nowrap">Penerimaan</span>
-                        </a>
-                    </li>
-                @endcan
-
-                @can('peminjaman')
-                    <li>
-                        <a class="{{ request()->routeIs('peminjaman.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
-                            href="{{ route('peminjaman.index') }}">
-                            <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M9 7V2.22117C8.81709 2.31517 8.64812 2.43766 8.5 2.58579L4.58579 6.5C4.43766 6.64812 4.31517 6.81709 4.22117 7H9ZM11 7V2H18C19.1046 2 20 2.89543 20 4V13.2929C19.819 13.1119 19.569 13 19.2929 13H12.7071L13 12.7071C13.3905 12.3166 13.3905 11.6834 13 11.2929C12.6095 10.9024 11.9763 10.9024 11.5858 11.2929L9.58578 13.2929C9.19526 13.6834 9.19526 14.3166 9.58578 14.7071L11.5858 16.7071C11.9763 17.0976 12.6095 17.0976 13 16.7071C13.3905 16.3166 13.3905 15.6834 13 15.2929L12.7071 15H19.2929C19.569 15 19.819 14.8881 20 14.7071V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V9H9C10.1046 9 11 8.10457 11 7Z">
-                            </svg>
-
-                            <span class="ms-3 flex-1 whitespace-nowrap">Peminjaman</span>
-                        </a>
-                    </li>
-                @endcan
-
-                @can('pengembalian')
-                    <li>
-                        <a class="{{ request()->routeIs('pengembalian.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
-                            href="{{ route('pengembalian.index') }}">
-                            <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M9 7V2.2a2 2 0 0 0-.5.4l-4 3.9a2 2 0 0 0-.3.5H9Zm2 0V2h7a2 2 0 0 1 2 2v9.3l-2-2a1 1 0 0 0-1.4 1.4l.3.3h-6.6a1 1 0 1 0 0 2h6.6l-.3.3a1 1 0 0 0 1.4 1.4l2-2V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-
-                            <span class="ms-3 flex-1 whitespace-nowrap">Pengembalian</span>
-                        </a>
-                    </li>
-                @endcan
-
-                @can('pengambilan')
-                    <li>
-                        <a class="{{ request()->routeIs('pengambilan.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
-                            href="{{ route('pengambilan.index') }}">
-                            <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M9 7V2.2a2 2 0 0 0-.5.4l-4 3.9a2 2 0 0 0-.3.5H9Zm2 0V2h7a2 2 0 0 1 2 2v9.3l-2-2a1 1 0 0 0-1.4 1.4l.3.3h-6.6a1 1 0 1 0 0 2h6.6l-.3.3a1 1 0 0 0 1.4 1.4l2-2V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-
-                            <span class="ms-3 flex-1 whitespace-nowrap">Pengambilan</span>
-                        </a>
-                    </li>
-                @endcan
             </ul>
+
+            @if (auth()->user()->can('penerimaan') ||
+                    auth()->user()->can('peminjaman') ||
+                    auth()->user()->can('pengembalian') ||
+                    auth()->user()->can('pengambilan'))
+                <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
+
+                    @can('penerimaan')
+                        <li>
+                            <a class="{{ request()->routeIs('penerimaan.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                                href="{{ route('penerimaan.index') }}">
+                                <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M9 7V2.2a2 2 0 0 0-.5.4l-4 3.9a2 2 0 0 0-.3.5H9Zm2 0V2h7a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-5h7.6l-.3.3a1 1 0 0 0 1.4 1.4l2-2c.4-.4.4-1 0-1.4l-2-2a1 1 0 0 0-1.4 1.4l.3.3H4V9h5a2 2 0 0 0 2-2Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+
+                                <span class="ms-3 flex-1 whitespace-nowrap">Penerimaan</span>
+                            </a>
+                        </li>
+                    @endcan
+
+                    @can('peminjaman')
+                        <li>
+                            <a class="{{ request()->routeIs('peminjaman.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                                href="{{ route('peminjaman.index') }}">
+                                <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                                    viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M9 7V2.22117C8.81709 2.31517 8.64812 2.43766 8.5 2.58579L4.58579 6.5C4.43766 6.64812 4.31517 6.81709 4.22117 7H9ZM11 7V2H18C19.1046 2 20 2.89543 20 4V13.2929C19.819 13.1119 19.569 13 19.2929 13H12.7071L13 12.7071C13.3905 12.3166 13.3905 11.6834 13 11.2929C12.6095 10.9024 11.9763 10.9024 11.5858 11.2929L9.58578 13.2929C9.19526 13.6834 9.19526 14.3166 9.58578 14.7071L11.5858 16.7071C11.9763 17.0976 12.6095 17.0976 13 16.7071C13.3905 16.3166 13.3905 15.6834 13 15.2929L12.7071 15H19.2929C19.569 15 19.819 14.8881 20 14.7071V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V9H9C10.1046 9 11 8.10457 11 7Z">
+                                </svg>
+
+                                <span class="ms-3 flex-1 whitespace-nowrap">Peminjaman</span>
+                            </a>
+                        </li>
+                    @endcan
+
+                    @can('pengembalian')
+                        <li>
+                            <a class="{{ request()->routeIs('pengembalian.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                                href="{{ route('pengembalian.index') }}">
+                                <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M9 7V2.2a2 2 0 0 0-.5.4l-4 3.9a2 2 0 0 0-.3.5H9Zm2 0V2h7a2 2 0 0 1 2 2v9.3l-2-2a1 1 0 0 0-1.4 1.4l.3.3h-6.6a1 1 0 1 0 0 2h6.6l-.3.3a1 1 0 0 0 1.4 1.4l2-2V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+
+                                <span class="ms-3 flex-1 whitespace-nowrap">Pengembalian</span>
+                            </a>
+                        </li>
+                    @endcan
+
+                    @can('pengambilan')
+                        <li>
+                            <a class="{{ request()->routeIs('pengambilan.*') ? 'bg-blue-300 text-gray-900 dark:bg-gray-700' : 'text-slate-100' }} group flex items-center rounded-lg p-2 hover:bg-blue-300 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700"
+                                href="{{ route('pengambilan.index') }}">
+                                <svg class="h-5 w-5 flex-shrink-0 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M9 7V2.2a2 2 0 0 0-.5.4l-4 3.9a2 2 0 0 0-.3.5H9Zm2 0V2h7a2 2 0 0 1 2 2v9.3l-2-2a1 1 0 0 0-1.4 1.4l.3.3h-6.6a1 1 0 1 0 0 2h6.6l-.3.3a1 1 0 0 0 1.4 1.4l2-2V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+
+                                <span class="ms-3 flex-1 whitespace-nowrap">Pengambilan</span>
+                            </a>
+                        </li>
+                    @endcan
+                </ul>
+            @endif
 
             @if (auth()->user()->can('stock-opname') ||
                     auth()->user()->can('report-peminjaman') ||

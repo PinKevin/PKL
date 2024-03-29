@@ -17,6 +17,7 @@ use App\Http\Controllers\BastPeminjamanController;
 use App\Http\Controllers\KelolaHakAksesController;
 use App\Http\Controllers\BastPengambilanController;
 use App\Http\Controllers\BastPengembalianController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\ReportPeminjamanController;
 use App\Http\Controllers\PeminjamanDokumenController;
 use App\Http\Controllers\PenerimaanDokumenController;
@@ -137,6 +138,10 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('/surat-roya')->group(function () {
             Route::get('/{id}/cetak', [SuratRoyaController::class, 'cetakWord'])->name('surat-roya.cetak');
         });
+    });
+
+    Route::group(['middleware' => ['permission:penerimaan|peminjaman|pengembalian|pengambilan']], function () {
+        Route::get('/kota', [CityController::class, 'index'])->name('city.index');
     });
 
     Route::middleware(['role:Admin'])->group(function () {

@@ -95,10 +95,7 @@
                 </li>
             </ul>
 
-            @if (auth()->user()->can('penerimaan') ||
-                    auth()->user()->can('peminjaman') ||
-                    auth()->user()->can('pengembalian') ||
-                    auth()->user()->can('pengambilan'))
+            @if (auth()->user()->roles->first()->permissions->contains('group', 'transaksi'))
                 <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
 
                     @can('penerimaan')
@@ -169,9 +166,7 @@
                 </ul>
             @endif
 
-            @if (auth()->user()->can('stock-opname') ||
-                    auth()->user()->can('report-peminjaman') ||
-                    auth()->user()->can('report-pengambilan'))
+            @if (auth()->user()->roles->first()->permissions->contains('group', 'report'))
                 <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
 
                     @can('stock-opname')
@@ -224,11 +219,7 @@
                 </ul>
             @endif
 
-            @if (auth()->user()->can('debitur') ||
-                    auth()->user()->can('developer') ||
-                    auth()->user()->can('notaris') ||
-                    auth()->user()->can('staff-notaris') ||
-                    auth()->user()->can('staff-cabang'))
+            @if (auth()->user()->roles->first()->permissions->contains('group', 'master-data'))
                 <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
 
                     @can('debitur')
@@ -361,7 +352,7 @@
                 </ul>
             @endif
 
-            @if (auth()->user()->can('kelola-akun') || auth()->user()->can('kelola-role') || auth()->user()->can('kelola-izin'))
+            @if (auth()->user()->roles->first()->permissions->contains('group', 'akun'))
                 <ul class="mt-4 space-y-2 border-t border-white pt-4 font-medium dark:border-gray-700">
 
                     @can('kelola-akun')

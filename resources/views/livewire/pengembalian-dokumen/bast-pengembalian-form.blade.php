@@ -10,8 +10,8 @@
                     <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="notaris_id">
                         Nama Notaris</label>
                     <select
-                        class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                        id="notaris_id" name="notaris_id" wire:model.change="notaris_id">
+                        class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                        id="notaris_id" name="notaris_id" disabled wire:model.change="notaris_id">
                         <option value="">Pilih notaris</option>
                         @foreach ($notaris as $n)
                             <option value="{{ $n->id }}">{{ $n->kode_notaris }} - {{ $n->nama_notaris }}
@@ -37,11 +37,12 @@
                     <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="peminjam">
                         Staff Notaris</label>
                     <select
-                        class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                        id="peminjam" name="peminjam" wire:model="peminjam">
+                        class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                        id="peminjam" name="peminjam" disabled wire:model="peminjam">
                         <option value="">Pilih Staff Notaris</option>
                         @foreach ($peminjamList as $p)
-                            <option value="{{ $p->id }}">{{ $p->nama }}</option>
+                            <option value="{{ $p->id }}" @if ($peminjam === $p->id) selected @endif>
+                                {{ $p->nama }}</option>
                         @endforeach
                     </select>
                     @error('peminjam')
@@ -64,8 +65,8 @@
                         for="pendukung">Dokumen
                         Pendukung</label>
                     <textarea
-                        class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                        id="pendukung" name="pendukung" placeholder="Dokumen penunjuk" wire:model="pendukung"></textarea>
+                        class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                        id="pendukung" name="pendukung" disabled placeholder="Dokumen penunjuk" wire:model="pendukung"></textarea>
                     @error('pendukung')
                         <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                             role="alert">
@@ -85,8 +86,8 @@
                     <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white"
                         for="keperluan">Keperluan</label>
                     <textarea
-                        class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                        id="keperluan" name="keperluan" placeholder="Keperluan peminjaman" wire:model="keperluan"></textarea>
+                        class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                        id="keperluan" name="keperluan" disabled placeholder="Keperluan peminjaman" wire:model="keperluan"></textarea>
                     @error('keperluan')
                         <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                             role="alert">
@@ -107,7 +108,8 @@
                         for="tanggal_kembali">Tanggal Kembali</label>
                     <input
                         class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                        id="tanggal_kembali" type="date" wire:model="tanggal_kembali">
+                        id="tanggal_kembali" type="date" min="{{ now()->toDateString() }}"
+                        wire:model="tanggal_kembali">
                     @error('tanggal_kembali')
                         <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                             role="alert">

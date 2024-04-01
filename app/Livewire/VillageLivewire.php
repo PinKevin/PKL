@@ -146,6 +146,12 @@ class VillageLivewire extends Component
         $this->resetInput();
         $village = Village::where('id', $id)->first();
 
+        if ($village->suratRoya()->exists()) {
+            $this->resetInput();
+            $this->dispatch('closeDeleteModal');
+            session()->flash('deleteError', 'Terdapat surat roya yang terkait dengan data tersebut!');
+        }
+
         $this->code = $village->id;
         $this->name = $village->name;
     }

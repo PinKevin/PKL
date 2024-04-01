@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Regency;
 use Livewire\Component;
 use App\Models\District;
+use App\Models\Village;
 use Livewire\WithPagination;
 
 class DistrictLivewire extends Component
@@ -128,6 +129,13 @@ class DistrictLivewire extends Component
     {
         $this->resetInput();
         $district = District::where('id', $id)->first();
+
+        $countVillage = Village::where('district_id', $this->code)->count();
+        if ($countVillage > 0 || $district->suratRoya()->exists()) {
+            $this->resetInput();
+            $this->dispatch('closeDeleteModal');
+            session()->flash('deleteError', 'Terdapat kelurahan atau surat roya yang terkait dengan data tersebut!');
+        }
 
         $this->code = $district->id;
         $this->name = $district->name;

@@ -31,6 +31,13 @@
                 window.scrollTo(0, 0);
             });
 
+            Livewire.on('closeDeleteModal', (event) => {
+                let updateButton = $('#close-delete-modal');
+                updateButton.click();
+
+                window.scrollTo(0, 0);
+            });
+
             Livewire.on('scrollToTop', (event) => {
                 window.scrollTo(0, 0);
             });

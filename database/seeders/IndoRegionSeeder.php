@@ -9,6 +9,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Province;
 use Illuminate\Database\Seeder;
 
 class IndoRegionSeeder extends Seeder
@@ -24,5 +25,6 @@ class IndoRegionSeeder extends Seeder
         $this->call(IndoRegionRegencySeeder::class);
         $this->call(IndoRegionDistrictSeeder::class);
         $this->call(IndoRegionVillageSeeder::class);
+        Province::where('id', '!=', 33)->delete();
     }
 }

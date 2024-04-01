@@ -13,8 +13,8 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $role = Role::create(['name' => 'Admin']);
-        $role->syncPermissions([
+        $roleAdmin = Role::create(['name' => 'Admin']);
+        $roleAdmin->syncPermissions([
             'penerimaan',
             'peminjaman',
             'pengembalian',
@@ -33,6 +33,25 @@ class RoleSeeder extends Seeder
             'kelola-akun',
             'kelola-role',
             'kelola-izin'
+        ]);
+
+        $roleUser = Role::create(['name' => 'User']);
+        $roleUser->syncPermissions([
+            'penerimaan',
+            'peminjaman',
+            'pengembalian',
+            'pengambilan',
+            'stock-opname',
+            'report-peminjaman',
+            'report-pengambilan',
+            'debitur',
+            'developer',
+            'notaris',
+            'staff-notaris',
+            'staff-cabang',
+            'kota',
+            'kecamatan',
+            'kelurahan',
         ]);
     }
 }

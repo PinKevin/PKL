@@ -36,6 +36,12 @@ class District extends Model
     protected $hidden = [
         'regency_id'
     ];
+    protected $fillable = [
+        'id',
+        'regency_id',
+        'name'
+    ];
+    public $timestamps = FALSE;
 
     /**
      * District belongs to Regency.

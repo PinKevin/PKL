@@ -14,12 +14,12 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'nama' => 'Admin',
-            'nip' => '12345678',
-            'username' => 'admin',
-            'password' => Hash::make('password'),
-            'role' => 1
-        ]);
+        // User::create([
+        //     'nama' => 'Admin',
+        //     'nip' => '12345678',
+        //     'username' => 'admin',
+        //     'password' => Hash::make('password'),
+        //     'role' => 1
+        // ]);
     }
 }

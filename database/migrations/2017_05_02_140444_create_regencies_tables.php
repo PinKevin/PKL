@@ -27,7 +27,7 @@ class CreateRegenciesTables extends Migration
             $table->foreign('province_id')
                 ->references('id')
                 ->on('provinces')
-                ->onUpdate('cascade')->onDelete('restrict');
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

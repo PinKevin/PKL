@@ -10,6 +10,7 @@ use App\Models\Pengembalian;
 use App\Models\StaffNotaris;
 use App\Models\BastPeminjaman;
 use App\Models\BastPengembalian;
+use App\Models\Peminjaman;
 use Illuminate\Support\Facades\DB;
 
 class PengembalianDokumenLivewire extends Component
@@ -62,6 +63,28 @@ class PengembalianDokumenLivewire extends Component
         $this->debitur();
         $this->updatedNotarisId();
         $this->showBastLog();
+        $this->getLatestPeminjaman();
+    }
+
+    public function getLatestPeminjaman()
+    {
+        $debiturId = $this->debitur->id;
+
+        $latestPeminjaman = BastPeminjaman::whereHas('peminjaman.dokumen', function ($query) use ($debiturId) {
+            $query->where('debitur_id', $debiturId);
+        })->latest()->first();
+
+        // Cek jika peminjaman terbaru ada
+        if ($latestPeminjaman) {
+            $this->notaris_id = $latestPeminjaman->peminjam()->first()->notaris->id;
+            $this->pendukung = $latestPeminjaman->pendukung;
+            $this->keperluan = $latestPeminjaman->keperluan;
+            $this->peminjam = $latestPeminjaman->peminjam;
+
+            // dd($this->notaris_id);
+
+            $this->peminjamList = StaffNotaris::where('notaris_id', $this->notaris_id)->get();
+        }
     }
 
     public function debitur()

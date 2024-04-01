@@ -10,8 +10,8 @@
                     <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="notaris_id">
                         Nama Notaris</label>
                     <select
-                        class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                        id="notaris_id" name="notaris_id" wire:model.change="notaris_id">
+                        class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                        id="notaris_id" name="notaris_id" disabled wire:model.change="notaris_id">
                         <option value="">Pilih notaris</option>
                         @foreach ($notaris as $n)
                             <option value="{{ $n->id }}">{{ $n->kode_notaris }} - {{ $n->nama_notaris }}
@@ -37,11 +37,12 @@
                     <label class="mb-2 ml-1 block text-sm font-medium text-gray-900 dark:text-white" for="peminjam">
                         Staff Notaris</label>
                     <select
-                        class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                        id="peminjam" name="peminjam" wire:model="peminjam">
+                        class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                        id="peminjam" name="peminjam" disabled wire:model="peminjam">
                         <option value="">Pilih Staff Notaris</option>
                         @foreach ($peminjamList as $p)
-                            <option value="{{ $p->id }}">{{ $p->nama }}</option>
+                            <option value="{{ $p->id }}" @if ($peminjam === $p->id) selected @endif>
+                                {{ $p->nama }}</option>
                         @endforeach
                     </select>
                     @error('peminjam')

@@ -1,8 +1,9 @@
 FROM php:8.3 as php
 
-RUN apt-get update -y
-RUN apt-get install -y unzip libpq-dev libzip-dev libcurl4-gnutls-dev
-RUN docker-php-ext-install pdo pdo_mysql bcmath zip
+RUN apt-get update -y \
+    && apt-get install -y unzip libpq-dev libzip-dev libcurl4-gnutls-dev libpng-dev \
+    && docker-php-ext-configure gd --with-jpeg=/usr/include/ --with-freetype=/usr/include/ \
+    && docker-php-ext-install gd pdo pdo_mysql bcmath zip
 
 WORKDIR /var/www
 COPY . .

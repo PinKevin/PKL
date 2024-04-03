@@ -15,6 +15,15 @@ else
 fi
 
 php artisan key:generate
+
+# Check if storage link exists
+if [ ! -L "public/storage" ]; then
+    echo "Creating storage link..."
+    php artisan storage:link
+else
+    echo "Storage link already exists, skipping..."
+fi
+
 php artisan migrate
 
 # Check if the database has been seeded before

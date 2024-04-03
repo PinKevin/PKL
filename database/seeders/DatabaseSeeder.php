@@ -19,12 +19,12 @@ class DatabaseSeeder extends Seeder
             IndoRegionSeeder::class,
 
             // dev
-            NotarisSeeder::class,
-            StaffNotarisSeeder::class,
-            StaffCabangSeeder::class,
-            DeveloperSeeder::class,
-            DebiturSeeder::class,
-            DokumenSeeder::class
+            // NotarisSeeder::class,
+            // StaffNotarisSeeder::class,
+            // StaffCabangSeeder::class,
+            // DeveloperSeeder::class,
+            // DebiturSeeder::class,
+            // DokumenSeeder::class
         ]);
     }
 }

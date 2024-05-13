@@ -1,7 +1,7 @@
 @extends('layouts.content')
 
 @section('page_title')
-    Edit Surat Roya
+    Edit Debitur
 @endsection
 
 @push('styles')

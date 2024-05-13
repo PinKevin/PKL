@@ -12,7 +12,7 @@
                     </label>
                     <input
                         class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-blue-600 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                        id="no_surat" type="text" wire:model="no_surat" placeholder="Nomor surat" disabled>
+                        id="no_surat" type="text" wire:model="no_surat" placeholder="Nomor surat">
                     @error('no_surat')
                         <div class="mb-4 mt-1 flex items-center rounded-lg border-t-4 border-red-400 bg-red-100 p-3 text-red-800 dark:border-red-800 dark:bg-gray-800 dark:text-red-400"
                             role="alert">

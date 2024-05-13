@@ -43,15 +43,10 @@ class Login extends Component
         ];
 
         if (Auth::attempt($credentials)) {
-            $user = Auth::user();
             session()->regenerate();
-            $redirectPath = '';
 
-            if ($user->role == 1) {
-                $redirectPath = route('admin-dashboard');
-            } elseif ($user->role == 2) {
-                $redirectPath = route('dashboard');
-            }
+            $redirectPath = route('dashboard');
+
             return redirect()->intended($redirectPath);
         } else {
             session()->flash('loginError', 'Login gagal!');

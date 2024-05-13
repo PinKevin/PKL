@@ -166,9 +166,9 @@
                     </tr>
                 @empty
                     <tr
-                        class="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
+                        class="border-b bg-slate-50 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
                         <td class="px-6 py-4 text-center" colspan="5">
-                            Tidak ada data!
+                            "Data Tidak Tersedia"
                         </td>
                     </tr>
                 @endforelse

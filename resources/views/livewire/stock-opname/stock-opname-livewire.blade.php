@@ -54,28 +54,34 @@
                     $sortedDebitur = $allDebitur->values();
                     $offset = $paginator->perPage() * ($paginator->currentPage() - 1) + 1;
                 @endphp
-                @foreach ($sortedDebitur as $index => $debitur)
-                    @php
-                        $sortedDokumen = $debitur->dokumen->values();
-                    @endphp
-                    @foreach ($sortedDokumen as $dokumenIndex => $dokumen)
-                        <tr
-                            class="border-b-2 border-gray-300 odd:bg-gray-100 even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
-                            @if ($dokumenIndex === 0)
-                                <th class="px-6 py-3 font-medium text-gray-900"
-                                    rowspan="{{ count($debitur->dokumen) }}">
-                                    {{ $offset + $index }}</th>
-                                <td class="px-6 py-4 text-gray-600" rowspan="{{ count($debitur->dokumen) }}">
-                                    {{ $debitur->no_debitur }}</td>
-                                <td class="px-4 py-3 text-gray-600" rowspan="{{ count($debitur->dokumen) }}">
-                                    {{ $debitur->nama_debitur }}</td>
-                            @endif
-                            <td class="px-8 py-1 text-gray-600">{{ $dokumen->jenis }}</td>
-                            <td class="px-12 py-3 text-gray-600">{{ $dokumen->created_at->format('d-m-Y') }}
-                            </td>
-                        </tr>
+                @if ($sortedDebitur->isEmpty())
+                    <tr>
+                        <td class="bg-slate-50 p-4 text-center text-gray-600" colspan="6">"Data tidak tersedia"</td>
+                    </tr>
+                @else
+                    @foreach ($sortedDebitur as $index => $debitur)
+                        @php
+                            $sortedDokumen = $debitur->dokumen->values();
+                        @endphp
+                        @foreach ($sortedDokumen as $dokumenIndex => $dokumen)
+                            <tr
+                                class="border-b-2 border-gray-300 odd:bg-gray-100 even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                @if ($dokumenIndex === 0)
+                                    <th class="px-6 py-3 font-medium text-gray-900"
+                                        rowspan="{{ count($debitur->dokumen) }}">
+                                        {{ $offset + $index }}</th>
+                                    <td class="px-6 py-4 text-gray-600" rowspan="{{ count($debitur->dokumen) }}">
+                                        {{ $debitur->no_debitur }}</td>
+                                    <td class="px-4 py-3 text-gray-600" rowspan="{{ count($debitur->dokumen) }}">
+                                        {{ $debitur->nama_debitur }}</td>
+                                @endif
+                                <td class="px-8 py-1 text-gray-600">{{ $dokumen->jenis }}</td>
+                                <td class="px-12 py-3 text-gray-600">{{ $dokumen->created_at->format('d-m-Y') }}
+                                </td>
+                            </tr>
+                        @endforeach
                     @endforeach
-                @endforeach
+                @endif
             </tbody>
         </table>
     </div>

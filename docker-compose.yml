@@ -38,6 +38,7 @@ services:
       volumes:
         - .:/usr/src
         - ./node_modules:/usr/src/node_modules
+        - ./storage/app/public:/var/www/html/public/storage
       tty: true
 
 volumes:

@@ -123,7 +123,7 @@ class KelolaIzinLivewire extends Component
 
     public function resetInput()
     {
-        $this->reset(['name']);
+        $this->reset(['name', 'group']);
     }
 
     public function render()
